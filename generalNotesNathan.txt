@@ -14,6 +14,12 @@ I left it out
 question class
 
 
+Working on player class (Player.py)
+
+- I made moveToNextLevel class to take a parameter of level, just so we can explicitly state what
+the next level is, instead of just calling it with no parameters.
+
+
 
 
 
