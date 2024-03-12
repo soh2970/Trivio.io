@@ -383,6 +383,26 @@
                       "$12$"
                   ],
                   "correctAnswer": "$11$"
+              },
+              {
+                  "question": "$21 \\times 9 =$",
+                  "options": [
+                      "$168$",
+                      "$179$",
+                      "$189$",
+                      "$198$"
+                  ],
+                  "correctAnswer": "$189$"
+              },
+              {
+                  "question": "$30 \\div 6 =$",
+                  "options": [
+                      "$4$",
+                      "$5$",
+                      "$6$",
+                      "$7$"
+                  ],
+                  "correctAnswer": "$5$"
               }
           ],
           "level3": []
