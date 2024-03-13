@@ -1,0 +1,30 @@
+Mar 12. 2024, 
+
+Working on question class (question2.py currently)
+
+- I don't think we need getters and setters for the question class since you can just use 
+dot (.) notation on the object to access its attributes.
+
+- I think displayQuestion() should be part of the UI logic, not the question class, so 
+I left it out
+
+- I didn't have image attributes or methods since we are not working with images
+
+- I also think calculateScore() should be part of the game or level class, not the 
+question class
+
+
+Working on player class (Player.py)
+
+- I made moveToNextLevel class to take a parameter of level, just so we can explicitly state what
+the next level is, instead of just calling it with no parameters.
+
+
+
+
+
+
+
+
+
+
