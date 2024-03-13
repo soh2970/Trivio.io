@@ -22,7 +22,7 @@ the next level is, instead of just calling it with no parameters.
 
 Mar 13. 2024,
 
-Working on finalizing game class (Game.py) - Michael
+Working on finalizing game & tutorial & mainmenu classes (Game.py & Tutorial.py & MainMenu.py) - Michael
 Working on boss & level classes (Boss.py & Level.py) - Harjab
 
 
