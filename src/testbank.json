@@ -405,7 +405,208 @@
                   "correctAnswer": "$5$"
               }
           ],
-          "level3": []
+          "level3": [
+            {
+                "question": "What is the perimeter of a rectangle with length $6$ units and width $8$ units?",
+                "options": [
+                    "$16$ units",
+                    "$28$ units",
+                    "$32$ units",
+                    "$48$ units"
+                ],
+                "correctAnswer": "$28$ units"
+            },
+            {
+                "question": "What is the area of a square with side length $5$ units",
+                "options": [
+                    "$15$ square units",
+                    "$20$ square units",
+                    "$25$ square units",
+                    "$30$ square units"
+                ],
+                "correctAnswer": "$25$ square units"
+            },
+            {
+                "question": "What is the perimeter of a triangle with side lengths $7$ units, $9$ units, and $12$ units?",
+                "options": [
+                    "$26$ units",
+                    "$28$ units",
+                    "$30$ units",
+                    "$32$ units"
+                ],
+                "correctAnswer": "$28$ units"
+            },
+            {
+                "question": "What is the area of a rectangle with length $10$ units and width $4$ units?",
+                "options": [
+                    "$28$ square units",
+                    "$36$ square units",
+                    "$40$ square units",
+                    "$42$ square units"
+                ],
+                "correctAnswer": "$40$ square units"
+            },
+            {
+                "question": "What is the perimeter of a square with side length $9$ units?",
+                "options": [
+                    "$78$ units",
+                    "$36$ units",
+                    "$45$ units",
+                    "$81$ units"
+                ],
+                "correctAnswer": "$36$ units"
+            },
+            {
+                "question": "What is the length of the diagonal of a rectangle with length $15$ units and width $8$ units?",
+                "options": [
+                    "$17$ units",
+                    "$19$ units",
+                    "$20$ units",
+                    "$21$ units"
+                ],
+                "correctAnswer": "$17$ units"
+            },
+            {
+                "question": "What is the area of a triangle with base $6$ units and height $10$ units?",
+                "options": [
+                    "$30$ square units",
+                    "$36$ square units",
+                    "$40$ square units",
+                    "$45$ square units"
+                ],
+                "correctAnswer": "$30$ square units"
+            },
+            {
+                "question": "What is the perimeter of a rhombus with side length $8$ units?",
+                "options": [
+                    "$24$ units",
+                    "$32$ units",
+                    "$36$ units",
+                    "$40$ units"
+                ],
+                "correctAnswer": "$32$ units"
+            },
+            {
+                "question": "What is the length of the radius of a circle with area $64\\pi$ square units?",
+                "options": [
+                    "$4$ units",
+                    "$6$ units",
+                    "$8$ units",
+                    "$10$ units"
+                ],
+                "correctAnswer": "$8$ units"
+            },
+            {
+                "question": "What is the area of a square with diagonal length $10 \\sqrt{2}$ units?",
+                "options": [
+                    "$50$ square units",
+                    "$75$ square units",
+                    "$100$ square units",
+                    "$125$ square units"
+                ],
+                "correctAnswer": "$100$ square units"
+            },
+            {
+                "question": "What is the perimeter of a triangle with side lengths $5$ units, $12$ units, and $13$ units?",
+                "options": [
+                    "$25$ units",
+                    "$30$ units",
+                    "$35$ units",
+                    "$40$ units"
+                ],
+                "correctAnswer": "$30$ units"
+            },
+            {
+                "question": "What is the length of the diagonal of a square with side length $10$ units?",
+                "options": [
+                    "$10\\sqrt{2}$ units",
+                    "$20$ units",
+                    "$15\\sqrt{2}$ units",
+                    "$25$ units"
+                ],
+                "correctAnswer": "$10\\sqrt{2}$ units"
+            },
+            {
+                "question": "What is the area of a rectangle with diagonal length $10$ units and width $6$ units?",
+                "options": [
+                    "$30$ square units",
+                    "$60$ square units",
+                    "$45$ square units",
+                    "$48$ square units"
+                ],
+                "correctAnswer": "$48$ square units"
+            },
+            {
+                "question": "What is the perimeter of a circle with radius $7$ units?",
+                "options": [
+                    "$14\\pi$ units",
+                    "$21\\pi$ units",
+                    "$28\\pi$ units",
+                    "$35\\pi$ units"
+                ],
+                "correctAnswer": "$14\\pi$ units"
+            },
+            {
+                "question": "What is the length of the base of a parallelogram with area $48$ square units and height $6$ units?",
+                "options": [
+                    "$6$ units",
+                    "$8$ units",
+                    "$12$ units",
+                    "$10$ units"
+                ],
+                "correctAnswer": "$8$ units"
+            },
+            {
+                "question": "What is the area of a trapezoid with bases $6$ units and $10$ units, and height $8$ units?",
+                "options": [
+                    "$64$ square units",
+                    "$72$ square units",
+                    "$80$ square units",
+                    "$88$ square units"
+                ],
+                "correctAnswer": "$64$ square units"
+            },
+            {
+                "question": "What is the perimeter of a regular hexagon with side length $4$ units?",
+                "options": [
+                    "$26$ units",
+                    "$28$ units",
+                    "$32$ units",
+                    "$24$ units"
+                ],
+                "correctAnswer": "$24$ units"
+            },
+            {
+                "question": "What is the length of the radius of a circle with circumference $18\\pi$ units?",
+                "options": [
+                    "$3$ units",
+                    "$6$ units",
+                    "$9$ units",
+                    "$12$ units"
+                ],
+                "correctAnswer": "$9$ units"
+            },
+            {
+                "question": "What is the area of a circle with circumference $10\\pi$ units?",
+                "options": [
+                    "$5$ square units",
+                    "$10$ square units",
+                    "$25$ square units",
+                    "$50$ square units"
+                ],
+                "correctAnswer": "$25$ square units"
+            },
+            {
+                "question": "What is the perimeter of a rectangle with diagonal length $17$ units and length $8$ units?",
+                "options": [
+                    "$32$ units",
+                    "$34$ units",
+                    "$36$ units",
+                    "$38$ units"
+                ],
+                "correctAnswer": "$34$ units"
+            }
+          ]
       },
       "geography": {
           "level1": [],
