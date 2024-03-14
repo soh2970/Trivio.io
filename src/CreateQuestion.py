@@ -53,11 +53,12 @@ def createQuestion():
         return
 
 def writeQuestionToJson(newQuestion, category, level):
-    with open("testbank.json", "r+") as testbank:
+    with open("testBank.json", "r+") as testbank:
         file = json.load(testbank)
         file["subjects"][category][level].append(newQuestion)
         testbank.seek(0)
         json.dump(file, testbank, indent=4)
         testbank.truncate()
+
 
 createQuestion()

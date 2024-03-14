@@ -1,34 +1,39 @@
 Mar 12. 2024, 
 
-Working on question class (question2.py currently)
+  Working on question class (question2.py currently)
 
-- I don't think we need getters and setters for the question class since you can just use 
-dot (.) notation on the object to access its attributes.
+  - I don't think we need getters and setters for the question class since you can just use 
+  dot (.) notation on the object to access its attributes.
 
-- I think displayQuestion() should be part of the UI logic, not the question class, so 
-I left it out
+  - I think displayQuestion() should be part of the UI logic, not the question class, so 
+  I left it out
 
-- I didn't have image attributes or methods since we are not working with images
+  - I didn't have image attributes or methods since we are not working with images
 
-- I also think calculateScore() should be part of the game or level class, not the 
-question class
+  - I also think calculateScore() should be part of the game or level class, not the 
+  question class
 
 
 Working on player class (Player.py)
 
-- I made moveToNextLevel class to take a parameter of level, just so we can explicitly state what
-the next level is, instead of just calling it with no parameters.
+  - I made moveToNextLevel class to take a parameter of level, just so we can explicitly state what
+  the next level is, instead of just calling it with no parameters.
 
 
 Mar 13. 2024,
 
-Working on finalizing game & tutorial & mainmenu classes (Game.py & Tutorial.py & MainMenu.py) - Michael
-Working on boss & level classes (Boss.py & Level.py) - Harjab
+  Working on finalizing game & tutorial & mainmenu classes (Game.py & Tutorial.py & MainMenu.py) - Michael
+  Working on boss & level classes (Boss.py & Level.py) - Harjab
+  Working on UserAccount, instructor and debugger - Nathan
 
+  - Creating the player bank JSON file. 
 
-Working on UserAccount, instructor and debugger - Nathan
+  - for the scoring, I read in the req. docs that we are scoring by
+  total weight of questions got right by far MINUS total weight of questions got wrong by far PLUS 
+  player's HP remaining by far.
 
-- Creating the player bank JSON file. 
+      wouldn't that make your score always 0 unless you win the game? Are we not giving a player a 
+      score even if they lose the game. 
 
 - for the scoring, I read in the req. docs that we are scoring by
 total weight of questions got right by far MINUS total weight of questions got wrong by far PLUS 
@@ -45,3 +50,10 @@ player's HP remaining by far.
 
     For instructor class, returnToMainMenu() should be a game/UI thing, not instructor.
 
+      I think we should make the scoring system based on the weight of the questions that were gotten
+      right, multiplied by some factor of the remaining HP. LMK what you guys think.
+      
+      
+Mar 14. 2024,
+	Finished game class & working on assisting level & boss classes to implement mainmenu class & others - Michael
+    

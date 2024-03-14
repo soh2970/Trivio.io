@@ -17,3 +17,5 @@ class Instructor:
                 return data[player]["gameHistory"]
             else: 
                 raise Exception("Player not found")
+
+    

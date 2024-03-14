@@ -1,25 +1,35 @@
 {
-  "natetyu": {
-    "password": "hello",
-    "gameHistory": [
-      {
-        "timeStamp": "2024-05-29 13:20:15",
-        "levelAchieved": "3",
-        "subject": "math",
-        "score": "102"
-      },
-      {
-        "timeStamp": "2024-05-30 09:10:35",
-        "levelAchieved": "2",
-        "subject": "geography",
-        "score": "40"
-      }
-    ],
-    "currentSavedGame": {
-      "timeStamp": "2024-05-31 20:04:39",
-      "levelAchieved": "1",
-      "subject": "science",
-      "score": "16"
+    "natetyu": {
+        "password": "hello",
+        "gameHistory": [
+            {
+                "timeStamp": "2024-05-29 13:20:15",
+                "levelAchieved": "3",
+                "subject": "math",
+                "score": "102"
+            },
+            {
+                "timeStamp": "2024-05-30 09:10:35",
+                "levelAchieved": "2",
+                "subject": "geography",
+                "score": "40"
+            }
+        ],
+        "currentSavedGame": {
+            "timeStamp": "2024-05-31 20:04:39",
+            "levelAchieved": "1",
+            "subject": "science",
+            "score": "16"
+        }
+    },
+    "harjapg": {
+        "password": 54321,
+        "gameHistory": [],
+        "currentSavedGame": {}
+    },
+    "michaelkim": {
+        "password": 12345,
+        "gameHistory": [],
+        "currentSavedGame": {}
     }
-  }
 }
