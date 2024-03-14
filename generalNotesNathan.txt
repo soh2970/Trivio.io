@@ -39,3 +39,9 @@ player's HP remaining by far.
 
     I think we should make the scoring system based on the weight of the questions that were gotten
     right, multiplied by some factor of the remaining HP. LMK what you guys think.
+
+    I dont think we need searchPlayer() method for instructor, as the ui can just take an input and 
+    call displayPlayerStats(name), and if it raises an error, just display the error in the UI.
+
+    For instructor class, returnToMainMenu() should be a game/UI thing, not instructor.
+
