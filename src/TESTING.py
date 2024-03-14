@@ -20,3 +20,9 @@ class TestInstructorClass(unittest.TestCase):
 
     def testGetPlayerStats(self):
         print(instructor.getPlayerStats("natetyu"))
+
+    def testGetPlayerException(self):
+        with self.assertRaises(Exception):
+            instructor.getPlayerStats("random")
+
+
