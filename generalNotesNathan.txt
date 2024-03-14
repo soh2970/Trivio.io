@@ -26,6 +26,16 @@ Working on finalizing game class (Game.py) - Michael
 Working on boss & level classes (Boss.py & Level.py) - Harjab
 
 
+Working on UserAccount, instructor and debugger - Nathan
 
+- Creating the player bank JSON file. 
 
+- for the scoring, I read in the req. docs that we are scoring by
+total weight of questions got right by far MINUS total weight of questions got wrong by far PLUS 
+player's HP remaining by far.
 
+    wouldn't that make your score always 0 unless you win the game? Are we not giving a player a 
+    score even if they lose the game. 
+
+    I think we should make the scoring system based on the weight of the questions that were gotten
+    right, multiplied by some factor of the remaining HP. LMK what you guys think.
