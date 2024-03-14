@@ -9,12 +9,12 @@ class Player:
     def answerQuestion(self, question, answer):
         return question.checkAnswer(answer)
 
-    def losePlayerHP(self):                                                                              
+    def losePlayerHP(self):
         if (self.currentLevel == 1):
             self.playerHP = self.playerHP - 4
         elif (self.currentLevel == 2):
             self.playerHP = self.playerHP - 6
-        elif (self.currentLevel == 3): 
+        elif (self.currentLevel == 3):
             self.playerHP = self.playerHP - 10
 
     def isPlayerDefeated(self):

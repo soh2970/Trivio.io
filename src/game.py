@@ -92,8 +92,3 @@ class Game:
         #to be implemented, but for example
         mainMenu = MainMenu()
         mainMenu.show()
-
-game = Game()
-game.startGame('natetyu')
-game.selectCategory('math')
-game.endGame()
