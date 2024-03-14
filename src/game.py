@@ -1,91 +1,99 @@
-import pygame
-import sys
+import random
+import json
+from Player import Player
+from question2 import Question
+from CreatePlayer import *
+import datetime
 
-class Game: 
+class Game:
     def __init__(self):
-        pygame.init()
+        self.player = None
+        self.currentLevel = 1
+        self.testBank = self.load_test_bank()
+        self.currentCategory = None
+        self.currentQuestions = []
+        self.gameState = "NotStarted"
 
-        #display setter
-        self.screen_width = 800
-        self.screen_height = 600
-        self.screen = pygame.display.set_mode((self.screen_width, self.screen_height))
-        pygame.display.set_caption("Trivio")
+    def load_test_bank(self):
+        with open('testbank.json', 'r') as file:
+            return json.load(file)
+        
+    def selectCategory(self, category):
+        self.currentCategory = category
+        if category in self.testBank['subjects']:
+            self.currentQuestions = self.testBank['subjects'][category]['level' + str(self.currentLevel)]
+        
+        else:
+            raise ValueError("Selected category doesn't exist")
+        
+    def startGame(self, playerId):
+        self.player = Player(playerId, 100, 0, self.currentLevel)
+        self.gameState = "InProgress"
 
-        #game state variables
-        self.running = True
-        self.current_level = None
-        self.player = None 
+    def presentQuestion(self):
+        if self.currentQuestions:
+            questionData = random.choice(self.currentQuestions)
+            question = Question(questionData['questionID'], questionData['question'],
+                                questionData['options'], questionData['correctAnswer'],
+                                questionWeight=1, answeredCorrectly=False,
+                                category=self.currentCategory
 
-        #load resources
-        self.load_resources()
-        self.state = "MainMenu"
+            )
+            return question
+        else:
+            raise Exception("No questions available for current level & category")
+        
+    def answerQuestion(self, question, answer):
+        if self.player.answerQuestion(question, answer):
+            self.player.incrementScore()
+        else:
+            self.player.losePlayerHP()
+        
+        if self.player.isPlayerDefeated():
+            self.endGame()
 
-    def load_resources(self):
-        #load images, sourds, other resources
-        pass
+    def nextLevel(self):
+        if self.currentLevel < 3:
+            self.currentLevel += 1
+            self.player.moveToNextLevel(self.currentLevel)
+            self.selectCategory(self.currentCategory)
+        else:
+            self.gameState = "Completed"
 
-    def start_new_game(self): 
-        #setup new game
+    def endGame(self):
+        self.gameState = "Completed"
+        self.saveGame()
 
-        #create new player instance, load levels, etc
-        self.player = Player("Player A") #pass
-        self.current_level = Level(1) #level class
-        self.state = "Playing"
+    def saveGame(self):
+        gameState = {
+            'timeStamp': datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S"),
+            'levelAchieved': str(self.player.currentLevel),
+            'subject': self.currentCategory,
+            'score': str(self.player.playerScore)
+        }
+        update_player_bank(gameState)
 
-    def load_game(self):
-        #load a saved game state
-        pass
+    def loadGame(self):
+        with open('playerBank.json', 'r') as file:
+            playerBank = json.load(file)
+            playerId = self.player.playerId
 
-    def save_game(self):
-        #implement game saving logic
-        pass
+            if playerId in playerBank and 'currentSavedGame' in playerBank[playerId]:
+                savedGame = playerBank[playerId]['currentSavedGame']
+                self.currentLevel = int(savedGame['levelAchieved'])
+                self.currentCategory = int(savedGame['subject'])
+                self.player.playerScore = int(savedGame['score'])
+                self.gameState = "Loaded"
+            else:
+                print("No saved game for player: ", playerId)
 
-    def main_menu(self):
-        #display the main menu
-        #rendering & handling menu selections
-        pass
+    def exitToMainMenu(self):
+        print("Exiting to main menu")
+        #to be implemented, but for example
+        mainMenu = MainMenu()
+        mainMenu.show()
 
-    def handle_events(self):
-        #handle keyboard & mouse input
-        for event in pygame.event.get():
-            if event.type == pygame.QUIT:
-                self.running = False
-
-            #other input handlings
-                
-    def update(self):
-        #update game state
-        if self.state == "Playing":
-            #update current lvl, player state, etc
-            pass
-        elif self.state ==  "MainMenu":
-            self.main_menu()
-
-    def render(self):
-        #render current state to screen
-        self.screen.fill((0,0,0)) #alter, depending on UI/UX
-        if self.state == "Playing":
-            #render game level
-            pass
-        #add more rendering for diff states
-
-        #update display
-        pygame.display.flip()
-
-    def run(self):
-        #main game loop
-        while self.running:
-            self.handle_events()
-            self.update()
-            self.render()
-
-        self.quit()
-
-    def quit(self):
-        #quit game
-        pygame.quit()
-        sys.exit()
-
-if __name__ == "__main__":
-    game = Game()
-    game.run()
+game = Game()
+game.startGame('natetyu')
+game.selectCategory('math')
+game.endGame()
