@@ -1,622 +1,1830 @@
 {
-  "subjects": {
-      "math": {
-          "level1": [
-              {
-                  "question": "15 + 7 =",
-                  "options": [
-                      "20",
-                      "21",
-                      "22",
-                      "23"
-                  ],
-                  "correctAnswer": "22"
-              },
-              {
-                  "question": "32 - 9 =",
-                  "options": [
-                      "20",
-                      "21",
-                      "22",
-                      "23"
-                  ],
-                  "correctAnswer": "23"
-              },
-              {
-                  "question": "45 + 19 =",
-                  "options": [
-                      "62",
-                      "63",
-                      "64",
-                      "67"
-                  ],
-                  "correctAnswer": "64"
-              },
-              {
-                  "question": " 78 - 35 =",
-                  "options": [
-                      "41",
-                      "43",
-                      "44",
-                      "45"
-                  ],
-                  "correctAnswer": "43"
-              },
-              {
-                  "question": "54 + 28 =",
-                  "options": [
-                      "78",
-                      "80",
-                      "82",
-                      "84"
-                  ],
-                  "correctAnswer": "82"
-              },
-              {
-                  "question": "97 - 46 =",
-                  "options": [
-                      "49",
-                      "51",
-                      "53",
-                      "54"
-                  ],
-                  "correctAnswer": "51"
-              },
-              {
-                  "question": "123 + 56 =",
-                  "options": [
-                      "173",
-                      "175",
-                      "177",
-                      "179"
-                  ],
-                  "correctAnswer": "179"
-              },
-              {
-                  "question": "189-92=",
-                  "options": [
-                      "97",
-                      "95",
-                      "107",
-                      "99"
-                  ],
-                  "correctAnswer": "97"
-              },
-              {
-                  "question": "231 + 89 =",
-                  "options": [
-                      "310",
-                      "320",
-                      "330",
-                      "340"
-                  ],
-                  "correctAnswer": "320"
-              },
-              {
-                  "question": "278 - 145 =",
-                  "options": [
-                      "133",
-                      "135",
-                      "137",
-                      "139"
-                  ],
-                  "correctAnswer": "133"
-              },
-              {
-                  "question": "362 + 147 =",
-                  "options": [
-                      "489",
-                      "497",
-                      "505",
-                      "509"
-                  ],
-                  "correctAnswer": "509"
-              },
-              {
-                  "question": "418 - 276 =",
-                  "options": [
-                      "144",
-                      "142",
-                      "148",
-                      "146"
-                  ],
-                  "correctAnswer": "142"
-              },
-              {
-                  "question": "523 + 198 =",
-                  "options": [
-                      "701",
-                      "711",
-                      "721",
-                      "731"
-                  ],
-                  "correctAnswer": "721"
-              },
-              {
-                  "question": "598 - 347 =",
-                  "options": [
-                      "251",
-                      "253",
-                      "247",
-                      "243"
-                  ],
-                  "correctAnswer": "251"
-              },
-              {
-                  "question": "647 + 296 =",
-                  "options": [
-                      "933",
-                      "943",
-                      "953",
-                      "963"
-                  ],
-                  "correctAnswer": "943"
-              },
-              {
-                  "question": "732 - 419 =",
-                  "options": [
-                      "315",
-                      "313",
-                      "311",
-                      "309"
-                  ],
-                  "correctAnswer": "313"
-              },
-              {
-                  "question": "879 + 369 =",
-                  "options": [
-                      "1238",
-                      "1248",
-                      "1246",
-                      "1258"
-                  ],
-                  "correctAnswer": "1248"
-              },
-              {
-                  "question": "954 - 578 =",
-                  "options": [
-                      "376",
-                      "378",
-                      "380",
-                      "382"
-                  ],
-                  "correctAnswer": "376"
-              },
-              {
-                  "question": "1032 + 487 =",
-                  "options": [
-                      "1519",
-                      "1619",
-                      "1529",
-                      "1509"
-                  ],
-                  "correctAnswer": "1519"
-              },
-              {
-                  "question": "1123 - 698 =",
-                  "options": [
-                      "427",
-                      "429",
-                      "423",
-                      "425"
-                  ],
-                  "correctAnswer": "425"
-              }
-          ],
-          "level2": [
-              {
-                  "question": "7 x 8 =",
-                  "options": [
-                      "52",
-                      "42",
-                      "56",
-                      "48"
-                  ],
-                  "correctAnswer": "56"
-              },
-              {
-                  "question": "12 x 5 =",
-                  "options": [
-                      "60",
-                      "72",
-                      "65",
-                      "48"
-                  ],
-                  "correctAnswer": "60"
-              },
-              {
-                  "question": "9 x 3 =",
-                  "options": [
-                      "18",
-                      "28",
-                      "27",
-                      "24"
-                  ],
-                  "correctAnswer": "27"
-              },
-              {
-                  "question": "6 x 7 =",
-                  "options": [
-                      "36",
-                      "48",
-                      "45",
-                      "42"
-                  ],
-                  "correctAnswer": "42"
-              },
-              {
-                  "question": "15 / 3 =",
-                  "options": [
-                      "7",
-                      "5",
-                      "3",
-                      "6"
-                  ],
-                  "correctAnswer": "5"
-              },
-              {
-                  "question": "20 / 4 =",
-                  "options": [
-                      "4",
-                      "3",
-                      "6",
-                      "5"
-                  ],
-                  "correctAnswer": "5"
-              },
-              {
-                  "question": "18 x 2 =",
-                  "options": [
-                      "32",
-                      "34",
-                      "36",
-                      "38"
-                  ],
-                  "correctAnswer": "36"
-              },
-              {
-                  "question": "14 / 7 =",
-                  "options": [
-                      "1",
-                      "2",
-                      "3",
-                      "4"
-                  ],
-                  "correctAnswer": "2"
-              },
-              {
-                  "question": "10 x 9 =",
-                  "options": [
-                      "80",
-                      "89",
-                      "90",
-                      "100"
-                  ],
-                  "correctAnswer": "90"
-              },
-              {
-                  "question": "16 / 4 =",
-                  "options": [
-                      "3",
-                      "4",
-                      "5",
-                      "6"
-                  ],
-                  "correctAnswer": "4"
-              },
-              {
-                  "question": "11 x 3 =",
-                  "options": [
-                      "22",
-                      "36",
-                      "33",
-                      "39"
-                  ],
-                  "correctAnswer": "33"
-              },
-              {
-                  "question": "24 / 6 =",
-                  "options": [
-                      "4",
-                      "3",
-                      "8",
-                      "6"
-                  ],
-                  "correctAnswer": "4"
-              },
-              {
-                  "question": "13 x 4 =",
-                  "options": [
-                      "46",
-                      "48",
-                      "50",
-                      "52"
-                  ],
-                  "correctAnswer": "52"
-              },
-              {
-                  "question": "25 / 5 =",
-                  "options": [
-                      "3",
-                      "4",
-                      "5",
-                      "6"
-                  ],
-                  "correctAnswer": "5"
-              },
-              {
-                  "question": "17 x 6 =",
-                  "options": [
-                      "98",
-                      "102",
-                      "108",
-                      "114"
-                  ],
-                  "correctAnswer": "102"
-              },
-              {
-                  "question": "28 / 7 =",
-                  "options": [
-                      "3",
-                      "4",
-                      "5",
-                      "6"
-                  ],
-                  "correctAnswer": "4"
-              },
-              {
-                  "question": "19 x 2 =",
-                  "options": [
-                      "36",
-                      "40",
-                      "38",
-                      "42"
-                  ],
-                  "correctAnswer": "38"
-              },
-              {
-                  "question": "22 / 2 =",
-                  "options": [
-                      "9",
-                      "10",
-                      "11",
-                      "12"
-                  ],
-                  "correctAnswer": "11"
-              },
-              {
-                  "question": "21 x 9 =",
-                  "options": [
-                      "168",
-                      "179",
-                      "189",
-                      "198"
-                  ],
-                  "correctAnswer": "189"
-              },
-              {
-                  "question": "30 / 6 =",
-                  "options": [
-                      "4",
-                      "5",
-                      "6",
-                      "7"
-                  ],
-                  "correctAnswer": "5"
-              }
-          ],
-          "level3": [
-            {
-                "question": "What is the perimeter of a rectangle with length 6 units and width 8 units?",
-                "options": [
-                    "16 units",
-                    "28 units",
-                    "32 units",
-                    "48 units"
-                ],
-                "correctAnswer": "28 units"
-            },
-            {
-                "question": "What is the area of a square with side length 5 units",
-                "options": [
-                    "15 square units",
-                    "20 square units",
-                    "25 square units",
-                    "30 square units"
-                ],
-                "correctAnswer": "25 square units"
-            },
-            {
-                "question": "What is the perimeter of a triangle with side lengths 7 units, 9 units, and 12 units?",
-                "options": [
-                    "26 units",
-                    "28 units",
-                    "30 units",
-                    "32 units"
-                ],
-                "correctAnswer": "28 units"
-            },
-            {
-                "question": "What is the area of a rectangle with length 10 units and width 4 units?",
-                "options": [
-                    "28 square units",
-                    "36 square units",
-                    "40 square units",
-                    "42 square units"
-                ],
-                "correctAnswer": "40 square units"
-            },
-            {
-                "question": "What is the perimeter of a square with side length 9 units?",
-                "options": [
-                    "78 units",
-                    "36 units",
-                    "45 units",
-                    "81 units"
-                ],
-                "correctAnswer": "36 units"
-            },
-            {
-                "question": "What is the length of the diagonal of a rectangle with length 15 units and width 8 units?",
-                "options": [
-                    "17 units",
-                    "19 units",
-                    "20 units",
-                    "21 units"
-                ],
-                "correctAnswer": "17 units"
-            },
-            {
-                "question": "What is the area of a triangle with base 6 units and height 10 units?",
-                "options": [
-                    "30 square units",
-                    "36 square units",
-                    "40 square units",
-                    "45 square units"
-                ],
-                "correctAnswer": "30 square units"
-            },
-            {
-                "question": "What is the perimeter of a rhombus with side length 8 units?",
-                "options": [
-                    "24 units",
-                    "32 units",
-                    "36 units",
-                    "40 units"
-                ],
-                "correctAnswer": "32 units"
-            },
-            {
-                "question": "What is the length of the radius of a circle with area 64π square units?",
-                "options": [
-                    "4 units",
-                    "6 units",
-                    "8 units",
-                    "10 units"
-                ],
-                "correctAnswer": "8 units"
-            },
-            {
-                "question": "What is the area of a square with diagonal length 10 √{2} units?",
-                "options": [
-                    "50 square units",
-                    "75 square units",
-                    "100 square units",
-                    "125 square units"
-                ],
-                "correctAnswer": "100 square units"
-            },
-            {
-                "question": "What is the perimeter of a triangle with side lengths 5 units, 12 units, and 13 units?",
-                "options": [
-                    "25 units",
-                    "30 units",
-                    "35 units",
-                    "40 units"
-                ],
-                "correctAnswer": "30 units"
-            },
-            {
-                "question": "What is the length of the diagonal of a square with side length 10 units?",
-                "options": [
-                    "10√{2} units",
-                    "20 units",
-                    "15√{2} units",
-                    "25 units"
-                ],
-                "correctAnswer": "10√{2} units"
-            },
-            {
-                "question": "What is the area of a rectangle with diagonal length 10 units and width 6 units?",
-                "options": [
-                    "30 square units",
-                    "60 square units",
-                    "45 square units",
-                    "48 square units"
-                ],
-                "correctAnswer": "48 square units"
-            },
-            {
-                "question": "What is the perimeter of a circle with radius 7 units?",
-                "options": [
-                    "14π units",
-                    "21π units",
-                    "28π units",
-                    "35π units"
-                ],
-                "correctAnswer": "14π units"
-            },
-            {
-                "question": "What is the length of the base of a parallelogram with area 48 square units and height 6 units?",
-                "options": [
-                    "6 units",
-                    "8 units",
-                    "12 units",
-                    "10 units"
-                ],
-                "correctAnswer": "8 units"
-            },
-            {
-                "question": "What is the area of a trapezoid with bases 6 units and 10 units, and height 8 units?",
-                "options": [
-                    "64 square units",
-                    "72 square units",
-                    "80 square units",
-                    "88 square units"
-                ],
-                "correctAnswer": "64 square units"
-            },
-            {
-                "question": "What is the perimeter of a regular hexagon with side length 4 units?",
-                "options": [
-                    "26 units",
-                    "28 units",
-                    "32 units",
-                    "24 units"
-                ],
-                "correctAnswer": "24 units"
-            },
-            {
-                "question": "What is the length of the radius of a circle with circumference 18π units?",
-                "options": [
-                    "3 units",
-                    "6 units",
-                    "9 units",
-                    "12 units"
-                ],
-                "correctAnswer": "9 units"
-            },
-            {
-                "question": "What is the area of a circle with circumference 10π units?",
-                "options": [
-                    "5 square units",
-                    "10 square units",
-                    "25 square units",
-                    "50 square units"
-                ],
-                "correctAnswer": "25 square units"
-            },
-            {
-                "question": "What is the perimeter of a rectangle with diagonal length 17 units and length 8 units?",
-                "options": [
-                    "32 units",
-                    "34 units",
-                    "36 units",
-                    "38 units"
-                ],
-                "correctAnswer": "34 units"
-            }
-          ]
-      },
-      "geography": {
-          "level1": [],
-          "level2": [],
-          "level3": []
-      },
-      "science": {
-          "level1": [],
-          "level2": [],
-          "level3": []
-      }
-  }
+    "subjects": {
+        "math": {
+            "level1": [
+                {
+                    "question": "15 + 7 =",
+                    "options": [
+                        "20",
+                        "21",
+                        "22",
+                        "23"
+                    ],
+                    "correctAnswer": "22"
+                },
+                {
+                    "question": "32 - 9 =",
+                    "options": [
+                        "20",
+                        "21",
+                        "22",
+                        "23"
+                    ],
+                    "correctAnswer": "23"
+                },
+                {
+                    "question": "45 + 19 =",
+                    "options": [
+                        "62",
+                        "63",
+                        "64",
+                        "67"
+                    ],
+                    "correctAnswer": "64"
+                },
+                {
+                    "question": " 78 - 35 =",
+                    "options": [
+                        "41",
+                        "43",
+                        "44",
+                        "45"
+                    ],
+                    "correctAnswer": "43"
+                },
+                {
+                    "question": "54 + 28 =",
+                    "options": [
+                        "78",
+                        "80",
+                        "82",
+                        "84"
+                    ],
+                    "correctAnswer": "82"
+                },
+                {
+                    "question": "97 - 46 =",
+                    "options": [
+                        "49",
+                        "51",
+                        "53",
+                        "54"
+                    ],
+                    "correctAnswer": "51"
+                },
+                {
+                    "question": "123 + 56 =",
+                    "options": [
+                        "173",
+                        "175",
+                        "177",
+                        "179"
+                    ],
+                    "correctAnswer": "179"
+                },
+                {
+                    "question": "189-92=",
+                    "options": [
+                        "97",
+                        "95",
+                        "107",
+                        "99"
+                    ],
+                    "correctAnswer": "97"
+                },
+                {
+                    "question": "231 + 89 =",
+                    "options": [
+                        "310",
+                        "320",
+                        "330",
+                        "340"
+                    ],
+                    "correctAnswer": "320"
+                },
+                {
+                    "question": "278 - 145 =",
+                    "options": [
+                        "133",
+                        "135",
+                        "137",
+                        "139"
+                    ],
+                    "correctAnswer": "133"
+                },
+                {
+                    "question": "362 + 147 =",
+                    "options": [
+                        "489",
+                        "497",
+                        "505",
+                        "509"
+                    ],
+                    "correctAnswer": "509"
+                },
+                {
+                    "question": "418 - 276 =",
+                    "options": [
+                        "144",
+                        "142",
+                        "148",
+                        "146"
+                    ],
+                    "correctAnswer": "142"
+                },
+                {
+                    "question": "523 + 198 =",
+                    "options": [
+                        "701",
+                        "711",
+                        "721",
+                        "731"
+                    ],
+                    "correctAnswer": "721"
+                },
+                {
+                    "question": "598 - 347 =",
+                    "options": [
+                        "251",
+                        "253",
+                        "247",
+                        "243"
+                    ],
+                    "correctAnswer": "251"
+                },
+                {
+                    "question": "647 + 296 =",
+                    "options": [
+                        "933",
+                        "943",
+                        "953",
+                        "963"
+                    ],
+                    "correctAnswer": "943"
+                },
+                {
+                    "question": "732 - 419 =",
+                    "options": [
+                        "315",
+                        "313",
+                        "311",
+                        "309"
+                    ],
+                    "correctAnswer": "313"
+                },
+                {
+                    "question": "879 + 369 =",
+                    "options": [
+                        "1238",
+                        "1248",
+                        "1246",
+                        "1258"
+                    ],
+                    "correctAnswer": "1248"
+                },
+                {
+                    "question": "954 - 578 =",
+                    "options": [
+                        "376",
+                        "378",
+                        "380",
+                        "382"
+                    ],
+                    "correctAnswer": "376"
+                },
+                {
+                    "question": "1032 + 487 =",
+                    "options": [
+                        "1519",
+                        "1619",
+                        "1529",
+                        "1509"
+                    ],
+                    "correctAnswer": "1519"
+                },
+                {
+                    "question": "1123 - 698 =",
+                    "options": [
+                        "427",
+                        "429",
+                        "423",
+                        "425"
+                    ],
+                    "correctAnswer": "425"
+                }
+            ],
+            "level2": [
+                {
+                    "question": "7 x 8 =",
+                    "options": [
+                        "52",
+                        "42",
+                        "56",
+                        "48"
+                    ],
+                    "correctAnswer": "56"
+                },
+                {
+                    "question": "12 x 5 =",
+                    "options": [
+                        "60",
+                        "72",
+                        "65",
+                        "48"
+                    ],
+                    "correctAnswer": "60"
+                },
+                {
+                    "question": "9 x 3 =",
+                    "options": [
+                        "18",
+                        "28",
+                        "27",
+                        "24"
+                    ],
+                    "correctAnswer": "27"
+                },
+                {
+                    "question": "6 x 7 =",
+                    "options": [
+                        "36",
+                        "48",
+                        "45",
+                        "42"
+                    ],
+                    "correctAnswer": "42"
+                },
+                {
+                    "question": "15 / 3 =",
+                    "options": [
+                        "7",
+                        "5",
+                        "3",
+                        "6"
+                    ],
+                    "correctAnswer": "5"
+                },
+                {
+                    "question": "20 / 4 =",
+                    "options": [
+                        "4",
+                        "3",
+                        "6",
+                        "5"
+                    ],
+                    "correctAnswer": "5"
+                },
+                {
+                    "question": "18 x 2 =",
+                    "options": [
+                        "32",
+                        "34",
+                        "36",
+                        "38"
+                    ],
+                    "correctAnswer": "36"
+                },
+                {
+                    "question": "14 / 7 =",
+                    "options": [
+                        "1",
+                        "2",
+                        "3",
+                        "4"
+                    ],
+                    "correctAnswer": "2"
+                },
+                {
+                    "question": "10 x 9 =",
+                    "options": [
+                        "80",
+                        "89",
+                        "90",
+                        "100"
+                    ],
+                    "correctAnswer": "90"
+                },
+                {
+                    "question": "16 / 4 =",
+                    "options": [
+                        "3",
+                        "4",
+                        "5",
+                        "6"
+                    ],
+                    "correctAnswer": "4"
+                },
+                {
+                    "question": "11 x 3 =",
+                    "options": [
+                        "22",
+                        "36",
+                        "33",
+                        "39"
+                    ],
+                    "correctAnswer": "33"
+                },
+                {
+                    "question": "24 / 6 =",
+                    "options": [
+                        "4",
+                        "3",
+                        "8",
+                        "6"
+                    ],
+                    "correctAnswer": "4"
+                },
+                {
+                    "question": "13 x 4 =",
+                    "options": [
+                        "46",
+                        "48",
+                        "50",
+                        "52"
+                    ],
+                    "correctAnswer": "52"
+                },
+                {
+                    "question": "25 / 5 =",
+                    "options": [
+                        "3",
+                        "4",
+                        "5",
+                        "6"
+                    ],
+                    "correctAnswer": "5"
+                },
+                {
+                    "question": "17 x 6 =",
+                    "options": [
+                        "98",
+                        "102",
+                        "108",
+                        "114"
+                    ],
+                    "correctAnswer": "102"
+                },
+                {
+                    "question": "28 / 7 =",
+                    "options": [
+                        "3",
+                        "4",
+                        "5",
+                        "6"
+                    ],
+                    "correctAnswer": "4"
+                },
+                {
+                    "question": "19 x 2 =",
+                    "options": [
+                        "36",
+                        "40",
+                        "38",
+                        "42"
+                    ],
+                    "correctAnswer": "38"
+                },
+                {
+                    "question": "22 / 2 =",
+                    "options": [
+                        "9",
+                        "10",
+                        "11",
+                        "12"
+                    ],
+                    "correctAnswer": "11"
+                },
+                {
+                    "question": "21 x 9 =",
+                    "options": [
+                        "168",
+                        "179",
+                        "189",
+                        "198"
+                    ],
+                    "correctAnswer": "189"
+                },
+                {
+                    "question": "30 / 6 =",
+                    "options": [
+                        "4",
+                        "5",
+                        "6",
+                        "7"
+                    ],
+                    "correctAnswer": "5"
+                }
+            ],
+            "level3": [
+                {
+                    "question": "What is the perimeter of a rectangle with length 6 units and width 8 units?",
+                    "options": [
+                        "16 units",
+                        "28 units",
+                        "32 units",
+                        "48 units"
+                    ],
+                    "correctAnswer": "28 units"
+                },
+                {
+                    "question": "What is the area of a square with side length 5 units",
+                    "options": [
+                        "15 square units",
+                        "20 square units",
+                        "25 square units",
+                        "30 square units"
+                    ],
+                    "correctAnswer": "25 square units"
+                },
+                {
+                    "question": "What is the perimeter of a triangle with side lengths 7 units, 9 units, and 12 units?",
+                    "options": [
+                        "26 units",
+                        "28 units",
+                        "30 units",
+                        "32 units"
+                    ],
+                    "correctAnswer": "28 units"
+                },
+                {
+                    "question": "What is the area of a rectangle with length 10 units and width 4 units?",
+                    "options": [
+                        "28 square units",
+                        "36 square units",
+                        "40 square units",
+                        "42 square units"
+                    ],
+                    "correctAnswer": "40 square units"
+                },
+                {
+                    "question": "What is the perimeter of a square with side length 9 units?",
+                    "options": [
+                        "78 units",
+                        "36 units",
+                        "45 units",
+                        "81 units"
+                    ],
+                    "correctAnswer": "36 units"
+                },
+                {
+                    "question": "What is the length of the diagonal of a rectangle with length 15 units and width 8 units?",
+                    "options": [
+                        "17 units",
+                        "19 units",
+                        "20 units",
+                        "21 units"
+                    ],
+                    "correctAnswer": "17 units"
+                },
+                {
+                    "question": "What is the area of a triangle with base 6 units and height 10 units?",
+                    "options": [
+                        "30 square units",
+                        "36 square units",
+                        "40 square units",
+                        "45 square units"
+                    ],
+                    "correctAnswer": "30 square units"
+                },
+                {
+                    "question": "What is the perimeter of a rhombus with side length 8 units?",
+                    "options": [
+                        "24 units",
+                        "32 units",
+                        "36 units",
+                        "40 units"
+                    ],
+                    "correctAnswer": "32 units"
+                },
+                {
+                    "question": "What is the length of the radius of a circle with area 64\u03c0 square units?",
+                    "options": [
+                        "4 units",
+                        "6 units",
+                        "8 units",
+                        "10 units"
+                    ],
+                    "correctAnswer": "8 units"
+                },
+                {
+                    "question": "What is the area of a square with diagonal length 10 \u221a{2} units?",
+                    "options": [
+                        "50 square units",
+                        "75 square units",
+                        "100 square units",
+                        "125 square units"
+                    ],
+                    "correctAnswer": "100 square units"
+                },
+                {
+                    "question": "What is the perimeter of a triangle with side lengths 5 units, 12 units, and 13 units?",
+                    "options": [
+                        "25 units",
+                        "30 units",
+                        "35 units",
+                        "40 units"
+                    ],
+                    "correctAnswer": "30 units"
+                },
+                {
+                    "question": "What is the length of the diagonal of a square with side length 10 units?",
+                    "options": [
+                        "10\u221a{2} units",
+                        "20 units",
+                        "15\u221a{2} units",
+                        "25 units"
+                    ],
+                    "correctAnswer": "10\u221a{2} units"
+                },
+                {
+                    "question": "What is the area of a rectangle with diagonal length 10 units and width 6 units?",
+                    "options": [
+                        "30 square units",
+                        "60 square units",
+                        "45 square units",
+                        "48 square units"
+                    ],
+                    "correctAnswer": "48 square units"
+                },
+                {
+                    "question": "What is the perimeter of a circle with radius 7 units?",
+                    "options": [
+                        "14\u03c0 units",
+                        "21\u03c0 units",
+                        "28\u03c0 units",
+                        "35\u03c0 units"
+                    ],
+                    "correctAnswer": "14\u03c0 units"
+                },
+                {
+                    "question": "What is the length of the base of a parallelogram with area 48 square units and height 6 units?",
+                    "options": [
+                        "6 units",
+                        "8 units",
+                        "12 units",
+                        "10 units"
+                    ],
+                    "correctAnswer": "8 units"
+                },
+                {
+                    "question": "What is the area of a trapezoid with bases 6 units and 10 units, and height 8 units?",
+                    "options": [
+                        "64 square units",
+                        "72 square units",
+                        "80 square units",
+                        "88 square units"
+                    ],
+                    "correctAnswer": "64 square units"
+                },
+                {
+                    "question": "What is the perimeter of a regular hexagon with side length 4 units?",
+                    "options": [
+                        "26 units",
+                        "28 units",
+                        "32 units",
+                        "24 units"
+                    ],
+                    "correctAnswer": "24 units"
+                },
+                {
+                    "question": "What is the length of the radius of a circle with circumference 18\u03c0 units?",
+                    "options": [
+                        "3 units",
+                        "6 units",
+                        "9 units",
+                        "12 units"
+                    ],
+                    "correctAnswer": "9 units"
+                },
+                {
+                    "question": "What is the area of a circle with circumference 10\u03c0 units?",
+                    "options": [
+                        "5 square units",
+                        "10 square units",
+                        "25 square units",
+                        "50 square units"
+                    ],
+                    "correctAnswer": "25 square units"
+                },
+                {
+                    "question": "What is the perimeter of a rectangle with diagonal length 17 units and length 8 units?",
+                    "options": [
+                        "32 units",
+                        "34 units",
+                        "36 units",
+                        "38 units"
+                    ],
+                    "correctAnswer": "34 units"
+                }
+            ]
+        },
+        "geography": {
+            "level1": [
+                {
+                    "question": "Where is the Eiffel Tower?",
+                    "options": [
+                        "France",
+                        "Italy",
+                        "Greece",
+                        "Finland"
+                    ],
+                    "correctAnswer": "France"
+                },
+                {
+                    "question": "What is the tallest mountain in the world?",
+                    "options": [
+                        "Mount Kilimanjaro ",
+                        "Mount Fuji",
+                        "Mont Blanc",
+                        "Mount Everest"
+                    ],
+                    "correctAnswer": "Mount Everest"
+                },
+                {
+                    "question": "What is the longest river in the world?",
+                    "options": [
+                        "The Amazon",
+                        "The Nile",
+                        "The Mississippi",
+                        "The Yangtze"
+                    ],
+                    "correctAnswer": "The Nile"
+                },
+                {
+                    "question": "What is the name of the most famous pyramids?",
+                    "options": [
+                        "The Pyramids of Giza",
+                        "Chichen Itza",
+                        "Pyramid of Una",
+                        "Pyramids of Gulmaar"
+                    ],
+                    "correctAnswer": "The Pyramids of Giza"
+                },
+                {
+                    "question": "Who was the first American President?",
+                    "options": [
+                        "John F. Kennedy",
+                        "George W. Bush",
+                        "George Washington",
+                        "Abraham Lincoln"
+                    ],
+                    "correctAnswer": "George Washington"
+                },
+                {
+                    "question": "What is the capital city of Canada?",
+                    "options": [
+                        "Ottawa",
+                        "Toronto",
+                        "Montreal",
+                        "Calgary"
+                    ],
+                    "correctAnswer": "Ottawa"
+                },
+                {
+                    "question": "What is the capital of British Columbia?",
+                    "options": [
+                        "Edmonton",
+                        "Vancouver",
+                        "Kelowna",
+                        "Victoria"
+                    ],
+                    "correctAnswer": "Victoria"
+                },
+                {
+                    "question": "How many provinces are in Canada?",
+                    "options": [
+                        "10",
+                        "7",
+                        "9",
+                        "11"
+                    ],
+                    "correctAnswer": "10"
+                },
+                {
+                    "question": "How many territories are there in Canada?",
+                    "options": [
+                        "3",
+                        "2",
+                        "1",
+                        "4"
+                    ],
+                    "correctAnswer": "3"
+                },
+                {
+                    "question": "Where is the coldest place on earth?",
+                    "options": [
+                        "Alaska",
+                        "Russia",
+                        "Antarctica",
+                        "Greenland"
+                    ],
+                    "correctAnswer": "Antarctica"
+                },
+                {
+                    "question": "What is the name of the biggest desert in the world?",
+                    "options": [
+                        "Great Australian",
+                        "Sahara",
+                        "Great Sandy",
+                        "Empty Qatar"
+                    ],
+                    "correctAnswer": "Sahara"
+                },
+                {
+                    "question": "What is the country with the largest population?",
+                    "options": [
+                        "China",
+                        "Canada",
+                        "United States",
+                        "India"
+                    ],
+                    "correctAnswer": "China"
+                },
+                {
+                    "question": "What is the name of the supercontinent existing 200 million years ago?",
+                    "options": [
+                        "Gaea",
+                        "Gondwana",
+                        "Pangea",
+                        "Mother Earth"
+                    ],
+                    "correctAnswer": "Pangea"
+                },
+                {
+                    "question": "Who was credited for discovering the Americas?",
+                    "options": [
+                        "Marco Polo",
+                        "Charles Darwin",
+                        "Rene Descartes",
+                        "Christopher Columbus"
+                    ],
+                    "correctAnswer": "Christopher Columbus"
+                },
+                {
+                    "question": "Who was the first female pharaoh of Egypt?",
+                    "options": [
+                        "Queen Neferati",
+                        "Cleopatra VI",
+                        "Cleopatra",
+                        "Tut"
+                    ],
+                    "correctAnswer": "Cleopatra"
+                },
+                {
+                    "question": "What is the largest country by area?",
+                    "options": [
+                        "Australia",
+                        "Russia",
+                        "Canada",
+                        "China"
+                    ],
+                    "correctAnswer": "Russia"
+                },
+                {
+                    "question": "What is the smallest Canadian Province?",
+                    "options": [
+                        "New Brunswick",
+                        "Halifax",
+                        "Prince Edward Island",
+                        "Newfoundland"
+                    ],
+                    "correctAnswer": "Prince Edward Island"
+                },
+                {
+                    "question": "What continent is Japan in?",
+                    "options": [
+                        "Asia",
+                        "China",
+                        "Oceana",
+                        "Europe"
+                    ],
+                    "correctAnswer": "Asia"
+                },
+                {
+                    "question": "How many continents are in the world?",
+                    "options": [
+                        "6",
+                        "7",
+                        "8",
+                        "9"
+                    ],
+                    "correctAnswer": "7"
+                }
+            ],
+            "level2": [
+                {
+                    "question": "Who gifted the Statue of Liberty to the US?",
+                    "options": [
+                        "Argentina",
+                        "France",
+                        "Great Britain",
+                        "Italy"
+                    ],
+                    "correctAnswer": "France"
+                },
+                {
+                    "question": "What country is Frankfurt located in?",
+                    "options": [
+                        "Germany",
+                        "Poland",
+                        "Greece",
+                        "Romania"
+                    ],
+                    "correctAnswer": "Germany"
+                },
+                {
+                    "question": "Where is the Golden Gate Bridge in America?",
+                    "options": [
+                        "Las Vegas",
+                        "San Francisco",
+                        "Oregon",
+                        "Washington, DC"
+                    ],
+                    "correctAnswer": "San Francisco"
+                },
+                {
+                    "question": "How many time zones does Canada have?",
+                    "options": [
+                        "5",
+                        "6",
+                        "7",
+                        "8"
+                    ],
+                    "correctAnswer": "6"
+                },
+                {
+                    "question": "What ocean is the Bermuda Triangle located",
+                    "options": [
+                        "lol",
+                        "lol",
+                        "lol",
+                        "lol"
+                    ],
+                    "correctAnswer": "lol"
+                },
+                {
+                    "question": "lol",
+                    "options": [
+                        "Arctic",
+                        "Eastern",
+                        "Pacific",
+                        "Atlantic"
+                    ],
+                    "correctAnswer": "Atlantic"
+                },
+                {
+                    "question": "What is the name of the deepest point in Earth's oceans?",
+                    "options": [
+                        "Twilight Zone",
+                        "Abyssal Zone",
+                        "Marianas Trench",
+                        "Challenger Deep"
+                    ],
+                    "correctAnswer": "Marianas Trench"
+                },
+                {
+                    "question": "What directions do latitudes run on the globe?",
+                    "options": [
+                        "Right to Left",
+                        "Top to Bottom",
+                        "Bottom to Top",
+                        "Left to Right"
+                    ],
+                    "correctAnswer": "Left to Right"
+                },
+                {
+                    "question": "What currency does the Netherlands use?",
+                    "options": [
+                        "The Mark",
+                        "The Euro",
+                        "The Dollar",
+                        "The Pound"
+                    ],
+                    "correctAnswer": "The Euro"
+                },
+                {
+                    "question": "Who was the first person to land on the moon?",
+                    "options": [
+                        "Galileo Galiei",
+                        "Neil Armstrong",
+                        "John Glen",
+                        "Chris Hadfield"
+                    ],
+                    "correctAnswer": "Neil Armstrong"
+                },
+                {
+                    "question": "What is the name of the nuclear plant explosion in 1986?",
+                    "options": [
+                        "Chernobyl",
+                        "Three Mile Island",
+                        "Fukushima",
+                        "Hiroshima"
+                    ],
+                    "correctAnswer": "Chernobyl"
+                },
+                {
+                    "question": "Who was the king of the Gods in Greek Mythology?",
+                    "options": [
+                        "Ares",
+                        "Hades",
+                        "Poseidon",
+                        "Zeus"
+                    ],
+                    "correctAnswer": "Zeus"
+                },
+                {
+                    "question": "What year was the first iPhone released?",
+                    "options": [
+                        "2007",
+                        "2009",
+                        "2010",
+                        "2005"
+                    ],
+                    "correctAnswer": "2007"
+                },
+                {
+                    "question": "What year did the Berlin Wall fall?",
+                    "options": [
+                        "1991",
+                        "1989",
+                        "2001",
+                        "1978"
+                    ],
+                    "correctAnswer": "1989"
+                },
+                {
+                    "question": "Who was the first female VP of the United States?",
+                    "options": [
+                        "Kamala Harris",
+                        "Ivanka Trump",
+                        "Hillary Clinton",
+                        "Nancy Pelosi"
+                    ],
+                    "correctAnswer": "Kamala Harris"
+                },
+                {
+                    "question": "Who was responsible for bringing slaves to freedom using the underground railroad?",
+                    "options": [
+                        "Rosa Parks",
+                        "Martin Luther King Jr.",
+                        "Sojourner Truth",
+                        "Harriet Tubman"
+                    ],
+                    "correctAnswer": "Harriet Tubman"
+                },
+                {
+                    "question": "What ancient city was destroyed and preserved by a volcanic explosion?",
+                    "options": [
+                        "Pompeii",
+                        "Memphis",
+                        "Troy",
+                        "Atlantis"
+                    ],
+                    "correctAnswer": "Pompeii"
+                },
+                {
+                    "question": "Who was the last ruler of France before the French Revolution?",
+                    "options": [
+                        "Charles VII",
+                        "Louis VIII",
+                        "Marie Antoinette",
+                        "Louis X"
+                    ],
+                    "correctAnswer": "Marie Antoinette"
+                },
+                {
+                    "question": "Which ancient empire was ruled by Julius Caesar and Augustus?",
+                    "options": [
+                        "Babylonia",
+                        "Assyria",
+                        "Han Dynasty",
+                        "Rome"
+                    ],
+                    "correctAnswer": "Rome"
+                },
+                {
+                    "question": "Who led the Soviet Union during WW2?",
+                    "options": [
+                        "Joseph Stalin",
+                        "Vladamir Lenin",
+                        "Vladamir Putin",
+                        "Mikhail Gorbachev "
+                    ],
+                    "correctAnswer": "Joseph Stalin"
+                },
+                {
+                    "question": "When did WW1 End?",
+                    "options": [
+                        "1914",
+                        "1925",
+                        "1918",
+                        "1939"
+                    ],
+                    "correctAnswer": "1918"
+                }
+            ],
+            "level3": [
+                {
+                    "question": "Which of the following is not part of the 7 wonders of the world?",
+                    "options": [
+                        "Machu Picchu",
+                        "Statue of Liberty",
+                        "Taj Mahal",
+                        "Great Wall of China"
+                    ],
+                    "correctAnswer": "Statue of Liberty"
+                },
+                {
+                    "question": "What is the largest island in the world?",
+                    "options": [
+                        "Hawaii",
+                        "Norway",
+                        "Greenland",
+                        "Japan"
+                    ],
+                    "correctAnswer": "Greenland"
+                },
+                {
+                    "question": "What are the 5 oceans?",
+                    "options": [
+                        "Antarctic, Atlantic, Pacific, Indian, Southern",
+                        "Antarctic, Arctic, Atlantic, Dead, Pacific",
+                        "Antarctic, Arctic, Atlantic, Pacific, Indian",
+                        "Arctic, Atlantic, North-West, Pacific, Indian"
+                    ],
+                    "correctAnswer": "Antarctic, Arctic, Atlantic, Pacific, Indian"
+                },
+                {
+                    "question": "What countries has the most volcanoes?",
+                    "options": [
+                        "Hawaii",
+                        "Chile",
+                        "Indonesia",
+                        "Japan"
+                    ],
+                    "correctAnswer": "Indonesia"
+                },
+                {
+                    "question": "What is the largest waterfall in the world?",
+                    "options": [
+                        "Yosemite Falls",
+                        "Victoria Falls",
+                        "Niagara Falls",
+                        "Montmorency Falls"
+                    ],
+                    "correctAnswer": "Victoria Falls"
+                },
+                {
+                    "question": "What country has the abbreviation “CH”?",
+                    "options": [
+                        "Switzerland",
+                        "China",
+                        "Czech Republic ",
+                        "Turkmenistan"
+                    ],
+                    "correctAnswer": "Switzerland"
+                },
+                {
+                    "question": "Where is the world's largest airport located?",
+                    "options": [
+                        "UAE",
+                        "Saudi Arabia",
+                        "China",
+                        "United States"
+                    ],
+                    "correctAnswer": "Saudi Arabia"
+                },
+                {
+                    "question": "What is the smallest city in the world?",
+                    "options": [
+                        "Hamilton",
+                        "The Vatican",
+                        "Monaco",
+                        "Montpelier"
+                    ],
+                    "correctAnswer": "The Vatican"
+                },
+                {
+                    "question": "What city was the first Capital of the US?",
+                    "options": [
+                        "Washington DC",
+                        "Portland",
+                        "Philadelphia",
+                        "Portland"
+                    ],
+                    "correctAnswer": "Philadelphia"
+                },
+                {
+                    "question": "When was the construction of the Great Wall of China?",
+                    "options": [
+                        "9th century BC",
+                        "13 AD",
+                        "5th Century BC",
+                        "7th Century BC"
+                    ],
+                    "correctAnswer": "7th Century BC"
+                },
+                {
+                    "question": "Who fought in the 100 Year War?",
+                    "options": [
+                        "Britain and Russia",
+                        "Britain and Germany",
+                        "Britain and India",
+                        "Britain and France"
+                    ],
+                    "correctAnswer": "Britain and France"
+                },
+                {
+                    "question": "What is the world’s oldest recorded civilization?",
+                    "options": [
+                        "Ancient Egyptians",
+                        "Mesopotamians",
+                        "Ancient Greece",
+                        "Romans"
+                    ],
+                    "correctAnswer": "Mesopotamians"
+                },
+                {
+                    "question": "lWho is often considered the father of Western philosophy?ol",
+                    "options": [
+                        "Confucious",
+                        "Plato",
+                        "Socrates",
+                        "Aristotle"
+                    ],
+                    "correctAnswer": "Socrates"
+                },
+                {
+                    "question": "What is the name of the largest barrier reef system?",
+                    "options": [
+                        "Florida reef",
+                        "The great barrier reef",
+                        "Red Sea coral reef",
+                        "New Caledonia barrier reef"
+                    ],
+                    "correctAnswer": "The great barrier reef"
+                },
+                {
+                    "question": "What city was once called Constantinople?",
+                    "options": [
+                        "Budapest",
+                        "Istanbul",
+                        "Prague",
+                        "Bucharest"
+                    ],
+                    "correctAnswer": "Istanbul"
+                },
+                {
+                    "question": "How many bodies of water make up the Great Lakes?",
+                    "options": [
+                        "4",
+                        "5",
+                        "3",
+                        "6"
+                    ],
+                    "correctAnswer": "5"
+                },
+                {
+                    "question": "What country is known as the ‘Land of a Thousand Lakes’?",
+                    "options": [
+                        "Canada",
+                        "Brazil",
+                        "Finland",
+                        "Sweden"
+                    ],
+                    "correctAnswer": "Finland"
+                },
+                {
+                    "question": "What is the most populated African Country?",
+                    "options": [
+                        "Morocco",
+                        "South Africa",
+                        "Kenya",
+                        "Nigeria"
+                    ],
+                    "correctAnswer": "Nigeria"
+                },
+                {
+                    "question": "What country has the most pyramids?",
+                    "options": [
+                        "Sudan",
+                        "Egypt",
+                        "Peru",
+                        "Mexico"
+                    ],
+                    "correctAnswer": "Sudan"
+                },
+                {
+                    "question": "What is the capital of Portugal?",
+                    "options": [
+                        "Braga",
+                        "Lisbon",
+                        "Madrid",
+                        "Barcelona"
+                    ],
+                    "correctAnswer": "Lisbon"
+                }
+            ]
+        },
+        "science": {
+            "level1": [
+                {
+                    "question": "Which planet was downgraded to a dwarf?",
+                    "options": [
+                        "Ceres",
+                        "Pluto",
+                        "The moon",
+                        "Mercury"
+                    ],
+                    "correctAnswer": "Pluto"
+                },
+                {
+                    "question": "What is the force that keeps us on the ground?",
+                    "options": [
+                        "Magnetic",
+                        "Centrifugal",
+                        "Buoyancy",
+                        "Gravity"
+                    ],
+                    "correctAnswer": "Gravity"
+                },
+                {
+                    "question": "What gas do humans breathe in?",
+                    "options": [
+                        "Oxygen",
+                        "Carbon Dioxide",
+                        "Hydrogen",
+                        "Carbon Monoxide"
+                    ],
+                    "correctAnswer": "Oxygen"
+                },
+                {
+                    "question": "What gas do humans breathe out and plants breathe in?",
+                    "options": [
+                        "Carbon Dioxide",
+                        "Oxygen",
+                        "Carbon Monoxide",
+                        "Hydrogen"
+                    ],
+                    "correctAnswer": "Carbon Dioxide"
+                },
+                {
+                    "question": "What planet comes after Earth",
+                    "options": [
+                        "Jupiter",
+                        "Saturn",
+                        "Mars",
+                        "Venus"
+                    ],
+                    "correctAnswer": "Mars"
+                },
+                {
+                    "question": "What is at the center of our solar system?",
+                    "options": [
+                        "The sun",
+                        "Black Hole",
+                        "Earth",
+                        "The moon"
+                    ],
+                    "correctAnswer": "The sun"
+                },
+                {
+                    "question": "What is the chemical formula of water?",
+                    "options": [
+                        "H2O",
+                        "HO2",
+                        "OCH",
+                        "O2H"
+                    ],
+                    "correctAnswer": "H2O"
+                },
+                {
+                    "question": "How many planets are in the solar system?",
+                    "options": [
+                        "7",
+                        "8",
+                        "9",
+                        "10"
+                    ],
+                    "correctAnswer": "8"
+                },
+                {
+                    "question": "What is the boiling temperature of water in degrees celsius?",
+                    "options": [
+                        "70",
+                        "100",
+                        "150",
+                        "200"
+                    ],
+                    "correctAnswer": "100"
+                },
+                {
+                    "question": "What is the term for animals that eat both plants and meat?",
+                    "options": [
+                        "Herbivore",
+                        "Omnivores",
+                        "Carnivore",
+                        "Vegetarian"
+                    ],
+                    "correctAnswer": "Omnivores"
+                },
+                {
+                    "question": "What is the hardest natural substance on Earth?",
+                    "options": [
+                        "Diamond",
+                        "Uranium",
+                        "Elephant tusk",
+                        "Bedrock"
+                    ],
+                    "correctAnswer": "Diamond"
+                },
+                {
+                    "question": "What is the process that plants make their food called?",
+                    "options": [
+                        "Transpiration",
+                        "Photosynthesis",
+                        "Respiration",
+                        "Hydrolysis"
+                    ],
+                    "correctAnswer": "Photosynthesis"
+                },
+                {
+                    "question": "What are the 3 states of matter?",
+                    "options": [
+                        "Frozen, Liquid, Gas",
+                        "Hard, Soft, Gas",
+                        "Solid, Liquid, Slush",
+                        "Solid, Liquid, Gas"
+                    ],
+                    "correctAnswer": "Solid, Liquid, Gas"
+                },
+                {
+                    "question": "What type of animal is a frog?",
+                    "options": [
+                        "Reptile",
+                        "Amphibian",
+                        "Fish",
+                        "Mammal"
+                    ],
+                    "correctAnswer": "Amphibian"
+                },
+                {
+                    "question": "What is the term for a species that no longer exists?",
+                    "options": [
+                        "Dead",
+                        "Extinct",
+                        "Non-existent",
+                        "Exterminated"
+                    ],
+                    "correctAnswer": "Extinct"
+                },
+                {
+                    "question": "What is the largest known land animal?",
+                    "options": [
+                        "Elephant",
+                        "Giraffe",
+                        "Whale",
+                        "Horse"
+                    ],
+                    "correctAnswer": "Elephant"
+                },
+                {
+                    "question": "What is the innermost layer of the earth called?",
+                    "options": [
+                        "Core",
+                        "Center",
+                        "Surface",
+                        "Mantle"
+                    ],
+                    "correctAnswer": "Core"
+                },
+                {
+                    "question": "What is the quality of an object that allows it to float?",
+                    "options": [
+                        "Floatability",
+                        "Low Gravity",
+                        "Light",
+                        "Buoyancy"
+                    ],
+                    "correctAnswer": "Buoyancy"
+                },
+                {
+                    "question": "What is the powerhouse of the cell?",
+                    "options": [
+                        "Ribosome",
+                        "Endoplasmic Reticulum",
+                        "Nucleus",
+                        "Mitocondria"
+                    ],
+                    "correctAnswer": "Mitocondria"
+                },
+                {
+                    "question": "What is the heaviest organ in the body?",
+                    "options": [
+                        "Liver",
+                        "Large intestine",
+                        "Heart",
+                        "Brain"
+                    ],
+                    "correctAnswer": "Liver"
+                }
+            ],
+            "level2": [
+                {
+                    "question": "What was the type of animal to first be cloned?",
+                    "options": [
+                        "Sheep",
+                        "Rat",
+                        "Goose",
+                        "Crow"
+                    ],
+                    "correctAnswer": "Sheep"
+                },
+                {
+                    "question": "Who invented the lightbulb?",
+                    "options": [
+                        "Nikola Tesla",
+                        "James Watts",
+                        "Alexander Graham Bell",
+                        "Thomas Edison"
+                    ],
+                    "correctAnswer": "Thomas Edison"
+                },
+                {
+                    "question": "What planet is closest to the sun?",
+                    "options": [
+                        "Venus",
+                        "Mars",
+                        "Mercury",
+                        "Jupiter"
+                    ],
+                    "correctAnswer": "Mercury"
+                },
+                {
+                    "question": "What element does ‘CU’ represent?",
+                    "options": [
+                        "Carbon",
+                        "Chlorine",
+                        "Copper",
+                        "Doesn’t represent an element"
+                    ],
+                    "correctAnswer": "Copper"
+                },
+                {
+                    "question": "What are the particles that orbit around the nucleus of an atom?",
+                    "options": [
+                        "Neutrons",
+                        "Quarks",
+                        "Protons",
+                        "Electrons"
+                    ],
+                    "correctAnswer": "Electrons"
+                },
+                {
+                    "question": "What is the largest organ on the body",
+                    "options": [
+                        "The liver",
+                        "The skin",
+                        "The large intestine",
+                        "The lungs"
+                    ],
+                    "correctAnswer": "The skin"
+                },
+                {
+                    "question": "Who proposed the theory of relativity?",
+                    "options": [
+                        "Stephen Hawking",
+                        "Galileo Galilei",
+                        "Albert Einstein",
+                        "Robert Oppenheimer"
+                    ],
+                    "correctAnswer": "Albert Einstein"
+                },
+                {
+                    "question": "What is optics the study of?",
+                    "options": [
+                        "Light",
+                        "Eyes",
+                        "Colours",
+                        "Vision"
+                    ],
+                    "correctAnswer": "Light"
+                },
+                {
+                    "question": "Where is the fibula located?",
+                    "options": [
+                        "Calf",
+                        "Thigh",
+                        "Upper chest",
+                        "Foot"
+                    ],
+                    "correctAnswer": "Calf"
+                },
+                {
+                    "question": "What planet has the most gravity?",
+                    "options": [
+                        "Jupiter",
+                        "Uranus",
+                        "Earth",
+                        "Venus"
+                    ],
+                    "correctAnswer": "Jupiter"
+                },
+                {
+                    "question": "What does the E represent in E=MC^2",
+                    "options": [
+                        "Electrons",
+                        "Entropy",
+                        "Energy",
+                        "Electricity"
+                    ],
+                    "correctAnswer": "Energy"
+                },
+                {
+                    "question": "What is the red pigment found in blood functioning in oxygen transportation?",
+                    "options": [
+                        "Melanin",
+                        "Myoglobin",
+                        "Carotene",
+                        "Hemoglobin"
+                    ],
+                    "correctAnswer": "Hemoglobin"
+                },
+                {
+                    "question": "How do you calculate density?",
+                    "options": [
+                        "Length/Width",
+                        "Width/Length",
+                        "Mass/Volume",
+                        "Volume/Mass"
+                    ],
+                    "correctAnswer": "Mass/Volume"
+                },
+                {
+                    "question": "What is the sun mostly made of?",
+                    "options": [
+                        "Hydrogen",
+                        "Oxygen",
+                        "Iron",
+                        "Helium"
+                    ],
+                    "correctAnswer": "Hydrogen"
+                },
+
+                {
+                    "question": "What is the main structural molecule in hair and nails?",
+                    "options": [
+                        "Cartilage",
+                        "Collagen",
+                        "Keratin",
+                        "Carotene"
+                    ],
+                    "correctAnswer": "Keratin"
+                },
+                {
+                    "question": "What galaxy is closest in light years to ours, the Milky Way?",
+                    "options": [
+                        "Sagittarius",
+                        "Triangulum",
+                        "Canis",
+                        "Andromeda"
+                    ],
+                    "correctAnswer": "Andromeda"
+                },
+                {
+                    "question": "How do you tell how old a tree is?",
+                    "options": [
+                        "How big it is",
+                        "Its rings",
+                        "The number of ridges its bark has",
+                        "How tall it is"
+                    ],
+                    "correctAnswer": "Its rings"
+                },
+                {
+                    "question": "What does the gallbladder secrete?",
+                    "options": [
+                        "Saliva",
+                        "Feces",
+                        "Enzymes",
+                        "Bile"
+                    ],
+                    "correctAnswer": "Bile"
+                },
+                {
+                    "question": "What is made by white blood cells to fight off infection?",
+                    "options": [
+                        "Antibodies",
+                        "Hormones",
+                        "Enzymes",
+                        "Antibiotics"
+                    ],
+                    "correctAnswer": "Antibodies"
+                },
+                {
+                    "question": "How many chambers are in the human heart?",
+                    "options": [
+                        "2",
+                        "3",
+                        "4",
+                        "5"
+                    ],
+                    "correctAnswer": "4"
+                }
+            ],
+            "level3": [
+                {
+                    "question": "What law states that for every action, there is an equal and opposite reaction?",
+                    "options": [
+                        "Newtons 3rd law of motion",
+                        "Law of universal gravitation",
+                        "Newtons 1st law of motion",
+                        "Law of conservation of energy"
+                    ],
+                    "correctAnswer": "Newtons 3rd law of motion"
+                },
+                {
+                    "question": "What phenomenon explains the bending of light around obstacles or openings?",
+                    "options": [
+                        "Diffraction",
+                        "Refraction",
+                        "Reflection",
+                        "Polarization"
+                    ],
+                    "correctAnswer": "Diffraction"
+                },
+                {
+                    "question": "What chemical element has the highest reactivity?",
+                    "options": [
+                        "Copper",
+                        "Uranium",
+                        "Platinum",
+                        "Silver"
+                    ],
+                    "correctAnswer": "Silver"
+                },
+                {
+                    "question": "How many elements are on the periodic table?",
+                    "options": [
+                        "120",
+                        "112",
+                        "118",
+                        "94"
+                    ],
+                    "correctAnswer": "118"
+                },
+                {
+                    "question": "What is the rarest blood type?",
+                    "options": [
+                        "AB-",
+                        "O+",
+                        "B+",
+                        "A-"
+                    ],
+                    "correctAnswer": "AB-"
+                },
+                {
+                    "question": "What disease stems from the medieval word that means ‘bad air’?",
+                    "options": [
+                        "The Flu",
+                        "Tuberculosis",
+                        "Cholera",
+                        "Malaria"
+                    ],
+                    "correctAnswer": "Malaria"
+                },
+                {
+                    "question": "What part of the brain deals with hearing and language?",
+                    "options": [
+                        "Temporal Lobe",
+                        "Prefrontal Cortex",
+                        "Occipital Lobe",
+                        "Cerebellum"
+                    ],
+                    "correctAnswer": "Temporal Lobe"
+                },
+
+                {
+                    "question": "What element is liquid at room temperature?",
+                    "options": [
+                        "Hydrogen",
+                        "Bromine",
+                        "Helium",
+                        "Oxygen"
+                    ],
+                    "correctAnswer": "Bromine"
+                },
+                {
+                    "question": "What is a Geiger counter used to measure?",
+                    "options": [
+                        "pH level",
+                        "Blood pressure",
+                        "Radiation",
+                        "Temperature"
+                    ],
+                    "correctAnswer": "Radiation"
+                },
+                {
+                    "question": "According to astronauts, what does the moon smell like?",
+                    "options": [
+                        "Burnt gunpowder",
+                        "Rotten Eggs",
+                        "Flowers",
+                        "Cheese"
+                    ],
+                    "correctAnswer": "Burnt gunpowder"
+                },
+                {
+                    "question": "Around 95% of animal species are what?",
+                    "options": [
+                        "Invertebrates",
+                        "Mammal",
+                        "Fish",
+                        "Vegan"
+                    ],
+                    "correctAnswer": "Invertebrates"
+                },
+                {
+                    "question": "What is the flap on your windpipe that keeps out food particles?",
+                    "options": [
+                        "Epiglottis",
+                        "Trachea",
+                        "Pharynx",
+                        "Esophagus"
+                    ],
+                    "correctAnswer": "Epiglottis"
+                },
+                {
+                    "question": "What are the gaps between nerve cells called?",
+                    "options": [
+                        "Synapses",
+                        "Dendrites",
+                        "Myelin Sheaths",
+                        "Axons"
+                    ],
+                    "correctAnswer": "Synapses"
+                },
+                {
+                    "question": "What was the first planet discovered with a telescope?",
+                    "options": [
+                        "Uranus",
+                        "Mars",
+                        "Jupiter",
+                        "Venus"
+                    ],
+                    "correctAnswer": "Uranus"
+                },
+                {
+                    "question": "What is the first phase of mitosis?",
+                    "options": [
+                        "Metaphase",
+                        "Interphase",
+                        "Anaphase",
+                        "Prophase"
+                    ],
+                    "correctAnswer": "Prophase"
+                },
+                {
+                    "question": "What is a unit of electromotive force called?",
+                    "options": [
+                        "Volt",
+                        "Charge",
+                        "Newtons",
+                        "Hertz"
+                    ],
+                    "correctAnswer": "Volt"
+                },
+                {
+                    "question": "At what temperature are Celcius and Farenheit equal?",
+                    "options": [
+                        "-40",
+                        "-90",
+                        "110",
+                        "150"
+                    ],
+                    "correctAnswer": "-40"
+                },
+                {
+                    "question": "How many bones are in a Giraffe’s neck?",
+                    "options": [
+                        "0",
+                        "4",
+                        "7",
+                        "11"
+                    ],
+                    "correctAnswer": "7"
+                },
+                {
+                    "question": "What does DNA stand for?",
+                    "options": [
+                        "Double Ribonucleic Acid",
+                        "Deoxyribonucleic Acid",
+                        "Dynamic Neural Algorithm",
+                        "Dense Nucleic Array"
+                    ],
+                    "correctAnswer": "Deoxyribonucleic Acid"
+                },
+                {
+                    "question": "What is the most abundant element on Earth?",
+                    "options": [
+                        "Oxygen",
+                        "Water",
+                        "Carbon Dioxide",
+                        "Hydrogen"
+                    ],
+                    "correctAnswer": "Hydrogen"
+                }
+            ]
+        }
+    }
 }

@@ -4,6 +4,7 @@ from Player import Player
 from Instructor import Instructor
 from unittest.mock import patch, MagicMock
 from game import Game
+from UserAccount import UserAccount
 
 
 q = Question(1, "Hello", [1,2,3,4], 4, 69, False, "Math")
@@ -23,6 +24,11 @@ class TestInstructorClass(unittest.TestCase):
 
     def testGetPlayerStats(self):
         print(instructor.getPlayerStats("natetyu"))
+
+    def testGetPlayerException(self):
+        with self.assertRaises(Exception):
+            instructor.getPlayerStats("random")
+
 
 #test cases for Game class
 class TestGame(unittest.TestCase):
@@ -60,6 +66,17 @@ class TestGame(unittest.TestCase):
             game.currentLevel = 1
             game.nextLevel()
             self.assertEqual(game.currentLevel, 2)
+
+
+class TestUserAccount(unittest.TestCase):
+    
+    def test_createAccount(self):
+        account = UserAccount("michaelkim", 12345)
+        self.assertRaises(Exception)
+        account.createAccount("michaelKim")
+
+    
+
 
 
 if __name__ == '__main__':
