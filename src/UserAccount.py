@@ -10,7 +10,7 @@ class UserAccount:
         with open("playerBank.json", "r") as file:
             data = json.load(file)
             if self.ID in data:
-                if self.password in data[self.ID]:
+                if self.password == data[self.ID]["password"]:
                     return True
         return False
     
@@ -36,7 +36,9 @@ class UserAccount:
 
 user = UserAccount("michaElKim", 12345)
 user2 = UserAccount("harJapG", 54321)
-user.createAccount()
+
+print(user.validateLogin())
+
 
 
     
