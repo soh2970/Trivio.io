@@ -122,10 +122,6 @@ while True:
     screen.blit(instruct_mode, (width/2-348, height/2-260))
 
 
-
-
-
-    
     # updates the frames of the game 
     pygame.display.update() 
 
