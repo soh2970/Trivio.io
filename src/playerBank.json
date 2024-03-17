@@ -31,5 +31,10 @@
         "password": 12345,
         "gameHistory": [],
         "currentSavedGame": {}
+    },
+    "kachlan": {
+        "password": 22222,
+        "gameHistory": [],
+        "currentSavedGame": {}
     }
 }

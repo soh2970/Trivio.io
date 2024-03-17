@@ -4,13 +4,6 @@ import json
 import random
 
 class Level:
-
-    # private varaibles for the levels number,hp threasholds, and questions
-    levelNum
-    playerHPThreshold
-    bossHPThreshold
-    questionsInLevel
-    usedQuestions
     
     # Constructor to create a level
     # @param lvlNum, the level number
