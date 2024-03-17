@@ -75,9 +75,6 @@ while True:
                 print (pass_text)
                 sys.exit() 
             
-
-
-            
             
         if ev.type == pygame.KEYDOWN:
             #username
