@@ -2,8 +2,9 @@ import random
 import json
 from Player import Player
 from question2 import Question
-from CreatePlayer import *
 import datetime
+from Boss import Boss
+from MainMenu import MainMenu
 
 class Game:
     def __init__(self):
@@ -13,6 +14,7 @@ class Game:
         self.currentCategory = None
         self.currentQuestions = []
         self.gameState = "NotStarted"
+        self.boss = Boss()  # Initialize boss object
 
     def load_test_bank(self):
         with open('testbank.json', 'r') as file:
@@ -61,13 +63,20 @@ class Game:
             self.player.moveToNextLevel(self.currentLevel)
             self.selectCategory(self.currentCategory)
         else:
-            self.gameState = "Completed"
+            self.gameState = "BossFight"
+
+    def bossFight(self):
+        if not self.boss.isBossDefeated():
+            self.player.losePlayerHP()  # Simulate player losing HP in boss fight
+            self.boss.loseBossHP(self.currentLevel)  # Boss loses HP based on current level
+            if self.player.isPlayerDefeated() or self.boss.isBossDefeated():
+                self.endGame()
 
     def endGame(self):
         self.gameState = "Completed"
         self.saveGame()
 
-    def save_game(self):
+    def saveGame(self):
         game_state = {
             'timeStamp': datetime.now().strftime("%Y-%m-%d %H:%M:%S"),
             'levelAchieved': self.player.currentLevel,
