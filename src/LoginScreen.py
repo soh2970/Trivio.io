@@ -96,7 +96,7 @@ while True:
                     else:
                         pass_text += ev.unicode
             
-        
+
     
         
     # fills the screen with a color: white 
