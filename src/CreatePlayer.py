@@ -2,7 +2,7 @@ import json
 
 def update_player_bank(self, game_state):
         # Load the current player bank
-        with open('playerBank.json', 'r+') as file:
+        with open('playerBank.json', 'w') as file:
             player_bank = json.load(file)
             player_id = self.player.playerId
 
@@ -22,3 +22,6 @@ def update_player_bank(self, game_state):
             file.seek(0)  # Go to the beginning of the file
             json.dump(player_bank, file, indent=4)
             file.truncate()  # Remove any excess data from the file
+
+#update currentSavedGame (overrides)
+#update gameHistory (append)
