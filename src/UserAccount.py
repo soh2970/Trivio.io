@@ -36,6 +36,8 @@ class UserAccount:
 
 user = UserAccount("michaElKim", 12345)
 user2 = UserAccount("harJapG", 54321)
+user3 = UserAccount("kachlan", 22222)
+user3.createAccount()
 
 print(user.validateLogin())
 
