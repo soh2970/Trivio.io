@@ -1,5 +1,6 @@
 import pygame
 import sys
+from Game import Game
 
 class MainMenu:
     def __init__(self):
@@ -47,7 +48,8 @@ class MainMenu:
     def handle_selection(self):
         if self.selected_item == 0:
             print("Start New Game selected")
-            # Implement the logic to start a new game
+            game = Game()
+            game.startGame()
         elif self.selected_item == 1:
             print("Load Game selected")
             # Implement the logic to load a saved game

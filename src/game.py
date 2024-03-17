@@ -84,7 +84,7 @@ class Game:
             'score': self.calculateScore()  # Update to use calculateScore method
         }
         
-        with open('Player_Bank.json', 'r+') as file:
+        with open('playerBank.json', 'r+') as file:
             player_bank = json.load(file)
             player_id = self.player.playerId
 
