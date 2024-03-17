@@ -93,7 +93,7 @@ while True:
                     else:
                         pass_text += ev.unicode
             
-        
+
     
         
     # fills the screen with a color: white 
@@ -132,9 +132,5 @@ while True:
     screen.blit(instruct_mode, (width/2-348, height/2-260))
 
 
-
-
-
-    
     # updates the frames of the game 
     pygame.display.update() 
