@@ -1,12 +1,10 @@
 import json
 
 class Instructor: 
+    
     password = "1234567890"
 
     def __init__(self):
-        pass
-
-    def searchPlayerName(name):
         pass
 
     """
@@ -19,3 +17,5 @@ class Instructor:
                 return data[player]["gameHistory"]
             else: 
                 raise Exception("Player not found")
+
+    
