@@ -53,6 +53,8 @@ ok = smallerfont.render('OK' , True , color)
 debug_mode = mode_font.render('Debugger mode' , True , color) 
 instruct_mode = mode_font.render('Instructor mode' , True , color) 
 
+pass_text=''
+user_text=''
 
 #exit click
 while True: 
@@ -68,6 +70,13 @@ while True:
             # x button the game is terminated 
             if width/2-405 <= mouse[0] <= width/2-385 and height/2-293 <= mouse[1] <= height/2-263: 
                 pygame.quit() 
+            if width/2+100 <= mouse[0] <= width/2+145 and height/2+50 <= mouse[1] <= height/2+80: 
+                print (user_text)
+                print (pass_text)
+                sys.exit() 
+            
+
+
             
             
         if ev.type == pygame.KEYDOWN:
@@ -86,6 +95,9 @@ while True:
                         pass_text = pass_text[:-1]
                     else:
                         pass_text += ev.unicode
+            
+        
+    
         
     # fills the screen with a color: white 
     screen.fill((255,255,255)) 
@@ -100,6 +112,7 @@ while True:
     password_surface = base_font.render(pass_text, True, (0, 0, 0))
     screen.blit(password_surface, (password_rect.x+5, password_rect.y+5))
     
+
     # stores the (x,y) coordinates into 
     # the variable as a tuple 
     mouse = pygame.mouse.get_pos() 
@@ -124,5 +137,3 @@ while True:
 
     # updates the frames of the game 
     pygame.display.update() 
-
-    
