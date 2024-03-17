@@ -21,8 +21,6 @@ Working on player class (Player.py)
 
 
 Mar 13. 2024,
-
-  Working on finalizing game & tutorial & mainmenu classes (Game.py & Tutorial.py & MainMenu.py) - Michael
   Working on boss & level classes (Boss.py & Level.py) - Harjab
   Working on UserAccount, instructor and debugger - Nathan
 
@@ -52,8 +50,12 @@ player's HP remaining by far.
 
       I think we should make the scoring system based on the weight of the questions that were gotten
       right, multiplied by some factor of the remaining HP. LMK what you guys think.
+<<<<<<< HEAD
+      
+=======
       
       
 Mar 14. 2024,
 	Finished game class & working on assisting level & boss classes to implement mainmenu class & others - Michael
     
+>>>>>>> a636ebbe7ca0c8209d2ff4fe35d2612579418896

@@ -34,5 +34,3 @@ class Player:
         if (level <= 3 and level > 0):
             self.currentLevel = level
         else: raise Exception("Level not in range from 1-3")
-
-
