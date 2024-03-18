@@ -4,7 +4,6 @@ from Player import Player
 from question2 import Question
 import datetime
 from Boss import Boss
-from MainMenu import MainMenu
 
 class Game:
     def __init__(self):
