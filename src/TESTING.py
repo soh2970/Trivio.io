@@ -1,7 +1,7 @@
 import unittest
 from question2 import Question
 from Player import Player
-from Instructor import Instructor
+from InstructorDashboardScreen import Instructor
 from unittest.mock import patch, MagicMock
 from game import Game
 from UserAccount import UserAccount
