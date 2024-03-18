@@ -14,7 +14,7 @@ class Question:
     
 
 
-q = Question(1, "Hello", [1,2,3,4], 4, 69, False, "Math")
+q = Question(1, "Hello", ["1","2","3","4"], "4", 69, False, "Math")
 
 
 
