@@ -1,8 +1,8 @@
 import pygame
 import sys
 from question2 import Question
-import Boss
-import Player
+from Boss import Boss
+from Player import Player
 
 # Initialize Pygame
 pygame.init()
@@ -18,10 +18,40 @@ WHITE = (255, 255, 255)
 GREEN = (0, 255, 0)
 RED = (255, 0, 0)
 
-# Load the image
-image_path = 'images/level1MathApple.png'  # Replace with your image file's path
-image = pygame.image.load(image_path)
-imageResized = pygame.transform.scale(image, (80,80))
+# Load the boss level1 image
+boss1_image_path = 'images/level1MathApple.png'
+boss1_image = pygame.image.load(boss1_image_path)
+boss1_imageResized = pygame.transform.scale(boss1_image, (80,80))
+
+# Load the boss level2 image
+boss2_image_path = 'images/level2MathApple.png'
+boss2_image = pygame.image.load(boss2_image_path)
+boss2_imageResized = pygame.transform.scale(boss2_image, (80,80))
+
+#load the boss level3 image
+boss3_image_path = 'images/level3MathApple.png'
+boss3_image = pygame.image.load(boss3_image_path)
+boss3_imageResized = pygame.transform.scale(boss3_image, (80,80))
+
+#load the player level1 image
+player1_image_path = 'images/userLevel1.png'
+player1_image = pygame.image.load(player1_image_path)
+player1_imageResized = pygame.transform.scale(player1_image, (80,80))
+
+#load the player level2 image
+player2_image_path = 'images/userLevel2.png'
+player2_image = pygame.image.load(player2_image_path)
+player2_imageResized = pygame.transform.scale(player2_image, (80,80))
+
+#load the player level3 image
+player3_image_path = 'images/userLevel3.png'
+player3_image = pygame.image.load(player3_image_path)
+player3_imageResized = pygame.transform.scale(player3_image, (80,80))
+
+#load the player lose image
+playerLose_image_path = 'images/userLose.jpeg'
+playerLose_image = pygame.image.load(playerLose_image_path)
+playerLose_imageResized = pygame.transform.scale(playerLose_image, (80,80))
 
 
 # Font setup
@@ -38,7 +68,22 @@ def draw_text(text, font, color, surface, x, y):
 Set up Boss and Player
 """
 boss = Boss()
+boss.loseBossHP(3)
+boss.loseBossHP(3)
+boss.loseBossHP(3)
 player = Player("natetyu", 100, 0, 1)
+player.moveToNextLevel(3)
+player.losePlayerHP()
+player.losePlayerHP()
+player.losePlayerHP()
+player.losePlayerHP()
+player.losePlayerHP()
+player.losePlayerHP()
+player.losePlayerHP()
+player.losePlayerHP()
+player.losePlayerHP()
+player.losePlayerHP()
+
 
 
 """
@@ -78,9 +123,27 @@ while running:
             running = False
 
     """
-    Render image
+    Check what level hp boss is and render image accordingly
     """
-    screen.blit(imageResized, (150, 250))
+    if (boss.bossHp <= 100 and boss.bossHp >= 80):
+        screen.blit(boss1_imageResized, (200, 200))
+    elif (boss.bossHp <= 79 and boss.bossHp >= 50):
+        screen.blit(boss2_imageResized, (200, 200))
+    elif (boss.bossHp <= 50 and boss.bossHp > 0):
+        screen.blit(boss3_imageResized, (200, 200))
+
+    """
+    Check what level hp player is and render image accordingly
+    """
+    if (player.playerHP <= 100 and player.playerHP >= 80):
+        screen.blit(player1_imageResized, (500, 200))
+    elif (player.playerHP <= 79 and player.playerHP >= 50):
+        screen.blit(player2_imageResized, (500, 200))
+    elif (player.playerHP <= 50 and player.playerHP > 0):
+        screen.blit(player3_imageResized, (500, 200))
+    elif (player.playerHP == 0):
+        screen.blit(playerLose_imageResized, (500, 200))
+
 
     """
     Check if length of string can fit in the window, if not then lower font size
