@@ -9,7 +9,7 @@ pygame.init()
 res = (844,600) 
 
 # opens up a window 
-screen = pygame.display.set_mode(res) 
+screen = pygame.display.set_mode(res, pygame.RESIZABLE) 
 
 # grey for esc button
 color_esc = (220,220,220) 

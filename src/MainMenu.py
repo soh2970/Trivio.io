@@ -1,6 +1,10 @@
 import pygame
 import sys
-from Game import Game
+<<<<<<< HEAD
+import Game
+=======
+from game import Game
+>>>>>>> 4254360b383e5fd58d01af851368421350b29b60
 
 class MainMenu:
     def __init__(self):
