@@ -3,10 +3,15 @@
 # The boss class
 class Boss:
 
+    bossHp = 100
     # private variables to hold the bosses' hp and the current level
     # constructor to make a new boss with starting hp as 100.
     def __init__(self):
+<<<<<<< HEAD
         self.bossHp = 100
+=======
+        pass
+>>>>>>> bf6cf44582b1178fbdb1c4ad2f476a16a9bbf3ad
         
     
     # Method to make the boss lose hp.
@@ -27,7 +32,11 @@ class Boss:
     # Method to check if the boss of the game has been defeated.
     # @return boolean, true if defeated and false if not.
     def isBossDefeated(self):
+<<<<<<< HEAD
         if( self.bossHp <= 0):
+=======
+        if ( self.bossHP <= 0):
+>>>>>>> bf6cf44582b1178fbdb1c4ad2f476a16a9bbf3ad
             return True
         
         else:
