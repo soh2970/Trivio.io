@@ -1,26 +1,25 @@
 import pygame
 import sys
-<<<<<<< HEAD
-import Game
-=======
-from game import Game
->>>>>>> 4254360b383e5fd58d01af851368421350b29b60
 
 class MainMenu:
-    def __init__(self):
+    def __init__(self, game_instance):
+        
         self.screen_width = 800
         self.screen_height = 600
         self.bg_color = (230, 230, 230)
-        self.font = pygame.font.Font('Corbel', 48)
+        self.font = pygame.font.SysFont('corbel', 48)
         self.menu_items = ["Start New Game", "Load Game", "Exit"]
         self.selected_item = 0
+        self.running = False  # Flag to control the main loop
+        self.game_instance = game_instance
 
         pygame.init()
         self.screen = pygame.display.set_mode((self.screen_width, self.screen_height))
         pygame.display.set_caption("Main Menu")
 
     def run(self):
-        while True:
+        self.running = True
+        while self.running:
             self.screen.fill(self.bg_color)
             self.draw_menu()
             self.check_events()
@@ -39,6 +38,7 @@ class MainMenu:
     def check_events(self):
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
+                self.running = False  # Exit the main loop
                 pygame.quit()
                 sys.exit()
             elif event.type == pygame.KEYDOWN:
@@ -52,16 +52,14 @@ class MainMenu:
     def handle_selection(self):
         if self.selected_item == 0:
             print("Start New Game selected")
-            game = Game()
-            game.startGame()
+            self.game_instance.startGame()
+            self.running = False
         elif self.selected_item == 1:
             print("Load Game selected")
             # Implement the logic to load a saved game
         elif self.selected_item == 2:
             print("Exit selected")
+            self.running = False  # Exit the main loop
             pygame.quit()
             sys.exit()
 
-if __name__ == "__main__":
-    main_menu = MainMenu()
-    main_menu.run()
