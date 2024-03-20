@@ -1,0 +1,17 @@
+-> current classes need to remove latex !
+-> added all UI screens 
+    not sure which of the current files are supposed to be UI or the component other than Login, Welcome, and New/Saved game
+-> All previous screens need to add resizability and elements should be coded relative to width and length variables
+    resizability cannot disable users from trying to resize, but will bounce back to min size set 
+    current min size is current frame (844,600)
+-> classes that will need image functionality:
+    game play
+    tutorial 1 and 2
+    game play answer reveal
+    debugger ? - version more similar to gameplay will require
+    correct answer
+    incorrect answer
+    lose game
+    win game
+making a pydoc
+-> ''' put comments in here '''

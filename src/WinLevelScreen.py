@@ -1,3 +1,7 @@
+'''
+Win level screen
+displays win and player stats
+'''
 import pygame
 import sys
 
@@ -22,13 +26,23 @@ pygame.display.set_caption('Trivio')
 # update game screen
 pygame.display.update()
 
+#font
+smallfont = pygame.font.SysFont('Corbel',60) 
+bigfont= pygame.font.SysFont('Corbel',72) 
 
+
+text1 = smallfont.render('Hello', True, (0, 255, 0))
+textRect1 = text1.get_rect()
+textRect1.center = (250, 250)
+# update game screen
+pygame.display.update()
 
 # boolean variable to check if the exit button has been clicked or not
 running = True
 # keep game running till running is true 
 while running: 
       
+    screen.blit(text1, textRect1)
     # check for event if user has pushed any event in queue 
     for event in pygame.event.get(): 
           
