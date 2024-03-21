@@ -1,8 +1,18 @@
+import sys
+import os
+
+# Get the absolute path to the src directory
+src_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), '../'))
+sys.path.append(src_dir)
+
 import pygame
 import sys
-from question2 import Question
 from Boss import Boss
 from Player import Player
+from question2 import Question
+
+
+
 
 # Initialize Pygame
 pygame.init()
