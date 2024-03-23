@@ -10,10 +10,10 @@ import sys
 from src.Boss import Boss
 from Player import Player
 from question2 import Question
-from src.UIs.Screen import Screen
+from src.UIs.screen import ScreenBase
 from src.UIs.GameScreenButtons import GameScreenButtons
 
-class GameScreen(Screen):
+class GameScreen(ScreenBase):
 
     def __init__(self, category, player, question):
         super().__init__()

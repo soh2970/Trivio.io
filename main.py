@@ -1,5 +1,5 @@
 import pygame
-from src.UIs.Screen import Screen
+from src.UIs.screen import ScreenBase
 from src.UIs.GameScreen2 import GameScreen
 from question2 import Question
 
@@ -18,8 +18,6 @@ def run_game():
         
         pygame.display.flip()
         
-        if current_screen.next != current_screen:
-            current_screen = current_screen.next
 
 if __name__ == "__main__":
     run_game()
