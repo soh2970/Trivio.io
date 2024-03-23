@@ -1,5 +1,5 @@
 """
-DO NOT EDIT. 
+
 Base Screen Class
 
 defines all the functions and constants that each UI class will need to implement
@@ -64,7 +64,8 @@ class ScreenBase:
     #updating game state
     def update(self):
         pass
-
+    
+    #we need this
     def run(self):
         while self.running:
             self.draw()

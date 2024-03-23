@@ -6,11 +6,11 @@ displays win and player stats
 from screen import ScreenBase
 import pygame
 
-"""
-Class WinLevelScreen
-inherits all methods from ScreenBase
-"""
 class WinLevelScreen(ScreenBase):
+    """
+    Class WinLevelScreen
+    inherits all methods from ScreenBase
+    """
 
     def __init__(self):
         super().__init__()
