@@ -19,11 +19,12 @@ class GameScreen(ScreenBase):
         super().__init__()
         self.boss = Boss()
         self.player = Player("natetyu", 100, 0, 1)
+        self.question = question
         self.buttons = [
-            GameScreenButtons(150, 400, 200, 50, "Choice 1", self.choiceMade),
-            GameScreenButtons(150, 500, 200, 50, "Choice 2", self.choiceMade),
-            GameScreenButtons(450, 400, 200, 50, "Choice 3", self.choiceMade),
-            GameScreenButtons(450, 500, 200, 50, "Choice 4", self.choiceMade),
+            GameScreenButtons(150, 400, 200, 50, question.choices[0], self.choiceMade),
+            GameScreenButtons(150, 500, 200, 50, question.choices[1], self.choiceMade),
+            GameScreenButtons(450, 400, 200, 50, question.choices[2], self.choiceMade),
+            GameScreenButtons(450, 500, 200, 50, question.choices[3], self.choiceMade),
         ]
 
 
@@ -54,17 +55,10 @@ class GameScreen(ScreenBase):
         
 
     def process_events(self):
+        super().handle_events()
         for event in pygame.event.get():
-            if event.type == pygame.QUIT:
-                pygame.quit()
-                sys.exit()
-            elif event.type == pygame.VIDEORESIZE:
-                # Update the screen size
-                self.screen_size = event.size
-                # Update the display surface
-                pygame.display.set_mode(self.screen_size, pygame.RESIZABLE)
-            elif event.type == pygame.MOUSEBUTTONDOWN:
-                print("mouse was clicked")
+            for button in self.buttons:
+                button.handle_event(event)
         
 
 

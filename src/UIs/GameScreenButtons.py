@@ -22,5 +22,4 @@ class GameScreenButtons:
     def handle_event(self, event):
         if event.type == pygame.MOUSEBUTTONDOWN:  # Mouse clicked
             if self.rect.collidepoint(event.pos):  # Check if click is within button rect
-                print("clicked")
                 self.callback()  # Trigger the button's action/callback
