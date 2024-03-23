@@ -1,30 +1,16 @@
-'''
-Win level screen
-displays win and player stats
-'''
 from screen import ScreenBase
 import pygame
 
-"""
-Class WinLevelScreen
-inherits all methods from ScreenBase
-"""
 class WinLevelScreen(ScreenBase):
-    '''
-    Initialize 
-    '''
+
     def __init__(self):
         super().__init__()
 
-    '''
-    Drawing all elements
-    '''
     def draw(self):
         super().draw()
         # get the current width and height of the screen
         width = self.screen.get_width()
         height = self.screen.get_height()
-        
         #text
         self.text1 = self.HEADING_FONT.render('LEVEL', True, self.BLACK)
         self.textRect1 = self.text1.get_rect(center = (width//2, height/12*5))
@@ -56,19 +42,14 @@ class WinLevelScreen(ScreenBase):
         self.screen.blit(self.next_level_text, self.next_level_rect)
         self.screen.blit(self.options_text, self.options_rect)
         self.screen.blit(self.save_text, self.save_rect)
-    '''
-    Handling events
-    '''
+
     def handle_events(self):
         # call parent class event handling
         super().handle_events()
-    '''
-    Run
-    '''
+    
     def run(self):
         super().run()
 
-#for testing, initialize instance and run
 if __name__ == '__main__':
     game_screen1 = WinLevelScreen()
     game_screen1.run()

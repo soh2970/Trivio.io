@@ -12,8 +12,8 @@ screen = pygame.display.set_mode(initial_size, pygame.RESIZABLE)
 MIN_WIDTH = 844
 MIN_HEIGHT = 600 
 # get width and height of screen
-width = screen.get_width
-height = screen.get_height
+width = screen.get_width()
+height = screen.get_height()
 # fills the screen with a color: white 
 white = (255,255,255)
 screen.fill(white)
@@ -22,7 +22,16 @@ pygame.display.set_caption('Trivio')
 # update game screen
 pygame.display.update()
 
+#font
+smallfont = pygame.font.SysFont('Corbel',20) 
+bigfont= pygame.font.SysFont('Corbel',140) 
 
+#text
+text1 = bigfont.render('WINNER', True, (0, 0, 0))
+textRect1 = text1.get_rect(center = (width//2, height/12*5))
+
+# update game screen  
+pygame.display.update()
 
 # boolean variable to check if the exit button has been clicked or not
 running = True
@@ -31,7 +40,8 @@ while running:
       
     # check for event if user has pushed any event in queue 
     for event in pygame.event.get(): 
-          
+        # display text
+        screen.blit(text1, textRect1)
         # user quits
         if event.type == pygame.QUIT: 
             running = False
