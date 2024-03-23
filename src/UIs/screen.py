@@ -1,10 +1,10 @@
-'''
+"""
 DO NOT EDIT. 
 Base Screen Class
 
 defines all the functions and constants that each UI class will need to implement
 
-'''
+"""
 import pygame
 import sys
 
@@ -71,11 +71,6 @@ class ScreenBase:
             self.handle_events()
             self.update()
         pygame.quit()
-
-
-if __name__ == '__main__':
-    game_screen = ScreenBase()
-    game_screen.run()
 
 
     
