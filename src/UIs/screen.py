@@ -9,6 +9,7 @@ import pygame
 import sys
 
 pygame.init()
+
 class ScreenBase:
     # CONSTANTS
     # base screen dimensions
@@ -63,7 +64,7 @@ class ScreenBase:
     #updating game state
     def update(self):
         pass
-    
+
     def run(self):
         while self.running:
             self.draw()
@@ -71,7 +72,5 @@ class ScreenBase:
             self.handle_events()
             self.update()
         pygame.quit()
-
-
     
 
