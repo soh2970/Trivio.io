@@ -1,141 +1,116 @@
-import pygame 
-import sys 
+from screen import ScreenBase
+import pygame
+import sys
 import os
 
 # Get the absolute path to the src directory
 src_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), '../'))
 sys.path.append(src_dir)
-
-
 # initializing the constructor 
 pygame.init() 
 
-# screen resolution 
-res = (844,600) 
+class LoginScreen(ScreenBase):
 
-# opens up a window 
-screen = pygame.display.set_mode(res, pygame.RESIZABLE) 
+    def __init__(self):
+        super().__init__()
+        self.user_text=''
+        self.pass_text=''
 
-# grey for esc button
-color_esc = (220,220,220) 
+    def draw(self):
+        super().draw()
+        # get the current width and height of the screen
+        self.width = self.screen.get_width()
+        self.height = self.screen.get_height()
 
-# black color of text
-color = (0,0,0) 
-base_font= pygame.font.Font(None, 32)
-user_text=' '
-pass_text=' '
+        #rectangle
+        username_rect= pygame.Rect(400, 250, 200, 32)
+        password_rect= pygame.Rect(400, 300, 200, 32)
 
-# light blue shade of the button 
-color_button = (159,197,248) 
+        username=self.SMALLER_FONT.render('Username:' , True , self.BLACK)
+        password=self.SMALLER_FONT.render('Password:' , True , self.BLACK)
+        login = self.MEDIUM_FONT.render('Log in to' , True , self.BLACK) 
+        started = self.MEDIUM_FONT.render('get STARTED' , True , self.BLACK) 
+        esc = self.PARAGRAPH_FONT.render('x' , True , self.BLACK) 
+        ok = self.SMALLER_FONT.render('OK' , True , self.BLACK) 
+        debug_mode = self.MODE_FONT.render('Debugger mode' , True , self.BLACK) 
+        instruct_mode = self.MODE_FONT.render('Instructor mode' , True , self.BLACK) 
 
-#rectangle
-username_rect= pygame.Rect(400, 250, 200, 32)
-password_rect= pygame.Rect(400, 300, 200, 32)
-
-
-# stores the width of the 
-# screen into a variable 
-width = screen.get_width() 
-
-# stores the height of the 
-# screen into a variable 
-height = screen.get_height() 
-
-# defining a font 
-mode_font= pygame.font.SysFont('Corbel',16) 
-smallerfont = pygame.font.SysFont('Corbel',32) 
-smallfont = pygame.font.SysFont('Corbel',60) 
-bigfont= pygame.font.SysFont('Corbel',72) 
-
-# rendering a text written in 
-# this font 
-username=smallfont.render('Username:' , True , color)
-password=smallfont.render('Password:' , True , color)
-login = bigfont.render('Log in to' , True , color) 
-started = bigfont.render('get STARTED' , True , color) 
-esc = smallfont.render('x' , True , color) 
-ok = smallerfont.render('OK' , True , color) 
-debug_mode = mode_font.render('Debugger mode' , True , color) 
-instruct_mode = mode_font.render('Instructor mode' , True , color) 
-
-pass_text=''
-user_text=''
-
-#exit click
-while True: 
-    for ev in pygame.event.get(): 
+        #draw rectangle for usernamse input
+        pygame.draw.rect(self.screen, self.GREY, username_rect)
+        username_surface = self.BASE_FONT.render(self.user_text, True, (0, 0, 0))
+        self.screen.blit(username_surface, (username_rect.x+5, username_rect.y+5))
         
-        if ev.type == pygame.QUIT: 
-            pygame.quit() 
-            
-        #checks if a mouse is clicked 
-        if ev.type == pygame.MOUSEBUTTONDOWN: 
-            
-            #if the mouse is clicked on the 
-            # x button the game is terminated 
-            if width/2-405 <= mouse[0] <= width/2-385 and height/2-293 <= mouse[1] <= height/2-263: 
-                pygame.quit() 
-            if width/2+100 <= mouse[0] <= width/2+145 and height/2+50 <= mouse[1] <= height/2+80: 
-                print (user_text)
-                print (pass_text)
-                sys.exit() 
-            
-            
-        if ev.type == pygame.KEYDOWN:
-            #username
-            if width/2-22 <= mouse[0] <= width/2+178 and height/2-50 <= mouse[1] <= height/2-18:
+        #draw rectangle for usernamse input
+        pygame.draw.rect(self.screen, self.GREY, password_rect)
+        password_surface = self.BASE_FONT.render(self.pass_text, True, (0, 0, 0))
+        self.screen.blit(password_surface, (password_rect.x+5, password_rect.y+5))
+
+        #button
+        pygame.draw.rect(self.screen,self.BLUE,[self.width/2+100,self.height/2+50,45,30]) 
+        pygame.draw.rect(self.screen,self.GREY,[self.width/2-405,self.height/2-293,30,30]) 
+        pygame.draw.rect(self.screen,self.GREY,[self.width/2-350,self.height/2-290,90,20]) 
+        pygame.draw.rect(self.screen,self.GREY,[self.width/2-350,self.height/2-265,90,20]) 
+
+
+        # superimposing the text onto our button 
+        self.screen.blit(login, (self.width/2-200,self.height/2-200))
+        self.screen.blit(started, (self.width/2-50,self.height/2-150))
+        self.screen.blit(esc , (self.width/2-400,self.height/2-300)) 
+        self.screen.blit(username, (150, 245))
+        self.screen.blit(password, (165, 290))
+        self.screen.blit(ok, (self.width/2+105, self.height/2+55))
+        self.screen.blit(debug_mode, (self.width/2-349, self.height/2-285))
+        self.screen.blit(instruct_mode, (self.width/2-348, self.height/2-260))
+
+
+
+
+    def handle_events(self):
+        # stores the (x,y) coordinates into the variable as a tuple
+        mouse = pygame.mouse.get_pos() 
+        for event in pygame.event.get():
+            if event.type == pygame.QUIT: 
+                self.running = False
+                pygame.quit()
+                sys.exit()
+            # user resizing screen
+            elif event.type == pygame.VIDEORESIZE:
+                super().resize_screen()
+
+            #checks if a mouse is clicked 
+            elif event.type == pygame.MOUSEBUTTONDOWN: 
+                #if the mouse is clicked on the x button the game is terminated 
+                if self.width/2-405 <= mouse[0] <= self.width/2-385 and self.height/2-293 <= mouse[1] <= self.height/2-263: 
+                    pygame.quit() 
+                if self.width/2+100 <= mouse[0] <= self.width/2+145 and self.height/2+50 <= mouse[1] <= self.height/2+80: 
+                    print (self.user_text)
+                    print (self.pass_text)
+                    sys.exit() 
+                    
+                    
+            elif event.type == pygame.KEYDOWN:
+                #username
+                if self.width/2-22 <= mouse[0] <= self.width/2+178 and self.height/2-50 <= mouse[1] <= self.height/2-18:
                     #check for backspace
-                    if ev.key == pygame.K_BACKSPACE:
+                    if event.key == pygame.K_BACKSPACE:
                         #get text input
-                        user_text = user_text[:-1]
+                        self.user_text = self.user_text[:-1]
                     else:
-                        user_text += ev.unicode
-            #password
-            if width/2-22 <= mouse[0] <= width/2+178 and height/2 <= mouse[1] <= height/2+32:
-                    if ev.key == pygame.K_BACKSPACE:
+                        self.user_text += event.unicode
+                #password
+                if self.width/2-22 <= mouse[0] <= self.width/2+178 and self.height/2 <= mouse[1] <= self.height/2+32:
+                    if event.key == pygame.K_BACKSPACE:
                         #get text input
-                        pass_text = pass_text[:-1]
+                        self.pass_text = self.pass_text[:-1]
                     else:
-                        pass_text += ev.unicode
-            
-
-    
-        
-    # fills the screen with a color: white 
-    screen.fill((255,255,255)) 
-    
-    #draw rectangle for usernamse input
-    pygame.draw.rect(screen, color_esc, username_rect)
-    username_surface = base_font.render(user_text, True, (0, 0, 0))
-    screen.blit(username_surface, (username_rect.x+5, username_rect.y+5))
-    
-    #draw rectangle for usernamse input
-    pygame.draw.rect(screen, color_esc, password_rect)
-    password_surface = base_font.render(pass_text, True, (0, 0, 0))
-    screen.blit(password_surface, (password_rect.x+5, password_rect.y+5))
-    
-
-    # stores the (x,y) coordinates into 
-    # the variable as a tuple 
-    mouse = pygame.mouse.get_pos() 
-    
-    #button
-    pygame.draw.rect(screen,color_button,[width/2+100,height/2+50,45,30]) 
-    pygame.draw.rect(screen,color_esc,[width/2-405,height/2-293,30,30]) 
-    pygame.draw.rect(screen,color_esc,[width/2-350,height/2-290,90,20]) 
-    pygame.draw.rect(screen,color_esc,[width/2-350,height/2-265,90,20]) 
+                        self.pass_text += event.unicode
 
 
-    # superimposing the text onto our button 
-    screen.blit(login, (width/2-200,height/2-200))
-    screen.blit(started, (width/2-50,height/2-150))
-    screen.blit(esc , (width/2-400,height/2-300)) 
-    screen.blit(username, (150, 245))
-    screen.blit(password, (165, 290))
-    screen.blit(ok, (width/2+105, height/2+55))
-    screen.blit(debug_mode, (width/2-349, height/2-285))
-    screen.blit(instruct_mode, (width/2-348, height/2-260))
 
+    def run(self):
+        super().run()
 
-    # updates the frames of the game 
-    pygame.display.update() 
+#initialize instance and run
+if __name__ == '__main__':
+    game_screen1 = LoginScreen()
+    game_screen1.run()
