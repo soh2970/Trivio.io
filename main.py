@@ -9,9 +9,9 @@ def run_game():
     screen = pygame.display.set_mode((844,600), pygame.RESIZABLE)
     clock = pygame.time.Clock()
 
-    level = Level(1, "math")
+    level = Level(3, "math")
     
-    current_screen = GameScreen('math', 'nate', level.getNextQuestion())
+    current_screen = GameScreen('math', 'nate', level.getNextQuestion(), level.levelNum)
     
     while True:
         

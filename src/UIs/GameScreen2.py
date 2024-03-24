@@ -15,44 +15,69 @@ from src.UIs.GameScreenButtons import GameScreenButtons
 
 class GameScreen(ScreenBase):
 
-    def __init__(self, category, player, question):
+    def __init__(self, category, player, question, level):
         super().__init__()
+        self.startTime = pygame.time.get_ticks()
         self.boss = Boss()
         self.player = Player("natetyu", 100, 0, 1)
+        self.level = level
         self.question = question
+        self.correctAnswer = question.correctAnswer
+        self.levelFont = pygame.font.SysFont('Corbel', 28)
+        self.hpFont = pygame.font.SysFont('Corbel', 30)
         if len(question.prompt) > 50:
             self.promptFont = pygame.font.SysFont('Corbel', 25)
         else: self.promptFont = pygame.font.SysFont('Corbel', 40)
         self.buttons = [
-            GameScreenButtons(150, 400, 200, 50, question.choices[0], lambda: self.choiceMade(question.choices[0])),
-            GameScreenButtons(150, 500, 200, 50, question.choices[1], lambda: self.choiceMade(question.choices[1])),
-            GameScreenButtons(450, 400, 200, 50, question.choices[2], lambda: self.choiceMade(question.choices[2])),
-            GameScreenButtons(450, 500, 200, 50, question.choices[3], lambda: self.choiceMade(question.choices[3])),
+            GameScreenButtons(150, 390, 280, 100, question.choices[0], lambda: self.choiceMade(question.choices[0])),
+            GameScreenButtons(150, 495, 280, 100, question.choices[1], lambda: self.choiceMade(question.choices[1])),
+            GameScreenButtons(435, 390, 280, 100, question.choices[2], lambda: self.choiceMade(question.choices[2])),
+            GameScreenButtons(435, 495, 280, 100, question.choices[3], lambda: self.choiceMade(question.choices[3])),
         ]
 
 
     def choiceMade(self, choice):
-        print(choice)
+        if (choice == self.correctAnswer):
+                self.boss.loseBossHP(self.level)
+                print(f'bossHP = {self.boss.bossHp}')
+        else: 
+            self.player.losePlayerHP(self.level)
+            print(f'playerHP = {self.player.playerHP}')
 
     def display(self, screen):
 
         screen.fill((255,255,255))
 
+        #display current question prompt
         self.draw_text(self.question.prompt, self.promptFont, (255,0,0), screen, 50, 100)
+
+        elapsed_time = (pygame.time.get_ticks() - self.startTime) // 1000  # Convert milliseconds to seconds
+        time_text = f'Time: {elapsed_time} seconds'
+        self.draw_text(time_text, self.promptFont, (255, 0, 0), screen, 400, 100)
 
         for button in self.buttons:
             button.draw(screen)
 
-        if (self.boss.bossHp <= 100 and self.boss.bossHp >= 80):
-            screen.blit(self.boss1_imageResized, (200, 200))
-        elif (self.boss.bossHp <= 79 and self.boss.bossHp >= 50):
-            screen.blit(self.boss2_imageResized, (200, 200))
-        elif (self.boss.bossHp <= 50 and self.boss.bossHp > 0):
-            screen.blit(self.boss3_imageResized, (200, 200))
+        #display current level
+        self.draw_text(f'Level: {str(self.level)}', self.levelFont, (255,0,0), screen, 380, 40)
+        
+        #display boss hp        
+        self.draw_text(f'Boss HP: {str(self.boss.bossHp)}', self.hpFont, (255,0,0), screen, 225, 320)
 
-        if (self.player.playerHP <= 100 and self.player.playerHP >= 80):
+        #display player hp
+        self.draw_text(f'Player HP: {str(self.player.playerHP)}', self.hpFont, (255,0,0), screen, 470, 320)
+
+        #display images based on boss and player hp  
+        if (self.boss.bossHp <= 100 and self.boss.bossHp > 80):
+            screen.blit(self.boss1_imageResized, (250, 200))
+        elif (self.boss.bossHp <= 80 and self.boss.bossHp > 50):
+            screen.blit(self.boss2_imageResized, (250, 200))
+        elif (self.boss.bossHp <= 50 and self.boss.bossHp > 0):
+            screen.blit(self.boss3_imageResized, (250, 200))
+
+        if (self.player.playerHP <= 100 and self.player.playerHP > 80):
             screen.blit(self.player1_imageResized, (500, 200))
-        elif (self.player.playerHP <= 79 and self.player.playerHP >= 50):
+        elif (self.player.playerHP <= 80 and self.player.playerHP > 50):
             screen.blit(self.player2_imageResized, (500, 200))
         elif (self.player.playerHP <= 50 and self.player.playerHP > 0):
             screen.blit(self.player3_imageResized, (500, 200))

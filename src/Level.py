@@ -69,5 +69,3 @@ class Level:
 
     
 
-level1 = Level(3, "science")
-print(level1.questionsInLevel)
