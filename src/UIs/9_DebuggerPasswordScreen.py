@@ -1,3 +1,26 @@
+"""
+    Debugger Password Screen
+    
+    A screen that prompts for a debugger password. It's a part of the game's security feature,
+    which allows access to debug functionalities after successful password authentication.
+
+    Attributes:
+        password_text (str): Text entered by the user in the password input field.
+        font (pygame.font.Font): Font used for rendering text on the screen.
+        active (bool): Status of the input field; 'True' if active, 'False' otherwise.
+        input_box (pygame.Rect): The rectangular area for the password input field.
+        input_box_color (pygame.Color): The color of the input box border.
+        ok_button (GameScreenButtons): The button object for submitting the password.
+        cancel_button (GameScreenButtons): The button object for cancelling and closing the screen.
+
+    Methods:
+        __init__: Initializes the DebuggerPasswordScreen with the required attributes.
+        check_password: Validates the entered password and prints the result to the console.
+        cancel: Handles the cancel action and stops the screen's run loop.
+        handle_events: Handles the input events for the input box and buttons.
+        draw: Renders the input box, buttons, and labels onto the screen.
+        run: Contains the main loop to keep the screen running and responsive to user actions.
+    """
 import sys
 import os
 import pygame
@@ -10,6 +33,7 @@ sys.path.append(src_dir)
 
 
 class DebuggerPasswordScreen(ScreenBase):
+
     def __init__(self):
         super().__init__()
         self.password_text = ''
@@ -24,17 +48,27 @@ class DebuggerPasswordScreen(ScreenBase):
         # We will draw the OK button differently to represent it as a radio button
 
     def check_password(self):
+        """
+        Checks if the entered password is correct, allowing access to debugger mode. 
+        Prints a message to the console indicating whether access is granted or denied.
+        """
         if self.password_text == 'debug':
             print("Password correct, entering debugger mode...")
         else:
             print("Debugger credential invalid.")
 
     def cancel(self):
+        """
+        Cancels the debugger access attempt and exits the password screen.
+        """
         print("Cancelled")
         self.running = False
 
     def handle_events(self):
-        # Handling events
+        """
+        Handles keyboard and mouse events for the password input and buttons. This includes
+        typing in the input box, clicking the 'OK' or 'Cancel' buttons, and exiting the screen.
+        """
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 pygame.quit()
@@ -55,6 +89,10 @@ class DebuggerPasswordScreen(ScreenBase):
                     self.password_text += event.unicode
 
     def draw(self):
+        """
+        Draws the UI elements onto the screen, including the input box, buttons, and label.
+        This method updates the appearance of the input box and buttons based on user interaction.
+        """
         self.screen.fill(self.WHITE)
         # Draw the input box
         pygame.draw.rect(self.screen, self.input_box_color, self.input_box, 2 if self.active else 1)
@@ -83,6 +121,10 @@ class DebuggerPasswordScreen(ScreenBase):
 
 
     def run(self):
+        """
+        Runs the main event loop for the password screen, keeping it active and responsive.
+        Continuously calls the 'handle_events' and 'draw' methods to process input and update the UI.
+        """
         while self.running:
             self.handle_events()
             self.draw()

@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import pygame
 import sys
 import os
@@ -55,3 +56,5 @@ while running:
 
 # update game screen
 pygame.display.update()
+=======
+>>>>>>> e098bfe87fe38a37d5ef00d8c3d2ffc00acc5fa8
