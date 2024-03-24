@@ -41,7 +41,7 @@ class WinGameScreen(ScreenBase):
                                    if self.width/2-405 <= mouse[0] <= self.width/2+435 and self.height/2-293 <= mouse[1] <= self.height/2-263: 
                                            pygame.quit() 
                                            
-										   
+
     def run(self):
         super().run()
 
