@@ -55,6 +55,8 @@ class ScreenBase:
             # user quits
             if event.type == pygame.QUIT: 
                 self.running = False
+                pygame.quit()
+                sys.exit()
             # user resizing screen
             elif event.type == pygame.VIDEORESIZE:
                 self.resize_screen(event)
