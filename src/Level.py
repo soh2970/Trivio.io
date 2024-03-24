@@ -2,6 +2,7 @@
 
 import json
 import random
+from question2 import Question
 
 class Level:
     
@@ -12,12 +13,14 @@ class Level:
         self.playerHPThreshold = 100
 
         if( lvlNum == 1): 
-            self.bossHPThreshold = 80
-
+            self.bossHPThreshold = 80 
+            self.questionWeight = 4  
         elif (lvlNum == 2): 
             self.bossHPThreshold = 50
+            self.questionWeight = 6
         else: 
             self.bossHPThreshold = 0
+            self.questionWeight = 10
 
         self.questionsInLevel = self.getQuestions(lvlNum, catagory) 
         self.usedQuestions = []
@@ -26,29 +29,31 @@ class Level:
     # @param level, the level number
     # @param catagory, the level catagory
     # @return a list of all question with the given level and catagory
-    @staticmethod
-    def getQuestions(level, catagory):
-        with open('testbank.json') as f:
+    def getQuestions(self, level, catagory):
+        with open('src/testbank.json') as f:
             json_data = json.load(f)
-        questions = json_data['questions']
-        qList = []
-        for i in questions:
-            if (i['catagory'] == catagory and (i['level'] == level)):
-                qList.append(i)
-        
-        return qList
-
+            subjects = json_data['subjects']
+            qList = []
+            if catagory in subjects:
+                catagoryData = subjects[catagory]
+                levelKey = f'level{level}'
+                if levelKey in catagoryData:
+                # Access the questions for the specific level
+                    for question in catagoryData[levelKey]:
+                        q = Question(question['question'], question['options'], question['correctAnswer'], self.questionWeight, catagory)
+                        qList.append(q)
+            return qList
     
     # Method to check if a level is complete
     # @param playerHp, the player's hp
     # @param bossHp, the bosses hp
     # @return boolean, true if level is completed and false if not
-    def completeLevel(playerHp, bossHp, ):
+    def completeLevel(self, playerHp, bossHp):
         return playerHp > self.playerHPThreshold and bossHp <= self.bossHPThreshold
     
     # Method to get the next question
     # @return the next question
-    def getNextQuestion():
+    def getNextQuestion(self):
         # get a random question
         q = random.choice(self.questionsInLevel)
 
@@ -64,4 +69,5 @@ class Level:
 
     
 
-
+level1 = Level(3, "science")
+print(level1.questionsInLevel)
