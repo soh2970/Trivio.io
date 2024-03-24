@@ -20,6 +20,9 @@ class GameScreen(ScreenBase):
         self.boss = Boss()
         self.player = Player("natetyu", 100, 0, 1)
         self.question = question
+        if len(question.prompt) > 50:
+            self.promptFont = pygame.font.SysFont('Corbel', 25)
+        else: self.promptFont = pygame.font.SysFont('Corbel', 40)
         self.buttons = [
             GameScreenButtons(150, 400, 200, 50, question.choices[0], lambda: self.choiceMade(question.choices[0])),
             GameScreenButtons(150, 500, 200, 50, question.choices[1], lambda: self.choiceMade(question.choices[1])),
@@ -32,7 +35,10 @@ class GameScreen(ScreenBase):
         print(choice)
 
     def display(self, screen):
+
         screen.fill((255,255,255))
+
+        self.draw_text(self.question.prompt, self.promptFont, (255,0,0), screen, 50, 100)
 
         for button in self.buttons:
             button.draw(screen)
@@ -66,7 +72,14 @@ class GameScreen(ScreenBase):
                 self.resize_screen(event)
             for button in self.buttons:
                 button.handle_event(event)
-        
+
+
+    def draw_text(self, text, font, color, surface, x, y):
+        textobj = font.render(text, 1, color)
+        textrect = textobj.get_rect()
+        textrect.topleft = (x, y)
+        surface.blit(textobj, textrect)
+            
 
 
     # Load the boss level1 image
@@ -103,89 +116,3 @@ class GameScreen(ScreenBase):
     playerLose_image_path = 'images/userLose.jpeg'
     playerLose_image = pygame.image.load(playerLose_image_path)
     playerLose_imageResized = pygame.transform.scale(playerLose_image, (80,80))
-
-
-    #Font setup
-    # font = pygame.font.Font(None, 36)
-
-    # # Function to draw text
-    # def draw_text(self, text, font, color, surface, x, y):
-    #     textobj = font.render(text, 1, color)
-    #     textrect = textobj.get_rect()
-    #     textrect.topleft = (x, y)
-    #     surface.blit(textobj, textrect)
-
-    # # """
-    # # Set up Boss and Player
-    # # """
-
-
-
-
-
-    # """
-    # Hardcoded question to be displayed
-    # """
-    # q = Question(1, "What is the perimeter of a rectangle with diagonal length 17 units and length 8 units?", ["1","2","3","4"], "2", 4, False, "Math")
-
-    # # Function to draw buttons and check for clicks
-    # def draw_button(self, text, x, y, width, height, action=None):
-    #     mouse = pygame.mouse.get_pos()
-    #     click = pygame.mouse.get_pressed()
-    #     button_rect = pygame.Rect(x, y, width, height)
-
-    #     if button_rect.collidepoint(mouse):
-    #         pygame.draw.rect(screen, GREEN, button_rect)
-    #         if click[0] == 1 and action is not None:
-    #             action()
-    #     else:
-    #         pygame.draw.rect(screen, WHITE, button_rect)
-
-    #     draw_text(text, font, BLACK, screen, x + 10, y + 10)
-
-    # def check_answer(self, answer):
-    #     if answer == q.correctAnswer:
-    #         print("Correct!")
-    #     else:
-    #         print("Incorrect!")
-
-    # # Main game loop
-    # # running = True
-    # # while running:
-    # #     screen.fill(WHITE)
-        
-    # #     # Event loop
-    # #     for event in pygame.event.get():
-    # #         if event.type == pygame.QUIT:
-    # #             running = False
-
-    #     """
-    #     Check what level hp boss is and render image accordingly
-    #     """
-
-
-    #     """
-    #     Check what level hp player is and render image accordingly
-    #     """
-
-
-
-    #     """
-    #     Check if length of string can fit in the window, if not then lower font size
-    #     """
-    #     if (len(q.prompt) > 50):
-    #         font = pygame.font.Font(None, 24)
-        
-    #     # Draw question
-    #     draw_text(q.prompt, font, BLACK, screen, 100, 100)
-        
-    #     # Draw answer buttons
-    #     for i, answer in enumerate(q.choices):
-    #         button_x = 100 + (i % 2) * 300
-    #         button_y = 400 + (i // 2) * 100
-    #         draw_button(answer, button_x, button_y, 200, 50, lambda a=answer: check_answer(a))
-
-    #     pygame.display.flip()
-
-    # pygame.quit()
-    # sys.exit()

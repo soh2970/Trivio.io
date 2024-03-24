@@ -2,14 +2,16 @@ import pygame
 from src.UIs.screen import ScreenBase
 from src.UIs.GameScreen2 import GameScreen
 from question2 import Question
+from Level import Level
 
 
 def run_game():
     screen = pygame.display.set_mode((844,600), pygame.RESIZABLE)
     clock = pygame.time.Clock()
+
+    level = Level(1, "math")
     
-    q = Question(1, "What is the perimeter of a rectangle with diagonal length 17 units and length 8 units?", ["1","2","3","4"], "2", 4, False, "Math")
-    current_screen = GameScreen('math', 'nate', q)
+    current_screen = GameScreen('math', 'nate', level.getNextQuestion())
     
     while True:
         
@@ -18,6 +20,7 @@ def run_game():
         
         pygame.display.flip()
         
+
 
 if __name__ == "__main__":
     run_game()
