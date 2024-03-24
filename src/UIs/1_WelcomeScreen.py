@@ -19,7 +19,7 @@ class WinGameScreen(ScreenBase):
 
     def draw(self):
         super().draw()
-         # get the current width and height of the screen
+        # get the current width and height of the screen
         self.width = self.screen.get_width()
         self.height = self.screen.get_height()
 
@@ -61,8 +61,7 @@ class WinGameScreen(ScreenBase):
                 sys.exit()
             # user resizing screen
             elif event.type == pygame.VIDEORESIZE:
-                super().resize_screen()
-           
+                super().resize_screen(event)
            
             """
             i dont think we need this on the welcome screen

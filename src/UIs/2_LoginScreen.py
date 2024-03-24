@@ -75,7 +75,7 @@ class LoginScreen(ScreenBase):
                 sys.exit()
             # user resizing screen
             elif event.type == pygame.VIDEORESIZE:
-                super().resize_screen()
+                super().resize_screen(event)
 
             #checks if a mouse is clicked 
             elif event.type == pygame.MOUSEBUTTONDOWN: 

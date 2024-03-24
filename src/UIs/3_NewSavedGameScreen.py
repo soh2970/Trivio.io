@@ -9,17 +9,16 @@ sys.path.append(src_dir)
 # initializing the constructor 
 pygame.init() 
 
-class InstructorPassScreen(ScreenBase):
+class NewSavedGameScreen(ScreenBase):
 
     def __init__(self):
         super().__init__()
-        # screen width and height
-        self.width = self.screen.get_width()
-        self.height = self.screen.get_height()
 
     def draw(self):
         super().draw()
-
+         # screen width and height
+        self.width = self.screen.get_width()
+        self.height = self.screen.get_height()
         # text for buttons
         self.text_new_game = self.SMALLER_FONT.render('New Game', True, self.BLACK)
         self.text_saved_game = self.SMALLER_FONT.render('Saved Game', True, self.BLACK)
@@ -52,7 +51,7 @@ class InstructorPassScreen(ScreenBase):
                 sys.exit()
             # user resizing screen
             elif event.type == pygame.VIDEORESIZE:
-                super().resize_screen()
+                super().resize_screen(event)
             elif event.type == pygame.MOUSEBUTTONDOWN:
                 # get mouse position
                 mouse = pygame.mouse.get_pos()
@@ -70,5 +69,5 @@ class InstructorPassScreen(ScreenBase):
 
 #initialize instance and run
 if __name__ == '__main__':
-    game_screen1 = InstructorPassScreen()
+    game_screen1 = NewSavedGameScreen()
     game_screen1.run()

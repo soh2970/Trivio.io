@@ -1,10 +1,3 @@
-import pygame
-import sys
-import os
-
-# Get the absolute path to the src directory
-src_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), '../'))
-sys.path.append(src_dir)
 
 
 class RadioButton(pygame.sprite.Sprite):
@@ -49,21 +42,6 @@ pygame.init()
 screen = pygame.display.set_mode((844, 600))
 clock = pygame.time.Clock()
 font50 = pygame.font.SysFont(None, 50)
-
-
-# grey for back button
-color_back = (220,220,220) 
-# light blue shade of the button 
-color_button = (159,197,248) 
-
-# stores the width of the 
-# screen into a variable 
-width = screen.get_width() 
-
-# stores the height of the 
-# screen into a variable 
-height = screen.get_height() 
-
 #back button
 smallfont = pygame.font.SysFont('Corbel',32) 
 back = smallfont.render('Back' , True , 0) 
@@ -129,3 +107,34 @@ while run:
 
 pygame.quit()
 exit()
+
+from screen import ScreenBase
+import pygame
+import sys
+import os
+
+# Get the absolute path to the src directory
+src_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), '../'))
+sys.path.append(src_dir)
+# initializing the constructor 
+pygame.init() 
+
+class GameModeSelectScreen(ScreenBase):
+
+    def __init__(self):
+        super().__init__()
+
+    def draw(self):
+        super().draw()
+
+    def handle_events(self):
+        # call parent class event handling
+        super().handle_events()
+
+    def run(self):
+        super().run()
+
+#initialize instance and run
+if __name__ == '__main__':
+    game_screen1 = GameModeSelectScreen()
+    game_screen1.run()
