@@ -21,10 +21,12 @@ class ScreenBase:
     WHITE = (255,255,255)
     BLACK = (0,0,0)
     BLUE = (159,197,248)
+    GREY = (220,220,220)
 
     # fonts
     BUTTON_FONT = pygame.font.SysFont('Corbel', 20)
     PARAGRAPH_FONT = pygame.font.SysFont('Corbel', 60)
+    MEDIUM_FONT = pygame.font.SysFont('Corbel', 72)
     HEADING_FONT = pygame.font.SysFont('Corbel', 140)
 
     # FUNCTIONS
