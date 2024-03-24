@@ -1,3 +1,9 @@
+still needs to be edited:
+- 1_welcome screen - remove the x because where are you exiting
+- 3_newsaved game screen - still needs to add methods for selecting new or saved game
+    - we need a saved game search ui screen
+- 4_gamemodescreen - needs to go either to the tutorial screen start a new game instead of quitting
+
 read:
 MAKING A PYDOC:
 Class Docstring - """text here """
