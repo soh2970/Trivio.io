@@ -4,6 +4,16 @@ still needs to be edited:
     - we need a saved game search ui screen
 - 4_gamemodescreen - needs to go either to the tutorial screen start a new game instead of quitting
 
+
+
+screens in the new format:
+1
+2
+3
+4
+9
+17
+
 read:
 MAKING A PYDOC:
 Class Docstring - """text here """
@@ -74,3 +84,40 @@ NOTES:
     need to have the general elements of each screen mapped out so that just the base screen can be changed and that is it-> creating a general screen.py class that will serve as the parent class for each of the ui screens
     will elimate need to copy paste certain areas of code to the same thing
     need to have the general elements of each screen mapped out so that just the base screen can be changed and that is it
+
+
+
+"""
+Instructor Password Screen
+
+"""
+from screen import ScreenBase
+import pygame
+import sys
+import os
+
+# Get the absolute path to the src directory
+src_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), '../'))
+sys.path.append(src_dir)
+# initializing the constructor 
+pygame.init() 
+
+class InstructorPassScreen(ScreenBase):
+
+    def __init__(self):
+        super().__init__()
+
+    def draw(self):
+        super().draw()
+
+    def handle_events(self):
+        # call parent class event handling
+        super().handle_events()
+
+    def run(self):
+        super().run()
+
+#initialize instance and run
+if __name__ == '__main__':
+    game_screen1 = InstructorPassScreen()
+    game_screen1.run()
