@@ -1,5 +1,4 @@
 {
-    "python.analysis.extraPaths": [
-        "./src/NewSaved"
-    ]
+  "python.analysis.extraPaths": ["./src/NewSaved"],
+  "python.REPL.enableREPLSmartSend": false
 }

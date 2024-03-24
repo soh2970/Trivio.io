@@ -1,1 +1,1 @@
-What is the perimeter of a rectangle with diagonal length 17 units and length 8 
+    clock = pygame.time.Clock()
