@@ -21,15 +21,15 @@ class GameScreen(ScreenBase):
         self.player = Player("natetyu", 100, 0, 1)
         self.question = question
         self.buttons = [
-            GameScreenButtons(150, 400, 200, 50, question.choices[0], self.choiceMade),
-            GameScreenButtons(150, 500, 200, 50, question.choices[1], self.choiceMade),
-            GameScreenButtons(450, 400, 200, 50, question.choices[2], self.choiceMade),
-            GameScreenButtons(450, 500, 200, 50, question.choices[3], self.choiceMade),
+            GameScreenButtons(150, 400, 200, 50, question.choices[0], lambda: self.choiceMade(question.choices[0])),
+            GameScreenButtons(150, 500, 200, 50, question.choices[1], lambda: self.choiceMade(question.choices[1])),
+            GameScreenButtons(450, 400, 200, 50, question.choices[2], lambda: self.choiceMade(question.choices[2])),
+            GameScreenButtons(450, 500, 200, 50, question.choices[3], lambda: self.choiceMade(question.choices[3])),
         ]
 
 
-    def choiceMade(self):
-        print("choice made")
+    def choiceMade(self, choice):
+        print(choice)
 
     def display(self, screen):
         screen.fill((255,255,255))
@@ -53,10 +53,17 @@ class GameScreen(ScreenBase):
         elif (self.player.playerHP == 0):
             screen.blit(self.playerLose_imageResized, (500, 200))
         
-
-    def process_events(self):
-        super().handle_events()
+    #overridden from parent class
+    def handle_events(self):
         for event in pygame.event.get():
+            # user quits
+            if event.type == pygame.QUIT: 
+                self.running = False
+                pygame.quit()
+                sys.exit()
+            # user resizing screen
+            elif event.type == pygame.VIDEORESIZE:
+                self.resize_screen(event)
             for button in self.buttons:
                 button.handle_event(event)
         

@@ -13,7 +13,7 @@ def run_game():
     
     while True:
         
-        current_screen.process_events()
+        current_screen.handle_events()
         current_screen.display(screen)
         
         pygame.display.flip()
