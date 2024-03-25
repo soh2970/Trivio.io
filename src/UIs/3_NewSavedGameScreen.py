@@ -2,13 +2,10 @@ from screen import ScreenBase
 import pygame
 import sys
 import os
-<<<<<<< HEAD
 
 # Get the absolute path to the src directory
 src_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), '../'))
 sys.path.append(src_dir)
-=======
->>>>>>> 8fd64f741cad2da0bc6c51936cfd3d69be8d5259
 
 # Get the absolute path to the src directory
 src_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), '../'))
