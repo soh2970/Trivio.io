@@ -1,7 +1,7 @@
 import pygame
 from src.UIs.screen import ScreenBase
 from src.UIs.GameScreen2 import GameScreen
-from question2 import Question
+from src.question2 import Question
 
 
 def run_game():
