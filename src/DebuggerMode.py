@@ -10,10 +10,11 @@ class Debugger:
 
     
     def selectQuestion(self, category, level, questionNum):
-        if (category == 'math') or (category == 'geography') or (category == 'science'):
+        
+        if (category == 'math') or (category == 'social_sciences') or (category == 'science'):
             if (level > 0) and (level <= 3):
                 if (questionNum < 20) and (questionNum >= 0):
-                    with open ("testbank.json", "r") as file:
+                    with open ("testbank.json", "r", encoding='utf-8') as file:
                         data = json.load(file)
 
                         levelNum = "level" + str(level)
