@@ -10,7 +10,7 @@ class Instructor:
     """
     Returns a list of previous completed games
     """
-    def getPlayerStats(self, player):                                           
+    def getPlayerStats(self, player):                                      
         with open('playerBank.json', 'r') as file:
             data = json.load(file)
             if player in data:

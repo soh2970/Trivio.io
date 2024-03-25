@@ -1,12 +1,16 @@
 import pygame
 from src.UIs.screen import ScreenBase
 from src.UIs.GameScreen2 import GameScreen
+<<<<<<< HEAD
+from src.question2 import Question
+=======
 from question2 import Question
 from Level import Level
 from Player import Player
 from Boss import Boss
 from game import Game
 from MainMenu import MainMenu
+>>>>>>> 8fd64f741cad2da0bc6c51936cfd3d69be8d5259
 
 
 def run_game():
