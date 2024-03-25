@@ -1,7 +1,8 @@
-from screen import ScreenBase
+from src.UIs.screen import ScreenBase
 import pygame
 import sys
 import os
+from src.UIs.GameScreenButtons import GameScreenButtons
 
 # Get the absolute path to the src directory
 src_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), '../'))
@@ -13,6 +14,27 @@ class GameModeSelectScreen(ScreenBase):
     def __init__(self):
         super().__init__()
         self.clock = pygame.time.Clock()
+        self.buttons = [
+        GameScreenButtons(560, 280, 270, 90, "Math", lambda: self.choiceMade('math') ),
+        GameScreenButtons(290, 280, 270, 90, "Social Science", lambda: self.choiceMade('socialScience') ),
+        GameScreenButtons(20, 280, 270, 90, "Science", lambda: self.choiceMade('science') ),
+        GameScreenButtons(30, 70, 70, 50, "Back", lambda: self.choiceMade('back') ),
+        GameScreenButtons(700, 380, 100, 60, "Tutorial", lambda: self.choiceMade('tutorial') ),
+        ]
+        self.type = 'gameModeSelect'
+        self.choice = None
+
+
+
+    def choiceMade(self, event):
+        if (event == 'back'):
+            print("user wants to go back")
+            self.choice = 'back'
+        if (event == 'math'):
+            self.choice = 'math'
+        
+        
+
 
     def draw(self):
         super().draw()
@@ -27,29 +49,31 @@ class GameModeSelectScreen(ScreenBase):
         mode = self.PARAGRAPH_FONT.render('Mode Selection', True, 0)
         categories = self.SMALLER_FONT.render('Select a Category to start', True, 0)
         category_text = self.SMALLER_FONT.render('Category', True, 0)
-
-        self.radioButtons = [
-            RadioButton(560, 280, 270, 60, self.PARAGRAPH_FONT, "Math"),
-            RadioButton(290, 280, 270, 60, self.PARAGRAPH_FONT, "Social Science"),
-            RadioButton(20, 280, 270, 60, self.PARAGRAPH_FONT, "Science")
-        ]
-        self.group = pygame.sprite.Group(self.radioButtons)
         
-        self.group.draw(self.screen)
+        for button in self.buttons:
+            button.draw(self.screen)
+        # self.radioButtons = [
+        #     RadioButton(560, 280, 270, 60, self.PARAGRAPH_FONT, "Math"),
+        #     RadioButton(290, 280, 270, 60, self.PARAGRAPH_FONT, "Social Science"),
+        #     RadioButton(20, 280, 270, 60, self.PARAGRAPH_FONT, "Science")
+        # ]
+        # self.group = pygame.sprite.Group(self.radioButtons)
+        
+        # self.group.draw(self.screen)
 
 
-        #back button display
-        pygame.draw.rect(self.screen,self.GREY,[self.width/2-400,self.height/2-293,60,30]) 
-        self.screen.blit(back , (self.width/2-397,self.height/2-290)) 
+        # #back button display
+        # pygame.draw.rect(self.screen,self.GREY,[self.width/2-400,self.height/2-293,60,30]) 
+        # self.screen.blit(back , (self.width/2-397,self.height/2-290)) 
 
 
         self.screen.blit(categories, (self.width/2-140,self.height/2-180))
         self.screen.blit(mode, (self.width/2-130, self.height/2-230))
         self.screen.blit(category_text, (self.width/2-370, self.height/2-60))
 
-        #start tutorial button
-        pygame.draw.rect(self.screen,self.BLUE,[self.width/2+215,self.height/2+50,180,40]) 
-        self.screen.blit(start, (self.width/2+220,self.height/2+60))
+        # #start tutorial button
+        # pygame.draw.rect(self.screen,self.BLUE,[self.width/2+215,self.height/2+50,180,40]) 
+        # self.screen.blit(start, (self.width/2+220,self.height/2+60))
 
         
 
@@ -58,31 +82,32 @@ class GameModeSelectScreen(ScreenBase):
         self.clock.tick(60)
         mouse = pygame.mouse.get_pos() 
 
-        for rb in self.radioButtons:
-            rb.setRadioButtons(self.radioButtons)
-        self.radioButtons[0].clicked = True
+        # for rb in self.radioButtons:
+        #     rb.setRadioButtons(self.radioButtons)
+        # self.radioButtons[0].clicked = True
 
-        event_list = pygame.event.get()
-        for event in event_list:
+
+        for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 self.running = False
                 pygame.quit()
                 sys.exit()
-
+            for button in self.buttons:
+                button.handle_event(event)
             """
             need to be changed
             """
 
-            if event.type == pygame.MOUSEBUTTONDOWN: 
-                if self.width/2-400 <= mouse[0] <= self.width /2-340 and self.height/2-293 <= self.mouse[1] <= self.height/2-263: 
-                    pygame.quit() #CHANGE to previous screen New/Save mode
-                if self.width/2+215 <= mouse[0] <= self.width /2+395 and self.height/2+50 <= self.mouse[1] <= self.height/2+90: 
-                    pygame.quit() #CHANGE to next tutorial screen 
+            # if event.type == pygame.MOUSEBUTTONDOWN: 
+            #     if self.width/2-400 <= mouse[0] <= self.width /2-340 and self.height/2-293 <= self.mouse[1] <= self.height/2-263: 
+            #         pygame.quit() #CHANGE to previous screen New/Save mode
+            #     if self.width/2+215 <= mouse[0] <= self.width /2+395 and self.height/2+50 <= self.mouse[1] <= self.height/2+90: 
+            #         pygame.quit() #CHANGE to next tutorial screen 
             # user resizing screen
-            elif event.type == pygame.VIDEORESIZE:
+            if event.type == pygame.VIDEORESIZE:
                 super().resize_screen(event)
 
-        self.group.update(event_list)
+        # self.group.update(event_list)
 
     def run(self):
         super().run()
@@ -116,6 +141,7 @@ class RadioButton(pygame.sprite.Sprite):
                 if hover and event.button == 1:
                     for rb in self.buttons:
                         rb.clicked = False
+                        print('clicked')
                     self.clicked = True
         
         self.image = self.button_image

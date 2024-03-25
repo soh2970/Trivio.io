@@ -1,1 +1,1 @@
-    clock = pygame.time.Clock()
+

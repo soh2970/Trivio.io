@@ -36,6 +36,7 @@ class GameScreen(ScreenBase):
             GameScreenButtons(435, 390, 280, 100, question.choices[2], lambda: self.choiceMade(question.choices[2])),
             GameScreenButtons(435, 495, 280, 100, question.choices[3], lambda: self.choiceMade(question.choices[3])),
         ]
+        self.type = category
 
     # logic for when user selects and answer
     def choiceMade(self, choice):
