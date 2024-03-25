@@ -2,6 +2,7 @@ import pygame
 import sys
 import os
 from GameScreenButtons import GameScreenButtons
+import json
 
 # Get the absolute path to the src directory
 src_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), '../'))
@@ -28,6 +29,7 @@ class RadioButton(pygame.sprite.Sprite):
 
     def __init__(self, x, y, w, h, font, text):
         super().__init__()
+        self.text = text
         text_surf = font.render(text, True, (0, 0, 0))
         self.button_image = pygame.Surface((w, h))
         self.button_image.fill((228, 246, 248))
@@ -105,6 +107,12 @@ class DebuggerDashboardPage:
         self.bg_color = (255, 255, 255)
         self.text_color = (0,0,0)
 
+        self.category_mapping = {
+            "Math": "math",
+            "Social Sciences": "social_sciences",
+            "Science": "science"
+        }
+
         # Define texts
         self.header_text = self.big_font.render('Debugger Dashboard', True, (0,0,0))
         self.subheader_text = self.font.render('Select a Category and Level to view all the questions', True, (0, 0, 0))
@@ -170,11 +178,13 @@ class DebuggerDashboardPage:
 
 
     def on_next(self):
-        # ADD LOGIC
         # Only proceed if both a category and a level are selected
         if self.selected_category and self.selected_level:
-            print(f"Proceeding to Next: {self.selected_category.text}, Level: {self.selected_level.text}")
-
+            # Map the selected category's text to the corresponding key in the JSON file
+            category_key = self.category_mapping.get(self.selected_category.text, "").lower()
+            level_key = f"level{self.selected_level.text}"
+            debugger_mode_screen = DebuggerModeScreen(self.screen, category_key, level_key)
+            debugger_mode_screen.run()
 
     def handle_events(self):
         event_list = pygame.event.get()
@@ -227,9 +237,57 @@ class DebuggerDashboardPage:
             self.draw()
             self.clock.tick(60)
 
+
+class DebuggerModeScreen:
+    """
+    This class represents the screen where the debugger mode is active.
+    It displays all questions and answers based on the selected category and level.
+    """
+    def __init__(self, screen, category, level):
+        self.screen = screen
+        self.category = category
+        self.level = level
+        self.load_questions()
+
+    def load_questions(self):
+        # Load the questions from the testbank.json file based on selected category and level
+        testbank_path = os.path.join(src_dir, 'testbank.json')  # Ensure this path is correct
+        with open(testbank_path, 'r', encoding='utf-8') as file:
+            test_bank = json.load(file)
+        self.questions = test_bank['subjects'].get(self.category, {}).get(self.level, [])
+
+    def draw(self):
+        # Code to draw the questions and answers
+        pass
+
+    def run(self):
+        # The main loop for the debugger mode screen
+        pass
+
+
+
+
+
+# Example usage
+# if __name__ == "__main__":
+#     pygame.init()
+#     screen = pygame.display.set_mode((844, 600))
+#     dashboard_page = DebuggerDashboardPage(screen)
+#     dashboard_page.run()
+    
 # Example usage
 if __name__ == "__main__":
     pygame.init()
     screen = pygame.display.set_mode((844, 600))
     dashboard_page = DebuggerDashboardPage(screen)
+
+    # Simulate user selecting "Math" and "Level 1"
+    dashboard_page.selected_category = dashboard_page.category_buttons[0]  # Assuming this is "Math"
+    dashboard_page.selected_level = dashboard_page.level_buttons[0]  # Assuming this is "Level 1"
+
+    # Normally, user clicks "Next" and triggers on_next()
+    # For this example, we'll call on_next() directly to simulate this action
+    dashboard_page.on_next()
+
+    # This would normally not return until the DebuggerModeScreen is closed
     dashboard_page.run()
