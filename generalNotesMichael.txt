@@ -2,3 +2,11 @@ Mar 14. 2024,
 	Finished game class & working on assisting level & boss classes to implement mainmenu class & others - Michael
     Working on finalizing game & tutorial & mainmenu classes (Game.py & Tutorial.py & MainMenu.py) - Michael
   
+  
+Mar 25. 2024,
+	- Finished debugger dashboard screen, and currently working on debugger mode screen (& transitions between DDS to DMS). 
+    - Will help nathan on using Game class methods in main script once i finish above work. 
+    - TBD: will support on incomplete UI components & review game class again.
+    
+    
+Issue with loading testbank.json file.
