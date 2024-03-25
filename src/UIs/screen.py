@@ -22,6 +22,7 @@ class ScreenBase:
     BLACK = (0,0,0)
     BLUE = (159,197,248)
     GREY = (220,220,220)
+    DARKGREY = (45,45,45)
     GREEN = (204, 245, 205)
 
 
@@ -29,6 +30,7 @@ class ScreenBase:
     MODE_FONT = pygame.font.SysFont('Corbel',16) 
     BUTTON_FONT = pygame.font.SysFont('Corbel', 20)
     SMALLER_FONT = pygame.font.SysFont('Corbel',32)
+    MODE_SELECT_FONT = pygame.font.SysFont('Corbel',50)
     PARAGRAPH_FONT = pygame.font.SysFont('Corbel', 60)
     MEDIUM_FONT = pygame.font.SysFont('Corbel', 72)
     HEADING_FONT = pygame.font.SysFont('Corbel', 140)

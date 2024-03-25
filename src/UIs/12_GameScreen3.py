@@ -1,9 +1,10 @@
 import pygame
 import sys
+import os
 import random
 import json
 import datetime
-from Game import Game
+from game import Game
 
 # Initialize Pygame
 pygame.init()

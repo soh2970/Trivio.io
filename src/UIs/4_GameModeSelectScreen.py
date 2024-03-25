@@ -29,9 +29,9 @@ class GameModeSelectScreen(ScreenBase):
         category_text = self.SMALLER_FONT.render('Category', True, 0)
 
         self.radioButtons = [
-            RadioButton(560, 280, 270, 60, self.PARAGRAPH_FONT, "Math"),
-            RadioButton(290, 280, 270, 60, self.PARAGRAPH_FONT, "Social Science"),
-            RadioButton(20, 280, 270, 60, self.PARAGRAPH_FONT, "Science")
+            RadioButton(560, 280, 270, 60, self.MODE_SELECT_FONT, "Math"),
+            RadioButton(290, 280, 270, 60, self.MODE_SELECT_FONT, "Social Science"),
+            RadioButton(20, 280, 270, 60, self.MODE_SELECT_FONT, "Science")
         ]
         self.group = pygame.sprite.Group(self.radioButtons)
         

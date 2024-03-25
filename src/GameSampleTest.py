@@ -2,7 +2,7 @@ import unittest
 from question2 import Question
 from Player import Player
 from unittest.mock import patch, MagicMock
-from Game import Game
+from game import Game
 from Boss import Boss
 from Player import Player
 
