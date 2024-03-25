@@ -27,7 +27,7 @@ def run_game():
     # newGame = Game()
 
     while running:
-        
+
         current_screen.display(screen)
         current_screen.handle_events()
 
