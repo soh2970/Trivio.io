@@ -15,14 +15,15 @@ from src.UIs.GameScreenButtons import GameScreenButtons
 
 class GameScreen(ScreenBase):
 
-    def __init__(self, category, player, question, level):
+    def __init__(self, category, player, boss, question, level):
         super().__init__()
         self.startTime = pygame.time.get_ticks()
-        self.boss = Boss()
-        self.player = Player("natetyu", 100, 0, 1)
+        self.boss = boss
+        self.player = player
         self.level = level
         self.question = question
         self.correctAnswer = question.correctAnswer
+        self.answered = False
         self.levelFont = pygame.font.SysFont('Corbel', 28)
         self.hpFont = pygame.font.SysFont('Corbel', 30)
         if len(question.prompt) > 50:
@@ -35,15 +36,20 @@ class GameScreen(ScreenBase):
             GameScreenButtons(435, 495, 280, 100, question.choices[3], lambda: self.choiceMade(question.choices[3])),
         ]
 
-
+    # logic for when user selects and answer
     def choiceMade(self, choice):
         if (choice == self.correctAnswer):
                 self.boss.loseBossHP(self.level)
                 print(f'bossHP = {self.boss.bossHp}')
+                self.answered = True
         else: 
             self.player.losePlayerHP(self.level)
             print(f'playerHP = {self.player.playerHP}')
+            self.answered = True
 
+
+    #displays text, buttons, images on the screen 
+            
     def display(self, screen):
 
         screen.fill((255,255,255))
@@ -51,9 +57,19 @@ class GameScreen(ScreenBase):
         #display current question prompt
         self.draw_text(self.question.prompt, self.promptFont, (255,0,0), screen, 50, 100)
 
+        # displays the current elapsed time
         elapsed_time = (pygame.time.get_ticks() - self.startTime) // 1000  # Convert milliseconds to seconds
-        time_text = f'Time: {elapsed_time} seconds'
-        self.draw_text(time_text, self.promptFont, (255, 0, 0), screen, 400, 100)
+
+        # Convert seconds to minutes and seconds
+        minutes = elapsed_time // 60
+        seconds = elapsed_time % 60
+
+        if minutes == 0:
+            time_text = f'Time: {seconds} seconds'
+        else:
+            time_text = f'Time: {minutes} minute(s) {seconds} seconds'
+
+        self.draw_text(time_text, self.levelFont, (255, 0, 0), screen, 600, 40)
 
         for button in self.buttons:
             button.draw(screen)
@@ -98,12 +114,16 @@ class GameScreen(ScreenBase):
             for button in self.buttons:
                 button.handle_event(event)
 
-
+    #draws text onto the screen
     def draw_text(self, text, font, color, surface, x, y):
         textobj = font.render(text, 1, color)
         textrect = textobj.get_rect()
         textrect.topleft = (x, y)
         surface.blit(textobj, textrect)
+
+
+        
+
             
 
 

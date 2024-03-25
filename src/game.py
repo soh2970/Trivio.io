@@ -43,8 +43,7 @@ class Game:
             dict: A dictionary containing the test bank questions.
         """
         #please alter the file path with your local directory of where testbank.json is located at
-        with open("C:/Users/kimgu/2212/repositories2212/personalRepo2212/src/testbank.json",
-                'r', encoding='utf-8') as file:
+        with open("src/testbank.json",'r') as file:
             return json.load(file)
         
     def selectCategory(self, category):
