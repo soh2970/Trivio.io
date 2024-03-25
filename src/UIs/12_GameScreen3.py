@@ -1,6 +1,14 @@
 import pygame
 import sys
 import os
+<<<<<<< HEAD
+=======
+
+# Get the absolute path to the src directory
+src_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), '../'))
+sys.path.append(src_dir)
+
+>>>>>>> f9f9aec093b0eaffb1d70421834405bdc2259f3b
 import random
 import json
 import datetime
