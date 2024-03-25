@@ -20,22 +20,23 @@ class MainMenu:
     def run(self):
         self.running = True
         while self.running:
-            self.screen.fill(self.bg_color)
-            self.draw_menu()
+
             self.check_events()
             pygame.display.flip()
 
-    def draw_menu(self):
+    def display(self, screen):
+        
+        screen.fill(self.bg_color)
         for index, item in enumerate(self.menu_items):
             text_render = self.font.render(item, True, (0, 0, 0))
             text_rect = text_render.get_rect()
             text_rect.center = (self.screen_width // 2, 200 + index * 100)
-            self.screen.blit(text_render, text_rect)
+            screen.blit(text_render, text_rect)
 
             if index == self.selected_item:
-                pygame.draw.rect(self.screen, (255, 0, 0), text_rect, 2)
+                pygame.draw.rect(screen, (255, 0, 0), text_rect, 2)
 
-    def check_events(self):
+    def handle_events(self):
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 self.running = False  # Exit the main loop

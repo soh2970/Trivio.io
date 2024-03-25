@@ -1,3 +1,4 @@
+from screen import ScreenBase
 import pygame
 import sys
 import os
@@ -6,6 +7,85 @@ import os
 src_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), '../'))
 sys.path.append(src_dir)
 
+pygame.init() 
+
+class GameModeSelectScreen(ScreenBase):
+    def __init__(self):
+        super().__init__()
+        self.clock = pygame.time.Clock()
+
+    def draw(self):
+        super().draw()
+        # get the current width and height of the screen
+        self.width = self.screen.get_width()
+        self.height = self.screen.get_height()
+        #back to main menu button
+        back = self.BUTTON_FONT.render('Back' , True , 0) 
+        #start tutorial button
+        start = self.BUTTON_FONT.render('Start Tutorial >>', True, 0)
+        #texts on screen
+        mode = self.PARAGRAPH_FONT.render('Mode Selection', True, 0)
+        categories = self.SMALLER_FONT.render('Select a Category to start', True, 0)
+        category_text = self.SMALLER_FONT.render('Category', True, 0)
+
+        self.radioButtons = [
+            RadioButton(560, 280, 270, 60, self.PARAGRAPH_FONT, "Math"),
+            RadioButton(290, 280, 270, 60, self.PARAGRAPH_FONT, "Social Science"),
+            RadioButton(20, 280, 270, 60, self.PARAGRAPH_FONT, "Science")
+        ]
+        self.group = pygame.sprite.Group(self.radioButtons)
+        
+        self.group.draw(self.screen)
+
+
+        #back button display
+        pygame.draw.rect(self.screen,self.GREY,[self.width/2-400,self.height/2-293,60,30]) 
+        self.screen.blit(back , (self.width/2-397,self.height/2-290)) 
+
+
+        self.screen.blit(categories, (self.width/2-140,self.height/2-180))
+        self.screen.blit(mode, (self.width/2-130, self.height/2-230))
+        self.screen.blit(category_text, (self.width/2-370, self.height/2-60))
+
+        #start tutorial button
+        pygame.draw.rect(self.screen,self.BLUE,[self.width/2+215,self.height/2+50,180,40]) 
+        self.screen.blit(start, (self.width/2+220,self.height/2+60))
+
+        
+
+
+    def handle_events(self):
+        self.clock.tick(60)
+        mouse = pygame.mouse.get_pos() 
+
+        for rb in self.radioButtons:
+            rb.setRadioButtons(self.radioButtons)
+        self.radioButtons[0].clicked = True
+
+        event_list = pygame.event.get()
+        for event in event_list:
+            if event.type == pygame.QUIT:
+                self.running = False
+                pygame.quit()
+                sys.exit()
+
+            """
+            need to be changed
+            """
+
+            if event.type == pygame.MOUSEBUTTONDOWN: 
+                if self.width/2-400 <= mouse[0] <= self.width /2-340 and self.height/2-293 <= self.mouse[1] <= self.height/2-263: 
+                    pygame.quit() #CHANGE to previous screen New/Save mode
+                if self.width/2+215 <= mouse[0] <= self.width /2+395 and self.height/2+50 <= self.mouse[1] <= self.height/2+90: 
+                    pygame.quit() #CHANGE to next tutorial screen 
+            # user resizing screen
+            elif event.type == pygame.VIDEORESIZE:
+                super().resize_screen(event)
+
+        self.group.update(event_list)
+
+    def run(self):
+        super().run()
 
 class RadioButton(pygame.sprite.Sprite):
     def __init__(self, x, y, w, h, font, text):
@@ -45,87 +125,8 @@ class RadioButton(pygame.sprite.Sprite):
             self.image = self.hover_image
 
 
-pygame.init()
-screen = pygame.display.set_mode((844, 600))
-clock = pygame.time.Clock()
-font50 = pygame.font.SysFont(None, 50)
 
-
-# grey for back button
-color_back = (220,220,220) 
-# light blue shade of the button 
-color_button = (159,197,248) 
-
-# stores the width of the 
-# screen into a variable 
-width = screen.get_width() 
-
-# stores the height of the 
-# screen into a variable 
-height = screen.get_height() 
-
-#back button
-smallfont = pygame.font.SysFont('Corbel',32) 
-back = smallfont.render('Back' , True , 0) 
-
-#start tutorial button
-start = smallfont.render('Start Tutorial >>', True, 0)
-
-#texts on screen
-bigfont = pygame.font.SysFont('Corbel',50)
-mode = bigfont.render('Mode Selection', True, 0)
-categories = smallfont.render('Select a Category to start', True, 0)
-category_text = smallfont.render('Category', True, 0)
-
-
-
-radioButtons = [
-    RadioButton(560, 280, 270, 60, font50, "Math"),
-    RadioButton(290, 280, 270, 60, font50, "Social Science"),
-    RadioButton(20, 280, 270, 60, font50, "Science")
-]
-for rb in radioButtons:
-    rb.setRadioButtons(radioButtons)
-radioButtons[0].clicked = True
-
-group = pygame.sprite.Group(radioButtons)
-
-run = True
-while run:
-    clock.tick(60)
-    event_list = pygame.event.get()
-    for event in event_list:
-        if event.type == pygame.QUIT:
-            run = False 
-        if event.type == pygame.MOUSEBUTTONDOWN: 
-            
-            #if the mouse is clicked on the 
-            # x button the game is terminated 
-            if width/2-400 <= mouse[0] <= width /2-340 and height/2-293 <= mouse[1] <= height/2-263: 
-                pygame.quit() #CHANGE to previous screen New/Save mode
-            if width/2+215 <= mouse[0] <= width /2+395 and height/2+50 <= mouse[1] <= height/2+90: 
-                pygame.quit() #CHANGE to next tutorial screen 
-    # stores the (x,y) coordinates into 
-    # the variable as a tuple 
-    mouse = pygame.mouse.get_pos() 
-    group.update(event_list)
-
-    screen.fill((255,255,255))
-    #back button display
-    pygame.draw.rect(screen,color_back,[width/2-400,height/2-293,60,30]) 
-    screen.blit(back , (width/2-397,height/2-290)) 
-
-
-    screen.blit(categories, (width/2-140,height/2-180))
-    screen.blit(mode, (width/2-130, height/2-230))
-    screen.blit(category_text, (width/2-370, height/2-60))
-
-    #start tutorial button
-    pygame.draw.rect(screen,color_button,[width/2+215,height/2+50,180,40]) 
-    screen.blit(start, (width/2+220,height/2+60))
-
-    group.draw(screen)
-    pygame.display.flip()
-
-pygame.quit()
-exit()
+#initialize instance and run
+if __name__ == '__main__':
+    game_screen1 = GameModeSelectScreen()
+    game_screen1.run()

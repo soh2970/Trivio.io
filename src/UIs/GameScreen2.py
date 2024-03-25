@@ -15,51 +15,116 @@ from src.UIs.GameScreenButtons import GameScreenButtons
 
 class GameScreen(ScreenBase):
 
-    def __init__(self, category, player, question):
+    def __init__(self, category, player, boss, question, level):
         super().__init__()
-        self.boss = Boss()
-        self.player = Player("natetyu", 100, 0, 1)
+        self.startTime = pygame.time.get_ticks()
+        self.boss = boss
+        self.player = player
+        self.level = level
         self.question = question
+        self.correctAnswer = question.correctAnswer
+        self.answered = False
+        self.levelFont = pygame.font.SysFont('Corbel', 28)
+        self.hpFont = pygame.font.SysFont('Corbel', 30)
+        if len(question.prompt) > 50:
+            self.promptFont = pygame.font.SysFont('Corbel', 25)
+        else: self.promptFont = pygame.font.SysFont('Corbel', 40)
         self.buttons = [
-            GameScreenButtons(150, 400, 200, 50, question.choices[0], self.choiceMade),
-            GameScreenButtons(150, 500, 200, 50, question.choices[1], self.choiceMade),
-            GameScreenButtons(450, 400, 200, 50, question.choices[2], self.choiceMade),
-            GameScreenButtons(450, 500, 200, 50, question.choices[3], self.choiceMade),
+            GameScreenButtons(150, 390, 280, 100, question.choices[0], lambda: self.choiceMade(question.choices[0])),
+            GameScreenButtons(150, 495, 280, 100, question.choices[1], lambda: self.choiceMade(question.choices[1])),
+            GameScreenButtons(435, 390, 280, 100, question.choices[2], lambda: self.choiceMade(question.choices[2])),
+            GameScreenButtons(435, 495, 280, 100, question.choices[3], lambda: self.choiceMade(question.choices[3])),
         ]
 
+    # logic for when user selects and answer
+    def choiceMade(self, choice):
+        if (choice == self.correctAnswer):
+                self.boss.loseBossHP(self.level)
+                print(f'bossHP = {self.boss.bossHp}')
+                self.answered = True
+        else: 
+            self.player.losePlayerHP(self.level)
+            print(f'playerHP = {self.player.playerHP}')
+            self.answered = True
 
-    def choiceMade(self):
-        print("choice made")
 
+    #displays text, buttons, images on the screen 
+            
     def display(self, screen):
+
         screen.fill((255,255,255))
+
+        #display current question prompt
+        self.draw_text(self.question.prompt, self.promptFont, (255,0,0), screen, 50, 100)
+
+        # displays the current elapsed time
+        elapsed_time = (pygame.time.get_ticks() - self.startTime) // 1000  # Convert milliseconds to seconds
+
+        # Convert seconds to minutes and seconds
+        minutes = elapsed_time // 60
+        seconds = elapsed_time % 60
+
+        if minutes == 0:
+            time_text = f'Time: {seconds} seconds'
+        else:
+            time_text = f'Time: {minutes} minute(s) {seconds} seconds'
+
+        self.draw_text(time_text, self.levelFont, (255, 0, 0), screen, 600, 40)
 
         for button in self.buttons:
             button.draw(screen)
 
-        if (self.boss.bossHp <= 100 and self.boss.bossHp >= 80):
-            screen.blit(self.boss1_imageResized, (200, 200))
-        elif (self.boss.bossHp <= 79 and self.boss.bossHp >= 50):
-            screen.blit(self.boss2_imageResized, (200, 200))
-        elif (self.boss.bossHp <= 50 and self.boss.bossHp > 0):
-            screen.blit(self.boss3_imageResized, (200, 200))
+        #display current level
+        self.draw_text(f'Level: {str(self.level)}', self.levelFont, (255,0,0), screen, 380, 40)
+        
+        #display boss hp        
+        self.draw_text(f'Boss HP: {str(self.boss.bossHp)}', self.hpFont, (255,0,0), screen, 225, 320)
 
-        if (self.player.playerHP <= 100 and self.player.playerHP >= 80):
+        #display player hp
+        self.draw_text(f'Player HP: {str(self.player.playerHP)}', self.hpFont, (255,0,0), screen, 470, 320)
+
+        #display images based on boss and player hp  
+        if (self.boss.bossHp <= 100 and self.boss.bossHp > 80):
+            screen.blit(self.boss1_imageResized, (250, 200))
+        elif (self.boss.bossHp <= 80 and self.boss.bossHp > 50):
+            screen.blit(self.boss2_imageResized, (250, 200))
+        elif (self.boss.bossHp <= 50 and self.boss.bossHp > 0):
+            screen.blit(self.boss3_imageResized, (250, 200))
+
+        if (self.player.playerHP <= 100 and self.player.playerHP > 80):
             screen.blit(self.player1_imageResized, (500, 200))
-        elif (self.player.playerHP <= 79 and self.player.playerHP >= 50):
+        elif (self.player.playerHP <= 80 and self.player.playerHP > 50):
             screen.blit(self.player2_imageResized, (500, 200))
         elif (self.player.playerHP <= 50 and self.player.playerHP > 0):
             screen.blit(self.player3_imageResized, (500, 200))
         elif (self.player.playerHP == 0):
             screen.blit(self.playerLose_imageResized, (500, 200))
         
-
-    def process_events(self):
-        super().handle_events()
+    #overridden from parent class
+    def handle_events(self):
         for event in pygame.event.get():
+            # user quits
+            if event.type == pygame.QUIT: 
+                self.running = False
+                pygame.quit()
+                sys.exit()
+            # user resizing screen
+            elif event.type == pygame.VIDEORESIZE:
+                self.resize_screen(event)
             for button in self.buttons:
                 button.handle_event(event)
+
+    #draws text onto the screen
+    def draw_text(self, text, font, color, surface, x, y):
+        textobj = font.render(text, 1, color)
+        textrect = textobj.get_rect()
+        textrect.topleft = (x, y)
+        surface.blit(textobj, textrect)
+
+
         
+
+            
 
 
     # Load the boss level1 image
@@ -96,89 +161,3 @@ class GameScreen(ScreenBase):
     playerLose_image_path = 'images/userLose.jpeg'
     playerLose_image = pygame.image.load(playerLose_image_path)
     playerLose_imageResized = pygame.transform.scale(playerLose_image, (80,80))
-
-
-    #Font setup
-    # font = pygame.font.Font(None, 36)
-
-    # # Function to draw text
-    # def draw_text(self, text, font, color, surface, x, y):
-    #     textobj = font.render(text, 1, color)
-    #     textrect = textobj.get_rect()
-    #     textrect.topleft = (x, y)
-    #     surface.blit(textobj, textrect)
-
-    # # """
-    # # Set up Boss and Player
-    # # """
-
-
-
-
-
-    # """
-    # Hardcoded question to be displayed
-    # """
-    # q = Question(1, "What is the perimeter of a rectangle with diagonal length 17 units and length 8 units?", ["1","2","3","4"], "2", 4, False, "Math")
-
-    # # Function to draw buttons and check for clicks
-    # def draw_button(self, text, x, y, width, height, action=None):
-    #     mouse = pygame.mouse.get_pos()
-    #     click = pygame.mouse.get_pressed()
-    #     button_rect = pygame.Rect(x, y, width, height)
-
-    #     if button_rect.collidepoint(mouse):
-    #         pygame.draw.rect(screen, GREEN, button_rect)
-    #         if click[0] == 1 and action is not None:
-    #             action()
-    #     else:
-    #         pygame.draw.rect(screen, WHITE, button_rect)
-
-    #     draw_text(text, font, BLACK, screen, x + 10, y + 10)
-
-    # def check_answer(self, answer):
-    #     if answer == q.correctAnswer:
-    #         print("Correct!")
-    #     else:
-    #         print("Incorrect!")
-
-    # # Main game loop
-    # # running = True
-    # # while running:
-    # #     screen.fill(WHITE)
-        
-    # #     # Event loop
-    # #     for event in pygame.event.get():
-    # #         if event.type == pygame.QUIT:
-    # #             running = False
-
-    #     """
-    #     Check what level hp boss is and render image accordingly
-    #     """
-
-
-    #     """
-    #     Check what level hp player is and render image accordingly
-    #     """
-
-
-
-    #     """
-    #     Check if length of string can fit in the window, if not then lower font size
-    #     """
-    #     if (len(q.prompt) > 50):
-    #         font = pygame.font.Font(None, 24)
-        
-    #     # Draw question
-    #     draw_text(q.prompt, font, BLACK, screen, 100, 100)
-        
-    #     # Draw answer buttons
-    #     for i, answer in enumerate(q.choices):
-    #         button_x = 100 + (i % 2) * 300
-    #         button_y = 400 + (i // 2) * 100
-    #         draw_button(answer, button_x, button_y, 200, 50, lambda a=answer: check_answer(a))
-
-    #     pygame.display.flip()
-
-    # pygame.quit()
-    # sys.exit()
