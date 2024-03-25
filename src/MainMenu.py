@@ -4,7 +4,7 @@ import sys
 class MainMenu:
     def __init__(self, game_instance):
         
-        self.screen_width = 800
+        self.screen_width = 844
         self.screen_height = 600
         self.bg_color = (230, 230, 230)
         self.font = pygame.font.SysFont('corbel', 48)
@@ -12,6 +12,7 @@ class MainMenu:
         self.selected_item = 0
         self.running = False  # Flag to control the main loop
         self.game_instance = game_instance
+        self.type = "mainMenu"
 
         pygame.init()
         self.screen = pygame.display.set_mode((self.screen_width, self.screen_height))
@@ -48,13 +49,14 @@ class MainMenu:
                 elif event.key == pygame.K_DOWN:
                     self.selected_item = (self.selected_item + 1) % len(self.menu_items)
                 elif event.key == pygame.K_RETURN:
-                    self.handle_selection()
+                    return self.handle_selection()
 
     def handle_selection(self):
         if self.selected_item == 0:
             print("Start New Game selected")
-            self.game_instance.startGame()
-            self.running = False
+            # self.game_instance.startGame()
+            # self.running = False
+            return 0
         elif self.selected_item == 1:
             print("Load Game selected")
             # Implement the logic to load a saved game
