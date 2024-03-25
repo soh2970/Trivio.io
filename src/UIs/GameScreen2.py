@@ -5,13 +5,14 @@ import os
 src_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), '../'))
 sys.path.append(src_dir)
 
+from Boss import Boss
+
 import pygame
 import sys
-from src.Boss import Boss
 from Player import Player
 from question2 import Question
-from src.UIs.screen import ScreenBase
-from src.UIs.GameScreenButtons import GameScreenButtons
+from screen import ScreenBase
+from GameScreenButtons import GameScreenButtons
 
 class GameScreen(ScreenBase):
 
