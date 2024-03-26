@@ -1,8 +1,8 @@
-from screen import ScreenBase
+from src.UIs.screen import ScreenBase
 import pygame
 import sys
 import os
-from GameScreenButtons import GameScreenButtons
+from src.UIs.GameScreenButtons import GameScreenButtons
 
 # Get the absolute path to the src directory
 src_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), '../'))
