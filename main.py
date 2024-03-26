@@ -74,7 +74,7 @@ def run_game():
 
         # math gameplay
         if (current_screen.type == 'math'):
-            current_screen.display(screen)
+            current_screen.draw()
             current_screen.handle_events()
 
             if (current_screen.answered):
@@ -103,7 +103,7 @@ def run_game():
 
         #science gameplay
         if (current_screen.type == 'science'):
-            current_screen.display(screen)
+            current_screen.draw()
             current_screen.handle_events()
 
             if (current_screen.answered):
@@ -129,7 +129,7 @@ def run_game():
 
         #social science gameplay
         if (current_screen.type == 'socialScience'):
-            current_screen.display(screen)
+            current_screen.draw()
             current_screen.handle_events()
 
             if (current_screen.answered):

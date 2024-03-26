@@ -16,12 +16,12 @@
             }
         ],
         "currentSavedGame": {
-            "timeStamp": "2024-03-26 18:17:25",
+            "timeStamp": "2024-03-26 18:18:17",
             "levelAchieved": "1",
             "subject": "math",
-            "score": "12",
-            "playerHP": "88",
-            "bossHP": "88"
+            "score": "4",
+            "playerHP": "84",
+            "bossHP": "96"
         }
     },
     "harjapg": {
@@ -48,12 +48,12 @@
         "password": "t",
         "gameHistory": [],
         "currentSavedGame": {
-            "timeStamp": "2024-03-26 17:43:40",
+            "timeStamp": "2024-03-26 19:12:53",
             "levelAchieved": "1",
             "subject": "math",
-            "score": "0",
-            "playerHP": "36",
-            "bossHP": "100"
+            "score": "4",
+            "playerHP": "80",
+            "bossHP": "96"
         }
     },
     "tt": {
