@@ -7,7 +7,7 @@ class UserAccount:
         self.password = userPassword
 
     def validateLogin(self):
-        with open("playerBank.json", "r") as file:
+        with open("src/playerBank.json", "r") as file:
             data = json.load(file)
             if self.ID in data:
                 if self.password == data[self.ID]["password"]:
@@ -24,7 +24,7 @@ class UserAccount:
             "currentSavedGame": {}
         }
 
-        with open("playerBank.json", "r+") as file:
+        with open("src/playerBank.json", "r+") as file:
             data = json.load(file)
             if name not in data:
                 data[name] = playerData
@@ -33,13 +33,6 @@ class UserAccount:
                 file.truncate()
             else: raise Exception("Player already found in database")
 
-
-user = UserAccount("michaElKim", 12345)
-user2 = UserAccount("harJapG", 54321)
-user3 = UserAccount("kachlan", 22222)
-user3.createAccount()
-
-print(user.validateLogin())
 
 
 

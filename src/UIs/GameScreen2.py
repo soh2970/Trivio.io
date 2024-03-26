@@ -6,17 +6,19 @@ src_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), '../'))
 sys.path.append(src_dir)
 
 from Boss import Boss
-
+from datetime import datetime
+import json
 import pygame
 import sys
-from Player import Player
-from question2 import Question
-from screen import ScreenBase
-from GameScreenButtons import GameScreenButtons
+from src.Player import Player
+from src.question2 import Question
+from src.UIs.screen import ScreenBase
+from src.UIs.GameScreenButtons import GameScreenButtons
+from src.UIs.CorrectAnswerScreen import CorrectAnswerScreen
 
 class GameScreen(ScreenBase):
 
-    def __init__(self, category, player, boss, question, level):
+    def __init__(self, category, player, boss, question, level, score):
         super().__init__()
         self.startTime = pygame.time.get_ticks()
         self.boss = boss
@@ -25,6 +27,7 @@ class GameScreen(ScreenBase):
         self.question = question
         self.correctAnswer = question.correctAnswer
         self.answered = False
+        self.answeredCorrectly = None
         self.levelFont = pygame.font.SysFont('Corbel', 28)
         self.hpFont = pygame.font.SysFont('Corbel', 30)
         if len(question.prompt) > 50:
@@ -37,21 +40,28 @@ class GameScreen(ScreenBase):
             GameScreenButtons(435, 495, 280, 100, question.choices[3], lambda: self.choiceMade(question.choices[3])),
         ]
         self.type = category
+        self.score = score
 
     # logic for when user selects and answer
     def choiceMade(self, choice):
         if (choice == self.correctAnswer):
                 self.boss.loseBossHP(self.level)
                 print(f'bossHP = {self.boss.bossHp}')
+                if (self.level == 1): self.score = self.score + 4
+                elif (self.level == 2): self.score = self.score + 6
+                elif (self.level == 3): self.score = self.score + 10
                 self.answered = True
+                self.answeredCorrectly = True
         else: 
             self.player.losePlayerHP(self.level)
             print(f'playerHP = {self.player.playerHP}')
             self.answered = True
+            self.answeredCorrectly = False
+
+        print(f'Score = {self.score}')
 
 
     #displays text, buttons, images on the screen 
-            
     def display(self, screen):
 
         screen.fill((255,255,255))
@@ -123,8 +133,26 @@ class GameScreen(ScreenBase):
         textrect.topleft = (x, y)
         surface.blit(textobj, textrect)
 
+    def saveGame(self):
+        datetime_string = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+        gameState = {
+            "timeStamp": datetime_string,
+            "levelAchieved": f'{self.level}',
+            "subject": f'{self.type}',
+            "score":f'{self.score}',
+            "playerHP": f'{self.player.playerHP}',
+            "bossHP": f'{self.boss.bossHp}'
+        }
 
-        
+        with open("src/playerBank.json", "r+") as file:
+            data = json.load(file)
+            if self.player.playerId in data:
+                data[self.player.playerId]['currentSavedGame'] = gameState
+                file.seek(0)
+                json.dump(data, file, indent=4)
+                file.truncate()
+                print("saved Game")
+            else: raise Exception("Player not found in database")
 
             
 
@@ -163,3 +191,4 @@ class GameScreen(ScreenBase):
     playerLose_image_path = 'images/userLose.jpeg'
     playerLose_image = pygame.image.load(playerLose_image_path)
     playerLose_imageResized = pygame.transform.scale(playerLose_image, (80,80))
+

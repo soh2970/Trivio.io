@@ -9,7 +9,7 @@ sys.path.append(src_dir)
 import random
 import json
 import datetime
-from Game import Game
+from game import Game
 
 # Initialize Pygame
 pygame.init()
