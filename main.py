@@ -2,15 +2,15 @@ import pygame
 from src.UIs.screen import ScreenBase
 from src.UIs.GameScreen2 import GameScreen
 from src.question2 import Question
-from question2 import Question
-from Level import Level
-from Player import Player
-from Boss import Boss
-from game import Game
-from MainMenu import MainMenu
+from src.Level import Level
+from src.Player import Player
+from src.Boss import Boss
+from src.game import Game
+from src.MainMenu import MainMenu
 from src.UIs.GameModeSelectScreen import GameModeSelectScreen
 from src.UIs.WelcomeScreen import WelcomeScreen
 from src.UIs.LoginScreen import LoginScreen
+from src.UIs.CorrectAnswerScreen import CorrectAnswerScreen
 
 
 def run_game():
@@ -23,6 +23,7 @@ def run_game():
 
     current_player = None
     boss = Boss()
+    score = 0
     current_screen = WelcomeScreen()
     level = Level(1, 'science')
     
@@ -61,15 +62,15 @@ def run_game():
             elif (current_screen.choice == 'math'):
                 print("math was chosen")
                 level = Level(1, 'math')
-                current_screen = GameScreen('math', current_player, boss, level.getNextQuestion(), level.levelNum)
+                current_screen = GameScreen('math', current_player, boss, level.getNextQuestion(), level.levelNum, score)
             elif (current_screen.choice == 'socialScience'):
                 print("social science was chosen")
                 level = Level(1, 'social_sciences')
-                current_screen = GameScreen('socialScience', current_player, boss, level.getNextQuestion(), level.levelNum)
+                current_screen = GameScreen('socialScience', current_player, boss, level.getNextQuestion(), level.levelNum, score)
             elif (current_screen.choice == 'science'):
                 print("science was chosen")
                 level = Level(1, 'science')
-                current_screen = GameScreen('science', current_player, boss, level.getNextQuestion(), level.levelNum)
+                current_screen = GameScreen('science', current_player, boss, level.getNextQuestion(), level.levelNum, score)
 
         # math gameplay
         if (current_screen.type == 'math'):
@@ -77,6 +78,17 @@ def run_game():
             current_screen.handle_events()
 
             if (current_screen.answered):
+                #increase global score
+                score = current_screen.score
+                #correct answer screen displayed
+                if (current_screen.answeredCorrectly == True):
+                    current_screen = CorrectAnswerScreen(level.levelNum)
+                    while (current_screen.nextQuestion == False):
+                        current_screen.draw()
+                        current_screen.handle_events()
+                        pygame.display.flip()
+
+                #increase level based on remaining boss HP
                 if (boss.bossHp <= 0) or (current_player.playerHP <= 0):
                     running = False
                 elif (boss.bossHp <= 50 and boss.bossHp > 0):
@@ -86,7 +98,8 @@ def run_game():
                 elif (boss.bossHp <= 100 and boss.bossHp > 80):
                     level = Level(1, 'math')
 
-                current_screen = GameScreen('math', current_player, boss, level.getNextQuestion(), level.levelNum)
+                current_screen = GameScreen('math', current_player, boss, level.getNextQuestion(), level.levelNum, score)
+                current_screen.saveGame()
 
         #science gameplay
         if (current_screen.type == 'science'):
@@ -94,6 +107,15 @@ def run_game():
             current_screen.handle_events()
 
             if (current_screen.answered):
+                #increase global score
+                score = current_screen.score
+                if (current_screen.answeredCorrectly == True):
+                    current_screen = CorrectAnswerScreen(level.levelNum)
+                    #correct answer screen displayed
+                    while (current_screen.nextQuestion == False):
+                        current_screen.draw()
+                        current_screen.handle_events()
+                        pygame.display.flip()
                 if (boss.bossHp <= 0) or (current_player.playerHP <= 0):
                     running = False
                 elif (boss.bossHp <= 50 and boss.bossHp > 0):
@@ -103,8 +125,8 @@ def run_game():
                 elif (boss.bossHp <= 100 and boss.bossHp > 80):
                     level = Level(1, 'science')
 
-                current_screen = GameScreen('science', current_player, boss, level.getNextQuestion(), level.levelNum)
-
+                current_screen = GameScreen('science', current_player, boss, level.getNextQuestion(), level.levelNum, score)
+                current_screen.saveGame()
 
         #social science gameplay
         if (current_screen.type == 'socialScience'):
@@ -112,6 +134,15 @@ def run_game():
             current_screen.handle_events()
 
             if (current_screen.answered):
+                #increase global score
+                score = current_screen.score
+                #correct answer screen displayed
+                if (current_screen.answeredCorrectly == True):
+                    current_screen = CorrectAnswerScreen(level.levelNum)
+                    while (current_screen.nextQuestion == False):
+                        current_screen.draw()
+                        current_screen.handle_events()
+                        pygame.display.flip()
                 if (boss.bossHp <= 0) or (current_player.playerHP <= 0):
                     running = False
                 elif (boss.bossHp <= 50 and boss.bossHp > 0):
@@ -121,8 +152,8 @@ def run_game():
                 elif (boss.bossHp <= 100 and boss.bossHp > 80):
                     level = Level(1, 'social_sciences')
 
-                current_screen = GameScreen('science', current_player, boss, level.getNextQuestion(), level.levelNum)
-                
+                current_screen = GameScreen('science', current_player, boss, level.getNextQuestion(), level.levelNum, score)
+                current_screen.saveGame()
                 
         pygame.display.flip()
         

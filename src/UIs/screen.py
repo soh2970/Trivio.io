@@ -24,6 +24,7 @@ class ScreenBase:
     GREY = (220,220,220)
     DARKGREY = (45,45,45)
     GREEN = (204, 245, 205)
+    RED = (255,0,0)
 
 
     # fonts
