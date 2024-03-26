@@ -99,7 +99,7 @@ def run_game():
                     level = Level(1, 'math')
 
                 current_screen = GameScreen('math', current_player, boss, level.getNextQuestion(), level.levelNum, score)
-                current_screen.saveGame()
+
 
         #science gameplay
         if (current_screen.type == 'science'):
@@ -126,7 +126,6 @@ def run_game():
                     level = Level(1, 'science')
 
                 current_screen = GameScreen('science', current_player, boss, level.getNextQuestion(), level.levelNum, score)
-                current_screen.saveGame()
 
         #social science gameplay
         if (current_screen.type == 'socialScience'):
@@ -151,9 +150,7 @@ def run_game():
                     level = Level(2, 'social_sciences')
                 elif (boss.bossHp <= 100 and boss.bossHp > 80):
                     level = Level(1, 'social_sciences')
-
                 current_screen = GameScreen('science', current_player, boss, level.getNextQuestion(), level.levelNum, score)
-                current_screen.saveGame()
                 
         pygame.display.flip()
         

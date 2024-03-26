@@ -11,8 +11,8 @@ sys.path.append(src_dir)
 
 
 #please ignore or alter this path as where your json file is located.
-os.chdir("C:\\Users\\kimgu\\2212\\repositories2212\\personalRepo2212\\src")
-print(os.getcwd())
+# os.chdir("C:\\Users\\kimgu\\2212\\repositories2212\\personalRepo2212\\src")
+# print(os.getcwd())
 
 class DebuggerModeScreen(ScreenBase):
     """

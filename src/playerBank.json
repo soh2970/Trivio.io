@@ -16,12 +16,12 @@
             }
         ],
         "currentSavedGame": {
-            "timeStamp": "2024-03-26 15:11:33",
+            "timeStamp": "2024-03-26 18:17:25",
             "levelAchieved": "1",
             "subject": "math",
-            "score": "0",
-            "playerHP": "40",
-            "bossHP": "92"
+            "score": "12",
+            "playerHP": "88",
+            "bossHP": "88"
         }
     },
     "harjapg": {
@@ -44,25 +44,25 @@
         "gameHistory": [],
         "currentSavedGame": {}
     },
-<<<<<<< HEAD
-    "nateyu": {
-        "password": "",
-=======
     "t": {
         "password": "t",
         "gameHistory": [],
         "currentSavedGame": {
-            "timeStamp": "2024-03-26 17:00:29",
-            "levelAchieved": "2",
+            "timeStamp": "2024-03-26 17:43:40",
+            "levelAchieved": "1",
             "subject": "math",
-            "score": "20",
-            "playerHP": "64",
-            "bossHP": "80"
+            "score": "0",
+            "playerHP": "36",
+            "bossHP": "100"
         }
     },
     "tt": {
         "password": "t",
->>>>>>> 26f200a2bde5d8934adbc072f4e3c0ab8fbcf44c
+        "gameHistory": [],
+        "currentSavedGame": {}
+    },
+    "test": {
+        "password": "t",
         "gameHistory": [],
         "currentSavedGame": {}
     }
