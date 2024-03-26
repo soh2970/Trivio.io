@@ -36,5 +36,10 @@
         "password": "22222",
         "gameHistory": [],
         "currentSavedGame": {}
+    },
+    "braydeng": {
+        "password": "hi",
+        "gameHistory": [],
+        "currentSavedGame": {}
     }
 }

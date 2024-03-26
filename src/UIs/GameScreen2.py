@@ -9,10 +9,10 @@ from Boss import Boss
 
 import pygame
 import sys
-from Player import Player
-from question2 import Question
-from screen import ScreenBase
-from GameScreenButtons import GameScreenButtons
+from src.Player import Player
+from src.question2 import Question
+from src.UIs.screen import ScreenBase
+from src.UIs.GameScreenButtons import GameScreenButtons
 
 class GameScreen(ScreenBase):
 

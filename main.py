@@ -41,7 +41,7 @@ def run_game():
             current_screen.handle_events()
             if (current_screen.isValidUser):
                 current_player = current_screen.Player
-                current_screen = MainMenu('test')
+                current_screen = MainMenu(current_player)
                 print(current_player.playerId)
 
         #main menu logic
@@ -56,8 +56,8 @@ def run_game():
             current_screen.draw()
             current_screen.handle_events()
             if (current_screen.choice == 'back'):
-                print('successful test')
-                current_screen = MainMenu('test')
+                print('back to main menu')
+                current_screen = MainMenu(current_player)
             elif (current_screen.choice == 'math'):
                 print("math was chosen")
                 level = Level(1, 'math')
