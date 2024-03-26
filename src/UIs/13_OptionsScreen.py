@@ -21,6 +21,10 @@ class OptionsScreen(ScreenBase):
         self.width = self.screen.get_width()
         self.height = self.screen.get_height()
 
+        """
+        need to find way to add list or dictionary with the song choices
+        """
+
         
 
         #slider values
@@ -105,7 +109,36 @@ class OptionsScreen(ScreenBase):
 
 class ArrowButton:
     def __init__(self, colour, x, y, width, height, direction) -> None:
-        pass
+        self.image = pygame.Surface([width, height])
+        self.image.fill((255,255,255))
+        self.rect = self.image.get_rect()
+        self.rect.x = x
+        self.rect.y = y
+        self.rect.width = width
+        self.rect.height = height
+        self.direction = direction  # 'left' or 'right'
+
+    def arrow_clicks(self, events):
+        for event in events:
+            if event.type == pygame.MOUSEBUTTONDOWN:
+                if self.direction=='left' and (self.rect.width-self.rect.x) <= pygame.mouse.get_pos <= self.rect.width and (self.rect.height-self.rect.y) <= pygame.mouse.get_pos() <= self.rect.height:
+                    self.current_song_index = (self.current_song_index - 1) % len(songs)
+                    self.change_song()
+                elif self.direction=='right' and self.rect.width <= pygame.mouse.get_pos() <= (self.rect.width+self.rect.x) and self.rect.height <= pygame.mouse.get_pos() <= (self.rect.height+self.rect.y):
+                    self.current_song_index = (self.current_song_index - 1) % len(songs)
+    
+    def change_song(self):
+        pygame.mixer.music.stop()
+        current_song = songs[self.current_song_index]['path']
+        pygame.mixer.music.load(current_song)
+        pygame.mixer.music.play(-1)
+
+    def draw_current_song(self):
+        song_name = songs[self.current_song_index]['name']
+        font = pygame.font.SysFont(None, 24)
+        text_surface = font.render(song_name, True, (255,255,255))
+        self.screen.blit(text_surface, (100, 50))
+
 
 #initialize instance and run
 if __name__ == '__main__':
