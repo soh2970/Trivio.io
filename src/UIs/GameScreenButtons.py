@@ -1,11 +1,12 @@
 import pygame
 
 class GameScreenButtons:
-    def __init__(self, x, y, width, height, text, callback):
-        self.rect = pygame.Rect(x, y, width, height)
+    def __init__(self, x, y, width, height, text, callback, colour):
+        self.rect1 = pygame.Rect(x, y, width, height)
+        self.rect2 = pygame.Rect(x, y, width, height)
+        self.colour = colour
         self.text = text
         self.callback = callback
-        self.color = (100, 200, 255)  # Button color
         self.text_color = (255, 255, 255)  # Text color
         if (len(text) > 20):
             self.font = pygame.font.SysFont('Corbel', 20)
@@ -13,11 +14,12 @@ class GameScreenButtons:
 
     def draw(self, screen):
         # Draw the button rectangle
-        pygame.draw.rect(screen, self.color, self.rect)
+        button = pygame.draw.rect(screen, self.color, self.rect)
+        pygame.draw.rect(screen, (0,0,0), )
         # Render the text
-        text_surf = self.font.render(self.text, True, self.text_color)
+        text_surf = self.font.render(self.text, (button.centerx, button.centery), self.text_color)
         # Center the text on the button
-        text_rect = text_surf.get_rect(center=self.rect.center)
+        text_rect = text_surf.get_rect(center=self.rect1.center)
         # Blit the text onto the screen
         screen.blit(text_surf, text_rect)
 
