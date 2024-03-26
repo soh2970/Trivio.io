@@ -12,6 +12,7 @@ screens in the new format:
 3
 4
 9
+10
 17
 - everything needs to be resized according to width and height, don't add random fixed values 
 - all buttons should look like UI screen 7 - should have an outline and centered text
