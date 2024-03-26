@@ -1,5 +1,8 @@
 from question2 import Question
 import json
+import os
+
+print(os.listdir())
 
 class Debugger:
 
@@ -27,7 +30,7 @@ class Debugger:
                         if (level == 3): questionWeight = 10
 
                         questionID = (questionNum, level)
-                        return Question(questionID, prompt, choices, correctAnswer, questionWeight, False, category)
+                        return Question(questionID, prompt, choices, correctAnswer, questionWeight, category)
                     
 
 

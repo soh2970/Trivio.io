@@ -3,14 +3,13 @@ import sys
 import os
 from GameScreenButtons import GameScreenButtons
 import json
+from DebuggerModeScreen import DebuggerModeScreen
 
 # Get the absolute path to the src directory
 src_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), '../'))
 sys.path.append(src_dir)
 
 #from DebuggerMode import Debugger
-from question2 import Question
-
 
 
 class RadioButton(pygame.sprite.Sprite):
@@ -72,35 +71,7 @@ class RadioButton(pygame.sprite.Sprite):
 
 class DebuggerDashboardPage:
     """
-    The main page for the debugger dashboard interface where the user can select
-    a category and a level before proceeding to the next stage.
-
-    Attributes:
-        screen (pygame.Surface): The screen onto which the dashboard will be rendered.
-        clock (pygame.time.Clock): A clock object to control the frame rate.
-        font (pygame.font.Font): The font used for regular text.
-        big_font (pygame.font.Font): The font used for headers.
-        bg_color (tuple): The background color of the dashboard.
-        text_color (tuple): The color of the text.
-        header_text (pygame.Surface): Rendered surface of the header text.
-        subheader_text (pygame.Surface): Rendered surface of the subheader text.
-        category_label (pygame.Surface): Rendered surface of the 'Category' label.
-        level_label (pygame.Surface): Rendered surface of the 'Level' label.
-        home_button (GameScreenButtons): The 'Home' button instance.
-        next_button (GameScreenButtons): The 'Next' button instance.
-        category_buttons (list): List of 'RadioButton' instances for categories.
-        level_buttons (list): List of 'RadioButton' instances for levels.
-        category_group (pygame.sprite.Group): Group for managing category buttons.
-        level_group (pygame.sprite.Group): Group for managing level buttons.
-        selected_category (RadioButton): The currently selected category button.
-        selected_level (RadioButton): The currently selected level button.
-
-    Methods:
-        on_home(): Handles the click event for the home button.
-        on_next(): Handles the click event for the next button, proceeding only if both category and level are selected.
-        handle_events(): Handles events like button clicks and quitting.
-        draw(): Draws the elements of the dashboard onto the screen.
-        run(): The main loop that runs the dashboard.
+    
     """
 
     def __init__(self, screen):
@@ -178,19 +149,15 @@ class DebuggerDashboardPage:
 
     def on_home(self):
         # ADD LOGIC
+        #plz work on this in main script.
         print("Home button clicked")
+        
 
 
     def on_next(self):
-        # Logic for next button, proceeding only if both a category and a level are selected
         if self.selected_category and self.selected_level:
-            # Assuming 'text' attribute stores the category name in the format you need
-            # And 'text' attribute of selected_level stores level as a string like "1", "2", or "3"
-            selected_category_name = self.selected_category.text.lower().replace(" ", "_")  # Example conversion if necessary
-            selected_level_str = f"level{self.selected_level.text}"
-            
-            # Transition to the DebuggerModeScreen
-            debugger_mode_screen = DebuggerModeScreen(self.screen, selected_category_name, selected_level_str)
+            # No need to access .text since selected_category and selected_level are already strings
+            debugger_mode_screen = DebuggerModeScreen(self.screen, self.selected_category, self.selected_level)
             debugger_mode_screen.run()
 
 
@@ -200,21 +167,27 @@ class DebuggerDashboardPage:
             if event.type == pygame.QUIT:
                 pygame.quit()
                 sys.exit()
-            
+
             self.home_button.handle_event(event)
-            # The next button is only active if both a category and level are selected
             if self.selected_category and self.selected_level:
                 self.next_button.handle_event(event)
 
-            # Update the radio buttons and check selections
             self.category_group.update(event_list)
             self.level_group.update(event_list)
+
+            # Update selected_category based on user selection
             for button in self.category_buttons:
                 if button.clicked:
-                    self.selected_category = button
+                    # Convert to required format e.g. "Social Sciences" to "social_sciences"
+                    category_key = button.text.lower().replace(" ", "_")
+                    self.selected_category = category_key
+
+            # Update selected_level based on user selection
             for button in self.level_buttons:
                 if button.clicked:
-                    self.selected_level = button
+                    # Convert to required format e.g. "1" to "level1"
+                    level_key = f"level{button.text}"
+                    self.selected_level = level_key
 
 
     def draw(self):
@@ -244,57 +217,6 @@ class DebuggerDashboardPage:
             self.handle_events()
             self.draw()
             self.clock.tick(60)
-
-
-class DebuggerModeScreen:
-    """
-    This class represents the screen where the debugger mode is active.
-    It displays all questions and answers based on the selected category and level.
-    """
-    def __init__(self, screen, category, level):
-        self.screen = screen
-        self.category = category
-        self.level = int(level[-1])  # Assuming level format is "levelX"
-        self.questions = []  # Will hold Question objects
-        self.current_question_index = 0  # Index to track the current question
-        #self.debugger = Debugger()  # Instance of Debugger to load questions
-        self.load_questions()
-
-    # def load_questions(self):
-    #     # Load 20 questions for the given category and level
-    #     for questionNum in range(20):
-    #         question = self.debugger.selectQuestion(self.category, self.level, questionNum)
-    #         if question:  # Ensure question is valid
-    #             self.questions.append(question)
-        
-
-    def load_questions(self):
-        # Load the questions from the testbank.json file based on selected category and level
-        testbank_path = os.path.join(src_dir, 'testbank.json')  # Ensure this path is correct
-        with open(testbank_path, 'r', encoding='utf-8') as file:
-            test_bank = json.load(file)
-        self.questions = test_bank['subjects'].get(self.category, {}).get(self.level, [])
-
-    def draw(self):
-        # Method to draw the current question and choices
-        # You'll need to implement the drawing logic based on your UI requirements
-        pass
-
-    def handle_events(self):
-        # Handle user input, such as selecting an answer
-        pass
-
-    def run(self):
-        # Main loop for the debugger mode screen
-        running = True
-        while running:
-            for event in pygame.event.get():
-                if event.type == pygame.QUIT:
-                    running = False
-                    pygame.quit()
-                    sys.exit()
-            self.draw()
-            pygame.display.flip()
 
 
 

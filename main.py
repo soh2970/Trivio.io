@@ -2,12 +2,11 @@ import pygame
 from src.UIs.screen import ScreenBase
 from src.UIs.GameScreen2 import GameScreen
 from src.question2 import Question
-from question2 import Question
-from Level import Level
-from Player import Player
-from Boss import Boss
-from game import Game
-from MainMenu import MainMenu
+from src.Level import Level
+from src.Player import Player
+from src.Boss import Boss
+from src.game import Game
+from src.MainMenu import MainMenu
 from src.UIs.GameModeSelectScreen import GameModeSelectScreen
 
 
