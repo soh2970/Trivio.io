@@ -39,6 +39,7 @@ class GameScreen(ScreenBase):
             GameScreenButtons(435, 390, 280, 100, question.choices[2], lambda: self.choiceMade(question.choices[2])),
             GameScreenButtons(435, 495, 280, 100, question.choices[3], lambda: self.choiceMade(question.choices[3])),
         ]
+        self.saveGameButton = GameScreenButtons(self.screen.get_height() / 2, self.screen.get_width() / 2, 50, 50, "Save Game", lambda: self.choiceMade("save"))
         self.type = category
         self.score = score
 
@@ -86,6 +87,8 @@ class GameScreen(ScreenBase):
         for button in self.buttons:
             button.draw(screen)
 
+        self.saveGameButton.draw()
+
         #display current level
         self.draw_text(f'Level: {str(self.level)}', self.levelFont, (255,0,0), screen, 380, 40)
         
@@ -125,6 +128,9 @@ class GameScreen(ScreenBase):
                 self.resize_screen(event)
             for button in self.buttons:
                 button.handle_event(event)
+
+            #handle save game button
+            self.saveGameButton.handle_event(event)
 
     #draws text onto the screen
     def draw_text(self, text, font, color, surface, x, y):

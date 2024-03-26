@@ -48,12 +48,12 @@
         "password": "t",
         "gameHistory": [],
         "currentSavedGame": {
-            "timeStamp": "2024-03-26 15:13:57",
-            "levelAchieved": "1",
+            "timeStamp": "2024-03-26 17:00:29",
+            "levelAchieved": "2",
             "subject": "math",
-            "score": "12",
-            "playerHP": "4",
-            "bossHP": "88"
+            "score": "20",
+            "playerHP": "64",
+            "bossHP": "80"
         }
     },
     "tt": {
