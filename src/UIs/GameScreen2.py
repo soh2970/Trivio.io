@@ -162,3 +162,4 @@ class GameScreen(ScreenBase):
     playerLose_image_path = 'images/userLose.jpeg'
     playerLose_image = pygame.image.load(playerLose_image_path)
     playerLose_imageResized = pygame.transform.scale(playerLose_image, (80,80))
+

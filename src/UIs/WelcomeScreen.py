@@ -6,16 +6,26 @@ import os
 src_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), '../'))
 sys.path.append(src_dir)
 """
-Win Game Screen
+Welcome Game Screen
 
 """
-from screen import ScreenBase
+from src.UIs.GameScreenButtons import GameScreenButtons
+from src.UIs.screen import ScreenBase
 import pygame
 
-class WinGameScreen(ScreenBase):
+class WelcomeScreen(ScreenBase):
 
     def __init__(self):
         super().__init__()
+        self.type = 'welcomeScreen'
+        self.buttons = [
+            GameScreenButtons(self.screen.get_width()/2-100,self.screen.get_height()/2+100,200,40, "start", lambda: self.choiceMade())
+        ]
+        self.transitionToNextScreen = False
+
+    def choiceMade(self):
+        print("transitioning from mainmenu to log in screen")
+        self.transitionToNextScreen = True
 
     def draw(self):
         super().draw()
@@ -33,7 +43,8 @@ class WinGameScreen(ScreenBase):
         self.esc = self.PARAGRAPH_FONT.render('x' , True , self.BLACK) 
         
 		#button
-        pygame.draw.rect(self.screen,self.BLUE,[self.width/2-100,self.height/2+100,200,40]) 
+        for button in self.buttons:
+            button.draw(self.screen)
 
         """
         potentially delete
@@ -41,7 +52,7 @@ class WinGameScreen(ScreenBase):
         pygame.draw.rect(self.screen,self.GREY,[self.width/2-405,self.height/2-293,30,30]) 
 
 		# superimposing the text onto our button 
-        self.screen.blit(self.text , (self.width/2-65,self.height/2+100))
+        # self.screen.blit(self.text , (self.width/2-65,self.height/2+100))
         self.screen.blit(self.welcome, (self.width/2-200,self.height/2-100))
         self.screen.blit(self.trivio, (self.width/2,self.height/2))
         """
@@ -62,6 +73,11 @@ class WinGameScreen(ScreenBase):
             # user resizing screen
             elif event.type == pygame.VIDEORESIZE:
                 super().resize_screen(event)
+                for button in self.buttons:
+                    button.rect = pygame.Rect(self.screen.get_width()/2-100,self.screen.get_height()/2+100,200,40)
+
+            for button in self.buttons:
+                button.handle_event(event)
            
             """
             i dont think we need this on the welcome screen

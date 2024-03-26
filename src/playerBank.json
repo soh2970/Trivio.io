@@ -23,17 +23,17 @@
         }
     },
     "harjapg": {
-        "password": 54321,
+        "password": "54321",
         "gameHistory": [],
         "currentSavedGame": {}
     },
     "michaelkim": {
-        "password": 12345,
+        "password": "12345",
         "gameHistory": [],
         "currentSavedGame": {}
     },
     "kachlan": {
-        "password": 22222,
+        "password": "22222",
         "gameHistory": [],
         "currentSavedGame": {}
     }
