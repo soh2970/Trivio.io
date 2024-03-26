@@ -44,6 +44,10 @@
         "gameHistory": [],
         "currentSavedGame": {}
     },
+<<<<<<< HEAD
+    "nateyu": {
+        "password": "",
+=======
     "t": {
         "password": "t",
         "gameHistory": [],
@@ -58,6 +62,7 @@
     },
     "tt": {
         "password": "t",
+>>>>>>> 26f200a2bde5d8934adbc072f4e3c0ab8fbcf44c
         "gameHistory": [],
         "currentSavedGame": {}
     }
