@@ -14,8 +14,8 @@ class GameScreenButtons:
 
     def draw(self, screen):
         # Draw the button rectangle
-        button = pygame.draw.rect(screen, self.colour, self.rect)
-        pygame.draw.rect(screen, (0,0,0), 1)
+        button = pygame.draw.rect(screen, self.colour, self.rect1)
+        button_border = pygame.draw.rect(screen, (0,0,0), self.rect2, 1)
         # Render the text
         text_surf = self.font.render(self.text, (button.centerx, button.centery), self.text_color)
         # Center the text on the button
