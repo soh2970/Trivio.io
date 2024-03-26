@@ -16,7 +16,7 @@ class CorrectAnswerScreen(ScreenBase):
         elif (level == 3): self.footer = "- 10 HP to BOSS"
         else: self.footer = "unknown level"
 
-        self.continueButton = GameScreenButtons(self.screen.get_width() / 2 - 50, self.screen.get_height() / 2 + 200, 130, 40, "Continue", lambda: self.choiceMade())
+        self.continueButton = GameScreenButtons(self.screen.get_width() / 2 - 50, self.screen.get_height() / 2 + 200, 130, 40, "Continue", lambda: self.choiceMade(), self.WHITE)
         self.nextQuestion = False
 
     def choiceMade(self):

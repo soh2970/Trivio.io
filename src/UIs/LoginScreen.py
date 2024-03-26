@@ -36,8 +36,8 @@ class LoginScreen(ScreenBase):
         self.font = self.SMALLER_FONT
         self.pass_active = False  # Indicates if the input box is active
 
-        self.loginButton = GameScreenButtons(self.screen.get_width()/2 - 150, self.screen.get_height()/2 + 100, 100, 30, "Log In", lambda: self.handleLogIn())
-        self.createAccountButton = GameScreenButtons(self.screen.get_width()/2 - 10, self.screen.get_height()/2 + 100, 200, 30, "Create Account", lambda: self.handleCreateAccount())
+        self.loginButton = GameScreenButtons(self.screen.get_width()/2 - 150, self.screen.get_height()/2 + 100, 100, 30, "Log In", lambda: self.handleLogIn(), self.WHITE)
+        self.createAccountButton = GameScreenButtons(self.screen.get_width()/2 - 10, self.screen.get_height()/2 + 100, 200, 30, "Create Account", lambda: self.handleCreateAccount(), self.WHITE)
 
         self.isValidUser = False
         self.Player = None
