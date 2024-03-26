@@ -5,6 +5,7 @@ Add a reset button
 
 """
 from screen import ScreenBase
+from GameScreenButtons import GameScreenButtons
 from AudioManager import AudioManager
 import pygame
 import os
@@ -21,7 +22,9 @@ class OptionsScreen(ScreenBase):
     def __init__(self):
         super().__init__()
 
-        self.vol_slider = slider(self.screen.get_width()/5*2, self.screen.get_width()/5*4, self.screen.get_height()/12*5, self.screen.get_width()/5*3)
+        self.vol_slider = slider(self.screen.get_width()/5*2, self.screen.get_width()/5*4, self.screen.get_height()/12*7, self.screen.get_width()/5*3)
+        self.choice = None
+
 
     def draw(self):
         super().draw()
@@ -34,17 +37,30 @@ class OptionsScreen(ScreenBase):
         self.text1 = self.MEDIUM_FONT.render('Options', True, self.BLACK)
         self.textRect1 = self.text1.get_rect(center = (self.width//2, self.height/12*3))
         self.volume_text = self.BUTTON_FONT.render('VOLUME', True, self.BLACK)
-        self.vol_textrect = self.volume_text.get_rect(center = (self.width/5, self.height/12*5))
-        self.song_text = self.BUTTON_FONT.render('SONG', True, self.BLACK)
-        self.song_textrect = self.song_text.get_rect(center = (self.width/5, self.height/12*7))
-        self.brightness_text = self.BUTTON_FONT.render('DISPLAY', True, self.BLACK)
-        self.brightness_textrect = self.brightness_text.get_rect(center = (self.width/5, self.height/12*9))
+        self.vol_textrect = self.volume_text.get_rect(center = (self.width/5, self.height/12*7))
+        #self.song_text = self.BUTTON_FONT.render('SONG', True, self.BLACK)
+        #self.song_textrect = self.song_text.get_rect(center = (self.width/5, self.height/12*7))
+        #self.brightness_text = self.BUTTON_FONT.render('DISPLAY', True, self.BLACK)
+        #self.brightness_textrect = self.brightness_text.get_rect(center = (self.width/5, self.height/12*9))
         
         # slider
         pygame.draw.line(self.screen, self.BLACK, (self.vol_slider.x1, self.vol_slider.height), (self.vol_slider.x2, self.vol_slider.height), 3)
         # slider button
         pygame.draw.circle(self.screen, self.BLACK, (self.vol_slider.pos, self.vol_slider.height), 10)
         
+        self.back_button = GameScreenButtons(self.width/25*1, self.height/25*1, 80,30, "Back", lambda: self.choiceMade('back'))
+        self.back_button.draw(self.screen)
+ 
+
+        
+        '''
+        #back button 
+        self.back_button = pygame.draw.rect(self.screen, self.BLACK, (self.width/25*1, self.height/25*1, 80,30),1)
+        self.back_button_text = self.BUTTON_FONT.render("Back", (self.back_button.centerx, self.back_button.centery), self.BLACK)
+        self.back_button_rect = self.back_button_text.get_rect(center = self.back_button.center)
+        self.screen.blit(self.back_button_text, self.back_button_rect)
+        '''
+        '''
         #arrows
         self.leftArrow = ArrowButton(self.width/5*2, self.height/12*7, 50,50,'left')
         self.rightArrow = ArrowButton(self.width/5*4, self.height/12*7, 50, 50, 'right')
@@ -58,17 +74,18 @@ class OptionsScreen(ScreenBase):
         self.dark_button_text = self.SMALLER_FONT.render("Dark", (self.dark_button.centerx, self.dark_button.centery), self.WHITE)
         self.dark_button_textrect = self.dark_button_text.get_rect(center = self.dark_button.center)
         back = self.BUTTON_FONT.render('Back' , True , 0) 
-
+        '''
         # display text
         self.screen.blit(self.text1, self.textRect1)
         self.screen.blit(self.volume_text, self.vol_textrect)
+        '''
         self.screen.blit(self.song_text, self.song_textrect)
         self.screen.blit(self.brightness_text, self.brightness_textrect)
-
+        
         #display buttons
         self.screen.blit(self.light_button_text, self.light_button_textrect)
         self.screen.blit(self.dark_button_text, self.dark_button_textrect)
-
+'''
         #display arrows
        # left_arrow_image_path= ''
         #left_arrow_image = pygame.image.load(left_arrow_image_path)
@@ -76,11 +93,10 @@ class OptionsScreen(ScreenBase):
         #right_arrow_image_path = ''
         #right_arrrow_image = pygame.image.load(boss2_image_path)
         #right_arrow_image_resized = pygame.transform.scale(boss2_image, (80,80))
-
-
+        '''
         self.screen.blit(self.leftArrow.image, self.leftArrow.rect)
         self.screen.blit(self.rightArrow.image, self.rightArrow.rect)
-        
+        '''     
 
     def handle_events(self):
         # stores the (x,y) coordinates into the variable as a tuple
@@ -88,8 +104,9 @@ class OptionsScreen(ScreenBase):
 
         events = pygame.event.get()
         self.vol_slider.slider_events(events)
-        self.leftArrow.arrow_clicks(events)
-        self.rightArrow.arrow_clicks(events)
+
+       # self.leftArrow.arrow_clicks(events)
+       # self.rightArrow.arrow_clicks(events)
 
         for event in events:
             # user quits
@@ -101,6 +118,12 @@ class OptionsScreen(ScreenBase):
             elif event.type == pygame.VIDEORESIZE:
                 super().resize_screen(event)
                 self.vol_slider.update_slider_pos(self.screen.get_width(),self.screen.get_height())
+
+            self.back_button.handle_event(event)
+    
+    def choiceMade(self, event):
+        self.choice = event
+        
     
     def run(self):
         super().run()
@@ -136,6 +159,7 @@ class slider:
         volume = (self.pos - self.x1) / (self.x2 - self.x1)
         audio_manager.set_volume(volume)
 
+'''
 class ArrowButton:
     def __init__(self, x, y, width, height, direction) -> None:
         self.image = pygame.Surface([width, height],pygame.SRCALPHA)
@@ -169,7 +193,7 @@ class ArrowButton:
                     if (self.rect.x <= mouse_x <= self.rect.x + self.rect.width and self.rect.y <= mouse_y <= self.rect.y + self.rect.height):
                         audio_manager.prev_song()
 
-
+'''
 #initialize instance and run
 if __name__ == '__main__':
     game_screen1 = OptionsScreen()

@@ -19,8 +19,6 @@ class GameModeSelectScreen(ScreenBase):
         # get the current width and height of the screen
         self.width = self.screen.get_width()
         self.height = self.screen.get_height()
-        #back to main menu button
-        back = self.BUTTON_FONT.render('Back' , True , 0) 
         #start tutorial button
         start = self.BUTTON_FONT.render('Start Tutorial >>', True, 0)
         #texts on screen
@@ -36,11 +34,7 @@ class GameModeSelectScreen(ScreenBase):
         self.group = pygame.sprite.Group(self.radioButtons)
         
         self.group.draw(self.screen)
-
-
-        #back button display
-        pygame.draw.rect(self.screen,self.GREY,[self.width/2-400,self.height/2-293,60,30]) 
-        self.screen.blit(back , (self.width/2-397,self.height/2-290)) 
+        
 
 
         self.screen.blit(categories, (self.width/2-140,self.height/2-180))

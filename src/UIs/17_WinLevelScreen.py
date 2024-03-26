@@ -4,6 +4,7 @@ displays win and player stats
 """
 
 from screen import ScreenBase
+from GameScreenButtons import GameScreenButtons
 import pygame
 
 class WinLevelScreen(ScreenBase):
@@ -26,6 +27,8 @@ class WinLevelScreen(ScreenBase):
         self.textRect1 = self.text1.get_rect(center = (self.width//2, self.height/12*5))
         self.text2 = self.HEADING_FONT.render('PASSED', True, self.BLACK)
         self.textRect2 = self.text2.get_rect(center = (self.width//2, self.height/12*7))
+
+
 
         #line
         pygame.draw.line(self.screen, "Black", (self.width/3,self.height/12*8), (self.width/3*2, self.height/12*8), 1)
