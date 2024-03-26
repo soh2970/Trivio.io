@@ -7,9 +7,6 @@ import os
 src_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), '../'))
 sys.path.append(src_dir)
 
-# Get the absolute path to the src directory
-src_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), '../'))
-sys.path.append(src_dir)
 # initializing the constructor 
 pygame.init() 
 
@@ -17,10 +14,13 @@ class NewSavedGameScreen(ScreenBase):
 
     def __init__(self):
         super().__init__()
+        self.type = 'newSavedGameScreen'
+        self.transitionToNewGame = False
+        self.transitionToLoadGame = False
 
     def draw(self):
         super().draw()
-         # screen width and height
+        # screen width and height
         self.width = self.screen.get_width()
         self.height = self.screen.get_height()
         # text for buttons
@@ -44,29 +44,42 @@ class NewSavedGameScreen(ScreenBase):
         #put or on the screen
         self.screen.blit(self.text_or, (self.width/2-25, self.height/2-10))
 
+
     def handle_events(self):
-        # stores the (x,y) coordinates into the variable as a tuple
-        self.mouse = pygame.mouse.get_pos() 
+        self.mouse = pygame.mouse.get_pos()
 
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 self.running = False
                 pygame.quit()
                 sys.exit()
-            # user resizing screen
+
+            if event.type == pygame.MOUSEBUTTONDOWN:
+                # Calculate the distance from the click to the center of the "New Game" circle
+                distance_to_new_game_circle = ((self.mouse[0] - self.width/4) ** 2 + (self.mouse[1] - self.height/2) ** 2) ** 0.5
+                
+                # Calculate the distance from the click to the center of the "Load Game" circle
+                distance_to_load_game_circle = ((self.mouse[0] - 3*self.width/4) ** 2 + (self.mouse[1] - self.height/2) ** 2) ** 0.5
+                
+                # Check if the click was within the "New Game" circle
+                if distance_to_new_game_circle < 100:  # Assuming the circle radius is 100
+                    print("New game triggered!")
+                    self.transitionToNewGame = True
+                
+                # Check if the click was within the "Load Game" circle
+                elif distance_to_load_game_circle < 100:  # Assuming the circle radius is 100
+                    print("Load game triggered!")
+                    self.transitionToLoadGame = True
+
+                # Close button click detection
+                elif self.width/2-405 <= self.mouse[0] <= self.width/2-385 and self.height/2-293 <= self.mouse[1] <= self.height/2-263:
+                    pygame.quit()
+
+            # User resizing screen
             elif event.type == pygame.VIDEORESIZE:
                 super().resize_screen(event)
-            elif event.type == pygame.MOUSEBUTTONDOWN:
-                # get mouse position
-                mouse = pygame.mouse.get_pos()
 
-                # close button (top left corner)
-                if self.width/2-405 <= mouse[0] <= self.width/2-385 and self.height/2-293 <= mouse[1] <= self.height/2-263: 
-                    pygame.quit() 
 
-                """
-                needs the new handling events for new game or saved game - game script? 
-                """
 
     def run(self):
         super().run()
