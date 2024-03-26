@@ -7,7 +7,9 @@ class GameScreenButtons:
         self.callback = callback
         self.color = (100, 200, 255)  # Button color
         self.text_color = (255, 255, 255)  # Text color
-        self.font = pygame.font.Font(None, 32)  # Default font
+        if (len(text) > 20):
+            self.font = pygame.font.SysFont('Corbel', 20)
+        else: self.font = pygame.font.SysFont('Corbel', 32)  # Default font
 
     def draw(self, screen):
         # Draw the button rectangle

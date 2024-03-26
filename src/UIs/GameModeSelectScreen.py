@@ -27,14 +27,8 @@ class GameModeSelectScreen(ScreenBase):
 
 
     def choiceMade(self, event):
-        if (event == 'back'):
-            print("user wants to go back")
-            self.choice = 'back'
-        if (event == 'math'):
-            self.choice = 'math'
+        self.choice = event
         
-        
-
 
     def draw(self):
         super().draw()

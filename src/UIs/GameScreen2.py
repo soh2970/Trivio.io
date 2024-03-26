@@ -9,10 +9,10 @@ from Boss import Boss
 
 import pygame
 import sys
-from Player import Player
-from question2 import Question
-from screen import ScreenBase
-from GameScreenButtons import GameScreenButtons
+from src.Player import Player
+from src.question2 import Question
+from src.UIs.screen import ScreenBase
+from src.UIs.GameScreenButtons import GameScreenButtons
 
 class GameScreen(ScreenBase):
 
@@ -163,3 +163,4 @@ class GameScreen(ScreenBase):
     playerLose_image_path = 'images/userLose.jpeg'
     playerLose_image = pygame.image.load(playerLose_image_path)
     playerLose_imageResized = pygame.transform.scale(playerLose_image, (80,80))
+

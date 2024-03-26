@@ -1,22 +1,19 @@
 import pygame
 import sys
+from src.UIs.screen import ScreenBase
 
-class MainMenu:
-    def __init__(self, game_instance):
-        
+class MainMenu(ScreenBase):
+    def __init__(self, player):
+        super().__init__()
         self.screen_width = 844
         self.screen_height = 600
         self.bg_color = (230, 230, 230)
-        self.font = pygame.font.SysFont('corbel', 48)
+        self.font = pygame.font.SysFont('Corbel', 48)
         self.menu_items = ["Start New Game", "Load Game", "Exit"]
         self.selected_item = 0
         self.running = False  # Flag to control the main loop
-        self.game_instance = game_instance
+        self.player = player
         self.type = "mainMenu"
-
-        pygame.init()
-        self.screen = pygame.display.set_mode((self.screen_width, self.screen_height))
-        pygame.display.set_caption("Main Menu")
 
     def run(self):
         self.running = True
@@ -27,7 +24,15 @@ class MainMenu:
 
     def display(self, screen):
         
+        #display which user is currently logged in
         screen.fill(self.bg_color)
+        userText = f'Logged in as {self.player.playerId}'
+        text_render = self.font.render(userText, True, (0, 0, 0))
+        text_rect = text_render.get_rect()
+        text_rect.center = (self.screen_width // 2, 200)
+        screen.blit(text_render, (self.screen_width/2 - 300, self.screen_height/2 - 250))       
+
+        
         for index, item in enumerate(self.menu_items):
             text_render = self.font.render(item, True, (0, 0, 0))
             text_rect = text_render.get_rect()
