@@ -11,8 +11,8 @@ sys.path.append(src_dir)
 
 
 #please ignore or alter this path as where your json file is located.
-os.chdir("C:\\Users\\kimgu\\2212\\repositories2212\\personalRepo2212\\src")
-print(os.getcwd())
+# os.chdir("C:\\Users\\kimgu\\2212\\repositories2212\\personalRepo2212\\src")
+# print(os.getcwd())
 
 class DebuggerModeScreen(ScreenBase):
     """
@@ -25,6 +25,8 @@ class DebuggerModeScreen(ScreenBase):
         self.category = category
         self.level = level
         self.questions = []
+        self.width = self.screen.get_width()
+        self.height = self.screen.get_height()
         self.load_questions()
 
         self.back_button = GameScreenButtons(10, 10, 100, 40, 'Back', self.on_back)
@@ -44,11 +46,11 @@ class DebuggerModeScreen(ScreenBase):
         self.questions = test_bank['subjects'].get(self.category, {}).get(self.level, [])
 
     def on_back(self):
-        # Placeholder for the back button logic
+        # Placeholder for the back button logic -> main script transitions
         print("Back button pressed")
 
     def on_home(self):
-        # Placeholder for the home button logic
+        # Placeholder for the home button logic -> main script transitions
         print("Home button pressed")
 
 
@@ -68,11 +70,15 @@ class DebuggerModeScreen(ScreenBase):
         question_label_x = 150
         answer_label_x = self.screen.get_width() // 2
 
+        #titles
+        category = self.SMALLER_FONT.render(f"{self.category}: {self.level}", True, self.BLACK)
+
         # Draw the column labels
+        start = self.BUTTON_FONT.render(f'{self.category}: Level {self.level}', True, 0)
         self.screen.blit(self.SMALLER_FONT.render("Question #", True, self.BLACK), (question_number_label_x, content_start_y))
         self.screen.blit(self.SMALLER_FONT.render("Question", True, self.BLACK), (question_label_x, content_start_y))
         self.screen.blit(self.SMALLER_FONT.render("Answer", True, self.BLACK), (answer_label_x, content_start_y))
-
+        self.screen.blit(start, (self.width/2+220,self.height/2+60))
         # Define the area where the questions and answers will be displayed
         content_rect = pygame.Rect(0, content_start_y + line_height, self.screen.get_width() - scrollbar_width, max_visible_rows * line_height)
         
