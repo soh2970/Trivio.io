@@ -95,5 +95,5 @@ class WelcomeScreen(ScreenBase):
 
 #initialize instance and run
 if __name__ == '__main__':
-    game_screen1 = WinGameScreen()
+    game_screen1 = WelcomeScreen()
     game_screen1.run()

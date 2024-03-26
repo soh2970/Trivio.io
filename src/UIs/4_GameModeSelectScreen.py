@@ -74,7 +74,7 @@ class GameModeSelectScreen(ScreenBase):
             """
 
             if event.type == pygame.MOUSEBUTTONDOWN: 
-                if self.width/2-400 <= mouse[0] <= self.width /2-340 and self.height/2-293 <= self.mouse[1] <= self.height/2-263: 
+                if self.width/2-400 <= mouse[0] <= self.width/2-340 and self.height/2-293 <= self.mouse[1] <= self.height/2-263: 
                     pygame.quit() #CHANGE to previous screen New/Save mode
                 if self.width/2+215 <= mouse[0] <= self.width /2+395 and self.height/2+50 <= self.mouse[1] <= self.height/2+90: 
                     pygame.quit() #CHANGE to next tutorial screen 
