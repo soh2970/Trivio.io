@@ -41,5 +41,10 @@
         "password": "hi",
         "gameHistory": [],
         "currentSavedGame": {}
+    },
+    "nateyu": {
+        "password": "",
+        "gameHistory": [],
+        "currentSavedGame": {}
     }
 }
