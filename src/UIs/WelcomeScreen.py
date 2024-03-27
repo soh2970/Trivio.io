@@ -19,7 +19,7 @@ class WelcomeScreen(ScreenBase):
         super().__init__()
         self.type = 'welcomeScreen'
         self.buttons = [
-            GameScreenButtons(self.screen.get_width()/2-100,self.screen.get_height()/2+100,200,40, "start", lambda: self.choiceMade(), self.WHITE)
+            GameScreenButtons(self.screen.get_width()/2-100,self.screen.get_height()/2+100,200,40, "start", lambda: self.choiceMade(), self.WHITE, self.BLACK)
         ]
         self.transitionToNextScreen = False
 
