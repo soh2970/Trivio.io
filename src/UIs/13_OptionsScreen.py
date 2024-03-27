@@ -48,7 +48,7 @@ class OptionsScreen(ScreenBase):
         # slider button
         pygame.draw.circle(self.screen, self.BLACK, (self.vol_slider.pos, self.vol_slider.height), 10)
         
-        self.back_button = GameScreenButtons(self.width/25*1, self.height/25*1, 80,30, "Back", lambda: self.choiceMade('back'))
+        self.back_button = GameScreenButtons(self.width/25*1, self.height/25*1, 80,30, "Back", lambda: self.choiceMade('back'), self.GREY, self.BLACK)
         self.back_button.draw(self.screen)
  
 
