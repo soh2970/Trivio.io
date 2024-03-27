@@ -16,7 +16,7 @@ class GameModeSelectScreen(ScreenBase):
         self.clock = pygame.time.Clock()
         self.buttons = [
         GameScreenButtons(560, 280, 270, 90, "Math", lambda: self.choiceMade('math'), self.WHITE, self.BLACK ),
-        GameScreenButtons(290, 280, 270, 90, "Social Science", lambda: self.choiceMade('socialScience'), self.WHITE, self.BLACK ),
+        GameScreenButtons(290, 280, 270, 90, "Social Science", lambda: self.choiceMade('social_sciences'), self.WHITE, self.BLACK ),
         GameScreenButtons(20, 280, 270, 90, "Science", lambda: self.choiceMade('science'), self.WHITE, self.BLACK ),
         GameScreenButtons(30, 70, 70, 50, "Back", lambda: self.choiceMade('back'), self.WHITE, self.BLACK ),
         GameScreenButtons(700, 380, 100, 60, "Tutorial", lambda: self.choiceMade('tutorial'), self.WHITE, self.BLACK ),

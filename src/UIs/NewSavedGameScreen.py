@@ -1,4 +1,4 @@
-from screen import ScreenBase
+from src.UIs.screen import ScreenBase
 import pygame
 import sys
 import os
@@ -12,8 +12,9 @@ pygame.init()
 
 class NewSavedGameScreen(ScreenBase):
 
-    def __init__(self):
+    def __init__(self, player):
         super().__init__()
+        self.player = player
         self.type = 'newSavedGameScreen'
         self.transitionToNewGame = False
         self.transitionToLoadGame = False
@@ -43,6 +44,13 @@ class NewSavedGameScreen(ScreenBase):
 
         #put or on the screen
         self.screen.blit(self.text_or, (self.width/2-25, self.height/2-10))
+
+        # display current user logged in
+        userText = f'Logged in as {self.player.playerId}'
+        text_render = self.SMALLER_FONT.render(userText, True, (0, 0, 0))
+        text_rect = text_render.get_rect()
+        text_rect.center = (self.width // 2, 200)
+        self.screen.blit(text_render, (self.width/2 - 300, self.height/2 - 250))     
 
 
     def handle_events(self):

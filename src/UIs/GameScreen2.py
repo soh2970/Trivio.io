@@ -39,7 +39,7 @@ class GameScreen(ScreenBase):
             GameScreenButtons(self.screen.get_width()/2 + 9, self.screen.get_height()/2 + 90, 280, 100, question.choices[2], lambda: self.choiceMade(question.choices[2]), self.WHITE, self.BLACK),
             GameScreenButtons(self.screen.get_width()/2 + 9, self.screen.get_height()/2 + 192, 280, 100, question.choices[3], lambda: self.choiceMade(question.choices[3]), self.WHITE, self.BLACK),
         ]
-        self.saveGameButton = GameScreenButtons(self.screen.get_height() / 2 + 330, self.screen.get_width() / 2 - 300, 150, 40, "Save Game", lambda: self.saveGame(), self.WHITE, self.BLACK)
+        self.saveGameButton = GameScreenButtons(self.screen.get_width() / 2 + 200, self.screen.get_height() / 2 - 150, 150, 40, "Save Game", lambda: self.saveGame(), self.WHITE, self.BLACK)
         self.type = category
         self.score = score
 
@@ -79,27 +79,27 @@ class GameScreen(ScreenBase):
         self.draw_text(f'Level: {str(self.level)}', self.levelFont, (255,0,0), self.screen, self.screen.get_width()/2 - 20, self.screen.get_height()/2 - 240)
         
         #display boss hp        
-        self.draw_text(f'Boss HP: {str(self.boss.bossHp)}', self.hpFont, (255,0,0), self.screen, 225, 320)
+        self.draw_text(f'Boss HP: {str(self.boss.bossHp)}', self.hpFont, (255,0,0), self.screen, self.screen.get_width()/2 - 195, self.screen.get_height()/2 + 20)
 
         #display player hp
-        self.draw_text(f'Player HP: {str(self.player.playerHP)}', self.hpFont, (255,0,0), self.screen, 470, 320)
+        self.draw_text(f'Player HP: {str(self.player.playerHP)}', self.hpFont, (255,0,0), self.screen, self.screen.get_width()/2 + 50, self.screen.get_height()/2 + 20)
 
         #display images based on boss and player hp  
         if (self.boss.bossHp <= 100 and self.boss.bossHp > 80):
-            self.screen.blit(self.boss1_imageResized, (250, 200))
+            self.screen.blit(self.boss1_imageResized, (self.screen.get_width()/2 - 160, self.screen.get_height()/2 - 100))
         elif (self.boss.bossHp <= 80 and self.boss.bossHp > 50):
-            self.screen.blit(self.boss2_imageResized, (250, 200))
+            self.screen.blit(self.boss2_imageResized, (self.screen.get_width()/2 - 160, self.screen.get_height()/2 - 100))
         elif (self.boss.bossHp <= 50 and self.boss.bossHp > 0):
-            self.screen.blit(self.boss3_imageResized, (250, 200))
+            self.screen.blit(self.boss3_imageResized, (self.screen.get_width()/2 - 160, self.screen.get_height()/2 - 100))
 
         if (self.player.playerHP <= 100 and self.player.playerHP > 80):
-            self.screen.blit(self.player1_imageResized, (500, 200))
+            self.screen.blit(self.player1_imageResized, (self.screen.get_width()/2 + 80, self.screen.get_height()/2 - 100))
         elif (self.player.playerHP <= 80 and self.player.playerHP > 50):
-            self.screen.blit(self.player2_imageResized, (500, 200))
+            self.screen.blit(self.player2_imageResized, (self.screen.get_width()/2 + 80, self.screen.get_height()/2 - 100))
         elif (self.player.playerHP <= 50 and self.player.playerHP > 0):
-            self.screen.blit(self.player3_imageResized, (500, 200))
+            self.screen.blit(self.player3_imageResized, (self.screen.get_width()/2 + 80, self.screen.get_height()/2 - 100))
         elif (self.player.playerHP == 0):
-            self.screen.blit(self.playerLose_imageResized, (500, 200))
+            self.screen.blit(self.playerLose_imageResized, (self.screen.get_width()/2 + 80, self.screen.get_height()/2 - 100))
         
     #overridden from parent class
     def handle_events(self):
@@ -113,15 +113,21 @@ class GameScreen(ScreenBase):
             # user resizing screen
             if event.type == pygame.VIDEORESIZE:
                 super().resize_screen(event)
+                self.saveGameButton.rect1 = pygame.Rect(self.screen.get_width() / 2 + 200, self.screen.get_height() / 2 - 150, 150, 40)
+                self.saveGameButton.rect2 = pygame.Rect(self.screen.get_width() / 2 + 200, self.screen.get_height() / 2 - 150, 150, 40)
                 for index, button in enumerate(self.buttons):
                     if (index == 0):
-                        button.rect = pygame.Rect(self.screen.get_width()/2 - 273, self.screen.get_height()/2 + 90, 280, 100)
+                        button.rect1 = pygame.Rect(self.screen.get_width()/2 - 273, self.screen.get_height()/2 + 90, 280, 100)
+                        button.rect2 = pygame.Rect(self.screen.get_width()/2 - 273, self.screen.get_height()/2 + 90, 280, 100)
                     if (index == 1):
-                        button.rect = pygame.Rect(self.screen.get_width()/2 - 273, self.screen.get_height()/2 + 192, 280, 100)
+                        button.rect1 = pygame.Rect(self.screen.get_width()/2 - 273, self.screen.get_height()/2 + 192, 280, 100)
+                        button.rect2 = pygame.Rect(self.screen.get_width()/2 - 273, self.screen.get_height()/2 + 192, 280, 100)
                     if (index == 2):
-                        button.rect = pygame.Rect(self.screen.get_width()/2 + 9, self.screen.get_height()/2 + 90, 280, 100)
+                        button.rect1 = pygame.Rect(self.screen.get_width()/2 + 9, self.screen.get_height()/2 + 90, 280, 100)
+                        button.rect2 = pygame.Rect(self.screen.get_width()/2 + 9, self.screen.get_height()/2 + 90, 280, 100)
                     if (index == 3):
-                        button.rect = pygame.Rect(self.screen.get_width()/2 + 9, self.screen.get_height()/2 + 192, 280, 100)
+                        button.rect1 = pygame.Rect(self.screen.get_width()/2 + 9, self.screen.get_height()/2 + 192, 280, 100)
+                        button.rect2 = pygame.Rect(self.screen.get_width()/2 + 9, self.screen.get_height()/2 + 192, 280, 100)
 
             #handle button logic
             if (event.type == pygame.MOUSEBUTTONDOWN):
