@@ -16,7 +16,7 @@ class CorrectAnswerScreen(ScreenBase):
         elif (level == 3): self.footer = "- 10 HP to BOSS"
         else: self.footer = "unknown level"
 
-        self.continueButton = GameScreenButtons(self.screen.get_width() / 2 - 50, self.screen.get_height() / 2 + 200, 130, 40, "Continue", lambda: self.choiceMade())
+        self.continueButton = GameScreenButtons(self.screen.get_width() / 2 - 50, self.screen.get_height() / 2 + 200, 130, 40, "Continue", lambda: self.choiceMade(), self.WHITE, self.BLACK)
         self.nextQuestion = False
 
     def choiceMade(self):
@@ -50,8 +50,8 @@ class CorrectAnswerScreen(ScreenBase):
             # user resizing screen
             elif event.type == pygame.VIDEORESIZE:
                 self.resize_screen(event)
-                self.continueButton.rect = pygame.Rect(self.screen.get_width() / 2 - 50, self.screen.get_height() / 2 + 200, 130, 40)
-            
+                self.continueButton.rect1 = pygame.Rect(self.screen.get_width() / 2 - 50, self.screen.get_height() / 2 + 200, 130, 40)
+                self.continueButton.rect2 = pygame.Rect(self.screen.get_width() / 2 - 50, self.screen.get_height() / 2 + 200, 130, 40)
             self.continueButton.handle_event(event)
 
 

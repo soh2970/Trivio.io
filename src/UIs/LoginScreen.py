@@ -36,8 +36,8 @@ class LoginScreen(ScreenBase):
         self.font = self.SMALLER_FONT
         self.pass_active = False  # Indicates if the input box is active
 
-        self.loginButton = GameScreenButtons(self.screen.get_width()/2 - 150, self.screen.get_height()/2 + 100, 100, 30, "Log In", lambda: self.handleLogIn())
-        self.createAccountButton = GameScreenButtons(self.screen.get_width()/2 - 10, self.screen.get_height()/2 + 100, 200, 30, "Create Account", lambda: self.handleCreateAccount())
+        self.loginButton = GameScreenButtons(self.screen.get_width()/2 - 150, self.screen.get_height()/2 + 100, 100, 30, "Log In", lambda: self.handleLogIn(), self.WHITE, self.BLACK)
+        self.createAccountButton = GameScreenButtons(self.screen.get_width()/2 - 10, self.screen.get_height()/2 + 100, 200, 30, "Create Account", lambda: self.handleCreateAccount(), self.WHITE, self.BLACK)
 
         self.isValidUser = False
         self.Player = None
@@ -132,9 +132,12 @@ class LoginScreen(ScreenBase):
             # user resizing screen
             elif event.type == pygame.VIDEORESIZE:
                 super().resize_screen(event)
+
+                #resizes buttons based on window size
                 self.input_box = pygame.Rect(self.screen.get_width()/2 - 110, self.screen.get_height()/2 - 15, 200, 40)
                 self.pass_input_box = pygame.Rect(self.screen.get_width()/2 - 110, self.screen.get_height()/2 + 30, 200, 40)
-
+                self.loginButton.rect = pygame.Rect(self.screen.get_width()/2 - 150, self.screen.get_height()/2 + 100, 100, 30)
+                self.createAccountButton.rect = pygame.Rect(self.screen.get_width()/2 - 10, self.screen.get_height()/2 + 100, 200, 30)
             #checks if a mouse is clicked 
             elif event.type == pygame.MOUSEBUTTONDOWN: 
                 #if the mouse is clicked on the x button the game is terminated 

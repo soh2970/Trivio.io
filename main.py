@@ -7,10 +7,12 @@ from src.Player import Player
 from src.Boss import Boss
 from src.game import Game
 from src.MainMenu import MainMenu
+from src.UIs.NewSavedGameScreen import NewSavedGameScreen
 from src.UIs.GameModeSelectScreen import GameModeSelectScreen
 from src.UIs.WelcomeScreen import WelcomeScreen
 from src.UIs.LoginScreen import LoginScreen
 from src.UIs.CorrectAnswerScreen import CorrectAnswerScreen
+from src.UIs.LoadGameScreen import LoadGameScreen
 
 
 def run_game():
@@ -42,31 +44,60 @@ def run_game():
             current_screen.handle_events()
             if (current_screen.isValidUser):
                 current_player = current_screen.Player
-                current_screen = MainMenu(current_player)
+                current_screen = NewSavedGameScreen(current_player)
                 print(current_player.playerId)
 
         #main menu logic
-        if (current_screen.type == "mainMenu"):
-            current_screen.display(screen)
-            if (current_screen.handle_events() == 0):
+        if (current_screen.type == "newSavedGameScreen"):
+            current_screen.draw()
+            current_screen.handle_events()
+            if (current_screen.transitionToNewGame == True):
                 print("transitioning to category select screen")
                 current_screen = GameModeSelectScreen()
+            elif (current_screen.transitionToLoadGame == True):
+                print("user wants to load game")
+                current_screen = LoadGameScreen(current_player)
         
+        #load game screen logic 
+        if (current_screen.type == "loadGameScreen"):
+            current_screen.draw()
+            current_screen.handle_events()
+            #checks if user wants to go back to main menu
+            if (current_screen.back == True):
+                current_screen = NewSavedGameScreen(current_player)
+
+            #logic for if a user wants to continue the saved game
+            elif (current_screen.userContinue == True):
+                #initialize player HP
+                current_player.playerHP = int(current_screen.currentSave['playerHP'])
+                #initialize boss HP
+                boss.bossHp = int(current_screen.currentSave['bossHP'])
+                #initialize level
+                levelNum = int(current_screen.currentSave['levelAchieved'])
+                category = current_screen.currentSave['subject']
+                level = Level(levelNum, category)
+
+                #initialize score
+                score = int(current_screen.currentSave['score'])
+                
+                #switch to game screen with saved game data
+                current_screen = GameScreen(category, current_player, boss, level.getNextQuestion(), level.levelNum, score)
+
         #game mode selection logic
         if (current_screen.type == 'gameModeSelect'):
             current_screen.draw()
             current_screen.handle_events()
             if (current_screen.choice == 'back'):
                 print('back to main menu')
-                current_screen = MainMenu(current_player)
+                current_screen = NewSavedGameScreen(current_player)
             elif (current_screen.choice == 'math'):
                 print("math was chosen")
                 level = Level(1, 'math')
                 current_screen = GameScreen('math', current_player, boss, level.getNextQuestion(), level.levelNum, score)
-            elif (current_screen.choice == 'socialScience'):
+            elif (current_screen.choice == 'social_sciences'):
                 print("social science was chosen")
                 level = Level(1, 'social_sciences')
-                current_screen = GameScreen('socialScience', current_player, boss, level.getNextQuestion(), level.levelNum, score)
+                current_screen = GameScreen('social_sciences', current_player, boss, level.getNextQuestion(), level.levelNum, score)
             elif (current_screen.choice == 'science'):
                 print("science was chosen")
                 level = Level(1, 'science')
@@ -74,7 +105,7 @@ def run_game():
 
         # math gameplay
         if (current_screen.type == 'math'):
-            current_screen.display(screen)
+            current_screen.draw()
             current_screen.handle_events()
 
             if (current_screen.answered):
@@ -103,7 +134,7 @@ def run_game():
 
         #science gameplay
         if (current_screen.type == 'science'):
-            current_screen.display(screen)
+            current_screen.draw()
             current_screen.handle_events()
 
             if (current_screen.answered):
@@ -128,8 +159,8 @@ def run_game():
                 current_screen = GameScreen('science', current_player, boss, level.getNextQuestion(), level.levelNum, score)
 
         #social science gameplay
-        if (current_screen.type == 'socialScience'):
-            current_screen.display(screen)
+        if (current_screen.type == 'social_sciences'):
+            current_screen.draw()
             current_screen.handle_events()
 
             if (current_screen.answered):
