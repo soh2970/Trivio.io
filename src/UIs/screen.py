@@ -87,5 +87,3 @@ class ScreenBase:
             self.handle_events()
             self.update()
         pygame.quit()
-    
-
