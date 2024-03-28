@@ -1,3 +1,10 @@
+import sys
+import os
+
+# Assuming main.py is in the root directory of personalRepo2212
+sys.path.insert(0, os.path.join(os.path.dirname(__file__), 'src'))
+
+
 import pygame
 from src.UIs.screen import ScreenBase
 from src.UIs.GameScreen2 import GameScreen
@@ -14,8 +21,6 @@ from src.UIs.LoginScreen import LoginScreen
 from src.UIs.CorrectAnswerScreen import CorrectAnswerScreen
 from src.UIs.LoadGameScreen import LoadGameScreen
 from src.UIs.DebuggerPasswordScreen import DebuggerPasswordScreen
-
-
 
 
 def run_game():

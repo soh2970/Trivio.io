@@ -1,14 +1,14 @@
 import pygame
 import sys
 import os
-from GameScreenButtons import GameScreenButtons
-from DebuggerModeScreen import DebuggerModeScreen
 
 # Get the absolute path to the src directory
 src_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), '../'))
 sys.path.append(src_dir)
 
-#from DebuggerMode import Debugger
+from .GameScreenButtons import GameScreenButtons
+from .DebuggerModeScreen import DebuggerModeScreen
+
 
 
 class RadioButton(pygame.sprite.Sprite):

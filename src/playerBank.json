@@ -65,5 +65,10 @@
         "password": "t",
         "gameHistory": [],
         "currentSavedGame": {}
+    },
+    "nateyu": {
+        "password": "hello",
+        "gameHistory": [],
+        "currentSavedGame": {}
     }
 }

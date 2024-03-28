@@ -1,4 +1,5 @@
 import json
+import os
 
 class UserAccount:
 
@@ -7,7 +8,10 @@ class UserAccount:
         self.password = userPassword
 
     def validateLogin(self):
-        with open("src/playerBank.json", "r") as file:
+        base_dir = os.path.dirname(__file__)  # Get the directory where UserAccount.py is located
+        json_path = os.path.join(base_dir, 'playerBank.json')
+
+        with open(json_path, "r") as file:
             data = json.load(file)
             if self.ID in data:
                 if self.password == data[self.ID]["password"]:
@@ -15,6 +19,7 @@ class UserAccount:
         return False
     
     def createAccount(self):
+
         name = self.ID
         password = self.password
 
@@ -24,7 +29,10 @@ class UserAccount:
             "currentSavedGame": {}
         }
 
-        with open("src/playerBank.json", "r+") as file:
+        base_dir = os.path.dirname(__file__)  # Get the directory where UserAccount.py is located
+        json_path = os.path.join(base_dir, 'playerBank.json')
+        
+        with open(json_path, "r+") as file:
             data = json.load(file)
             if name not in data:
                 data[name] = playerData

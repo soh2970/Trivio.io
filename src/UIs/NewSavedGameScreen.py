@@ -1,5 +1,3 @@
-from screen import ScreenBase
-import pygame
 import sys
 import os
 
@@ -7,13 +5,16 @@ import os
 src_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), '../'))
 sys.path.append(src_dir)
 
+from .screen import ScreenBase
+import pygame
 # initializing the constructor
 pygame.init()
 
 class NewSavedGameScreen(ScreenBase):
 
-    def __init__(self):
+    def __init__(self, player=None):
         super().__init__()
+        self.player = player
         self.type = 'newSavedGameScreen'
         self.transitionToNewGame = False
         self.transitionToLoadGame = False

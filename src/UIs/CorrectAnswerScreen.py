@@ -9,14 +9,16 @@ class CorrectAnswerScreen(ScreenBase):
     def __init__(self, level):
         super().__init__()
         self.level = level
-        self.image = pygame.image.load('images/correctAnswer.png')
+        base_dir = os.path.dirname(os.path.dirname(__file__))  # Navigate up twice to get to the project root from src/UIs
+        image_path = os.path.join(base_dir, 'images', 'correctAnswer.png')
+        self.image = pygame.image.load(image_path)
         self.header = "You got it CORRECT!"
         if (level == 1): self.footer = "- 4 HP to BOSS"
         elif (level == 2): self.footer = "- 6 HP to BOSS"
         elif (level == 3): self.footer = "- 10 HP to BOSS"
         else: self.footer = "unknown level"
 
-        self.continueButton = GameScreenButtons(self.screen.get_width() / 2 - 50, self.screen.get_height() / 2 + 200, 130, 40, "Continue", lambda: self.choiceMade(), self.WHITE, self.BLACK)
+        self.continueButton = GameScreenButtons(self.screen.get_width() / 2 - 50, self.screen.get_height() / 2 + 200, 130, 40, "Continue", lambda: self.choiceMade())
         self.nextQuestion = False
 
     def choiceMade(self):
@@ -50,8 +52,8 @@ class CorrectAnswerScreen(ScreenBase):
             # user resizing screen
             elif event.type == pygame.VIDEORESIZE:
                 self.resize_screen(event)
-                self.continueButton.rect1 = pygame.Rect(self.screen.get_width() / 2 - 50, self.screen.get_height() / 2 + 200, 130, 40)
-                self.continueButton.rect2 = pygame.Rect(self.screen.get_width() / 2 - 50, self.screen.get_height() / 2 + 200, 130, 40)
+                self.continueButton.rect = pygame.Rect(self.screen.get_width() / 2 - 50, self.screen.get_height() / 2 + 200, 130, 40)
+            
             self.continueButton.handle_event(event)
 
 
