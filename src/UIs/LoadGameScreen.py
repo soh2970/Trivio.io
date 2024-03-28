@@ -4,6 +4,7 @@ from src.UIs.screen import ScreenBase
 from src.Player import Player
 from src.UIs.GameScreenButtons import GameScreenButtons
 import pygame
+import os
 
 class LoadGameScreen(ScreenBase):
 
@@ -85,9 +86,14 @@ class LoadGameScreen(ScreenBase):
 
 
     def getSavedGame(self):
-        with open ("src/playerBank.json", "r") as file:
+        # Correctly calculate the path to the playerBank.json file
+        base_dir = os.path.dirname(os.path.dirname(__file__))  # This navigates up to the 'src' directory from 'src/UIs'
+        json_path = os.path.join(base_dir, 'playerBank.json')  # Now, correctly points to 'src/playerBank.json'
+
+        with open(json_path, "r") as file:
             data = json.load(file)
             if self.player.playerId in data:
                 self.currentSave = data[self.player.playerId]["currentSavedGame"]
                 return True
-            else: return False
+            else:
+                return False

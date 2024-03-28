@@ -9,8 +9,10 @@ class CorrectAnswerScreen(ScreenBase):
     def __init__(self, level):
         super().__init__()
         self.level = level
-        base_dir = os.path.dirname(os.path.dirname(__file__))  # Navigate up twice to get to the project root from src/UIs
-        image_path = os.path.join(base_dir, 'images', 'correctAnswer.png')
+        # Correctly calculate the path to the image file
+        base_dir = os.path.dirname(os.path.dirname(__file__))  # This should navigate up to the project root
+        correct_base_dir = os.path.abspath(os.path.join(base_dir, ".."))  # Ensure we're at the project root
+        image_path = os.path.join(correct_base_dir, 'images', 'correctAnswer.png')
         self.image = pygame.image.load(image_path)
         self.header = "You got it CORRECT!"
         if (level == 1): self.footer = "- 4 HP to BOSS"
@@ -18,7 +20,7 @@ class CorrectAnswerScreen(ScreenBase):
         elif (level == 3): self.footer = "- 10 HP to BOSS"
         else: self.footer = "unknown level"
 
-        self.continueButton = GameScreenButtons(self.screen.get_width() / 2 - 50, self.screen.get_height() / 2 + 200, 130, 40, "Continue", lambda: self.choiceMade())
+        self.continueButton = GameScreenButtons(self.screen.get_width() / 2 - 50, self.screen.get_height() / 2 + 200, 130, 40, "Continue", lambda: self.choiceMade(), self.WHITE, self.BLACK)
         self.nextQuestion = False
 
     def choiceMade(self):
