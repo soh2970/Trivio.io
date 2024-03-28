@@ -93,7 +93,7 @@ class DebuggerDashboardPage:
         
         # Define buttons
         self.home_button = GameScreenButtons(20, 20, 100, 40, 'Home', self.on_home, (0,0,0), (255,255,255))
-        self.next_button = GameScreenButtons(screen.get_width() - 120, screen.get_height() - 60, 100, 40, 'Next', self.on_next, (0,0,0), (255,255,255))
+        self.next_button = GameScreenButtons(screen.get_width() - 120, screen.get_height() - 60, 100, 40, 'Next', self.on_next, (0,0,0),(255,255,255))
         
         # Create radio buttons for categories
         self.category_buttons = [
