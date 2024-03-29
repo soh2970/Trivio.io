@@ -65,5 +65,17 @@
         "password": "t",
         "gameHistory": [],
         "currentSavedGame": {}
+    },
+    "nateyu": {
+        "password": "hello",
+        "gameHistory": [],
+        "currentSavedGame": {
+            "timeStamp": "2024-03-28 16:44:41",
+            "levelAchieved": "1",
+            "subject": "science",
+            "score": "4",
+            "playerHP": "84",
+            "bossHP": "96"
+        }
     }
 }

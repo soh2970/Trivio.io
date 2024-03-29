@@ -10,3 +10,7 @@ Mar 25. 2024,
     
     
 Issue with loading testbank.json file.
+
+Mar 28. 2024,
+    - we need method for the game session to end gracefully instead of just turning off (18_LoseGameScreen)
+    

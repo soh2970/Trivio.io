@@ -1,3 +1,10 @@
+import sys
+import os
+
+# Assuming main.py is in the root directory of personalRepo2212
+sys.path.insert(0, os.path.join(os.path.dirname(__file__), 'src'))
+
+
 import pygame
 from src.UIs.screen import ScreenBase
 from src.UIs.GameScreen2 import GameScreen
@@ -13,6 +20,7 @@ from src.UIs.WelcomeScreen import WelcomeScreen
 from src.UIs.LoginScreen import LoginScreen
 from src.UIs.CorrectAnswerScreen import CorrectAnswerScreen
 from src.UIs.LoadGameScreen import LoadGameScreen
+from src.UIs.DebuggerPasswordScreen import DebuggerPasswordScreen
 
 
 def run_game():
@@ -42,11 +50,16 @@ def run_game():
         if (current_screen.type == 'loginScreen'):
             current_screen.draw()
             current_screen.handle_events()
+
+            #debugger & instructor mode logic goes here.
+
             if (current_screen.isValidUser):
                 current_player = current_screen.Player
                 current_screen = NewSavedGameScreen(current_player)
                 print(current_player.playerId)
 
+
+    
         #main menu logic
         if (current_screen.type == "newSavedGameScreen"):
             current_screen.draw()

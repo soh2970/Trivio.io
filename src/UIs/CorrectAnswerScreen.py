@@ -9,7 +9,11 @@ class CorrectAnswerScreen(ScreenBase):
     def __init__(self, level):
         super().__init__()
         self.level = level
-        self.image = pygame.image.load('images/correctAnswer.png')
+        # Correctly calculate the path to the image file
+        base_dir = os.path.dirname(os.path.dirname(__file__))  # This should navigate up to the project root
+        correct_base_dir = os.path.abspath(os.path.join(base_dir, ".."))  # Ensure we're at the project root
+        image_path = os.path.join(correct_base_dir, 'images', 'correctAnswer.png')
+        self.image = pygame.image.load(image_path)
         self.header = "You got it CORRECT!"
         if (level == 1): self.footer = "- 4 HP to BOSS"
         elif (level == 2): self.footer = "- 6 HP to BOSS"
@@ -50,8 +54,8 @@ class CorrectAnswerScreen(ScreenBase):
             # user resizing screen
             elif event.type == pygame.VIDEORESIZE:
                 self.resize_screen(event)
-                self.continueButton.rect1 = pygame.Rect(self.screen.get_width() / 2 - 50, self.screen.get_height() / 2 + 200, 130, 40)
-                self.continueButton.rect2 = pygame.Rect(self.screen.get_width() / 2 - 50, self.screen.get_height() / 2 + 200, 130, 40)
+                self.continueButton.rect = pygame.Rect(self.screen.get_width() / 2 - 50, self.screen.get_height() / 2 + 200, 130, 40)
+            
             self.continueButton.handle_event(event)
 
 

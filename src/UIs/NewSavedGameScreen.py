@@ -1,5 +1,3 @@
-from src.UIs.screen import ScreenBase
-import pygame
 import sys
 import os
 
@@ -7,12 +5,14 @@ import os
 src_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), '../'))
 sys.path.append(src_dir)
 
-# initializing the constructor 
-pygame.init() 
+from .screen import ScreenBase
+import pygame
+# initializing the constructor
+pygame.init()
 
 class NewSavedGameScreen(ScreenBase):
 
-    def __init__(self, player):
+    def __init__(self, player=None):
         super().__init__()
         self.player = player
         self.type = 'newSavedGameScreen'
@@ -39,18 +39,11 @@ class NewSavedGameScreen(ScreenBase):
         self.screen.blit(self.text_saved_game, (3*self.width/4 - self.text_saved_game.get_width()/2, self.height/2 - self.text_saved_game.get_height()/2))
 
         # draw close button
-        pygame.draw.rect(self.screen,self.GREY,[self.width/2-405,self.height/2-293,30,30]) 
-        self.screen.blit(self.text_esc , (self.width/2-400,self.height/2-300)) 
+        pygame.draw.rect(self.screen,self.GREY,[self.width/2-405,self.height/2-293,30,30])
+        self.screen.blit(self.text_esc , (self.width/2-400,self.height/2-300))
 
         #put or on the screen
         self.screen.blit(self.text_or, (self.width/2-25, self.height/2-10))
-
-        # display current user logged in
-        userText = f'Logged in as {self.player.playerId}'
-        text_render = self.SMALLER_FONT.render(userText, True, (0, 0, 0))
-        text_rect = text_render.get_rect()
-        text_rect.center = (self.width // 2, 200)
-        self.screen.blit(text_render, (self.width/2 - 300, self.height/2 - 250))     
 
 
     def handle_events(self):

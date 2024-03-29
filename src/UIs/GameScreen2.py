@@ -148,22 +148,27 @@ class GameScreen(ScreenBase):
         datetime_string = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
         gameState = {
             "timeStamp": datetime_string,
-            "levelAchieved": f'{self.level}',
-            "subject": f'{self.type}',
-            "score":f'{self.score}',
-            "playerHP": f'{self.player.playerHP}',
-            "bossHP": f'{self.boss.bossHp}'
+            "levelAchieved": str(self.level),
+            "subject": self.type,
+            "score": str(self.score),
+            "playerHP": str(self.player.playerHP),
+            "bossHP": str(self.boss.bossHp)
         }
 
-        with open("src/playerBank.json", "r+") as file:
+        # Correctly calculate the path to the playerBank.json file
+        base_dir = os.path.dirname(os.path.dirname(__file__))  # This navigates up to the 'src' directory from 'src/UIs'
+        json_path = os.path.join(base_dir, 'playerBank.json')  # Now, correctly points to 'src/playerBank.json'
+
+        with open(json_path, "r+") as file:
             data = json.load(file)
             if self.player.playerId in data:
                 data[self.player.playerId]['currentSavedGame'] = gameState
                 file.seek(0)
                 json.dump(data, file, indent=4)
                 file.truncate()
-                print("saved Game")
-            else: raise Exception("Player not found in database")
+                print("Game saved")
+            else:
+                raise Exception("Player not found in database")
 
             
 

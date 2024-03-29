@@ -1,15 +1,14 @@
 import pygame
 import sys
 import os
-from GameScreenButtons import GameScreenButtons
-import json
-from DebuggerModeScreen import DebuggerModeScreen
 
 # Get the absolute path to the src directory
 src_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), '../'))
 sys.path.append(src_dir)
 
-#from DebuggerMode import Debugger
+from .GameScreenButtons import GameScreenButtons
+from .DebuggerModeScreen import DebuggerModeScreen
+
 
 
 class RadioButton(pygame.sprite.Sprite):
@@ -93,8 +92,8 @@ class DebuggerDashboardPage:
         self.subheader_text = self.font.render('Select a Category and Level to view all the questions', True, (0, 0, 0))
         
         # Define buttons
-        self.home_button = GameScreenButtons(20, 20, 100, 40, 'Home', self.on_home)
-        self.next_button = GameScreenButtons(screen.get_width() - 120, screen.get_height() - 60, 100, 40, 'Next', self.on_next)
+        self.home_button = GameScreenButtons(20, 20, 100, 40, 'Home', self.on_home, (0,0,0), (255,255,255))
+        self.next_button = GameScreenButtons(screen.get_width() - 120, screen.get_height() - 60, 100, 40, 'Next', self.on_next, (0,0,0),(255,255,255))
         
         # Create radio buttons for categories
         self.category_buttons = [
