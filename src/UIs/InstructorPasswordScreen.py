@@ -9,12 +9,12 @@ src_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), '../'))
 sys.path.append(src_dir)
 pygame.init()
 
-class DebuggerPasswordScreen(ScreenBase):
+class InstructorPasswordScreen(ScreenBase):
     """
-    A screen for entering the debugger mode password in a pygame application.
+    A screen for entering the instructor mode password in a Pygame application.
 
     This screen is responsible for accepting a password input from the user,
-    validating it, and then either transitioning to the debugger dashboard
+    validating it, and then either transitioning to the instructor dashboard
     screen upon successful password entry or remaining on the password screen
     if the entry is invalid. It also provides an option to cancel and return
     to the login screen.
@@ -22,10 +22,10 @@ class DebuggerPasswordScreen(ScreenBase):
     Attributes:
         password_text (str): The password input by the user.
         active (bool): Indicates whether the password input field is active.
-        type (str): A string identifier for the screen type, set to 'debuggerPassword'.
+        type (str): A string identifier for the screen type, set to 'instructorPassword'.
         width (int): The current width of the screen.
         height (int): The current height of the screen.
-        transitionToDashboard (bool): Flag to indicate transition to the debugger dashboard screen.
+        transitionToDashboard (bool): Flag to indicate transition to the instructor dashboard screen.
         transitionToLogin (bool): Flag to indicate transition back to the login screen.
         cancel_button (GameScreenButtons): Button to cancel and trigger transition back to the login screen.
 
@@ -34,24 +34,23 @@ class DebuggerPasswordScreen(ScreenBase):
             Renders the password input field, labels, and buttons on the screen.
 
         check_password(self):
-            Validates the entered password against the expected value ('debug').
+            Validates the entered password against the expected value ('instructor').
 
         cancel(self):
             Sets the flag to transition back to the login screen.
 
         handle_events(self):
-            Handles events such as input in the password field, button clicks,
+            Handles user input and system events such as input in the password field, button clicks,
             and screen resizing.
 
         run(self):
             Contains the main loop for the screen that handles events and renders the screen.
     """
-
     def __init__(self):
         super().__init__()
         self.password_text = ''
         self.active = False
-        self.type = 'debuggerPassword'
+        self.type = 'instructorPassword'
         self.width = self.screen.get_width()
         self.height = self.screen.get_height()
         self.transitionToDashboard = False
@@ -75,7 +74,7 @@ class DebuggerPasswordScreen(ScreenBase):
 
         password_rect = pygame.Rect(400, 300, 200, 32)
 
-        titleOne = self.MEDIUM_FONT.render('Debugger', True, self.BLACK)
+        titleOne = self.MEDIUM_FONT.render('Instructor', True, self.BLACK)
         titleTwo = self.MEDIUM_FONT.render('Password', True, self.BLACK)
         ok = self.SMALLER_FONT.render('OK', True, self.BLACK)
 
@@ -93,11 +92,11 @@ class DebuggerPasswordScreen(ScreenBase):
         self.screen.blit(ok, (self.width / 2 + 105, self.height / 2 + 55))
 
     def check_password(self):
-        if self.password_text == 'debug':
-            print("Password correct, entering debugger mode...")
+        if self.password_text == 'instructor':
+            print("Password correct, entering instructor mode...")
             self.transitionToDashboard = True  # Set the flag to True
         else:
-            print("Debugger credential invalid.")
+            print("Instructor credential invalid.")
 
     def cancel(self):
         self.transitionToLogin = True
@@ -136,4 +135,4 @@ class DebuggerPasswordScreen(ScreenBase):
 
 
 if __name__ == "__main__":
-    DebuggerPasswordScreen().run()
+    InstructorPasswordScreen().run()

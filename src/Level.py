@@ -3,6 +3,7 @@
 import json
 import random
 from question2 import Question
+import os
 
 class Level:
     
@@ -11,6 +12,7 @@ class Level:
     def __init__(self, lvlNum, catagory):
         self.levelNum = lvlNum
         self.playerHPThreshold = 100
+        self.catagory = catagory
 
         if( lvlNum == 1): 
             self.bossHPThreshold = 80 
@@ -30,7 +32,10 @@ class Level:
     # @param catagory, the level catagory
     # @return a list of all question with the given level and catagory
     def getQuestions(self, level, catagory):
-        with open('src/testbank.json') as f:
+        base_dir = os.path.dirname(__file__)  # Get the directory where Level.py is located
+        json_path = os.path.join(base_dir, 'testbank.json')
+
+        with open(json_path, encoding='utf-8') as f:
             json_data = json.load(f)
             subjects = json_data['subjects']
             qList = []
@@ -50,6 +55,11 @@ class Level:
     # @return boolean, true if level is completed and false if not
     def completeLevel(self, playerHp, bossHp):
         return playerHp > self.playerHPThreshold and bossHp <= self.bossHPThreshold
+    
+    def moveToNextLevel(self, level):
+        self.questionsInLevel = self.getQuestions(level, self.catagory)
+        self.levelNum = level
+
     
     # Method to get the next question
     # @return the next question

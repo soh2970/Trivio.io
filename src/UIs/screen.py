@@ -11,6 +11,39 @@ import sys
 pygame.init()
 
 class ScreenBase:
+    """
+    A base class for creating UI screens in a Pygame application. It provides a common
+    structure and functionality for various screens, including screen resizing, event handling,
+    and drawing base elements.
+
+    Attributes and Constants:
+        MIN_WIDTH (int): Minimum width for the Pygame window.
+        MIN_HEIGHT (int): Minimum height for the Pygame window.
+        SCREEN_SIZE (tuple): Default screen size (width, height).
+        WHITE, BLACK, BLUE, GREY, DARKGREY, GREEN, RED (tuple): Color definitions.
+        MODE_FONT, BUTTON_FONT, SMALLER_FONT, MID_FONT, MODE_SELECT_FONT, PARAGRAPH_FONT, MEDIUM_FONT, HEADING_FONT, BASE_FONT, SELECT_FONT (pygame.font.Font): Font definitions for text rendering.
+        screen (pygame.Surface): The main Pygame window surface.
+        running (bool): Flag indicating if the screen's main loop is running.
+
+    Methods:
+        __init__(self):
+            Initializes the screen with default settings and starts the main loop.
+
+        resize_screen(self, event):
+            Resizes the screen based on user input while maintaining minimum dimensions.
+
+        handle_events(self):
+            Handles base Pygame events such as quitting the application or resizing the window.
+
+        draw(self):
+            Draws base elements onto the screen. Override this method in subclasses to draw specific UI elements.
+
+        update(self):
+            Updates the game state. Override this method in subclasses for specific screen updates.
+
+        run(self):
+            Contains the main loop for the screen, updating the display and handling events.
+    """
     # CONSTANTS
     # base screen dimensions
     MIN_WIDTH = 844
@@ -31,6 +64,7 @@ class ScreenBase:
     MODE_FONT = pygame.font.SysFont('Corbel',16) 
     BUTTON_FONT = pygame.font.SysFont('Corbel', 20)
     SMALLER_FONT = pygame.font.SysFont('Corbel',32)
+    MID_FONT = pygame.font.SysFont('Corbel', 42)
     MODE_SELECT_FONT = pygame.font.SysFont('Corbel',50)
     PARAGRAPH_FONT = pygame.font.SysFont('Corbel', 60)
     MEDIUM_FONT = pygame.font.SysFont('Corbel', 72)
@@ -86,5 +120,3 @@ class ScreenBase:
             self.handle_events()
             self.update()
         pygame.quit()
-    
-

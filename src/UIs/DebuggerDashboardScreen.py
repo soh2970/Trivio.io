@@ -1,16 +1,12 @@
 import pygame
 import sys
 import os
-from GameScreenButtons import GameScreenButtons
-import json
-from DebuggerModeScreen import DebuggerModeScreen
+from src.UIs.GameScreenButtons import GameScreenButtons
+from src.UIs.screen import ScreenBase
 
 # Get the absolute path to the src directory
 src_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), '../'))
 sys.path.append(src_dir)
-
-#from DebuggerMode import Debugger
-
 
 class RadioButton(pygame.sprite.Sprite):
     """
@@ -69,18 +65,60 @@ class RadioButton(pygame.sprite.Sprite):
 
 
 
-class DebuggerDashboardPage:
+class DebuggerDashboardPage(ScreenBase):
     """
-    
+    A screen that presents a dashboard for selecting a category and level for the debugger mode
+    in a pygame application. This dashboard allows the user to choose among different categories
+    and levels for debugging purposes.
+
+    Attributes:
+        clock (pygame.time.Clock): A clock for controlling the frame rate.
+        font (pygame.font.Font): The font used for rendering text.
+        big_font (pygame.font.Font): A larger font for headings.
+        bg_color (tuple): The background color of the screen.
+        text_color (tuple): The color of the text.
+        transitionToModeScreen (bool): Flag to indicate transition to the specific debugger mode screen.
+        type (str): A string identifier for the screen type, set to 'debuggerDashboard'.
+        transitionToLogin (bool): Flag to indicate transition back to the login screen.
+        category_mapping (dict): Maps category names to their respective codes.
+        header_text (pygame.Surface): Rendered surface for the header text.
+        subheader_text (pygame.Surface): Rendered surface for the subheader text.
+        home_button (GameScreenButtons): Button for returning to the home screen.
+        next_button (GameScreenButtons): Button for proceeding to the next selection.
+        category_buttons (list): List of RadioButton instances for category selection.
+        level_buttons (list): List of RadioButton instances for level selection.
+        category_label_pos (tuple): Position for the category label.
+        level_label_pos (tuple): Position for the level label.
+        selected_category (str or None): The currently selected category code.
+        selected_level (str or None): The currently selected level code.
+
+    Methods:
+        on_home(self):
+            Sets the flag to indicate that the user wishes to return to the login screen.
+
+        on_next(self):
+            Sets the flag to proceed to the debugger mode screen based on selected category and level.
+
+        handle_events(self):
+            Handles user input and system events such as button clicks, window resizing, and application exit.
+
+        draw(self):
+            Renders the screen elements including the buttons, labels, and radio buttons.
+
+        run(self):
+            Contains the main loop for the DebuggerDashboardPage, handling events and rendering updates.
     """
 
-    def __init__(self, screen):
-        self.screen = screen
+    def __init__(self):
+        super().__init__()
         self.clock = pygame.time.Clock()
         self.font = pygame.font.SysFont('Corbel', 24)
         self.big_font = pygame.font.SysFont('Corbel', 36)
         self.bg_color = (255, 255, 255)
         self.text_color = (0,0,0)
+        self.transitionToModeScreen = False
+        self.type = "debuggerDashboard"
+        self.transitionToLogin = False
 
         self.category_mapping = {
             "Math": "math",
@@ -93,8 +131,8 @@ class DebuggerDashboardPage:
         self.subheader_text = self.font.render('Select a Category and Level to view all the questions', True, (0, 0, 0))
         
         # Define buttons
-        self.home_button = GameScreenButtons(20, 20, 100, 40, 'Home', self.on_home)
-        self.next_button = GameScreenButtons(screen.get_width() - 120, screen.get_height() - 60, 100, 40, 'Next', self.on_next)
+        self.home_button = GameScreenButtons(20, 20, 100, 40, 'Home', self.on_home, (0,0,0), (255,255,255))
+        self.next_button = GameScreenButtons(self.screen.get_width() - 120, self.screen.get_height() - 60, 100, 40, 'Next', self.on_next, (0,0,0),(255,255,255))
         
         # Create radio buttons for categories
         self.category_buttons = [
@@ -115,8 +153,8 @@ class DebuggerDashboardPage:
         total_levels_width = (50 + 10) * len(self.level_buttons) - 10  # 50px width per button, 10px spacing
         
         # Starting x positions for centered buttons
-        start_x_categories = (screen.get_width() - total_categories_width) // 2
-        start_x_levels = (screen.get_width() - total_levels_width) // 2
+        start_x_categories = (self.screen.get_width() - total_categories_width) // 2
+        start_x_levels = (self.screen.get_width() - total_levels_width) // 2
 
         # Update x positions of buttons to center them
         for i, button in enumerate(self.category_buttons):
@@ -150,15 +188,16 @@ class DebuggerDashboardPage:
     def on_home(self):
         # ADD LOGIC
         #plz work on this in main script.
-        print("Home button clicked")
+        self.transitionToLogin = True
         
 
 
     def on_next(self):
+        # This method is triggered when the "Next" button is pressed
         if self.selected_category and self.selected_level:
-            # No need to access .text since selected_category and selected_level are already strings
-            debugger_mode_screen = DebuggerModeScreen(self.screen, self.selected_category, self.selected_level)
-            debugger_mode_screen.run()
+            self.transitionToModeScreen = True  # You might need to add this flag
+            self.selectedCategory = self.selected_category  # Make sure to store these for the transition
+            self.selectedLevel = self.selected_level
 
 
     def handle_events(self):

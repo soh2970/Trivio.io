@@ -1,3 +1,10 @@
+import sys
+import os
+
+# Assuming main.py is in the root directory of personalRepo2212
+sys.path.insert(0, os.path.join(os.path.dirname(__file__), 'src'))
+
+
 import pygame
 from src.UIs.screen import ScreenBase
 from src.UIs.GameScreen2 import GameScreen
@@ -7,10 +14,17 @@ from src.Player import Player
 from src.Boss import Boss
 from src.game import Game
 from src.MainMenu import MainMenu
+from src.UIs.NewSavedGameScreen import NewSavedGameScreen
 from src.UIs.GameModeSelectScreen import GameModeSelectScreen
 from src.UIs.WelcomeScreen import WelcomeScreen
 from src.UIs.LoginScreen import LoginScreen
 from src.UIs.CorrectAnswerScreen import CorrectAnswerScreen
+from src.UIs.LoadGameScreen import LoadGameScreen
+from src.UIs.DebuggerPasswordScreen import DebuggerPasswordScreen
+from src.UIs.IncorrectAnswerScreen import IncorrectAnswerScreen
+from src.UIs.DebuggerDashboardScreen import DebuggerDashboardPage
+from src.UIs.DebuggerModeScreen import DebuggerModeScreen
+from src.UIs.InstructorPasswordScreen import InstructorPasswordScreen
 
 
 def run_game():
@@ -18,8 +32,6 @@ def run_game():
     running = True
     screen = pygame.display.set_mode((844,600), pygame.RESIZABLE)
     clock = pygame.time.Clock()
-
-
 
     current_player = None
     boss = Boss()
@@ -37,36 +49,129 @@ def run_game():
             if (current_screen.transitionToNextScreen): current_screen = LoginScreen()
 
         #login screen logic
-        if (current_screen.type == 'loginScreen'):
+        if current_screen.type == 'loginScreen':
             current_screen.draw()
             current_screen.handle_events()
-            if (current_screen.isValidUser):
+
+            if current_screen.isValidUser:
                 current_player = current_screen.Player
-                current_screen = MainMenu(current_player)
+                current_screen = NewSavedGameScreen(current_player)
                 print(current_player.playerId)
 
+            elif current_screen.transitionToDebuggerPassword:
+                print("transitioning to debugger password screen")
+                current_screen = DebuggerPasswordScreen()
+
+            elif current_screen.transitionToInstructorPassword:
+                print("transitioning to instructor password screen")
+                current_screen = InstructorPasswordScreen()
+
+        #instructor screen logics
+        if current_screen.type == 'instructorPassword':
+            current_screen.draw()
+            current_screen.handle_events()
+
+            if current_screen.transitionToLogin:
+                print("Transitioning to Login Screen")
+                current_screen = LoginScreen()
+
+            # elif current_screen.transitionToDashboard:
+            #     print("Transitioning to Instructor Dashboard...")
+            #     current_screen = InstructorDashboard()
+                
+
+        #logic for InstructorDashboard goes here
+
+        #debugger screen logics
+        if current_screen.type == 'debuggerPassword':
+            current_screen.draw()
+            current_screen.handle_events()
+
+            if current_screen.transitionToDashboard:
+                print("Transitioning to Debugger Dashboard...")
+                current_screen = DebuggerDashboardPage()
+
+            elif current_screen.transitionToLogin:
+                print("Transitioning to Login Screen")
+                current_screen = LoginScreen()
+
+        if current_screen.type == 'debuggerDashboard':
+            current_screen.draw()
+            current_screen.handle_events()
+
+            if current_screen.transitionToModeScreen:
+                print("Transitioning to Debugger Mode Screen...")
+                current_screen = DebuggerModeScreen(current_screen.selectedCategory, current_screen.selectedLevel)
+
+            elif current_screen.transitionToLogin:
+                print("Transitioning to Login Screen")
+                current_screen = LoginScreen()
+
+    
+        if current_screen.type == 'debuggerModeScreen':
+            current_screen.draw()
+            current_screen.handle_events()
+
+            if current_screen.transitionToLogin:
+                print("Transitioning to Login Screen...")
+                current_screen = LoginScreen()
+
+            elif current_screen.transitionToDashboard:
+                print("Transitioning to Debugger Dashboard Screen...")
+                current_screen = DebuggerDashboardPage()
+
+
         #main menu logic
-        if (current_screen.type == "mainMenu"):
-            current_screen.display(screen)
-            if (current_screen.handle_events() == 0):
+        if (current_screen.type == "newSavedGameScreen"):
+            current_screen.draw()
+            current_screen.handle_events()
+            if (current_screen.transitionToNewGame == True):
                 print("transitioning to category select screen")
                 current_screen = GameModeSelectScreen()
+            elif (current_screen.transitionToLoadGame == True):
+                print("user wants to load game")
+                current_screen = LoadGameScreen(current_player)
         
+        #load game screen logic
+        if (current_screen.type == "loadGameScreen"):
+            current_screen.draw()
+            current_screen.handle_events()
+            #checks if user wants to go back to main menu
+            if (current_screen.back == True):
+                current_screen = NewSavedGameScreen(current_player)
+
+            #logic for if a user wants to continue the saved game
+            elif (current_screen.userContinue == True):
+                #initialize player HP
+                current_player.playerHP = int(current_screen.currentSave['playerHP'])
+                #initialize boss HP
+                boss.bossHp = int(current_screen.currentSave['bossHP'])
+                #initialize level
+                levelNum = int(current_screen.currentSave['levelAchieved'])
+                category = current_screen.currentSave['subject']
+                level = Level(levelNum, category)
+
+                #initialize score
+                score = int(current_screen.currentSave['score'])
+                
+                #switch to game screen with saved game data
+                current_screen = GameScreen(category, current_player, boss, level.getNextQuestion(), level.levelNum, score)
+
         #game mode selection logic
         if (current_screen.type == 'gameModeSelect'):
             current_screen.draw()
             current_screen.handle_events()
             if (current_screen.choice == 'back'):
                 print('back to main menu')
-                current_screen = MainMenu(current_player)
+                current_screen = NewSavedGameScreen(current_player)
             elif (current_screen.choice == 'math'):
                 print("math was chosen")
                 level = Level(1, 'math')
                 current_screen = GameScreen('math', current_player, boss, level.getNextQuestion(), level.levelNum, score)
-            elif (current_screen.choice == 'socialScience'):
+            elif (current_screen.choice == 'social_sciences'):
                 print("social science was chosen")
                 level = Level(1, 'social_sciences')
-                current_screen = GameScreen('socialScience', current_player, boss, level.getNextQuestion(), level.levelNum, score)
+                current_screen = GameScreen('social_sciences', current_player, boss, level.getNextQuestion(), level.levelNum, score)
             elif (current_screen.choice == 'science'):
                 print("science was chosen")
                 level = Level(1, 'science')
@@ -74,22 +179,27 @@ def run_game():
 
         # math gameplay
         if (current_screen.type == 'math'):
-            current_screen.display(screen)
+            current_screen.draw()
             current_screen.handle_events()
 
             if (current_screen.answered):
-                #increase global score
+                # Increase global score
                 score = current_screen.score
-                #correct answer screen displayed
+                # Correct answer screen displayed
                 if (current_screen.answeredCorrectly == True):
                     current_screen = CorrectAnswerScreen(level.levelNum)
-                    while (current_screen.nextQuestion == False):
-                        current_screen.draw()
-                        current_screen.handle_events()
-                        pygame.display.flip()
+                else:
+                    current_screen = IncorrectAnswerScreen(level.levelNum)
+                    
+                while (current_screen.nextQuestion == False):
+                    current_screen.draw()
+                    current_screen.handle_events()
+                    pygame.display.flip()
 
                 #increase level based on remaining boss HP
                 if (boss.bossHp <= 0) or (current_player.playerHP <= 0):
+                    current_screen = GameScreen('math', current_player, boss, level.getNextQuestion(), level.levelNum, score)
+                    current_screen.endGame()
                     running = False
                 elif (boss.bossHp <= 50 and boss.bossHp > 0):
                     level = Level(3, 'math')
@@ -103,20 +213,24 @@ def run_game():
 
         #science gameplay
         if (current_screen.type == 'science'):
-            current_screen.display(screen)
+            current_screen.draw()
             current_screen.handle_events()
 
             if (current_screen.answered):
-                #increase global score
+                # Increase global score
                 score = current_screen.score
                 if (current_screen.answeredCorrectly == True):
                     current_screen = CorrectAnswerScreen(level.levelNum)
-                    #correct answer screen displayed
-                    while (current_screen.nextQuestion == False):
-                        current_screen.draw()
-                        current_screen.handle_events()
-                        pygame.display.flip()
+                else:
+                    current_screen = IncorrectAnswerScreen(level.levelNum)
+                    
+                while (current_screen.nextQuestion == False):
+                    current_screen.draw()
+                    current_screen.handle_events()
+                    pygame.display.flip()
                 if (boss.bossHp <= 0) or (current_player.playerHP <= 0):
+                    current_screen = GameScreen('science', current_player, boss, level.getNextQuestion(), level.levelNum, score)
+                    current_screen.endGame()
                     running = False
                 elif (boss.bossHp <= 50 and boss.bossHp > 0):
                     level = Level(3, 'science')
@@ -128,29 +242,37 @@ def run_game():
                 current_screen = GameScreen('science', current_player, boss, level.getNextQuestion(), level.levelNum, score)
 
         #social science gameplay
-        if (current_screen.type == 'socialScience'):
-            current_screen.display(screen)
+        if (current_screen.type == 'social_sciences'):
+            current_screen.draw()
             current_screen.handle_events()
 
             if (current_screen.answered):
-                #increase global score
+                # Increase global score
                 score = current_screen.score
-                #correct answer screen displayed
+                # Correct answer screen displayed
                 if (current_screen.answeredCorrectly == True):
                     current_screen = CorrectAnswerScreen(level.levelNum)
-                    while (current_screen.nextQuestion == False):
-                        current_screen.draw()
-                        current_screen.handle_events()
-                        pygame.display.flip()
+                else:
+                    current_screen = IncorrectAnswerScreen(level.levelNum)
+                    
+                while (current_screen.nextQuestion == False):
+                    current_screen.draw()
+                    current_screen.handle_events()
+                    pygame.display.flip()
                 if (boss.bossHp <= 0) or (current_player.playerHP <= 0):
+                    current_screen = GameScreen('social_sciences', current_player, boss, level.getNextQuestion(), level.levelNum, score)
+                    current_screen.endGame()
                     running = False
                 elif (boss.bossHp <= 50 and boss.bossHp > 0):
-                    level = Level(3, 'social_sciences')
+                    if level.levelNum != 3:
+                        level.moveToNextLevel(3)
                 elif (boss.bossHp <= 80 and boss.bossHp > 50):
-                    level = Level(2, 'social_sciences')
+                    if level.levelNum != 2:
+                        level.moveToNextLevel(2)
                 elif (boss.bossHp <= 100 and boss.bossHp > 80):
-                    level = Level(1, 'social_sciences')
-                current_screen = GameScreen('science', current_player, boss, level.getNextQuestion(), level.levelNum, score)
+                    pass
+
+                current_screen = GameScreen('social_sciences', current_player, boss, level.getNextQuestion(), level.levelNum, score)
                 
         pygame.display.flip()
         

@@ -16,12 +16,12 @@
             }
         ],
         "currentSavedGame": {
-            "timeStamp": "2024-03-26 18:17:25",
+            "timeStamp": "2024-03-27 02:03:07",
             "levelAchieved": "1",
-            "subject": "math",
-            "score": "12",
-            "playerHP": "88",
-            "bossHP": "88"
+            "subject": "science",
+            "score": "4",
+            "playerHP": "96",
+            "bossHP": "96"
         }
     },
     "harjapg": {
@@ -46,13 +46,32 @@
     },
     "t": {
         "password": "t",
-        "gameHistory": [],
+        "gameHistory": [
+            {
+                "timeStamp": "2024-03-29 21:36:22",
+                "levelAchieved": "3",
+                "subject": "social_sciences",
+                "score": "70"
+            },
+            {
+                "timeStamp": "2024-03-29 21:52:15",
+                "levelAchieved": "3",
+                "subject": "social_sciences",
+                "score": "50"
+            },
+            {
+                "timeStamp": "2024-03-29 22:08:06",
+                "levelAchieved": "3",
+                "subject": "social_sciences",
+                "score": "60"
+            }
+        ],
         "currentSavedGame": {
-            "timeStamp": "2024-03-26 17:43:40",
+            "timeStamp": "2024-03-29 21:28:20",
             "levelAchieved": "1",
-            "subject": "math",
+            "subject": "social_sciences",
             "score": "0",
-            "playerHP": "36",
+            "playerHP": "100",
             "bossHP": "100"
         }
     },
@@ -63,6 +82,23 @@
     },
     "test": {
         "password": "t",
+        "gameHistory": [],
+        "currentSavedGame": {}
+    },
+    "nateyu": {
+        "password": "hello",
+        "gameHistory": [],
+        "currentSavedGame": {
+            "timeStamp": "2024-03-29 21:52:19",
+            "levelAchieved": "1",
+            "subject": "science",
+            "score": "4",
+            "playerHP": "84",
+            "bossHP": "96"
+        }
+    },
+    "": {
+        "password": "",
         "gameHistory": [],
         "currentSavedGame": {}
     }

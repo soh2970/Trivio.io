@@ -1,0 +1,113 @@
+Folder PATH listing for volume Windows
+Volume serial number is 60BB-7C48
+C:.
+|   .DS_Store
+|   .gitignore
+|   .gitignore.swp
+|   directory_structure.txt
+|   generalNotesMichael.txt
+|   generalNotesNathan.txt
+|   main.py
+|   sophia_notes.txt
+|   testStuff.py
+|   
++---.vscode
+|       settings.json
+|       
++---audio
+|       default_background_music.mp3
+|       song1_background_music.mp3
+|       song2_background_music.mp3
+|       song3_background_music.mp3
+|       
++---images
+|       computer-icons-arrowhead-left-arrow.jpg
+|       correctAnswer.png
+|       level1MathApple.png
+|       level2MathApple.png
+|       level3MathApple.png
+|       rightarrow.jpg
+|       userLevel1.png
+|       userLevel2.png
+|       userLevel3.png
+|       userLose.jpeg
+|       wrongAnswer.png
+|       
+\---src
+    |   Boss.py
+    |   CreatePlayer.py
+    |   CreateQuestion.py
+    |   DebuggerMode.py
+    |   game.py
+    |   GameSampleTest.py
+    |   HighScorer.py
+    |   Instructor.py
+    |   Level.py
+    |   main2.py
+    |   MainMenu.py
+    |   Player.py
+    |   playerBank.json
+    |   question2.py
+    |   Settings.py
+    |   testbank.json
+    |   TESTING.py
+    |   Tutorial.py
+    |   UserAccount.py
+    |   
+    +---UIs
+    |   |   12_GameScreen.py
+    |   |   12_GameScreen3.py
+    |   |   13_OptionsScreen.py
+    |   |   15_IncorrectAnswerScreen.py
+    |   |   16_GameAnwerRevealScreen_TBD.py
+    |   |   17_WinLevelScreen.py
+    |   |   18_LoseGameScreen.py
+    |   |   19_WinGameScreen.py
+    |   |   20_HighscoreLeaderboardScreen.py
+    |   |   4_GameModeSelectScreen.py
+    |   |   5_TutorialScreen1.py
+    |   |   6_TutorialScreen2.py
+    |   |   7_InstructorPasswordScreen.py
+    |   |   8_InstructorDashboardScreen.py
+    |   |   AudioManager.py
+    |   |   CorrectAnswerScreen.py
+    |   |   DebuggerDashboardScreen.py
+    |   |   DebuggerModeScreen.py
+    |   |   DebuggerPasswordScreen.py
+    |   |   GameModeSelectScreen.py
+    |   |   GameScreen2.py
+    |   |   GameScreenButtons.py
+    |   |   LoadGameScreen.py
+    |   |   LoginScreen.py
+    |   |   NewSavedGameScreen.py
+    |   |   screen.py
+    |   |   tempCodeRunnerFile.py
+    |   |   WelcomeScreen.py
+    |   |   
+    |   \---__pycache__
+    |           CorrectAnswerScreen.cpython-311.pyc
+    |           DebuggerDashboardScreen.cpython-311.pyc
+    |           DebuggerModeScreen.cpython-311.pyc
+    |           DebuggerPasswordScreen.cpython-311.pyc
+    |           GameModeSelectScreen.cpython-311.pyc
+    |           GameScreen2.cpython-311.pyc
+    |           GameScreenButtons.cpython-311.pyc
+    |           LoginScreen.cpython-311.pyc
+    |           NewSavedGameScreen.cpython-311.pyc
+    |           screen.cpython-311.pyc
+    |           WelcomeScreen.cpython-311.pyc
+    |           
+    \---__pycache__
+            Boss.cpython-311.pyc
+            CreatePlayer.cpython-311.pyc
+            CreateQuestion.cpython-311.pyc
+            DebuggerMode.cpython-311.pyc
+            game.cpython-311.pyc
+            Instructor.cpython-311.pyc
+            InstructorDashboardScreen.cpython-311.pyc
+            Level.cpython-311.pyc
+            MainMenu.cpython-311.pyc
+            Player.cpython-311.pyc
+            question2.cpython-311.pyc
+            UserAccount.cpython-311.pyc
+            
