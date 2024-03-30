@@ -11,8 +11,41 @@ pygame.init()
 
 class InstructorPasswordScreen(ScreenBase):
     """
-    """
+    A screen for entering the instructor mode password in a Pygame application.
 
+    This screen is responsible for accepting a password input from the user,
+    validating it, and then either transitioning to the instructor dashboard
+    screen upon successful password entry or remaining on the password screen
+    if the entry is invalid. It also provides an option to cancel and return
+    to the login screen.
+
+    Attributes:
+        password_text (str): The password input by the user.
+        active (bool): Indicates whether the password input field is active.
+        type (str): A string identifier for the screen type, set to 'instructorPassword'.
+        width (int): The current width of the screen.
+        height (int): The current height of the screen.
+        transitionToDashboard (bool): Flag to indicate transition to the instructor dashboard screen.
+        transitionToLogin (bool): Flag to indicate transition back to the login screen.
+        cancel_button (GameScreenButtons): Button to cancel and trigger transition back to the login screen.
+
+    Methods:
+        draw(self):
+            Renders the password input field, labels, and buttons on the screen.
+
+        check_password(self):
+            Validates the entered password against the expected value ('instructor').
+
+        cancel(self):
+            Sets the flag to transition back to the login screen.
+
+        handle_events(self):
+            Handles user input and system events such as input in the password field, button clicks,
+            and screen resizing.
+
+        run(self):
+            Contains the main loop for the screen that handles events and renders the screen.
+    """
     def __init__(self):
         super().__init__()
         self.password_text = ''

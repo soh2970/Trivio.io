@@ -13,7 +13,50 @@ sys.path.append(src_dir)
 
 class DebuggerModeScreen(ScreenBase):
     """
-    
+    A screen within a Pygame application that displays questions and answers
+    for a selected category and level, specifically for debugging purposes.
+
+    This screen is part of a debugger tool allowing the user to review questions
+    and their correct answers from a specified category and level, facilitating
+    the debugging and verification of content within the game.
+
+    Attributes:
+        category (str): The selected category of questions to display.
+        level (str): The selected level of difficulty for the questions.
+        questions (list): A list of questions fetched based on the selected category and level.
+        width (int): The current width of the Pygame window.
+        height (int): The current height of the Pygame window.
+        type (str): Identifier for the type of screen, set to "debuggerModeScreen".
+        transitionToLogin (bool): Flag indicating whether a transition back to the login screen is requested.
+        transitionToDashboard (bool): Flag indicating whether a transition back to the debugger dashboard is requested.
+        content_start_y (int): The Y-coordinate starting point for rendering content on the screen.
+        scroll_offset (int): The current vertical scroll position for scrolling through questions.
+        start (int): Placeholder for scroll start index (not actively used in provided code).
+        end (int): Placeholder for scroll end index (not actively used in provided code).
+        scrollbar_rect (pygame.Rect): The rectangle defining the scrollbar's position and size.
+        is_dragging (bool): Indicates whether the scrollbar is currently being dragged (not actively used in provided code).
+
+    Methods:
+        load_questions(self):
+            Loads questions from a JSON file based on the selected category and level.
+
+        on_back(self):
+            Handles the action to go back to the previous screen (debugger dashboard).
+
+        on_home(self):
+            Handles the action to go back to the home screen (login screen).
+
+        draw(self):
+            Renders the screen, including questions, answers, and UI elements like buttons.
+
+        handle_events(self):
+            Processes input events, such as button clicks and scroll actions.
+
+        get_max_scroll(self):
+            Calculates the maximum scroll offset based on the content height.
+
+        run(self):
+            The main loop for the screen, handling events and updating the display.
     """
     content_start_y = 150
     def __init__(self, category=None, level=None):

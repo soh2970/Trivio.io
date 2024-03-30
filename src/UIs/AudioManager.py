@@ -4,6 +4,39 @@ will be used to manage the music in the background of the gameplay
 import pygame
 
 class AudioManager:
+    """
+    Manages background music playback for a game, allowing for song loading, playback,
+    volume control, and navigation between tracks.
+
+    Attributes:
+        songs (list of dict): A list containing dictionaries of song names and their file paths.
+        current_song_index (int): The index of the currently loaded song in the songs list.
+
+    Methods:
+        __init__(self):
+            Initializes the AudioManager, sets the volume, and loads the default song.
+
+        load_song(self, index):
+            Loads a song from the songs list based on its index.
+
+        play_song(self):
+            Plays the currently loaded song on a loop.
+
+        stop_song(self):
+            Stops the music playback.
+
+        next_song(self):
+            Advances to the next song in the list, wraps around to the first song if at the end of the list, and plays it.
+
+        prev_song(self):
+            Moves to the previous song in the list, wraps around to the last song if at the beginning of the list, and plays it.
+
+        set_volume(self, volume):
+            Sets the music playback volume.
+
+        get_current_song_name(self):
+            Returns the name of the currently playing song.
+    """
     def __init__(self):
         pygame.mixer.init()
         self.songs = [

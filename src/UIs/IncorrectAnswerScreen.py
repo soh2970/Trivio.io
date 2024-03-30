@@ -5,7 +5,32 @@ from src.UIs.screen import ScreenBase
 from src.UIs.GameScreenButtons import GameScreenButtons
 
 class IncorrectAnswerScreen(ScreenBase):
+    """
+    A screen displayed in a Pygame application to inform the player that they have
+    selected an incorrect answer for a question. It shows a message indicating the mistake and
+    indicates the impact of the incorrect answer on the player's health points (HP reduction).
 
+    Inherits from ScreenBase, utilizing its setup for a Pygame window/screen.
+
+    Attributes:
+        level (int): The current level of difficulty, which affects the amount of damage
+                     dealt to the player for an incorrect answer.
+        image (pygame.Surface): The image displayed on this screen, typically indicating failure.
+        header (str): The main message displayed to the player, indicating an incorrect answer.
+        footer (str): Additional information shown to the player, such as the effect on their HP.
+        continueButton (GameScreenButtons): A button that allows the player to proceed to the next question.
+        nextQuestion (bool): Flag indicating whether the player has chosen to proceed to the next question.
+
+    Methods:
+        choiceMade(self):
+            Sets the flag indicating the player's decision to proceed to the next question.
+
+        draw(self):
+            Renders the screen, including the failure image, header, footer, and the continue button.
+
+        handle_events(self):
+            Handles events such as button clicks and window resizing.
+    """
     def __init__(self, level):
         super().__init__()
         self.level = level

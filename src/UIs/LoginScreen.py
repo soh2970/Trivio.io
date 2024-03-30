@@ -15,7 +15,43 @@ sys.path.append(src_dir)
 pygame.init() 
 
 class LoginScreen(ScreenBase):
+    """
+    A screen for user login in a Pygame application, providing fields for username and password input,
+    as well as buttons for submitting the login request or creating a new account.
 
+    Attributes:
+        user_text (str): Text input by the user for the username.
+        pass_text (str): Text input by the user for the password.
+        usernameInput (bool): Indicates if the username input box is active.
+        passwordInput (bool): Indicates if the password input box is active.
+        transitionToDebuggerPassword (bool): Flag to transition to the debugger password screen.
+        transitionToInstructorPassword (bool): Flag to transition to the instructor password screen.
+        type (str): Identifier for the screen type, set to 'loginScreen'.
+        input_box (pygame.Rect): Rectangle for the username input box.
+        pass_input_box (pygame.Rect): Rectangle for the password input box.
+        input_box_color (pygame.Color): Color of the input boxes.
+        text_color (tuple): Color of the input text.
+        loginButton (GameScreenButtons): Button for logging in.
+        createAccountButton (GameScreenButtons): Button for creating a new account.
+        isValidUser (bool): Indicates whether the user is validated.
+        Player (Player or None): The player instance created upon successful login.
+
+    Methods:
+        handleLogIn(self):
+            Handles the login logic, validating the user credentials.
+
+        handleCreateAccount(self):
+            Handles the creation of a new user account.
+
+        draw(self):
+            Renders the login screen, including input fields and buttons.
+
+        handle_events(self):
+            Handles events such as text input, button clicks, and transitions.
+
+        run(self):
+            Contains the main loop for the LoginScreen, handling events and rendering updates.
+    """
     def __init__(self):
         super().__init__()
         self.user_text=''

@@ -19,7 +19,47 @@ from src.UIs.CorrectAnswerScreen import CorrectAnswerScreen
 images_dir = os.path.join(os.path.dirname(__file__), '..', '..', 'images')
 
 class GameScreen(ScreenBase):
+    """
+    The main game screen for a Pygame application, displaying the current question, 
+    player and boss health points, and providing multiple choice answers for the player to select from.
 
+    This screen is central to the gameplay, presenting challenges to the player and updating the game state
+    based on the player's responses, including updating scores and health points for both the player and the boss.
+
+    Attributes:
+        startTime (int): Timestamp of when the game screen was initiated.
+        boss (Boss): An instance of the Boss class, representing the game's antagonist.
+        player (Player): An instance of the Player class, representing the user playing the game.
+        level (int): The current level of difficulty in the game.
+        question (Question): The current question being posed to the player.
+        correctAnswer (str): The correct answer to the current question.
+        answered (bool): Flag indicating whether the player has answered the current question.
+        answeredCorrectly (bool or None): Indicates whether the player answered the current question correctly.
+        levelFont, hpFont, promptFont (pygame.font.Font): Fonts for displaying the level, health points, and question prompt.
+        buttons (list): A list of GameScreenButtons for the answer choices.
+        saveGameButton (GameScreenButtons): A button that allows the player to save the game state.
+        type (str): The category of the current question.
+        score (int): The player's current score.
+
+    Methods:
+        choiceMade(self, choice):
+            Processes the player's answer choice and updates the game state accordingly.
+
+        draw(self):
+            Renders the game screen, including the question, answers, and game state information.
+
+        handle_events(self):
+            Handles events such as button clicks and window resizing.
+
+        draw_text(self, text, font, color, surface, x, y):
+            Helper method for drawing text on the screen.
+
+        saveGame(self):
+            Saves the current game state to a file.
+
+        endGame(self):
+            Ends the game, saving the final state and transitioning to an end game screen.
+    """
     def __init__(self, category, player, boss, question, level, score):
         super().__init__()
         self.startTime = pygame.time.get_ticks()
