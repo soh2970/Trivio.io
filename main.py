@@ -211,12 +211,19 @@ def run_game():
 
                 #increase level based on remaining boss HP
                 if (boss.bossHp <= 0) or (current_player.playerHP <= 0):
+                    #lose game screen /// win game screen
+                    #high score leaderboard screen
+
                     current_screen = GameScreen('math', current_player, boss, level.getNextQuestion(), level.levelNum, score)
                     current_screen.endGame()
                     running = False
                 elif (boss.bossHp <= 50 and boss.bossHp > 0):
+                    #show level passed
+
                     level = Level(3, 'math')
                 elif (boss.bossHp <= 80 and boss.bossHp > 50):
+                    #show level passed
+
                     level = Level(2, 'math')
                 elif (boss.bossHp <= 100 and boss.bossHp > 80):
                     level = Level(1, 'math')
