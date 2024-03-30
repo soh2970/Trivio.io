@@ -6,6 +6,7 @@ from src.UIs.GameScreenButtons import GameScreenButtons
 from src.UserAccount import UserAccount
 from src.Player import Player
 from src.UIs.DebuggerPasswordScreen import DebuggerPasswordScreen
+from src.UIs.InstructorPasswordScreen import InstructorPasswordScreen
 
 # Get the absolute path to the src directory
 src_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), '../'))
@@ -147,7 +148,9 @@ class LoginScreen(ScreenBase):
                     self.transitionToDebuggerPassword = True
 
                 # Transition to InstructorPasswordScreen
-
+                if self.width/2-350 <= mouse[0] <= self.width/2-250 and self.height/2-275 <= mouse[1] <= self.height/2-255:
+                    print("instructor clicked")
+                    self.transitionToInstructorPassword = True
 
                 #if the mouse is clicked on the x button the game is terminated 
                 if self.width/2-405 <= mouse[0] <= self.width/2-385 and self.height/2-293 <= mouse[1] <= self.height/2-263: 
