@@ -4,9 +4,20 @@ import os
 # Assuming main.py is in the root directory of personalRepo2212
 sys.path.insert(0, os.path.join(os.path.dirname(__file__), 'src'))
 
+"""
+#options screen logic 
+        if (current_screen.type == "OptionsScreen"):
+            current_screen.draw()
+            current_screen.handle_events()
+            if (current_screen.back == True):
+                current_screen = GameScreen('math', current_player, boss, level.getNextQuestion(), level.levelNum, score)
+    needs to be in every game screen
+"""
+
 
 import pygame
 from src.UIs.screen import ScreenBase
+from src.UIs.AudioManager import AudioManager
 from src.UIs.GameScreen2 import GameScreen
 from src.question2 import Question
 from src.Level import Level
@@ -131,6 +142,7 @@ def run_game():
             elif (current_screen.transitionToLoadGame == True):
                 print("user wants to load game")
                 current_screen = LoadGameScreen(current_player)
+        
         
         #load game screen logic
         if (current_screen.type == "loadGameScreen"):
