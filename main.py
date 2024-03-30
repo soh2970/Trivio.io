@@ -61,6 +61,7 @@ def run_game():
                 print("transitioning to debugger password screen")
                 current_screen = DebuggerPasswordScreen()
 
+        #debugger screen logics
         if current_screen.type == 'debuggerPassword':
             current_screen.draw()
             current_screen.handle_events()
@@ -69,18 +70,37 @@ def run_game():
                 print("Transitioning to Debugger Dashboard...")
                 current_screen = DebuggerDashboardPage()
 
+            elif current_screen.transitionToLogin:
+                print("Transitioning to Login Screen")
+                current_screen = LoginScreen()
 
         if current_screen.type == 'debuggerDashboard':
             current_screen.draw()
             current_screen.handle_events()
 
-            if hasattr(current_screen, 'transitionToModeScreen') and current_screen.transitionToModeScreen:
+            if current_screen.transitionToModeScreen:
                 print("Transitioning to Debugger Mode Screen...")
                 current_screen = DebuggerModeScreen(current_screen.selectedCategory, current_screen.selectedLevel)
-    
-            if hasattr(current_screen, 'transitionToLogin') and current_screen.transitionToLogin:
-                print("Transitioning back to Login Screen...")
+
+            elif current_screen.transitionToLogin:
+                print("Transitioning to Login Screen")
                 current_screen = LoginScreen()
+
+    
+        if current_screen.type == 'debuggerModeScreen':
+            current_screen.draw()
+            current_screen.handle_events()
+
+            if current_screen.transitionToLogin:
+                print("Transitioning to Login Screen...")
+                current_screen = LoginScreen()
+
+            elif current_screen.transitionToDashboard:
+                print("Transitioning to Debugger Dashboard Screen...")
+                current_screen = DebuggerDashboardPage()
+
+
+        #instructor logics goes here...
 
 
         #main menu logic

@@ -22,6 +22,7 @@ class DebuggerPasswordScreen(ScreenBase):
         self.width = self.screen.get_width()
         self.height = self.screen.get_height()
         self.transitionToDashboard = False
+        self.transitionToLogin = False
 
         # Define button properties
         button_width = 100
@@ -30,8 +31,7 @@ class DebuggerPasswordScreen(ScreenBase):
         button_bg_color = (255, 255, 255)
 
         #### test needed for Mac ####
-        self.cancel_button = GameScreenButtons(self.width / 2 - 350, self.height / 2 - 290, button_width, button_height, 'Cancel', self.cancel, button_text_color, button_bg_color)
-        self.exit_button = GameScreenButtons(self.width / 2 - 405, self.height / 2 - 293, button_width, button_height, 'x', self.exit, button_text_color, button_bg_color)
+        self.cancel_button = GameScreenButtons(self.width / 2 - 405, self.height / 2 - 293, button_width, button_height, 'Cancel', self.cancel, button_text_color, button_bg_color)
 
         
 
@@ -54,7 +54,6 @@ class DebuggerPasswordScreen(ScreenBase):
 
         # Draw the buttons
         self.cancel_button.draw(self.screen)
-        self.exit_button.draw(self.screen)
 
         self.screen.blit(titleOne, (self.width / 2 - 200, self.height / 2 - 200))
         self.screen.blit(titleTwo, (self.width / 2 - 50, self.height / 2 - 150))
@@ -68,13 +67,8 @@ class DebuggerPasswordScreen(ScreenBase):
             print("Debugger credential invalid.")
 
     def cancel(self):
-        print("Cancelled")
-        self.running = False
+        self.transitionToLogin = True
 
-    def exit(self):
-        print("Exiting application...")
-        pygame.quit()
-        sys.exit()
 
     def handle_events(self):
         mouse = pygame.mouse.get_pos()
@@ -94,8 +88,6 @@ class DebuggerPasswordScreen(ScreenBase):
                 if self.cancel_button.rect1.collidepoint(event.pos):
                     self.cancel_button.callback()
 
-                if self.exit_button.rect1.collidepoint(event.pos):
-                    self.exit_button.callback()
 
             elif event.type == pygame.KEYDOWN:
                 if event.key == pygame.K_BACKSPACE:

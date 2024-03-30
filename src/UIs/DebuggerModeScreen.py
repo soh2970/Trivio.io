@@ -25,6 +25,7 @@ class DebuggerModeScreen(ScreenBase):
         self.height = self.screen.get_height()
         self.type = "debuggerModeScreen"
         self.transitionToLogin = False
+        self.transitionToDashboard = False
         self.load_questions()
 
         self.back_button = GameScreenButtons(10, 10, 100, 40, 'Back', self.on_back, (0, 0, 0), (255,255,255))
@@ -46,7 +47,7 @@ class DebuggerModeScreen(ScreenBase):
 
     def on_back(self):
         # Placeholder for the back button logic -> main script transitions
-        print("Back button pressed")
+        self.transitionToDashboard = True
 
     def on_home(self):
         # Placeholder for the home button logic -> main script transitions

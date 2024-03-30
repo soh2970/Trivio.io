@@ -79,6 +79,7 @@ class DebuggerDashboardPage(ScreenBase):
         self.text_color = (0,0,0)
         self.transitionToModeScreen = False
         self.type = "debuggerDashboard"
+        self.transitionToLogin = False
 
         self.category_mapping = {
             "Math": "math",
@@ -148,7 +149,7 @@ class DebuggerDashboardPage(ScreenBase):
     def on_home(self):
         # ADD LOGIC
         #plz work on this in main script.
-        print("Home button clicked")
+        self.transitionToLogin = True
         
 
 
