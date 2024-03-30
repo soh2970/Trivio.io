@@ -21,6 +21,7 @@ from src.UIs.LoginScreen import LoginScreen
 from src.UIs.CorrectAnswerScreen import CorrectAnswerScreen
 from src.UIs.LoadGameScreen import LoadGameScreen
 from src.UIs.DebuggerPasswordScreen import DebuggerPasswordScreen
+from src.UIs.IncorrectAnswerScreen import IncorrectAnswerScreen
 
 
 def run_game():
@@ -122,15 +123,18 @@ def run_game():
             current_screen.handle_events()
 
             if (current_screen.answered):
-                #increase global score
+                # Increase global score
                 score = current_screen.score
-                #correct answer screen displayed
+                # Correct answer screen displayed
                 if (current_screen.answeredCorrectly == True):
                     current_screen = CorrectAnswerScreen(level.levelNum)
-                    while (current_screen.nextQuestion == False):
-                        current_screen.draw()
-                        current_screen.handle_events()
-                        pygame.display.flip()
+                else:
+                    current_screen = IncorrectAnswerScreen(level.levelNum)
+                    
+                while (current_screen.nextQuestion == False):
+                    current_screen.draw()
+                    current_screen.handle_events()
+                    pygame.display.flip()
 
                 #increase level based on remaining boss HP
                 if (boss.bossHp <= 0) or (current_player.playerHP <= 0):
@@ -151,15 +155,17 @@ def run_game():
             current_screen.handle_events()
 
             if (current_screen.answered):
-                #increase global score
+                # Increase global score
                 score = current_screen.score
                 if (current_screen.answeredCorrectly == True):
                     current_screen = CorrectAnswerScreen(level.levelNum)
-                    #correct answer screen displayed
-                    while (current_screen.nextQuestion == False):
-                        current_screen.draw()
-                        current_screen.handle_events()
-                        pygame.display.flip()
+                else:
+                    current_screen = IncorrectAnswerScreen(level.levelNum)
+                    
+                while (current_screen.nextQuestion == False):
+                    current_screen.draw()
+                    current_screen.handle_events()
+                    pygame.display.flip()
                 if (boss.bossHp <= 0) or (current_player.playerHP <= 0):
                     running = False
                 elif (boss.bossHp <= 50 and boss.bossHp > 0):
@@ -177,15 +183,18 @@ def run_game():
             current_screen.handle_events()
 
             if (current_screen.answered):
-                #increase global score
+                # Increase global score
                 score = current_screen.score
-                #correct answer screen displayed
+                # Correct answer screen displayed
                 if (current_screen.answeredCorrectly == True):
                     current_screen = CorrectAnswerScreen(level.levelNum)
-                    while (current_screen.nextQuestion == False):
-                        current_screen.draw()
-                        current_screen.handle_events()
-                        pygame.display.flip()
+                else:
+                    current_screen = IncorrectAnswerScreen(level.levelNum)
+                    
+                while (current_screen.nextQuestion == False):
+                    current_screen.draw()
+                    current_screen.handle_events()
+                    pygame.display.flip()
                 if (boss.bossHp <= 0) or (current_player.playerHP <= 0):
                     running = False
                 elif (boss.bossHp <= 50 and boss.bossHp > 0):

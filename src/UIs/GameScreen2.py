@@ -16,6 +16,8 @@ from src.UIs.screen import ScreenBase
 from src.UIs.GameScreenButtons import GameScreenButtons
 from src.UIs.CorrectAnswerScreen import CorrectAnswerScreen
 
+images_dir = os.path.join(os.path.dirname(__file__), '..', '..', 'images')
+
 class GameScreen(ScreenBase):
 
     def __init__(self, category, player, boss, question, level, score):
@@ -174,37 +176,37 @@ class GameScreen(ScreenBase):
 
 
     # Load the boss level1 image
-    boss1_image_path = 'images/level1MathApple.png'
+    boss1_image_path = os.path.join(images_dir, 'level1MathApple.png')
     boss1_image = pygame.image.load(boss1_image_path)
     boss1_imageResized = pygame.transform.scale(boss1_image, (80,80))
 
     # Load the boss level2 image
-    boss2_image_path = 'images/level2MathApple.png'
+    boss2_image_path = os.path.join(images_dir, 'level2MathApple.png')
     boss2_image = pygame.image.load(boss2_image_path)
     boss2_imageResized = pygame.transform.scale(boss2_image, (80,80))
 
     #load the boss level3 image
-    boss3_image_path = 'images/level3MathApple.png'
+    boss3_image_path = os.path.join(images_dir, 'level3MathApple.png')
     boss3_image = pygame.image.load(boss3_image_path)
     boss3_imageResized = pygame.transform.scale(boss3_image, (80,80))
 
     #load the player level1 image
-    player1_image_path = 'images/userLevel1.png'
+    player1_image_path = os.path.join(images_dir, 'userLevel1.png')
     player1_image = pygame.image.load(player1_image_path)
     player1_imageResized = pygame.transform.scale(player1_image, (80,80))
 
     #load the player level2 image
-    player2_image_path = 'images/userLevel2.png'
+    player2_image_path = os.path.join(images_dir, 'userLevel2.png')
     player2_image = pygame.image.load(player2_image_path)
     player2_imageResized = pygame.transform.scale(player2_image, (80,80))
 
     #load the player level3 image
-    player3_image_path = 'images/userLevel3.png'
+    player3_image_path = os.path.join(images_dir, 'userLevel3.png')
     player3_image = pygame.image.load(player3_image_path)
     player3_imageResized = pygame.transform.scale(player3_image, (80,80))
 
     #load the player lose image
-    playerLose_image_path = 'images/userLose.jpeg'
+    playerLose_image_path = os.path.join(images_dir, 'userLose.jpeg')
     playerLose_image = pygame.image.load(playerLose_image_path)
     playerLose_imageResized = pygame.transform.scale(playerLose_image, (80,80))
 
