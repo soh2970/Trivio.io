@@ -12,6 +12,7 @@ class Level:
     def __init__(self, lvlNum, catagory):
         self.levelNum = lvlNum
         self.playerHPThreshold = 100
+        self.catagory = catagory
 
         if( lvlNum == 1): 
             self.bossHPThreshold = 80 
@@ -54,6 +55,11 @@ class Level:
     # @return boolean, true if level is completed and false if not
     def completeLevel(self, playerHp, bossHp):
         return playerHp > self.playerHPThreshold and bossHp <= self.bossHPThreshold
+    
+    def moveToNextLevel(self, level):
+        self.questionsInLevel = self.getQuestions(level, self.catagory)
+        self.levelNum = level
+
     
     # Method to get the next question
     # @return the next question
