@@ -6,7 +6,7 @@
                 "timeStamp": "2024-05-29 13:20:15",
                 "levelAchieved": "3",
                 "subject": "math",
-                "score": "102"
+                "score": 102
             },
             {
                 "timeStamp": "2024-05-30 09:10:35",
@@ -19,7 +19,7 @@
             "timeStamp": "2024-03-27 02:03:07",
             "levelAchieved": "1",
             "subject": "science",
-            "score": "4",
+            "score": 4,
             "playerHP": "96",
             "bossHP": "96"
         }
@@ -27,22 +27,50 @@
     "harjapg": {
         "password": "54321",
         "gameHistory": [],
-        "currentSavedGame": {}
+        "currentSavedGame": {
+            "timeStamp": "2024-03-27 02:03:07",
+            "levelAchieved": "1",
+            "subject": "science",
+            "score": 43,
+            "playerHP": "96",
+            "bossHP": "96"
+        }
     },
     "michaelkim": {
         "password": "12345",
         "gameHistory": [],
-        "currentSavedGame": {}
+        "currentSavedGame": {
+            "timeStamp": "2024-03-27 02:03:07",
+            "levelAchieved": "1",
+            "subject": "science",
+            "score": 8,
+            "playerHP": "96",
+            "bossHP": "96"
+        }
     },
     "kachlan": {
         "password": "22222",
         "gameHistory": [],
-        "currentSavedGame": {}
+        "currentSavedGame": {
+            "timeStamp": "2024-03-27 02:03:07",
+            "levelAchieved": "1",
+            "subject": "science",
+            "score": 49,
+            "playerHP": "96",
+            "bossHP": "96"
+        }
     },
     "braydeng": {
         "password": "hi",
         "gameHistory": [],
-        "currentSavedGame": {}
+        "currentSavedGame": {
+            "timeStamp": "2024-03-27 02:03:07",
+            "levelAchieved": "1",
+            "subject": "science",
+            "score": 24,
+            "playerHP": "96",
+            "bossHP": "96"
+        }
     },
     "t": {
         "password": "t",
@@ -51,7 +79,7 @@
             "timeStamp": "2024-03-27 02:01:48",
             "levelAchieved": "1",
             "subject": "science",
-            "score": "0",
+            "score": 0,
             "playerHP": "56",
             "bossHP": "100"
         }
@@ -59,12 +87,26 @@
     "tt": {
         "password": "t",
         "gameHistory": [],
-        "currentSavedGame": {}
+        "currentSavedGame": {
+            "timeStamp": "2024-03-27 02:03:07",
+            "levelAchieved": "1",
+            "subject": "science",
+            "score": 9,
+            "playerHP": "96",
+            "bossHP": "96"
+        }
     },
     "test": {
         "password": "t",
         "gameHistory": [],
-        "currentSavedGame": {}
+        "currentSavedGame": {
+            "timeStamp": "2024-03-27 02:03:07",
+            "levelAchieved": "1",
+            "subject": "science",
+            "score": 5,
+            "playerHP": "96",
+            "bossHP": "96"
+        }
     },
     "nateyu": {
         "password": "hello",
@@ -73,7 +115,7 @@
             "timeStamp": "2024-03-28 16:44:41",
             "levelAchieved": "1",
             "subject": "science",
-            "score": "4",
+            "score": 4,
             "playerHP": "84",
             "bossHP": "96"
         }

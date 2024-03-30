@@ -1,58 +1,89 @@
-import pygame
 import sys
 import os
+import pygame
+
 
 # Get the absolute path to the src directory
 src_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), '../'))
 sys.path.append(src_dir)
 
-# initializing the constructor 
-pygame.init() 
-
-# DISPLAY
-# screen resolution 
-initial_size = (844,600) 
-screen = pygame.display.set_mode(initial_size, pygame.RESIZABLE) 
-# constant sizes
-MIN_WIDTH = 844
-MIN_HEIGHT = 600 
-# get width and height of screen
-width = screen.get_width
-height = screen.get_height
-# fills the screen with a color: white 
-white = (255,255,255)
-screen.fill(white)
-# set screen name
-pygame.display.set_caption('Trivio')
-# update game screen
-pygame.display.update()
+from GameScreenButtons import GameScreenButtons
+from screen import ScreenBase
+from HighScorer import HighScore
 
 
+class LeaderboardScreen(ScreenBase):
+    """
+    
+    """
 
-# boolean variable to check if the exit button has been clicked or not
-running = True
-# keep game running till running is true 
-while running: 
-      
-    # check for event if user has pushed any event in queue 
-    for event in pygame.event.get(): 
-          
-        # user quits
-        if event.type == pygame.QUIT: 
-            running = False
-        # user resizing screen
-        elif event.type == pygame.VIDEORESIZE:
-            # check if the new size is below the minimum size
-            new_width = max(event.w, MIN_WIDTH)
-            new_height = max(event.h, MIN_HEIGHT)
+    def __init__(self):
+        super().__init__()
+        self.scores = HighScore()
+        self.active = False
 
-             # resize window if below min
-            if new_width<event.w or new_height != event.h:
-                window = pygame.display.set_mode((new_width, new_height), pygame.RESIZABLE)
+    def draw(self):
+        super().draw()
+        self.width = self.screen.get_width()
+        self.height = self.screen.get_height()
+
+        
+
+        titleOne = self.SMALLER_FONT.render('Leaderboard', True, self.BLACK)
+        cancel = self.SMALLER_FONT.render('Cancel', True, self.BLACK)
+        esc = self.PARAGRAPH_FONT.render('x' , True , self.BLACK)
+
+        pygame.draw.rect(self.screen,self.GREY,[self.width/2-405,self.height/2-293,30,30]) 
+        pygame.draw.rect(self.screen,self.GREY,[self.width/2-350,self.height/2-290,90,20]) 
+
+        self.screen.blit(titleOne, (self.width/2-100, self.height/2-200))
+        self.screen.blit(cancel, (self.width/2-349, self.height/2-285))
+        self.screen.blit(esc , (self.width/2-400,self.height/2-300))
+
+        # display leaderboard
+        rankings = self.scores.scoreRankings()
+        for i in range(10):
+            if (i < len(rankings)):
+                output = str(i+1)+': ' +str(rankings[i][0]) + '   ' + str(rankings[i][1]['currentSavedGame']['score'])
             else:
-                # increase size
-                window_size = (event.w, event.h)
-                window = pygame.display.set_mode(window_size, pygame.RESIZABLE)
+                output = str(i+1)+': ----------------'
+            outText = self.MODE_FONT.render(output, True, self.BLACK)
+            out_rect = outText.get_rect(center=(self.width/2,self.height/2 - 100 + i*20))
+            self.screen.blit(outText , out_rect)
+          
 
-# update game screen
-pygame.display.update()
+
+
+
+
+   
+    def cancel(self):
+        print("Cancelled")
+        self.running = False
+
+
+    def handle_events(self):
+        mouse = pygame.mouse.get_pos()
+        for event in pygame.event.get():
+            if event.type == pygame.QUIT:
+                self.running = False
+                pygame.quit()
+                sys.exit()
+            elif event.type == pygame.VIDEORESIZE:
+                super().resize_screen(event)
+            elif event.type == pygame.MOUSEBUTTONDOWN:
+                    
+                if self.width/2-405 <= mouse[0] <= self.width/2-385 and self.height/2-293 <= mouse[1] <= self.height/2-263:
+                    pygame.quit()
+                    sys.exit()
+           
+
+
+    def run(self):
+        while self.running:
+            self.handle_events()
+            self.draw()
+            pygame.display.flip()
+
+if __name__ == "__main__":
+    LeaderboardScreen().run()
