@@ -2,33 +2,73 @@ import pygame
 import sys
 import os
 import json
+from src.UIs.screen import ScreenBase
+from src.UIs.GameScreenButtons import GameScreenButtons
 
 
-# Get the absolute path to the src directory
+# # Get the absolute path to the src directory
 src_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), '../'))
 sys.path.append(src_dir)
 
-from .screen import ScreenBase
-from .GameScreenButtons import GameScreenButtons
-
-
-#please ignore or alter this path as where your json file is located.
-os.chdir("C:\\Users\\kimgu\\2212\\repositories2212\\personalRepo2212\\src")
-print(os.getcwd())
 
 class DebuggerModeScreen(ScreenBase):
     """
-    
+    A screen within a Pygame application that displays questions and answers
+    for a selected category and level, specifically for debugging purposes.
+
+    This screen is part of a debugger tool allowing the user to review questions
+    and their correct answers from a specified category and level, facilitating
+    the debugging and verification of content within the game.
+
+    Attributes:
+        category (str): The selected category of questions to display.
+        level (str): The selected level of difficulty for the questions.
+        questions (list): A list of questions fetched based on the selected category and level.
+        width (int): The current width of the Pygame window.
+        height (int): The current height of the Pygame window.
+        type (str): Identifier for the type of screen, set to "debuggerModeScreen".
+        transitionToLogin (bool): Flag indicating whether a transition back to the login screen is requested.
+        transitionToDashboard (bool): Flag indicating whether a transition back to the debugger dashboard is requested.
+        content_start_y (int): The Y-coordinate starting point for rendering content on the screen.
+        scroll_offset (int): The current vertical scroll position for scrolling through questions.
+        start (int): Placeholder for scroll start index (not actively used in provided code).
+        end (int): Placeholder for scroll end index (not actively used in provided code).
+        scrollbar_rect (pygame.Rect): The rectangle defining the scrollbar's position and size.
+        is_dragging (bool): Indicates whether the scrollbar is currently being dragged (not actively used in provided code).
+
+    Methods:
+        load_questions(self):
+            Loads questions from a JSON file based on the selected category and level.
+
+        on_back(self):
+            Handles the action to go back to the previous screen (debugger dashboard).
+
+        on_home(self):
+            Handles the action to go back to the home screen (login screen).
+
+        draw(self):
+            Renders the screen, including questions, answers, and UI elements like buttons.
+
+        handle_events(self):
+            Processes input events, such as button clicks and scroll actions.
+
+        get_max_scroll(self):
+            Calculates the maximum scroll offset based on the content height.
+
+        run(self):
+            The main loop for the screen, handling events and updating the display.
     """
     content_start_y = 150
-    def __init__(self, screen, category=None, level=None):
+    def __init__(self, category=None, level=None):
         super().__init__()
-        self.screen = screen
         self.category = category
         self.level = level
         self.questions = []
         self.width = self.screen.get_width()
         self.height = self.screen.get_height()
+        self.type = "debuggerModeScreen"
+        self.transitionToLogin = False
+        self.transitionToDashboard = False
         self.load_questions()
 
         self.back_button = GameScreenButtons(10, 10, 100, 40, 'Back', self.on_back, (0, 0, 0), (255,255,255))
@@ -50,11 +90,11 @@ class DebuggerModeScreen(ScreenBase):
 
     def on_back(self):
         # Placeholder for the back button logic -> main script transitions
-        print("Back button pressed")
+        self.transitionToDashboard = True
 
     def on_home(self):
         # Placeholder for the home button logic -> main script transitions
-        print("Home button pressed")
+        self.transitionToLogin = True
 
 
     def draw(self):

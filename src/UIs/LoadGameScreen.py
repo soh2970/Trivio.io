@@ -7,7 +7,38 @@ import pygame
 import os
 
 class LoadGameScreen(ScreenBase):
+    """
+    A screen in a Pygame application that allows a player to load a previously saved game state.
 
+    This screen displays the details of the saved game, including the date of the save, the current level,
+    the game category, the player's score, and the health points of both the player and the boss. It provides
+    options for the player to continue with the loaded game or go back to the previous screen.
+
+    Attributes:
+        type (str): Identifier for the screen type, set to 'loadGameScreen'.
+        player (Player): The player instance whose saved game is to be loaded.
+        currentSave (dict or None): The currently loaded save game data.
+        continueButton (GameScreenButtons): A button that, when clicked, continues the game from the saved state.
+        backButton (GameScreenButtons): A button that, when clicked, returns the player to the previous screen.
+        back (bool): Flag indicating whether the player has chosen to go back.
+        userContinue (bool): Flag indicating whether the player has chosen to continue with the saved game.
+
+    Methods:
+        handleContinue(self):
+            Sets the flag indicating the player's decision to continue with the loaded game.
+
+        handleBack(self):
+            Sets the flag indicating the player's decision to go back to the previous screen.
+
+        draw(self):
+            Renders the screen, including saved game details and options for the player.
+
+        handle_events(self):
+            Handles events such as button clicks.
+
+        getSavedGame(self):
+            Loads the saved game data for the current player from a file.
+    """
     def __init__(self, player):
         super().__init__()
         self.type = "loadGameScreen"

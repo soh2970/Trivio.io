@@ -11,6 +11,32 @@ sys.path.append(src_dir)
 pygame.init() 
 
 class GameModeSelectScreen(ScreenBase):
+    """
+    A screen within a Pygame application that allows the user to select the game mode
+    by choosing between various categories such as Math, Social Science, and Science.
+    Additionally, provides options for returning to the previous screen or starting a tutorial.
+
+    Inherits from ScreenBase, utilizing its setup for a Pygame window/screen.
+
+    Attributes:
+        clock (pygame.time.Clock): A clock for controlling the frame rate of the screen.
+        buttons (list): A list of GameScreenButtons objects representing the different options available on the screen.
+        type (str): Identifier for the type of screen, set to 'gameModeSelect'.
+        choice (str or None): The choice made by the user, indicating the selected category or action.
+
+    Methods:
+        choiceMade(self, event):
+            Records the user's choice based on the button clicked.
+
+        draw(self):
+            Renders the screen, displaying the buttons and other UI elements.
+
+        handle_events(self):
+            Processes input events such as button clicks.
+
+        run(self):
+            Contains the main loop for the GameModeSelectScreen, handling events and rendering the screen.
+    """
     def __init__(self):
         super().__init__()
         self.clock = pygame.time.Clock()
@@ -107,6 +133,22 @@ class GameModeSelectScreen(ScreenBase):
         super().run()
 
 class RadioButton(pygame.sprite.Sprite):
+    """
+    A RadioButton is a visual element that can be selected or deselected.
+
+    Attributes:
+        button_image (pygame.Surface): The default image of the button when not interacted with.
+        hover_image (pygame.Surface): The image of the button when the mouse hovers over it.
+        clicked_image (pygame.Surface): The image of the button when it has been clicked and selected.
+        image (pygame.Surface): The current image of the button being displayed.
+        rect (pygame.Rect): The rectangle area that the button covers.
+        clicked (bool): Indicates whether the button is currently selected.
+        buttons (list): A list of other radio button instances that this button is grouped with.
+
+    Methods:
+        setRadioButtons(buttons): Associates this radio button with a group of other radio buttons.
+        update(event_list): Updates the button's state based on the provided events.
+    """
     def __init__(self, x, y, w, h, font, text):
         super().__init__() 
         text_surf = font.render(text, True, (0, 0, 0))

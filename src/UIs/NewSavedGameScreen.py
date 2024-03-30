@@ -11,7 +11,27 @@ import pygame
 pygame.init()
 
 class NewSavedGameScreen(ScreenBase):
+    """
+    A screen presented to the player offering the choice between starting a new game
+    or loading a previously saved game. This screen is part of the initial setup
+    and decision-making process for the player upon starting the game.
 
+    Attributes:
+        player (Player): The player instance, which may carry over saved player data if a game is loaded.
+        type (str): Identifier for the screen type, set to 'newSavedGameScreen'.
+        transitionToNewGame (bool): Flag indicating whether the player has chosen to start a new game.
+        transitionToLoadGame (bool): Flag indicating whether the player has chosen to load a saved game.
+
+    Methods:
+        draw(self):
+            Renders the screen elements, including options for new game and load game.
+
+        handle_events(self):
+            Processes input events such as button clicks, specifically detecting clicks on the new game or load game options.
+
+        run(self):
+            Contains the main loop for the NewSavedGameScreen, handling events and rendering updates.
+    """
     def __init__(self, player=None):
         super().__init__()
         self.player = player

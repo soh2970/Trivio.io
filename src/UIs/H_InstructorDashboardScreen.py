@@ -11,11 +11,15 @@ from GameScreenButtons import GameScreenButtons
 from screen import ScreenBase
 from HighScorer import HighScore
 
+<<<<<<< HEAD:src/UIs/8_InstructorDashboardScreen.py
 
 class InstructorDashboardScreen(ScreenBase):
     """
     
     """
+=======
+class InstructorDashboardScreen(ScreenBase):
+>>>>>>> 88e25211cffb43f2dad34a8cadffa031e363d48d:src/UIs/H_InstructorDashboardScreen.py
 
     def __init__(self):
         super().__init__()
