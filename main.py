@@ -138,6 +138,7 @@ def run_game():
 
                 #increase level based on remaining boss HP
                 if (boss.bossHp <= 0) or (current_player.playerHP <= 0):
+                    current_screen = GameScreen('math', current_player, boss, level.getNextQuestion(), level.levelNum, score)
                     current_screen.endGame()
                     running = False
                 elif (boss.bossHp <= 50 and boss.bossHp > 0):
@@ -168,6 +169,7 @@ def run_game():
                     current_screen.handle_events()
                     pygame.display.flip()
                 if (boss.bossHp <= 0) or (current_player.playerHP <= 0):
+                    current_screen = GameScreen('science', current_player, boss, level.getNextQuestion(), level.levelNum, score)
                     current_screen.endGame()
                     running = False
                 elif (boss.bossHp <= 50 and boss.bossHp > 0):
@@ -198,6 +200,7 @@ def run_game():
                     current_screen.handle_events()
                     pygame.display.flip()
                 if (boss.bossHp <= 0) or (current_player.playerHP <= 0):
+                    current_screen = GameScreen('social_sciences', current_player, boss, level.getNextQuestion(), level.levelNum, score)
                     current_screen.endGame()
                     running = False
                 elif (boss.bossHp <= 50 and boss.bossHp > 0):
@@ -208,7 +211,7 @@ def run_game():
                         level.moveToNextLevel(2)
                 elif (boss.bossHp <= 100 and boss.bossHp > 80):
                     pass
-                
+
                 current_screen = GameScreen('social_sciences', current_player, boss, level.getNextQuestion(), level.levelNum, score)
                 
         pygame.display.flip()
