@@ -70,6 +70,7 @@ class GameScreen(ScreenBase):
         self.correctAnswer = question.correctAnswer
         self.answered = False
         self.answeredCorrectly = None
+        self.transitionToOptions = False
         self.levelFont = pygame.font.SysFont('Corbel', 28)
         self.hpFont = pygame.font.SysFont('Corbel', 30)
         if len(question.prompt) > 50:
@@ -82,6 +83,7 @@ class GameScreen(ScreenBase):
             GameScreenButtons(self.screen.get_width()/2 + 9, self.screen.get_height()/2 + 192, 280, 100, question.choices[3], lambda: self.choiceMade(question.choices[3]), self.WHITE, self.BLACK),
         ]
         self.saveGameButton = GameScreenButtons(self.screen.get_width() / 2 + 200, self.screen.get_height() / 2 - 150, 150, 40, "Save Game", lambda: self.saveGame(), self.WHITE, self.BLACK)
+        self.optionsButton = GameScreenButtons(self.screen.get_width() / 2 + 200, self.screen.get_height() / 2 - 100, 150, 40, "Options", lambda: self.openOptions(), self.WHITE, self.BLACK)
         self.type = category
         self.score = score
 
@@ -116,6 +118,7 @@ class GameScreen(ScreenBase):
             button.draw(self.screen)
 
         self.saveGameButton.draw(self.screen)
+        self.optionsButton.draw(self.screen)
 
         #display current level
         self.draw_text(f'Level: {str(self.level)}', self.levelFont, (255,0,0), self.screen, self.screen.get_width()/2 - 20, self.screen.get_height()/2 - 240)
@@ -157,6 +160,9 @@ class GameScreen(ScreenBase):
                 super().resize_screen(event)
                 self.saveGameButton.rect1 = pygame.Rect(self.screen.get_width() / 2 + 200, self.screen.get_height() / 2 - 150, 150, 40)
                 self.saveGameButton.rect2 = pygame.Rect(self.screen.get_width() / 2 + 200, self.screen.get_height() / 2 - 150, 150, 40)
+
+                self.optionsButton.rect1 = pygame.Rect(self.screen.get_width() / 2 + 200, self.screen.get_height() / 2 - 100, 150, 40)
+                self.optionsButton.rect2 = pygame.Rect(self.screen.get_width() / 2 + 200, self.screen.get_height() / 2 - 100, 150, 40)
                 for index, button in enumerate(self.buttons):
                     if (index == 0):
                         button.rect1 = pygame.Rect(self.screen.get_width()/2 - 273, self.screen.get_height()/2 + 90, 280, 100)
@@ -185,6 +191,9 @@ class GameScreen(ScreenBase):
         textrect = textobj.get_rect()
         textrect.topleft = (x, y)
         surface.blit(textobj, textrect)
+
+    def openOptions(self):
+        self.transitionToOptions = True
 
     def saveGame(self):
         datetime_string = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
