@@ -24,13 +24,11 @@ from src.UIs.DebuggerPasswordScreen import DebuggerPasswordScreen
 from src.UIs.IncorrectAnswerScreen import IncorrectAnswerScreen
 
 
-def run_game():
+def run_game(): 
 
     running = True
     screen = pygame.display.set_mode((844,600), pygame.RESIZABLE)
     clock = pygame.time.Clock()
-
-
 
     current_player = None
     boss = Boss()
@@ -72,7 +70,7 @@ def run_game():
                 print("user wants to load game")
                 current_screen = LoadGameScreen(current_player)
         
-        #load game screen logic 
+        #load game screen logic
         if (current_screen.type == "loadGameScreen"):
             current_screen.draw()
             current_screen.handle_events()

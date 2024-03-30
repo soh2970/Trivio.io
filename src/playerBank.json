@@ -70,12 +70,17 @@
         "password": "hello",
         "gameHistory": [],
         "currentSavedGame": {
-            "timeStamp": "2024-03-28 16:44:41",
+            "timeStamp": "2024-03-29 21:52:19",
             "levelAchieved": "1",
             "subject": "science",
             "score": "4",
             "playerHP": "84",
             "bossHP": "96"
         }
+    },
+    "": {
+        "password": "",
+        "gameHistory": [],
+        "currentSavedGame": {}
     }
 }
