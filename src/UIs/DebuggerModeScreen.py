@@ -1,20 +1,20 @@
 import pygame
 import sys
-import os
+# import os
 import json
 
 
-# Get the absolute path to the src directory
-src_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), '../'))
-sys.path.append(src_dir)
+# # Get the absolute path to the src directory
+# src_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), '../'))
+# sys.path.append(src_dir)
 
-from .screen import ScreenBase
-from .GameScreenButtons import GameScreenButtons
+from src.UIs.screen import ScreenBase
+from src.UIs.GameScreenButtons import GameScreenButtons
 
 
 #please ignore or alter this path as where your json file is located.
-os.chdir("C:\\Users\\kimgu\\2212\\repositories2212\\personalRepo2212\\src")
-print(os.getcwd())
+# os.chdir("C:\\Users\\kimgu\\2212\\repositories2212\\personalRepo2212\\src")
+# print(os.getcwd())
 
 class DebuggerModeScreen(ScreenBase):
     """

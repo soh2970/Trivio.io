@@ -170,6 +170,34 @@ class GameScreen(ScreenBase):
             else:
                 raise Exception("Player not found in database")
 
+
+    """ method will end the game if user HP is 0 or Boss Hp is 0"""            
+    def endGame(self):
+        datetime_string = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+        gameState = {
+            "timeStamp": datetime_string,
+            "levelAchieved": str(self.level),
+            "subject": self.type,
+            "score": str(self.score)
+        }
+
+        # Correctly calculate the path to the playerBank.json file
+        base_dir = os.path.dirname(os.path.dirname(__file__))  # This navigates up to the 'src' directory from 'src/UIs'
+        json_path = os.path.join(base_dir, 'playerBank.json')  # Now, correctly points to 'src/playerBank.json'
+
+        with open(json_path, "r+") as file:
+            data = json.load(file)
+            if self.player.playerId in data:
+                gameHistory = data[self.player.playerId]['gameHistory']
+                gameHistory.append(gameState)        
+                data[self.player.playerId]['gameHistory'] = gameHistory
+                file.seek(0)
+                json.dump(data, file, indent=4)
+                file.truncate()
+                print("Game Ended")
+            else:
+                raise Exception("Player not found in database")
+
             
 
 
