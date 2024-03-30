@@ -25,4 +25,7 @@ Mar 29. 2024,
         - back button (exit to mainmenu) in gameplay? again, we need to end gracefully
         - debugger & instructor mode still to be connected
         - Tutorial still to be implemented
+
+Mar 30. 2024,
+    - debugger & main & loginScreen debugging done, debuggers are now fully integrated.
     
