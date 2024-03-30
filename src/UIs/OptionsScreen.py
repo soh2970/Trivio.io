@@ -4,9 +4,9 @@ gives players options to change aspects
 Add a reset button
 
 """
-from screen import ScreenBase
-from GameScreenButtons import GameScreenButtons
-from AudioManager import AudioManager
+from src.UIs.screen import ScreenBase
+from src.UIs.GameScreenButtons import GameScreenButtons
+from src.UIs.AudioManager import AudioManager
 import pygame
 import os
 import sys
@@ -24,6 +24,7 @@ class OptionsScreen(ScreenBase):
 
         self.vol_slider = slider(self.screen.get_width()/5*2, self.screen.get_width()/5*4, self.screen.get_height()/12*7, self.screen.get_width()/5*3)
         self.choice = None
+        self.type = "options"
 
 
     def draw(self):

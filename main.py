@@ -25,6 +25,7 @@ from src.UIs.IncorrectAnswerScreen import IncorrectAnswerScreen
 from src.UIs.DebuggerDashboardScreen import DebuggerDashboardPage
 from src.UIs.DebuggerModeScreen import DebuggerModeScreen
 from src.UIs.InstructorPasswordScreen import InstructorPasswordScreen
+from src.UIs.OptionsScreen import OptionsScreen
 
 
 def run_game():
@@ -210,6 +211,12 @@ def run_game():
 
                 current_screen = GameScreen('math', current_player, boss, level.getNextQuestion(), level.levelNum, score)
 
+            elif current_screen.transitionToOptions:
+                current_screen = OptionsScreen()
+
+        if current_screen.type == "options":
+            current_screen.draw()
+            current_screen.handle_events()
 
         #science gameplay
         if (current_screen.type == 'science'):

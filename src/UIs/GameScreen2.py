@@ -193,6 +193,7 @@ class GameScreen(ScreenBase):
         surface.blit(textobj, textrect)
 
     def openOptions(self):
+        print("Transitioning to options page...")
         self.transitionToOptions = True
 
     def saveGame(self):
