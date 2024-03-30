@@ -78,6 +78,9 @@ def run_game():
             # elif current_screen.transitionToDashboard:
             #     print("Transitioning to Instructor Dashboard...")
             #     current_screen = InstructorDashboard()
+                
+
+        #logic for InstructorDashboard goes here
 
         #debugger screen logics
         if current_screen.type == 'debuggerPassword':
@@ -116,9 +119,6 @@ def run_game():
             elif current_screen.transitionToDashboard:
                 print("Transitioning to Debugger Dashboard Screen...")
                 current_screen = DebuggerDashboardPage()
-
-
-        #instructor logics goes here...
 
 
         #main menu logic
