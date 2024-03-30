@@ -75,6 +75,10 @@ def run_game():
                 print("Transitioning to Login Screen")
                 current_screen = LoginScreen()
 
+            # elif current_screen.transitionToDashboard:
+            #     print("Transitioning to Instructor Dashboard...")
+            #     current_screen = InstructorDashboard()
+
         #debugger screen logics
         if current_screen.type == 'debuggerPassword':
             current_screen.draw()
