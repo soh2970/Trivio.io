@@ -1,13 +1,13 @@
 import pygame
 import sys
 import os
+from src.UIs.GameScreenButtons import GameScreenButtons
+from src.UIs.screen import ScreenBase
+from src.UIs.DebuggerModeScreen import DebuggerModeScreen
 
 # Get the absolute path to the src directory
 src_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), '../'))
 sys.path.append(src_dir)
-
-from .GameScreenButtons import GameScreenButtons
-from .DebuggerModeScreen import DebuggerModeScreen
 
 
 
@@ -68,18 +68,20 @@ class RadioButton(pygame.sprite.Sprite):
 
 
 
-class DebuggerDashboardPage:
+class DebuggerDashboardPage(ScreenBase):
     """
     
     """
 
-    def __init__(self, screen):
-        self.screen = screen
+    def __init__(self):
+        super().__init__()
         self.clock = pygame.time.Clock()
         self.font = pygame.font.SysFont('Corbel', 24)
         self.big_font = pygame.font.SysFont('Corbel', 36)
         self.bg_color = (255, 255, 255)
         self.text_color = (0,0,0)
+        self.transitionToModeScreen = False
+        self.type = "debuggerDashboard"
 
         self.category_mapping = {
             "Math": "math",
@@ -93,7 +95,7 @@ class DebuggerDashboardPage:
         
         # Define buttons
         self.home_button = GameScreenButtons(20, 20, 100, 40, 'Home', self.on_home, (0,0,0), (255,255,255))
-        self.next_button = GameScreenButtons(screen.get_width() - 120, screen.get_height() - 60, 100, 40, 'Next', self.on_next, (0,0,0),(255,255,255))
+        self.next_button = GameScreenButtons(self.screen.get_width() - 120, self.screen.get_height() - 60, 100, 40, 'Next', self.on_next, (0,0,0),(255,255,255))
         
         # Create radio buttons for categories
         self.category_buttons = [
@@ -114,8 +116,8 @@ class DebuggerDashboardPage:
         total_levels_width = (50 + 10) * len(self.level_buttons) - 10  # 50px width per button, 10px spacing
         
         # Starting x positions for centered buttons
-        start_x_categories = (screen.get_width() - total_categories_width) // 2
-        start_x_levels = (screen.get_width() - total_levels_width) // 2
+        start_x_categories = (self.screen.get_width() - total_categories_width) // 2
+        start_x_levels = (self.screen.get_width() - total_levels_width) // 2
 
         # Update x positions of buttons to center them
         for i, button in enumerate(self.category_buttons):
@@ -154,10 +156,11 @@ class DebuggerDashboardPage:
 
 
     def on_next(self):
+        # This method is triggered when the "Next" button is pressed
         if self.selected_category and self.selected_level:
-            # No need to access .text since selected_category and selected_level are already strings
-            debugger_mode_screen = DebuggerModeScreen(self.screen, self.selected_category, self.selected_level)
-            debugger_mode_screen.run()
+            self.transitionToModeScreen = True  # You might need to add this flag
+            self.selectedCategory = self.selected_category  # Make sure to store these for the transition
+            self.selectedLevel = self.selected_level
 
 
     def handle_events(self):

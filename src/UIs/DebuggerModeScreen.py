@@ -2,33 +2,32 @@ import pygame
 import sys
 import os
 import json
+from src.UIs.screen import ScreenBase
+from src.UIs.GameScreenButtons import GameScreenButtons
 
 
 # Get the absolute path to the src directory
 src_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), '../'))
 sys.path.append(src_dir)
 
-from .screen import ScreenBase
-from .GameScreenButtons import GameScreenButtons
 
 
 #please ignore or alter this path as where your json file is located.
-os.chdir("C:\\Users\\kimgu\\2212\\repositories2212\\personalRepo2212\\src")
-print(os.getcwd())
 
 class DebuggerModeScreen(ScreenBase):
     """
     
     """
     content_start_y = 150
-    def __init__(self, screen, category=None, level=None):
+    def __init__(self, category=None, level=None):
         super().__init__()
-        self.screen = screen
         self.category = category
         self.level = level
         self.questions = []
         self.width = self.screen.get_width()
         self.height = self.screen.get_height()
+        self.type = "debuggerModeScreen"
+        self.transitionToLogin = False
         self.load_questions()
 
         self.back_button = GameScreenButtons(10, 10, 100, 40, 'Back', self.on_back, (0, 0, 0), (255,255,255))
@@ -54,7 +53,7 @@ class DebuggerModeScreen(ScreenBase):
 
     def on_home(self):
         # Placeholder for the home button logic -> main script transitions
-        print("Home button pressed")
+        self.transitionToLogin = True
 
 
     def draw(self):

@@ -22,9 +22,11 @@ from src.UIs.CorrectAnswerScreen import CorrectAnswerScreen
 from src.UIs.LoadGameScreen import LoadGameScreen
 from src.UIs.DebuggerPasswordScreen import DebuggerPasswordScreen
 from src.UIs.IncorrectAnswerScreen import IncorrectAnswerScreen
+from src.UIs.DebuggerDashboardScreen import DebuggerDashboardPage
+from src.UIs.DebuggerModeScreen import DebuggerModeScreen
 
 
-def run_game(): 
+def run_game():
 
     running = True
     screen = pygame.display.set_mode((844,600), pygame.RESIZABLE)
@@ -46,19 +48,41 @@ def run_game():
             if (current_screen.transitionToNextScreen): current_screen = LoginScreen()
 
         #login screen logic
-        if (current_screen.type == 'loginScreen'):
+        if current_screen.type == 'loginScreen':
             current_screen.draw()
             current_screen.handle_events()
 
-            #debugger & instructor mode logic goes here.
-
-            if (current_screen.isValidUser):
+            if current_screen.isValidUser:
                 current_player = current_screen.Player
                 current_screen = NewSavedGameScreen(current_player)
                 print(current_player.playerId)
 
+            elif current_screen.transitionToDebuggerPassword:
+                print("transitioning to debugger password screen")
+                current_screen = DebuggerPasswordScreen()
 
+        if current_screen.type == 'debuggerPassword':
+            current_screen.draw()
+            current_screen.handle_events()
+
+            if current_screen.transitionToDashboard:
+                print("Transitioning to Debugger Dashboard...")
+                current_screen = DebuggerDashboardPage()
+
+
+        if current_screen.type == 'debuggerDashboard':
+            current_screen.draw()
+            current_screen.handle_events()
+
+            if hasattr(current_screen, 'transitionToModeScreen') and current_screen.transitionToModeScreen:
+                print("Transitioning to Debugger Mode Screen...")
+                current_screen = DebuggerModeScreen(current_screen.selectedCategory, current_screen.selectedLevel)
     
+            if hasattr(current_screen, 'transitionToLogin') and current_screen.transitionToLogin:
+                print("Transitioning back to Login Screen...")
+                current_screen = LoginScreen()
+
+
         #main menu logic
         if (current_screen.type == "newSavedGameScreen"):
             current_screen.draw()

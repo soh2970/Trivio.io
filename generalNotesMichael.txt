@@ -18,7 +18,7 @@ Mar 29. 2024,
     To be fixed:
         - when the user types nothing and clicks Create Account button, it prompts user nothing (but shows up in terminal), and clicks button again, it ends ungracefully, because "" is already added to the playerBank. we need to fix this.
         - when the user created account, we should let the user type it again & click Log In button, instead of just letting user bypass to the New/Load Game Screen.
-        - need to check if all UIs in Mac are showing alright. 
+        - need to check if all UIs in Mac are showing alright.
         - feedback if user typed password or username wrong
         - possibly make the input boxes bit more user friendly (typing effect, pressing delete button = deletes multiple chars)
         - Current Saved Game screen probably has to be bit more visually refreshing (again, check on Mac)

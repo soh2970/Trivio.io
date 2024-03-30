@@ -1,28 +1,27 @@
 import sys
 import os
 import pygame
-
+from src.UIs.GameScreenButtons import GameScreenButtons
+from src.UIs.screen import ScreenBase
+from src.UIs.DebuggerDashboardScreen import DebuggerDashboardPage
 
 # Get the absolute path to the src directory
 src_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), '../'))
 sys.path.append(src_dir)
-
-from .GameScreenButtons import GameScreenButtons
-from .screen import ScreenBase
-from .DebuggerDashboardScreen import DebuggerDashboardPage
-
+pygame.init()
 
 class DebuggerPasswordScreen(ScreenBase):
     """
-    
     """
 
     def __init__(self):
         super().__init__()
         self.password_text = ''
         self.active = False
+        self.type = 'debuggerPassword'
         self.width = self.screen.get_width()
         self.height = self.screen.get_height()
+        self.transitionToDashboard = False
 
         # Define button properties
         button_width = 100
@@ -64,8 +63,7 @@ class DebuggerPasswordScreen(ScreenBase):
     def check_password(self):
         if self.password_text == 'debug':
             print("Password correct, entering debugger mode...")
-            dashboard_page = DebuggerDashboardPage(self.screen)  # Initialize the dashboard
-            dashboard_page.run()
+            self.transitionToDashboard = True  # Set the flag to True
         else:
             print("Debugger credential invalid.")
 
