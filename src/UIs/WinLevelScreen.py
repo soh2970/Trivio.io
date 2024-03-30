@@ -3,8 +3,8 @@ Win level screen
 displays win and player stats
 """
 
-from screen import ScreenBase
-from GameScreenButtons import GameScreenButtons
+from src.UIs.screen import ScreenBase
+from src.UIs.GameScreenButtons import GameScreenButtons
 import pygame
 
 class WinLevelScreen(ScreenBase):
