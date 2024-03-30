@@ -1,25 +1,12 @@
 import pygame
 import sys
-<<<<<<< HEAD
 import os
 from src.UIs.GameScreenButtons import GameScreenButtons
 from src.UIs.screen import ScreenBase
 from src.UIs.DebuggerModeScreen import DebuggerModeScreen
-=======
-# import os
->>>>>>> 169d1aaef30e32dda263f35a8608461c670d1e4e
-
-# # Get the absolute path to the src directory
-# src_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), '../'))
-# sys.path.append(src_dir)
-
-<<<<<<< HEAD
-=======
-from src.UIs.GameScreenButtons import GameScreenButtons
-from src.UIs.DebuggerModeScreen import DebuggerModeScreen
-
->>>>>>> 169d1aaef30e32dda263f35a8608461c670d1e4e
-
+# Get the absolute path to the src directory
+src_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), '../'))
+sys.path.append(src_dir)
 
 class RadioButton(pygame.sprite.Sprite):
     """
