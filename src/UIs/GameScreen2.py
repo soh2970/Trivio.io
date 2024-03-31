@@ -17,6 +17,8 @@ from src.UIs.screen import ScreenBase
 from src.UIs.GameScreenButtons import GameScreenButtons
 from src.UIs.CorrectAnswerScreen import CorrectAnswerScreen
 
+from src.UIs.WinLevelScreen import WinLevelScreen
+
 images_dir = os.path.join(os.path.dirname(__file__), '..', '..', 'images')
 
 class GameScreen(ScreenBase):
@@ -130,13 +132,13 @@ class GameScreen(ScreenBase):
         #display current level
         self.draw_text(f'Level: {str(self.level)}', self.levelFont, (255,0,0), self.screen, self.screen.get_width()/2 - 20, self.screen.get_height()/2 - 240)
         
-        #display boss hp        
+        #display boss hp
         self.draw_text(f'Boss HP: {str(self.boss.bossHp)}', self.hpFont, (255,0,0), self.screen, self.screen.get_width()/2 - 195, self.screen.get_height()/2 + 20)
 
         #display player hp
         self.draw_text(f'Player HP: {str(self.player.playerHP)}', self.hpFont, (255,0,0), self.screen, self.screen.get_width()/2 + 50, self.screen.get_height()/2 + 20)
 
-        #display images based on boss and player hp  
+        #display images based on boss and player hp
         if (self.boss.bossHp <= 100 and self.boss.bossHp > 80):
             self.screen.blit(self.boss1_imageResized, (self.screen.get_width()/2 - 160, self.screen.get_height()/2 - 100))
         elif (self.boss.bossHp <= 80 and self.boss.bossHp > 50):
@@ -170,6 +172,7 @@ class GameScreen(ScreenBase):
 
                 self.optionsButton.rect1 = pygame.Rect(self.screen.get_width() / 2 + 200, self.screen.get_height() / 2 - 100, 150, 40)
                 self.optionsButton.rect2 = pygame.Rect(self.screen.get_width() / 2 + 200, self.screen.get_height() / 2 - 100, 150, 40)
+
                 for index, button in enumerate(self.buttons):
                     if (index == 0):
                         button.rect1 = pygame.Rect(self.screen.get_width()/2 - 273, self.screen.get_height()/2 + 90, 280, 100)

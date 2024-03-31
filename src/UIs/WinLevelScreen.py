@@ -1,3 +1,5 @@
+import pygame
+
 """
 Win level screen
 displays win and player stats

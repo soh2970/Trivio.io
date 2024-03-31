@@ -84,5 +84,3 @@ class CorrectAnswerScreen(ScreenBase):
             self.continueButton.handle_event(event)
 
 
-
-

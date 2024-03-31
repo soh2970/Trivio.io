@@ -15,9 +15,12 @@ class InstructorPasswordScreen(ScreenBase):
     """
 
     def __init__(self):
-        super().__init__(self.MIN_WIDTH, self.MIN_HEIGHT)
+        super().__init__()
         self.password_text = ''
         self.active = False
+        self.type = 'instructorPassword'
+        self.instructDashboardTransistion = False
+        self.transitionToLogin = False
 
     def draw(self):
         super().draw()
@@ -50,13 +53,14 @@ class InstructorPasswordScreen(ScreenBase):
     def check_password(self):
         if self.password_text == 'instruct':
             print("Password correct, entering instructor mode...")
+            self.instructDashboardTransistion = True
             
         else:
             print("Instructor credential invalid.")
+            self.instructDashboardTransistion = False
 
     def cancel(self):
-        print("Cancelled")
-        self.running = False
+        self.transitionToLogin = True
 
 
     def handle_events(self):
@@ -73,8 +77,7 @@ class InstructorPasswordScreen(ScreenBase):
                     self.check_password()
                     
                 if self.width/2-405 <= mouse[0] <= self.width/2-385 and self.height/2-293 <= mouse[1] <= self.height/2-263:
-                    pygame.quit()
-                    sys.exit()
+                    self.cancel()
             elif event.type == pygame.KEYDOWN:
                 
                 if event.key == pygame.K_BACKSPACE:
