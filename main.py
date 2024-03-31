@@ -39,6 +39,7 @@ from src.UIs.InstructorPasswordScreen import InstructorPasswordScreen
 from src.UIs.H_InstructorDashboardScreen import InstructorDashboardScreen
 from src.UIs.OptionsScreen import OptionsScreen
 from src.UIs.WinLevelScreen import WinLevelScreen
+from src.UIs.HighscoreLeaderboardScreen import LeaderboardScreen
 
 
 audio_manager = AudioManager()
@@ -171,6 +172,17 @@ def run_game():
             elif (current_screen.transitionToLoadGame == True):
                 print("user wants to load game")
                 current_screen = LoadGameScreen(current_player)
+
+            elif current_screen.transitionToLeaderboard == True: 
+                print("user wants to leaderboard")
+                current_screen = LeaderboardScreen()
+
+        if current_screen.type == "highscoreLeaderboard":
+            current_screen.draw()
+            current_screen.handle_events()
+
+            if current_screen.goToMain == True:
+                current_screen = NewSavedGameScreen(current_player)
         
         #load game screen logic
         if (current_screen.type == "loadGameScreen"):
