@@ -18,7 +18,7 @@ class InstructorDashboardScreen(ScreenBase):
     """
 
     def __init__(self):
-        super().__init__()
+        super().__init__(self.MIN_WIDTH, self.MIN_HEIGHT)
         self.userName = ''
         self.output = ''
         self.usernameValid = False

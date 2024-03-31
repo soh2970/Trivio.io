@@ -17,7 +17,7 @@ class LeaderboardScreen(ScreenBase):
     """
 
     def __init__(self):
-        super().__init__()
+        super().__init__(self.MIN_WIDTH, self.MIN_HEIGHT)
         self.scores = HighScore()
         self.active = False
         self.type = 'highscoreLeaderboard'
