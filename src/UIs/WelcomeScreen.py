@@ -42,7 +42,13 @@ class WelcomeScreen(ScreenBase):
         self.buttons = [
             GameScreenButtons(self.screen.get_width()/2-100,self.screen.get_height()/2+100,200,40, "start", lambda: self.choiceMade(), self.WHITE, self.BLACK)
         ]
+        self.optionsButton = GameScreenButtons(self.screen.get_width()/5*4, self.screen.get_height()/15*13,200,40, "options", lambda: self.optionsChoice(), self.WHITE, self.BLACK)
         self.transitionToNextScreen = False
+        self.options = False
+
+    def optionsChoice(self):
+        print("transitioning to options screen")
+        self.options = True
 
     def choiceMade(self):
         print("transitioning from mainmenu to log in screen")
@@ -66,6 +72,8 @@ class WelcomeScreen(ScreenBase):
 		#button
         for button in self.buttons:
             button.draw(self.screen)
+        
+        self.optionsButton.draw(self.screen)
 
         """
         potentially delete
@@ -109,6 +117,8 @@ class WelcomeScreen(ScreenBase):
                 if self.width/2-405 <= self.mouse[0] <= self.width/2+435 and self.height/2-293 <=self.mouse[1] <= self.height/2-263:
                     pygame.quit()
                     sys.exit()
+
+                self.optionsButton.handle_event(event)
                           
 
     def run(self):
