@@ -92,7 +92,7 @@ class InstructorPasswordScreen(ScreenBase):
         self.screen.blit(ok, (self.width / 2 + 105, self.height / 2 + 55))
 
     def check_password(self):
-        if self.password_text == 'instructor':
+        if self.password_text == 'instruct':
             print("Password correct, entering instructor mode...")
             self.transitionToDashboard = True  # Set the flag to True
         else:

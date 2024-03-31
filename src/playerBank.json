@@ -6,13 +6,13 @@
                 "timeStamp": "2024-05-29 13:20:15",
                 "levelAchieved": "3",
                 "subject": "math",
-                "score": "102"
+                "score": 102
             },
             {
                 "timeStamp": "2024-05-30 09:10:35",
                 "levelAchieved": "2",
                 "subject": "geography",
-                "score": "40"
+                "score": 40
             }
         ],
         "currentSavedGame": {
@@ -79,19 +79,19 @@
                 "timeStamp": "2024-03-29 21:36:22",
                 "levelAchieved": "3",
                 "subject": "social_sciences",
-                "score": "70"
+                "score": 70
             },
             {
                 "timeStamp": "2024-03-29 21:52:15",
                 "levelAchieved": "3",
                 "subject": "social_sciences",
-                "score": "50"
+                "score": 50
             },
             {
                 "timeStamp": "2024-03-29 22:08:06",
                 "levelAchieved": "3",
                 "subject": "social_sciences",
-                "score": "60"
+                "score": 60
             }
         ],
         "currentSavedGame": {
@@ -134,7 +134,7 @@
             "timeStamp": "2024-03-31 13:20:01",
             "levelAchieved": "1",
             "subject": "math",
-            "score": "4",
+            "score": 4,
             "playerHP": "100",
             "bossHP": "96"
         }
