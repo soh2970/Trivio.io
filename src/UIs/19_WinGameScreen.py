@@ -1,6 +1,8 @@
+import json
 import pygame 
 import sys
 import os
+
 
 # Get the absolute path to the src directory
 src_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), '../'))
@@ -30,8 +32,46 @@ pygame.display.update()
 from screen import ScreenBase
 
 class WinGameScreen(ScreenBase):
+    """
+    A screen within a Pygame application that displays questions and answers
+    for a selected category and level, specifically for debugging purposes.
+
+    This screen is part of a debugger tool allowing the user to review questions
+    and their correct answers from a specified category and level, facilitating
+    the debugging and verification of content within the game.
+
+    Attributes:
+        user_text (str): Text input by the user for the username.
+        pass_text (str): Text input by the user for the password.
+        usernameInput (bool): Indicates if the username input box is active.
+        passwordInput (bool): Indicates if the password input box is active.
+        transitionToDebuggerPassword (bool): Flag to transition to the debugger password screen.
+        transitionToInstructorPassword (bool): Flag to transition to the instructor password screen.
+        type (str): Identifier for the screen type, set to 'loginScreen'.
+        input_box (pygame.Rect): Rectangle for the username input box.
+        pass_input_box (pygame.Rect): Rectangle for the password input box.
+        input_box_color (pygame.Color): Color of the input boxes.
+        text_color (tuple): Color of the input text.
+        loginButton (GameScreenButtons): Button for logging in.
+        createAccountButton (GameScreenButtons): Button for creating a new account.
+        isValidUser (bool): Indicates whether the user is validated.
+        Player (Player or None): The player instance created upon successful login.
+        
+    Methods:
+        __init__(self):
+
+        def draw(self):
+
+        def handle_events(self):
+        
+        def run(self):
+        
+        def getSavedGame(self):
+        
+    """
     def __init__(self):
         super().__init__()  # Initialize with ScreenBase settings
+
 
 
     def draw(self):
@@ -60,10 +100,6 @@ class WinGameScreen(ScreenBase):
         header_text = self.HEADING_FONT.render('WINNER', True, self.BLACK)
         self.screen.blit(header_text, (self.width/2-200, self.width/2-350))
 
-        # Draw the trophy images
-        #self.screen.blit(self.trophy_image, (-100, 200))
-        #self.screen.blit(self.trophy_image, (400, 200))
-
         # Draw the congratulations message
         congrats_text = self.SMALLER_FONT.render('Congratulations on beating the boss!', True, self.BLACK)
         self.screen.blit(congrats_text, (self.width/2-200, self.width/2-250))
@@ -71,7 +107,8 @@ class WinGameScreen(ScreenBase):
         self.screen.blit(stats_text, (self.width/2-110, self.width/2-200))
 
         # Draw the score change to self.score
-        score_text = self.SMALLER_FONT.render(f'Final Score: {'90'}', True, self.BLACK)
+        score = self.currentSave['score']
+        score_text = self.SMALLER_FONT.render(f'Final Score: {score}', True, self.BLACK)
         self.screen.blit(score_text, (self.width/2-90, self.width/2-150))
 
         # Draw the "Next" button
@@ -98,6 +135,20 @@ class WinGameScreen(ScreenBase):
 
     def run(self):
         super().run()
+    
+    #fix this to get score of game
+    def getSavedGame(self):
+        # Correctly calculate the path to the playerBank.json file
+        base_dir = os.path.dirname(os.path.dirname(__file__))  # This navigates up to the 'src' directory from 'src/UIs'
+        json_path = os.path.join(base_dir, 'playerBank.json')  # Now, correctly points to 'src/playerBank.json'
+
+        with open(json_path, "r") as file:
+            data = json.load(file)
+            if self.player.playerId in data:
+                self.currentSave = data[self.player.playerId]["currentSavedGame"]
+                return True
+            else:
+                return False
 
 
 #initialize instance and run
