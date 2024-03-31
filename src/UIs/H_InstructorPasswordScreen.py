@@ -39,7 +39,7 @@ sys.path.append(src_dir)
 class InstructorPassword(ScreenBase):
 
     def __init__(self):
-        super().__init__()
+        super().__init__(self.MIN_WIDTH, self.MIN_HEIGHT)
         self.password_text = ''
         self.font = pygame.font.Font(None, 32)
         self.active = False

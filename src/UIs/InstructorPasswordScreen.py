@@ -47,7 +47,7 @@ class InstructorPasswordScreen(ScreenBase):
             Contains the main loop for the screen that handles events and renders the screen.
     """
     def __init__(self):
-        super().__init__()
+        super().__init__(self.MIN_WIDTH, self.MIN_HEIGHT)
         self.password_text = ''
         self.active = False
         self.type = 'instructorPassword'

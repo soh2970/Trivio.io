@@ -74,19 +74,21 @@ class ScreenBase:
 
     # FUNCTIONS
     # initialize the game screen and caption
-    def __init__(self):
-        self.screen = pygame.display.set_mode(self.SCREEN_SIZE, pygame.RESIZABLE)
+    def __init__(self, width, height):
+        self.screen_width = width
+        self.screen_height = height
+        self.screen = pygame.display.set_mode((self.screen_width, self.screen_height), pygame.RESIZABLE)
         pygame.display.set_caption('Trivio')
         self.running = True
     # function to resize the screen 
     def resize_screen(self, event):
         # check if the new size is below the minimum size
-        new_width = max(event.w, self.MIN_WIDTH)
-        new_height = max(event.h, self.MIN_HEIGHT)
+        self.screen_width = max(event.w, self.MIN_WIDTH)
+        self.screen_height = max(event.h, self.MIN_HEIGHT)
 
         # resize window if below minimum
-        if new_width<event.w or new_height != event.h:
-             window = pygame.display.set_mode((new_width, new_height), pygame.RESIZABLE)
+        if self.screen_width<event.w or self.screen_height != event.h:
+             window = pygame.display.set_mode((self.screen_width, self.screen_height), pygame.RESIZABLE)
         else:
             # increase size
             window_size = (event.w, event.h)

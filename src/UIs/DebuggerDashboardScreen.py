@@ -110,7 +110,7 @@ class DebuggerDashboardPage(ScreenBase):
     """
 
     def __init__(self):
-        super().__init__()
+        super().__init__(self.MIN_WIDTH, self.MIN_HEIGHT)
         self.clock = pygame.time.Clock()
         self.font = pygame.font.SysFont('Corbel', 24)
         self.big_font = pygame.font.SysFont('Corbel', 36)

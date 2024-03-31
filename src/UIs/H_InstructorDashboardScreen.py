@@ -40,7 +40,7 @@ sys.path.append(src_dir)
 class InstructorDashboardScreen(ScreenBase):
 
     def __init__(self):
-        super().__init__()
+        super().__init__(self.MIN_WIDTH, self.MIN_HEIGHT)
         self.highScoreStuff = HighScore()
         self.playerName = ''
         self.output = ''
