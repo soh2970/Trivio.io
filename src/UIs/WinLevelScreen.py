@@ -1,74 +1,84 @@
-"""
-Win level screen
-displays win and player stats
-"""
-
+import pygame
 from src.UIs.screen import ScreenBase
 from src.UIs.GameScreenButtons import GameScreenButtons
-import pygame
+import sys
 
 class WinLevelScreen(ScreenBase):
-    """
-    Class WinLevelScreen
-    inherits all methods from ScreenBase
-    """
-
-    def __init__(self):
+    def __init__(self, next_level_callback=None):
         super().__init__()
+        self.width = self.screen.get_width()
+        self.height = self.screen.get_height()
+        self.setup_buttons()
+        self.setup_texts()
+        self.nextLevel = True
+        self.next_level_callback = next_level_callback
+        button_color = self.BLUE
+        text_color = self.BLACK
+        next_level_button_pos = (self.width/5*4, self.height/15*13, 80, 30)
+        self.next_level_button = GameScreenButtons(*next_level_button_pos, "Next Level", self.on_next_level, button_color, text_color)
+
+
+    def on_next_level(self):
+            print("Next Level")
+            self.nextLevel = True
+            if self.next_level_callback:
+                self.next_level_callback()
+
+    def on_save_game(self):
+            print("Game Saved")
+
+    def on_options(self):
+            print("Options")
+
+
+
+    def setup_buttons(self):
+        # Button callbacks
+
+        # Button positions and sizes
+        save_game_button_pos = (self.width/5*4, self.height/15*1, 80, 30)
+        options_button_pos = (self.width/5*4, self.height/15*2, 80, 30)
+
+        # Button colors
+        button_color = self.BLUE
+        text_color = self.BLACK
+
+        # Creating button instances
+        self.save_game_button = GameScreenButtons(*save_game_button_pos, "Save Game", self.on_save_game, button_color, text_color)
+        self.options_button = GameScreenButtons(*options_button_pos, "Options", self.on_options, button_color, text_color)
+
+    def setup_texts(self):
+        # Heading texts
+        self.text1 = self.HEADING_FONT.render('LEVEL', True, self.BLACK)
+        self.textRect1 = self.text1.get_rect(center=(self.width//2, self.height/12*5))
+        self.text2 = self.HEADING_FONT.render('PASSED', True, self.BLACK)
+        self.textRect2 = self.text2.get_rect(center=(self.width//2, self.height/12*7))
 
     def draw(self):
         super().draw()
-        # get the current width and height of the screen
-        self.width = self.screen.get_width()
-        self.height = self.screen.get_height()
-        self.nextLevel = False
-        self.transitionToNextLevel = False
-        
-        #text
-        self.text1 = self.HEADING_FONT.render('LEVEL', True, self.BLACK)
-        self.textRect1 = self.text1.get_rect(center = (self.width//2, self.height/12*5))
-        self.text2 = self.HEADING_FONT.render('PASSED', True, self.BLACK)
-        self.textRect2 = self.text2.get_rect(center = (self.width//2, self.height/12*7))
-
-
-
-        #line
-        pygame.draw.line(self.screen, "Black", (self.width/3,self.height/12*8), (self.width/3*2, self.height/12*8), 1)
-
-        # buttons
-        self.level_button = pygame.draw.rect(self.screen, self.BLACK, (self.width/5*4, self.height/15*13, 80,30),1)
-        self.next_level_text = self.BUTTON_FONT.render("Next Level", (self.level_button.centerx, self.level_button.centery), self.BLACK)
-        self.next_level_rect = self.next_level_text.get_rect(center = self.level_button.center)
-
-        self.save_button = pygame.draw.rect(self.screen, self.BLUE, (self.width/5*4, self.height/15*1, 80,30))
-        self.save_border = pygame.draw.rect(self.screen, self.BLACK, (self.width/5*4, self.height/15*1, 80,30), 1)
-        self.save_text = self.BUTTON_FONT.render("Save Game", (self.save_button.centerx, self.save_button.centery), self.BLACK)
-        self.save_rect = self.save_text.get_rect(center = self.save_button.center)
-
-        self.options_button = pygame.draw.rect(self.screen, self.BLUE, (self.width/5*4, self.height/15*2, 80,30))
-        self.options_border = pygame.draw.rect(self.screen, self.BLACK, (self.width/5*4, self.height/15*2, 80,30), 1)
-        self.options_text = self.BUTTON_FONT.render("Options", (self.options_button.centerx, self.options_button.centery), self.BLACK)
-        self.options_rect = self.options_text.get_rect(center = self.options_button.center)
-
-        # display text
+        # Draw headings
         self.screen.blit(self.text1, self.textRect1)
         self.screen.blit(self.text2, self.textRect2)
-        # display buttons
-        self.screen.blit(self.next_level_text, self.next_level_rect)
-        self.screen.blit(self.options_text, self.options_rect)
-        self.screen.blit(self.save_text, self.save_rect)
-
-    def nextLevel(self):
-        self.transitionToNextLevel = True
+        # Draw buttons
+        self.next_level_button.draw(self.screen)
+        self.save_game_button.draw(self.screen)
+        self.options_button.draw(self.screen)
 
     def handle_events(self):
-        # call parent class event handling
-        super().handle_events()
 
-    def run(self):
-        super().run()
+        event_list = pygame.event.get()
+        for event in event_list:
 
-#initialize instance and run
-if __name__ == '__main__':
-    game_screen1 = WinLevelScreen()
-    game_screen1.run()
+            if event.type == pygame.QUIT:
+                pygame.quit()
+                sys.exit()
+
+            if event.type == pygame.MOUSEBUTTONDOWN or event.type == pygame.MOUSEBUTTONUP:
+                self.next_level_button.handle_event(event)
+                self.save_game_button.handle_event(event)
+                self.options_button.handle_event(event)
+
+if __name__ == "__main__":
+    pygame.init()
+    game_screen = WinLevelScreen()
+    game_screen.run()

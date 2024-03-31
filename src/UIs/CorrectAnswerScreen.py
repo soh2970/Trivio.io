@@ -34,6 +34,7 @@ class CorrectAnswerScreen(ScreenBase):
     def __init__(self, level):
         super().__init__()
         self.level = level
+        self.type = 'correctAnswer'
         # Correctly calculate the path to the image file
         base_dir = os.path.dirname(os.path.dirname(__file__))  # This should navigate up to the project root
         correct_base_dir = os.path.abspath(os.path.join(base_dir, ".."))  # Ensure we're at the project root
@@ -77,9 +78,12 @@ class CorrectAnswerScreen(ScreenBase):
                 pygame.quit()
                 sys.exit()
             # user resizing screen
+            elif event.type == pygame.MOUSEBUTTONDOWN:
+                if self.continueButton.rect1.collidepoint(event.pos):
+                    self.choiceMade()
             elif event.type == pygame.VIDEORESIZE:
                 self.resize_screen(event)
-                self.continueButton.rect = pygame.Rect(self.screen.get_width() / 2 - 50, self.screen.get_height() / 2 + 200, 130, 40)
+                self.continueButton.rect1 = pygame.Rect(self.screen.get_width() / 2 - 50, self.screen.get_height() / 2 + 200, 130, 40)
             
             self.continueButton.handle_event(event)
 

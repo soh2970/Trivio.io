@@ -36,7 +36,7 @@ from src.UIs.IncorrectAnswerScreen import IncorrectAnswerScreen
 from src.UIs.DebuggerDashboardScreen import DebuggerDashboardPage
 from src.UIs.DebuggerModeScreen import DebuggerModeScreen
 from src.UIs.InstructorPasswordScreen import InstructorPasswordScreen
-from src.UIs.OptionsScreen import OptionsScreen
+#from src.UIs.OptionsScreen import OptionsScreen
 from src.UIs.WinLevelScreen import WinLevelScreen
 
 
