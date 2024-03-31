@@ -1,39 +1,71 @@
 import pygame
 
-class WinLevelScreen:
-    def __init__(self, screen, font, current_level, category, player, boss, score):
-        self.screen = screen
-        self.font = font
-        self.current_level = current_level
-        self.category = category
-        self.player = player
-        self.boss = boss
-        self.score = score
-        self.next_level = False  # This flag will be used to determine if the "Next Level" button was clicked
-        
-        # Assuming a resolution of 800x600 for simplicity
-        self.screen_width = 800
-        self.screen_height = 600
-        self.button_color = (0, 255, 0)  # Green color
-        self.text_color = (255, 255, 255)  # White color
-        self.button_rect = pygame.Rect(self.screen_width // 2 - 100, self.screen_height // 2, 200, 50)
-        self.button_text = "Next Level"
-        
+"""
+Win level screen
+displays win and player stats
+"""
+
+from screen import ScreenBase
+from GameScreenButtons import GameScreenButtons
+import pygame
+
+class WinLevelScreen(ScreenBase):
+    """
+    Class WinLevelScreen
+    inherits all methods from ScreenBase
+    """
+
+    def __init__(self):
+        super().__init__(self.MIN_WIDTH, self.MIN_HEIGHT)
+
     def draw(self):
-        self.screen.fill((0, 0, 0))  # Fill the screen with black background
+        super().draw()
+        # get the current width and height of the screen
+        self.width = self.screen.get_width()
+        self.height = self.screen.get_height()
         
-        # Draw the "Next Level" button
-        pygame.draw.rect(self.screen, self.button_color, self.button_rect)
-        text_surf = self.font.render(self.button_text, True, self.text_color)
-        text_rect = text_surf.get_rect(center=self.button_rect.center)
-        self.screen.blit(text_surf, text_rect)
+        #text
+        self.text1 = self.HEADING_FONT.render('LEVEL', True, self.BLACK)
+        self.textRect1 = self.text1.get_rect(center = (self.width//2, self.height/12*5))
+        self.text2 = self.HEADING_FONT.render('PASSED', True, self.BLACK)
+        self.textRect2 = self.text2.get_rect(center = (self.width//2, self.height/12*7))
 
-        # You can add more elements to display as needed, such as current score, level, etc.
 
-    def check_click(self, position):
-        if self.button_rect.collidepoint(position):
-            self.next_level = True  # The "Next Level" button was clicked
 
-    def handle_events(self, event):
-        if event.type == pygame.MOUSEBUTTONDOWN:
-            self.check_click(event.pos)
+        #line
+        pygame.draw.line(self.screen, "Black", (self.width/3,self.height/12*8), (self.width/3*2, self.height/12*8), 1)
+
+        # buttons
+        self.level_button = pygame.draw.rect(self.screen, self.BLACK, (self.width/5*4, self.height/15*13, 80,30),1)
+        self.next_level_text = self.BUTTON_FONT.render("Next Level", (self.level_button.centerx, self.level_button.centery), self.BLACK)
+        self.next_level_rect = self.next_level_text.get_rect(center = self.level_button.center)
+
+        self.save_button = pygame.draw.rect(self.screen, self.BLUE, (self.width/5*4, self.height/15*1, 80,30))
+        self.save_border = pygame.draw.rect(self.screen, self.BLACK, (self.width/5*4, self.height/15*1, 80,30), 1)
+        self.save_text = self.BUTTON_FONT.render("Save Game", (self.save_button.centerx, self.save_button.centery), self.BLACK)
+        self.save_rect = self.save_text.get_rect(center = self.save_button.center)
+
+        self.options_button = pygame.draw.rect(self.screen, self.BLUE, (self.width/5*4, self.height/15*2, 80,30))
+        self.options_border = pygame.draw.rect(self.screen, self.BLACK, (self.width/5*4, self.height/15*2, 80,30), 1)
+        self.options_text = self.BUTTON_FONT.render("Options", (self.options_button.centerx, self.options_button.centery), self.BLACK)
+        self.options_rect = self.options_text.get_rect(center = self.options_button.center)
+
+        # display text
+        self.screen.blit(self.text1, self.textRect1)
+        self.screen.blit(self.text2, self.textRect2)
+        # display buttons
+        self.screen.blit(self.next_level_text, self.next_level_rect)
+        self.screen.blit(self.options_text, self.options_rect)
+        self.screen.blit(self.save_text, self.save_rect)
+
+    def handle_events(self):
+        # call parent class event handling
+        super().handle_events()
+
+    def run(self):
+        super().run()
+
+#initialize instance and run
+if __name__ == '__main__':
+    game_screen1 = WinLevelScreen()
+    game_screen1.run()

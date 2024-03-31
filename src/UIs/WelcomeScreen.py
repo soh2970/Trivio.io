@@ -37,7 +37,7 @@ class WelcomeScreen(ScreenBase):
     """
 
     def __init__(self):
-        super().__init__()
+        super().__init__(self.MIN_WIDTH, self.MIN_HEIGHT)
         self.type = 'welcomeScreen'
         self.buttons = [
             GameScreenButtons(self.screen.get_width()/2-100,self.screen.get_height()/2+100,200,40, "start", lambda: self.choiceMade(), self.WHITE, self.BLACK)

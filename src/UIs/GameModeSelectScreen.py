@@ -38,7 +38,7 @@ class GameModeSelectScreen(ScreenBase):
             Contains the main loop for the GameModeSelectScreen, handling events and rendering the screen.
     """
     def __init__(self):
-        super().__init__()
+        super().__init__(self.MIN_WIDTH, self.MIN_HEIGHT)
         self.clock = pygame.time.Clock()
         self.buttons = [
         GameScreenButtons(560, 280, 270, 90, "Math", lambda: self.choiceMade('math'), self.WHITE, self.BLACK ),

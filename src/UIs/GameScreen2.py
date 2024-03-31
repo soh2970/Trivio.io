@@ -10,6 +10,7 @@ from datetime import datetime
 import json
 import pygame
 import sys
+from src.UIs.OptionsScreen import OptionsScreen
 from src.Player import Player
 from src.question2 import Question
 from src.UIs.screen import ScreenBase
@@ -62,8 +63,10 @@ class GameScreen(ScreenBase):
         endGame(self):
             Ends the game, saving the final state and transitioning to an end game screen.
     """
+
     def __init__(self, category, player, boss, question, level, score):
-        super().__init__()
+        super().__init_(self.MIN_WIDTH, self.MIN_HEIGHT)
+        
         self.startTime = pygame.time.get_ticks()
         self.boss = boss
         self.player = player
@@ -111,6 +114,10 @@ class GameScreen(ScreenBase):
     #displays text, buttons, images on the screen 
     def draw(self):
         super().draw()
+
+        # get the current width and height of the screen
+        self.width = self.screen.get_width()
+        self.height = self.screen.get_height()
 
         #display current question prompt
         self.draw_text(self.question.prompt, self.promptFont, (255,0,0), self.screen, self.screen.get_width()/2 - 370, self.screen.get_height()/2 - 200)
@@ -184,8 +191,7 @@ class GameScreen(ScreenBase):
             if (event.type == pygame.MOUSEBUTTONDOWN):
                 for button in self.buttons:
                     button.handle_event(event)
-                self.saveGameButton.handle_event(event)                
-                
+                self.saveGameButton.handle_event(event)
 
 
     #draws text onto the screen
@@ -197,6 +203,13 @@ class GameScreen(ScreenBase):
 
     def openOptions(self):
         print("Transitioning to options page...")
+        gameState = {
+            "levelAchieved": str(self.level),
+            "subject": self.type,
+            "score": str(self.score),
+            "playerHP": str(self.player.playerHP),
+            "bossHP": str(self.boss.bossHp)
+        }
         self.transitionToOptions = True
 
     def saveGame(self):
@@ -291,3 +304,8 @@ class GameScreen(ScreenBase):
     playerLose_image = pygame.image.load(playerLose_image_path)
     playerLose_imageResized = pygame.transform.scale(playerLose_image, (80,80))
 
+
+#initialize instance and run
+if __name__ == '__main__':
+    game_screen1 = GameScreen()
+    game_screen1.run()

@@ -60,7 +60,7 @@ class DebuggerModeScreen(ScreenBase):
     """
     content_start_y = 150
     def __init__(self, category=None, level=None):
-        super().__init__()
+        super().__init__(self.MIN_WIDTH, self.MIN_HEIGHT)
         self.category = category
         self.level = level
         self.questions = []

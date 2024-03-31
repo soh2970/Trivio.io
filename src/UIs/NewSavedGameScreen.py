@@ -33,7 +33,7 @@ class NewSavedGameScreen(ScreenBase):
             Contains the main loop for the NewSavedGameScreen, handling events and rendering updates.
     """
     def __init__(self, player=None):
-        super().__init__()
+        super().__init__(self.MIN_WIDTH, self.MIN_HEIGHT)
         self.player = player
         self.type = 'newSavedGameScreen'
         self.transitionToNewGame = False

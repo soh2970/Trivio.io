@@ -20,7 +20,7 @@ audio_manager = AudioManager()
 class OptionsScreen(ScreenBase):
 
     def __init__(self):
-        super().__init__()
+        super().__init__(self.MIN_WIDTH, self.MIN_HEIGHT)
 
         self.vol_slider = slider(self.screen.get_width()/5*2, self.screen.get_width()/5*4, self.screen.get_height()/12*7, self.screen.get_width()/5*3)
         self.choice = None
