@@ -36,13 +36,10 @@ from src.UIs.IncorrectAnswerScreen import IncorrectAnswerScreen
 from src.UIs.DebuggerDashboardScreen import DebuggerDashboardPage
 from src.UIs.DebuggerModeScreen import DebuggerModeScreen
 from src.UIs.InstructorPasswordScreen import InstructorPasswordScreen
-<<<<<<< HEAD
 from src.UIs.H_InstructorDashboardScreen import InstructorDashboardScreen
 from src.UIs.OptionsScreen import OptionsScreen
-=======
 #from src.UIs.OptionsScreen import OptionsScreen
 from src.UIs.WinLevelScreen import WinLevelScreen
->>>>>>> 39558044d9492fcae7d28cb6dd3a30e5ba7f8673
 
 
 def run_game():
