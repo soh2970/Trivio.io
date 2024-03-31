@@ -24,6 +24,8 @@ class InstructorDashboardScreen(ScreenBase):
         self.usernameValid = False
         self.scores = HighScore()
         self.active = False
+        self.type = 'instructorDashboard'
+        self.transitionToLogin = False
 
     def draw(self):
         super().draw()
@@ -45,6 +47,8 @@ class InstructorDashboardScreen(ScreenBase):
         pygame.draw.rect(self.screen,self.BLUE,[self.width/2+120,self.height/2-108,45,30]) 
         pygame.draw.rect(self.screen,self.GREY,[self.width/2-405,self.height/2-293,30,30]) 
         pygame.draw.rect(self.screen,self.GREY,[self.width/2-350,self.height/2-290,90,20]) 
+        pygame.draw.rect(self.screen,self.GREY,[self.width/2-170,self.height/2,350,300]) 
+
 
         self.screen.blit(titleOne, (self.width/2-100, self.height/2-200))
         self.screen.blit(titleTwo, ((self.width/2 - 100,self.height/2-150)))
@@ -54,7 +58,6 @@ class InstructorDashboardScreen(ScreenBase):
 
         if (self.usernameValid):
             i = 0
-            pygame.draw.rect(self.screen,self.GREY,[self.width/2-170,self.height/2,400,400]) 
 
             for item in self.output.splitlines():
                 outText = self.MODE_FONT.render(item, True, self.BLACK)
@@ -62,7 +65,6 @@ class InstructorDashboardScreen(ScreenBase):
                 self.screen.blit(outText , out_rect)
                 i+= 1
         else:
-            pygame.draw.rect(self.screen,self.GREY,[self.width/2-170,self.height/2,400,400]) 
             outText = self.MODE_FONT.render(self.output, True, self.BLACK)
             out_rect = outText.get_rect(center=(self.width/2,self.height/2 + 120))
             self.screen.blit(outText , out_rect)
@@ -73,7 +75,7 @@ class InstructorDashboardScreen(ScreenBase):
         if self.scores.checkForScore(self.userName):
 
             info = self.scores.getPlayerGameInfo(self.userName)
-
+            self.output = ''
             for i in info.keys():
                 self.output += str(i) + ': ' + str(info[i]) + '\n'
             self.usernameValid = True
@@ -83,8 +85,7 @@ class InstructorDashboardScreen(ScreenBase):
             self.usernameValid = False
 
     def cancel(self):
-        print("Cancelled")
-        self.running = False
+        self.transitionToLogin = True
 
 
     def handle_events(self):
@@ -101,8 +102,7 @@ class InstructorDashboardScreen(ScreenBase):
                     self.check_username()
                     
                 if self.width/2-405 <= mouse[0] <= self.width/2-385 and self.height/2-293 <= mouse[1] <= self.height/2-263:
-                    pygame.quit()
-                    sys.exit()
+                    self.cancel()
             elif event.type == pygame.KEYDOWN:
                 
                 if event.key == pygame.K_BACKSPACE:

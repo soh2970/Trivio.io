@@ -36,6 +36,7 @@ from src.UIs.IncorrectAnswerScreen import IncorrectAnswerScreen
 from src.UIs.DebuggerDashboardScreen import DebuggerDashboardPage
 from src.UIs.DebuggerModeScreen import DebuggerModeScreen
 from src.UIs.InstructorPasswordScreen import InstructorPasswordScreen
+from src.UIs.H_InstructorDashboardScreen import InstructorDashboardScreen
 from src.UIs.OptionsScreen import OptionsScreen
 
 
@@ -87,12 +88,19 @@ def run_game():
                 print("Transitioning to Login Screen")
                 current_screen = LoginScreen()
 
-            # elif current_screen.transitionToDashboard:
-            #     print("Transitioning to Instructor Dashboard...")
-            #     current_screen = InstructorDashboard()
+            elif current_screen.instructDashboardTransistion:
+                 print("Transitioning to Instructor Dashboard...")
+                 current_screen = InstructorDashboardScreen()
                 
 
         #logic for InstructorDashboard goes here
+        if current_screen.type == 'instructorDashboard':
+            current_screen.draw()
+            current_screen.handle_events()
+
+            if current_screen.transitionToLogin:
+                print("Transitioning to Login screen...")
+                current_screen = LoginScreen()
 
         #debugger screen logics
         if current_screen.type == 'debuggerPassword':
