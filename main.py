@@ -96,7 +96,7 @@ def run_game():
                 print("Transitioning to Login Screen")
                 current_screen = LoginScreen()
 
-            elif current_screen.instructDashboardTransistion:
+            elif current_screen.transitionToDashboard:
                  print("Transitioning to Instructor Dashboard...")
                  current_screen = InstructorDashboardScreen()
                 
