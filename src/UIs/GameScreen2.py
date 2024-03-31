@@ -214,7 +214,7 @@ class GameScreen(ScreenBase):
             "timeStamp": datetime_string,
             "levelAchieved": str(self.level),
             "subject": self.type,
-            "score": str(self.score),
+            "score": int(self.score),
             "playerHP": str(self.player.playerHP),
             "bossHP": str(self.boss.bossHp)
         }
