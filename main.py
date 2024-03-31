@@ -42,6 +42,8 @@ from src.UIs.H_InstructorDashboardScreen import InstructorDashboardScreen
 from src.UIs.WinLevelScreen import WinLevelScreen
 
 
+audio_manager = AudioManager()
+
 def run_game():
 
     running = True
@@ -53,10 +55,11 @@ def run_game():
     score = 0
     current_screen = WelcomeScreen()
     level = Level(1, 'science')
-    
+
+    audio_manager.__init__()
+    audio_manager.play_song()
 
     while running:
-        
         #initial welcome screen
         if (current_screen.type == 'welcomeScreen'):
             current_screen.draw()
@@ -158,8 +161,6 @@ def run_game():
             elif (current_screen.transitionToLoadGame == True):
                 print("user wants to load game")
                 current_screen = LoadGameScreen(current_player)
-        
-
         
         #load game screen logic
         if (current_screen.type == "loadGameScreen"):
@@ -293,9 +294,6 @@ def run_game():
                     print("idk")
                 
     
-
-
-
 
         #social science gameplay
         if (current_screen.type == 'social_sciences'):
