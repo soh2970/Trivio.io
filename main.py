@@ -66,6 +66,12 @@ def run_game():
             current_screen.handle_events()
             if (current_screen.transitionToNextScreen): current_screen = LoginScreen()
 
+        if current_screen.type == 'winLevel':
+            current_screen.draw()
+            current_screen.handle_events()
+            level = level.levelNum + 1
+            
+
         #login screen logic
         if current_screen.type == 'loginScreen':
             current_screen.draw()
