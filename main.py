@@ -42,6 +42,8 @@ from src.UIs.OptionsScreen import OptionsScreen
 from src.UIs.WinLevelScreen import WinLevelScreen
 
 
+audio_manager = AudioManager()
+
 def run_game():
 
     running = True
@@ -53,10 +55,11 @@ def run_game():
     score = 0
     current_screen = WelcomeScreen()
     level = Level(1, 'science')
-    
+
+    audio_manager.__init__()
+    audio_manager.play_song()
 
     while running:
-        
         #initial welcome screen
         if (current_screen.type == 'welcomeScreen'):
             current_screen.draw()
@@ -291,9 +294,6 @@ def run_game():
                     print("idk")
                 
     
-
-
-
 
         #social science gameplay
         if (current_screen.type == 'social_sciences'):
