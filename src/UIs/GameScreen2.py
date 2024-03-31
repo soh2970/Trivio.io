@@ -76,14 +76,14 @@ class GameScreen(ScreenBase):
         self.answered = False
         self.answeredCorrectly = None
         self.transitionToOptions = False
-        self.levelFont = pygame.font.SysFont('Corbel', 28)
-        self.hpFont = pygame.font.SysFont('Corbel', 30)
+        self.levelFont = self.LEVEL_FONT
+        self.hpFont = self.HP_FONT
         if len(question.prompt) > 50:
-            self.promptFont = pygame.font.SysFont('Corbel', 25)
-        else: self.promptFont = pygame.font.SysFont('Corbel', 40)
+            self.promptFont = self.LEVEL_FONT
+        else: self.promptFont = self.MID_FONT
         self.buttons = [
-            GameScreenButtons(self.screen.get_width()/2 - 273, self.screen.get_height()/2 + 90, 280, 100, question.choices[0], lambda: self.choiceMade(question.choices[0]), self.WHITE, self.BLACK),
-            GameScreenButtons(self.screen.get_width()/2 - 273, self.screen.get_height()/2 + 192, 280, 100, question.choices[1], lambda: self.choiceMade(question.choices[1]), self.WHITE, self.BLACK),
+            GameScreenButtons(self.screen.get_width()/10*1, self.screen.get_height()/15*9, 280, 100, question.choices[0], lambda: self.choiceMade(question.choices[0]), self.WHITE, self.BLACK),
+            GameScreenButtons(self.screen.get_width()/10*1, self.screen.get_height()/15*12, 280, 100, question.choices[1], lambda: self.choiceMade(question.choices[1]), self.WHITE, self.BLACK),
             GameScreenButtons(self.screen.get_width()/2 + 9, self.screen.get_height()/2 + 90, 280, 100, question.choices[2], lambda: self.choiceMade(question.choices[2]), self.WHITE, self.BLACK),
             GameScreenButtons(self.screen.get_width()/2 + 9, self.screen.get_height()/2 + 192, 280, 100, question.choices[3], lambda: self.choiceMade(question.choices[3]), self.WHITE, self.BLACK),
         ]

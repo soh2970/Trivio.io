@@ -63,6 +63,8 @@ class ScreenBase:
     # fonts
     MODE_FONT = pygame.font.SysFont('Corbel',16) 
     BUTTON_FONT = pygame.font.SysFont('Corbel', 20)
+    LEVEL_FONT = pygame.font.SysFont('Corbel', 28)
+    HP_FONT = pygame.font.SysFont('Corbel', 30)
     SMALLER_FONT = pygame.font.SysFont('Corbel',32)
     MID_FONT = pygame.font.SysFont('Corbel', 42)
     MODE_SELECT_FONT = pygame.font.SysFont('Corbel',50)
