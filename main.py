@@ -159,8 +159,6 @@ def run_game():
                 print("user wants to load game")
                 current_screen = LoadGameScreen(current_player)
         
-
-        
         #load game screen logic
         if (current_screen.type == "loadGameScreen"):
             current_screen.draw()

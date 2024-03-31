@@ -65,7 +65,7 @@ class GameScreen(ScreenBase):
     """
 
     def __init__(self, category, player, boss, question, level, score):
-        super().__init_(self.MIN_WIDTH, self.MIN_HEIGHT)
+        super().__init__(self.MIN_WIDTH, self.MIN_HEIGHT)
         
         self.startTime = pygame.time.get_ticks()
         self.boss = boss
@@ -114,10 +114,6 @@ class GameScreen(ScreenBase):
     #displays text, buttons, images on the screen 
     def draw(self):
         super().draw()
-
-        # get the current width and height of the screen
-        self.width = self.screen.get_width()
-        self.height = self.screen.get_height()
 
         #display current question prompt
         self.draw_text(self.question.prompt, self.promptFont, (255,0,0), self.screen, self.screen.get_width()/2 - 370, self.screen.get_height()/2 - 200)

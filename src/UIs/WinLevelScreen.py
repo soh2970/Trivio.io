@@ -5,9 +5,15 @@ Win level screen
 displays win and player stats
 """
 
-from screen import ScreenBase
-from GameScreenButtons import GameScreenButtons
+from src.UIs.screen import ScreenBase
+from src.UIs.GameScreenButtons import GameScreenButtons
 import pygame
+import os
+import sys
+
+# Get the absolute path to the src directory
+src_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), '../'))
+sys.path.append(src_dir)
 
 class WinLevelScreen(ScreenBase):
     """
