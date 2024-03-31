@@ -36,8 +36,13 @@ from src.UIs.IncorrectAnswerScreen import IncorrectAnswerScreen
 from src.UIs.DebuggerDashboardScreen import DebuggerDashboardPage
 from src.UIs.DebuggerModeScreen import DebuggerModeScreen
 from src.UIs.InstructorPasswordScreen import InstructorPasswordScreen
+<<<<<<< HEAD
 from src.UIs.H_InstructorDashboardScreen import InstructorDashboardScreen
 from src.UIs.OptionsScreen import OptionsScreen
+=======
+#from src.UIs.OptionsScreen import OptionsScreen
+from src.UIs.WinLevelScreen import WinLevelScreen
+>>>>>>> 39558044d9492fcae7d28cb6dd3a30e5ba7f8673
 
 
 def run_game():
@@ -140,7 +145,6 @@ def run_game():
                 print("Transitioning to Debugger Dashboard Screen...")
                 current_screen = DebuggerDashboardPage()
 
-
         #main menu logic
         if (current_screen.type == "newSavedGameScreen"):
             current_screen.draw()
@@ -152,6 +156,7 @@ def run_game():
                 print("user wants to load game")
                 current_screen = LoadGameScreen(current_player)
         
+
         
         #load game screen logic
         if (current_screen.type == "loadGameScreen"):
@@ -225,16 +230,16 @@ def run_game():
                     current_screen = GameScreen('math', current_player, boss, level.getNextQuestion(), level.levelNum, score)
                     current_screen.endGame()
                     running = False
+
                 elif (boss.bossHp <= 50 and boss.bossHp > 0):
                     #show level passed
 
                     level = Level(3, 'math')
+
                 elif (boss.bossHp <= 80 and boss.bossHp > 50):
                     #show level passed
-
+    
                     level = Level(2, 'math')
-                elif (boss.bossHp <= 100 and boss.bossHp > 80):
-                    level = Level(1, 'math')
 
                 current_screen = GameScreen('math', current_player, boss, level.getNextQuestion(), level.levelNum, score)
 
@@ -244,6 +249,9 @@ def run_game():
         if current_screen.type == "options":
             current_screen.draw()
             current_screen.handle_events()
+
+
+
 
         #science gameplay
         if (current_screen.type == 'science'):
@@ -258,22 +266,33 @@ def run_game():
                 else:
                     current_screen = IncorrectAnswerScreen(level.levelNum)
                     
+
+
                 while (current_screen.nextQuestion == False):
                     current_screen.draw()
                     current_screen.handle_events()
                     pygame.display.flip()
+
+
                 if (boss.bossHp <= 0) or (current_player.playerHP <= 0):
                     current_screen = GameScreen('science', current_player, boss, level.getNextQuestion(), level.levelNum, score)
                     current_screen.endGame()
                     running = False
+
+
                 elif (boss.bossHp <= 50 and boss.bossHp > 0):
                     level = Level(3, 'science')
+                    current_screen = GameScreen('science', current_player, boss, level.getNextQuestion(), level.levelNum, score)
+
                 elif (boss.bossHp <= 80 and boss.bossHp > 50):
                     level = Level(2, 'science')
-                elif (boss.bossHp <= 100 and boss.bossHp > 80):
-                    level = Level(1, 'science')
+                    current_screen = GameScreen('science', current_player, boss, level.getNextQuestion(), level.levelNum, score)
+                    print("idk")
+                
+    
 
-                current_screen = GameScreen('science', current_player, boss, level.getNextQuestion(), level.levelNum, score)
+
+
 
         #social science gameplay
         if (current_screen.type == 'social_sciences'):
@@ -297,14 +316,15 @@ def run_game():
                     current_screen = GameScreen('social_sciences', current_player, boss, level.getNextQuestion(), level.levelNum, score)
                     current_screen.endGame()
                     running = False
+                    
                 elif (boss.bossHp <= 50 and boss.bossHp > 0):
                     if level.levelNum != 3:
                         level.moveToNextLevel(3)
+
                 elif (boss.bossHp <= 80 and boss.bossHp > 50):
                     if level.levelNum != 2:
                         level.moveToNextLevel(2)
-                elif (boss.bossHp <= 100 and boss.bossHp > 80):
-                    pass
+    
 
                 current_screen = GameScreen('social_sciences', current_player, boss, level.getNextQuestion(), level.levelNum, score)
                 
