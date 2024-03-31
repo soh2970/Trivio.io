@@ -12,7 +12,7 @@ from HighScorer import HighScore
 
 
 class LeaderboardScreen(ScreenBase):
-    """
+    """a
     
     """
 
