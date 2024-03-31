@@ -62,8 +62,19 @@ def run_game():
         #initial welcome screen
         if (current_screen.type == 'welcomeScreen'):
             current_screen.draw()
-            current_screen.handle_events()
+            current_screen.handle_events()            
+            if (current_screen.options): current_screen = OptionsScreen('welcomeScreen', audio_manager)
             if (current_screen.transitionToNextScreen): current_screen = LoginScreen()
+
+
+
+        if current_screen.type == 'options':
+            current_screen.draw()
+            current_screen.handle_events()
+            if current_screen.goBack == True:
+                if (current_screen.prevScreen == 'welcomeScreen'):
+                    current_screen = WelcomeScreen()
+
 
         if current_screen.type == 'winLevel':
             current_screen.draw()

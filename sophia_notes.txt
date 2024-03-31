@@ -7,6 +7,7 @@ mar 31
 - adding 10 more questions to each category 
 - screen resizing
 - audio and options connecting
+- need to chnage notes in gamebutton class
 
 
 
