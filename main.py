@@ -38,7 +38,6 @@ from src.UIs.DebuggerModeScreen import DebuggerModeScreen
 from src.UIs.InstructorPasswordScreen import InstructorPasswordScreen
 from src.UIs.H_InstructorDashboardScreen import InstructorDashboardScreen
 from src.UIs.OptionsScreen import OptionsScreen
-#from src.UIs.OptionsScreen import OptionsScreen
 from src.UIs.WinLevelScreen import WinLevelScreen
 
 
@@ -65,6 +64,16 @@ def run_game():
             current_screen.draw()
             current_screen.handle_events()
             if (current_screen.transitionToNextScreen): current_screen = LoginScreen()
+            if (current_screen.options): current_screen = OptionsScreen('welcomeScreen', audio_manager)
+
+
+        if current_screen.type == 'options':
+            current_screen.draw()
+            current_screen.handle_events()
+            if current_screen.goBack == True:
+                if (current_screen.prevScreen == 'welcomeScreen'):
+                    current_screen = WelcomeScreen()
+
 
         if current_screen.type == 'winLevel':
             current_screen.draw()
@@ -120,7 +129,7 @@ def run_game():
 
             if current_screen.transitionToDashboard:
                 print("Transitioning to Debugger Dashboard...")
-                current_screen = DebuggerDashboardPage()
+                current_screen = DebuggerDashboardPage( )
 
             elif current_screen.transitionToLogin:
                 print("Transitioning to Login Screen")
