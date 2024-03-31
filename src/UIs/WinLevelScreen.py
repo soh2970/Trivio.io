@@ -21,6 +21,8 @@ class WinLevelScreen(ScreenBase):
         # get the current width and height of the screen
         self.width = self.screen.get_width()
         self.height = self.screen.get_height()
+        self.nextLevel = False
+        self.transitionToNextLevel = False
         
         #text
         self.text1 = self.HEADING_FONT.render('LEVEL', True, self.BLACK)
@@ -55,6 +57,9 @@ class WinLevelScreen(ScreenBase):
         self.screen.blit(self.next_level_text, self.next_level_rect)
         self.screen.blit(self.options_text, self.options_rect)
         self.screen.blit(self.save_text, self.save_rect)
+
+    def nextLevel(self):
+        self.transitionToNextLevel = True
 
     def handle_events(self):
         # call parent class event handling
