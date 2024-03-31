@@ -10,7 +10,7 @@ from datetime import datetime
 import json
 import pygame
 import sys
-from src.UIs.OptionsScreen import OptionsScreen
+#from src.UIs.OptionsScreen import OptionsScreen
 from src.Player import Player
 from src.question2 import Question
 from src.UIs.screen import ScreenBase
@@ -202,7 +202,7 @@ class GameScreen(ScreenBase):
         gameState = {
             "levelAchieved": str(self.level),
             "subject": self.type,
-            "score": str(self.score),
+            "score": int(self.score),
             "playerHP": str(self.player.playerHP),
             "bossHP": str(self.boss.bossHp)
         }
@@ -214,7 +214,7 @@ class GameScreen(ScreenBase):
             "timeStamp": datetime_string,
             "levelAchieved": str(self.level),
             "subject": self.type,
-            "score": str(self.score),
+            "score": int(self.score),
             "playerHP": str(self.player.playerHP),
             "bossHP": str(self.boss.bossHp)
         }

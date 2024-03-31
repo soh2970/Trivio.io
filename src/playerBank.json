@@ -19,7 +19,7 @@
             "timeStamp": "2024-03-27 02:03:07",
             "levelAchieved": "1",
             "subject": "science",
-            "score": "34",
+            "score": 34,
             "playerHP": "96",
             "bossHP": "96"
         }
@@ -31,7 +31,7 @@
             "timeStamp": "2024-03-27 02:03:07",
             "levelAchieved": "1",
             "subject": "science",
-            "score": "24",
+            "score": 24,
             "playerHP": "96",
             "bossHP": "96"
         }
@@ -43,7 +43,7 @@
             "timeStamp": "2024-03-27 02:03:07",
             "levelAchieved": "1",
             "subject": "science",
-            "score": "45",
+            "score": 45,
             "playerHP": "96",
             "bossHP": "96"
         }
@@ -55,7 +55,7 @@
             "timeStamp": "2024-03-27 02:03:07",
             "levelAchieved": "1",
             "subject": "science",
-            "score": "48",
+            "score": 48,
             "playerHP": "96",
             "bossHP": "96"
         }
@@ -67,7 +67,7 @@
             "timeStamp": "2024-03-27 02:03:07",
             "levelAchieved": "1",
             "subject": "science",
-            "score": "41",
+            "score": 41,
             "playerHP": "96",
             "bossHP": "96"
         }
@@ -98,7 +98,7 @@
             "timeStamp": "2024-03-31 17:09:33",
             "levelAchieved": "1",
             "subject": "social_sciences",
-            "score": "8",
+            "score": 8,
             "playerHP": "96",
             "bossHP": "92"
         }
@@ -110,7 +110,7 @@
             "timeStamp": "2024-03-27 02:03:07",
             "levelAchieved": "1",
             "subject": "science",
-            "score": "49",
+            "score": 49,
             "playerHP": "96",
             "bossHP": "96"
         }
@@ -122,7 +122,7 @@
             "timeStamp": "2024-03-27 02:03:07",
             "levelAchieved": "1",
             "subject": "science",
-            "score": "14",
+            "score": 14,
             "playerHP": "96",
             "bossHP": "96"
         }
@@ -134,7 +134,7 @@
             "timeStamp": "2024-03-31 13:20:01",
             "levelAchieved": "1",
             "subject": "math",
-            "score": "4",
+            "score": 4,
             "playerHP": "100",
             "bossHP": "96"
         }
@@ -146,7 +146,7 @@
             "timeStamp": "2024-03-31 16:51:00",
             "levelAchieved": "1",
             "subject": "math",
-            "score": "0",
+            "score": 0,
             "playerHP": "100",
             "bossHP": "100"
         }

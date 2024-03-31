@@ -17,7 +17,7 @@ sys.path.insert(0, os.path.join(os.path.dirname(__file__), 'src'))
 
 import pygame
 from src.UIs.screen import ScreenBase
-from src.UIs.AudioManager import AudioManager
+#from src.UIs.AudioManager import AudioManager
 from src.UIs.GameScreen2 import GameScreen
 from src.question2 import Question
 from src.Level import Level
@@ -37,7 +37,7 @@ from src.UIs.DebuggerDashboardScreen import DebuggerDashboardPage
 from src.UIs.DebuggerModeScreen import DebuggerModeScreen
 from src.UIs.InstructorPasswordScreen import InstructorPasswordScreen
 from src.UIs.H_InstructorDashboardScreen import InstructorDashboardScreen
-from src.UIs.OptionsScreen import OptionsScreen
+#from src.UIs.OptionsScreen import OptionsScreen
 #from src.UIs.OptionsScreen import OptionsScreen
 from src.UIs.WinLevelScreen import WinLevelScreen
 
@@ -130,7 +130,7 @@ def run_game():
 
             if current_screen.transitionToDashboard:
                 print("Transitioning to Debugger Dashboard...")
-                current_screen = DebuggerDashboardPage()
+                current_screen = DebuggerDashboardPage( )
 
             elif current_screen.transitionToLogin:
                 print("Transitioning to Login Screen")
