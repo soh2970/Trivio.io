@@ -55,7 +55,7 @@ class ScoringTutorialScreen(ScreenBase):
     gamescreen_imageResized = pygame.transform.scale(gamescreen_image, (563,400))
 
      #load the instructions image
-    gametext_image_path = os.path.join(images_dir, 'tutorial_text_1.png')
+    gametext_image_path = os.path.join(images_dir, 'tutorial_text_2.png')
     gametext_image = pygame.image.load(gametext_image_path)
     gametext_imageResized = pygame.transform.scale(gametext_image, (318,239))
 
