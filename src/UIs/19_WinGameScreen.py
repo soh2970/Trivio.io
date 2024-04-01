@@ -31,7 +31,7 @@ from screen import ScreenBase
 
 class WinGameScreen(ScreenBase):
     def __init__(self):
-        super().__init__()  # Initialize with ScreenBase settings
+        super().__init__(self.MIN_WIDTH, self.MIN_HEIGHT)  # Initialize with ScreenBase settings
 
 
     def draw(self):
@@ -71,7 +71,7 @@ class WinGameScreen(ScreenBase):
         self.screen.blit(stats_text, (self.width/2-110, self.width/2-200))
 
         # Draw the score change to self.score
-        score_text = self.SMALLER_FONT.render(f'Final Score: {'90'}', True, self.BLACK)
+        score_text = self.SMALLER_FONT.render(f'Final Score: 90', True, self.BLACK)
         self.screen.blit(score_text, (self.width/2-90, self.width/2-150))
 
         # Draw the "Next" button

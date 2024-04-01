@@ -1,14 +1,15 @@
 import sys
 import os
 import pygame
-from GameScreenButtons import GameScreenButtons
-from screen import ScreenBase
+from src.UIs.GameScreenButtons import GameScreenButtons
+from src.UIs.screen import ScreenBase
+from src.HighScorer import HighScore
+
 
 # Get the absolute path to the src directory
 src_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), '../'))
 sys.path.append(src_dir)
 
-from HighScorer import HighScore
 
 
 class LeaderboardScreen(ScreenBase):
@@ -31,14 +32,12 @@ class LeaderboardScreen(ScreenBase):
 
         titleOne = self.SMALLER_FONT.render('High Score Leaderboard', True, self.BLACK)
     
-        cancel = self.SMALLER_FONT.render('Cancel', True, self.BLACK)
-        esc = self.PARAGRAPH_FONT.render('x' , True , self.BLACK)
+        esc = self.BUTTON_FONT.render('Main Menu' , True , self.BLACK)
 
-        pygame.draw.rect(self.screen,self.GREY,[self.width/2-405,self.height/2-293,30,30]) 
-        pygame.draw.rect(self.screen,self.GREY,[self.width/2-350,self.height/2-290,90,20]) 
+        pygame.draw.rect(self.screen,self.GREY,[self.width/2-405,self.height/2-293,90,20]) 
+        #pygame.draw.rect(self.screen,self.GREY,[self.width/2-350,self.height/2-290,90,20]) 
 
         self.screen.blit(titleOne, (self.width/2-140, self.height/2-200))
-        self.screen.blit(cancel, (self.width/2-349, self.height/2-285))
         self.screen.blit(esc , (self.width/2-400,self.height/2-300))
         
         rankings = self.scores.scoreRankings()
@@ -61,7 +60,7 @@ class LeaderboardScreen(ScreenBase):
                     table_surface = self.MODE_FONT.render(header[j], True, (0,0,0))
                     table_rect = table_surface.get_rect(center=rect.center)
                     self.screen.blit(table_surface, table_rect)
-                else:  
+                else:
                     if not endRankings:
                         name = rankings[i-1][0]
                         userScore = rankings[i-1][1]['currentSavedGame']['score']
@@ -71,8 +70,8 @@ class LeaderboardScreen(ScreenBase):
                     table_surface = self.MODE_FONT.render(rows[j], True, (0,0,0))
                     table_rect = table_surface.get_rect(center=rect.center)
                     self.screen.blit(table_surface, table_rect)
-   
-    def cancel(self):
+
+    def toMain(self):
         self.goToMain = True
 
 
@@ -86,9 +85,10 @@ class LeaderboardScreen(ScreenBase):
                 super().resize_screen(event)
             elif event.type == pygame.MOUSEBUTTONDOWN:
                     
-                if self.width/2-405 <= mouse[0] <= self.width/2-385 and self.height/2-293 <= mouse[1] <= self.height/2-263:
-                    self.cancel()
-           
+                if self.width/2-405 <= mouse[0] <= self.width/2-305 and self.height/2-290 <= mouse[1] <= self.height/2-260:
+                    self.toMain()
+
+
 
 
     def run(self):

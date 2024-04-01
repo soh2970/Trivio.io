@@ -4,9 +4,19 @@ import pygame
 Win level screen
 displays win and player stats
 """
+<<<<<<< HEAD
 
 from screen import ScreenBase
 from GameScreenButtons import GameScreenButtons
+=======
+'''
+from screen import ScreenBase
+from GameScreenButtons import GameScreenButtons
+'''
+from src.UIs.screen import ScreenBase
+from src.UIs.GameScreenButtons import GameScreenButtons
+
+>>>>>>> 3fa1646a4c41eb640e6c05cf5bb95c8f3ef86290
 import pygame
 import os
 import sys

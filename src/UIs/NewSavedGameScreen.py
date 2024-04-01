@@ -1,11 +1,14 @@
 import sys
 import os
+from src.UIs.GameScreenButtons import GameScreenButtons
+from src.UIs.screen import ScreenBase
+
+
 
 # Get the absolute path to the src directory
 src_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), '../'))
 sys.path.append(src_dir)
 
-from .screen import ScreenBase
 import pygame
 # initializing the constructor
 pygame.init()
@@ -38,12 +41,21 @@ class NewSavedGameScreen(ScreenBase):
         self.type = 'newSavedGameScreen'
         self.transitionToNewGame = False
         self.transitionToLoadGame = False
+        self.transitionToLeaderboard = False
+        self.leaderBbutton = GameScreenButtons(60, 10, 100, 40, 'Scores', self.on_leaderboard, (220, 220, 220), (0,0,0))
+
+    def on_leaderboard(self):
+        print("leaderboard clicked!")
+        self.transitionToLeaderboard = True
+
 
     def draw(self):
         super().draw()
         # screen width and height
         self.width = self.screen.get_width()
         self.height = self.screen.get_height()
+        self.leaderBbutton.draw(self.screen)
+
         # text for buttons
         self.text_new_game = self.SMALLER_FONT.render('New Game', True, self.BLACK)
         self.text_saved_game = self.SMALLER_FONT.render('Saved Game', True, self.BLACK)
@@ -53,7 +65,7 @@ class NewSavedGameScreen(ScreenBase):
         # draw the buttons
         pygame.draw.circle(self.screen, self.GREEN, (self.width/4, self.height/2), 100)
         pygame.draw.circle(self.screen, self.BLUE, (3*self.width/4, self.height/2), 100)
-
+        
         # put the text on the buttons
         self.screen.blit(self.text_new_game, (self.width/4 - self.text_new_game.get_width()/2, self.height/2 - self.text_new_game.get_height()/2))
         self.screen.blit(self.text_saved_game, (3*self.width/4 - self.text_saved_game.get_width()/2, self.height/2 - self.text_saved_game.get_height()/2))
@@ -91,6 +103,9 @@ class NewSavedGameScreen(ScreenBase):
                 elif distance_to_load_game_circle < 100:  # Assuming the circle radius is 100
                     print("Load game triggered!")
                     self.transitionToLoadGame = True
+
+                elif self.leaderBbutton.rect1.collidepoint(event.pos):
+                    self.leaderBbutton.callback()
 
                 # Close button click detection
                 elif self.width/2-405 <= self.mouse[0] <= self.width/2-385 and self.height/2-293 <= self.mouse[1] <= self.height/2-263:
