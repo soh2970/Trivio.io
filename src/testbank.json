@@ -1423,7 +1423,7 @@
                     "correctAnswer": "Japanese Empire"
                 },
                 {
-                    "question": "The Battle of Gettysburg wwas a turning point in which war?",
+                    "question": "The Battle of Gettysburg was a turning point in which war?",
                     "options": [
                         "World War 1",
                         "World War 2",
@@ -2382,34 +2382,34 @@
                     "correctAnswer": "Dog"
                 },
                 {
-                    "question": "What ",
+                    "question": "What is the smallest unit of life?",
                     "options": [
-                        " ",
-                        " ",
-                        " ",
-                        " "
+                        "Atom",
+                        "Cell",
+                        "Molecule",
+                        "Tissue"
                     ],
-                    "correctAnswer": " "
+                    "correctAnswer": "Cell"
                 },
                 {
-                    "question": " ",
+                    "question": "Who discovered penicillin?",
                     "options": [
-                        " ",
-                        " ",
-                        " ",
-                        " "
+                        "Marie Curie",
+                        "Alexander Fleming",
+                        "Louis Pasteur",
+                        "Jonas Salk"
                     ],
-                    "correctAnswer": " "
+                    "correctAnswer": "Alexander Fleming"
                 },
                 {
-                    "question": " ",
+                    "question": "What is the term for animals that can live both in water and on land?",
                     "options": [
-                        " ",
-                        " ",
-                        " ",
-                        " "
+                        "Aquatic",
+                        "Terrestrial",
+                        "Amphibious",
+                        "Marine"
                     ],
-                    "correctAnswer": " "
+                    "correctAnswer": "Amphibious"
                 }
             ],
             "level3": [
