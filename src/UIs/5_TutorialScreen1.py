@@ -34,6 +34,7 @@ class GameTutorialScreen(ScreenBase):
         self.screen.blit(self.text1, self.textRect1)
         
         #buttons
+        
 
 
     def handle_events(self):
