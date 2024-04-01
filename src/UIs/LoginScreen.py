@@ -83,6 +83,8 @@ class LoginScreen(ScreenBase):
         self.isValidUser = False
         self.Player = None
 
+        self.userFoundError = False
+
     def handleLogIn(self):
         print("logged in")
         user = UserAccount(self.user_text, self.pass_text)
@@ -94,10 +96,17 @@ class LoginScreen(ScreenBase):
     def handleCreateAccount(self):
         print("account created")
         user = UserAccount(self.user_text, self.pass_text)
-        user.createAccount()
-        self.isValidUser = True
-        player = Player(user.ID, 100, 0, 1)
-        self.Player = player
+        try:
+            user.createAccount()
+            self.isValidUser = True
+            player = Player(user.ID, 100, 0, 1)
+            self.Player = player
+        except: 
+            print("user already in account")
+            self.userFoundError = True
+
+            
+
 
     def draw(self):
         super().draw()
@@ -155,6 +164,10 @@ class LoginScreen(ScreenBase):
         #Render the create account and log in buttons
         self.loginButton.draw(self.screen)
         self.createAccountButton.draw(self.screen)
+
+        if (self.userFoundError == True):
+            txt_surface = self.font.render("User already in database", True, self.RED)
+            self.screen.blit(txt_surface, (self.width/25*8, self.height/25*20))
 
 
     def handle_events(self):

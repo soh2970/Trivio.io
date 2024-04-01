@@ -89,15 +89,20 @@
             }
         ],
         "currentSavedGame": {
-            "timeStamp": "2024-04-01 16:22:39",
-            "levelAchieved": "3",
-            "subject": "social_sciences",
-            "score": 90,
-            "playerHP": "84",
-            "bossHP": "10",
-            "questions_correct": 14,
-            "questions_incorrect": 2
+            "timeStamp": "2024-04-01 16:33:00",
+            "levelAchieved": "2",
+            "subject": "math",
+            "score": 32,
+            "playerHP": "4",
+            "bossHP": "68",
+            "questions_correct": 7,
+            "questions_incorrect": 19
         },
         "highscore": 9000
+    },
+    "goat": {
+        "password": "",
+        "currentSavedGame": {},
+        "highscore": 0
     }
 }
