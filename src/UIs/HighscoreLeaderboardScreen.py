@@ -63,7 +63,7 @@ class LeaderboardScreen(ScreenBase):
                 else:
                     if not endRankings:
                         name = rankings[i-1][0]
-                        userScore = rankings[i-1][1]['currentSavedGame']['score']
+                        userScore = rankings[i-1][1]['highscore']
                         rows = [str(i), str(name), str(userScore)]
                     else:
                         rows = [str(i), '----', '----']

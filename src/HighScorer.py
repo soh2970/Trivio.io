@@ -14,7 +14,7 @@ class HighScore():
             self.json_data = json.load(f)
         
         self.rankList = self.json_data.items()
-        self.rankList = sorted(self.rankList, key=lambda x: x[1]['currentSavedGame']['score'], reverse = True)
+        self.rankList = sorted(self.rankList, key=lambda x: x[1]['highscore'], reverse = True)
     
     # getter for highScores
     # @return highScores
