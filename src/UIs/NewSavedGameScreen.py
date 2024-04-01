@@ -104,7 +104,7 @@ class NewSavedGameScreen(ScreenBase):
                     print("Load game triggered!")
                     self.transitionToLoadGame = True
 
-                elif self.leaderBbutton.rect1.collidepoint(event.pos):
+                elif self.leaderBbutton.button.collidepoint(event.pos):
                     self.leaderBbutton.callback()
 
                 # Close button click detection
