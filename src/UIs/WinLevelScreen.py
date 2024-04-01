@@ -5,8 +5,8 @@ Win level screen
 displays win and player stats
 """
 
-from src.UIs.screen import ScreenBase
-from src.UIs.GameScreenButtons import GameScreenButtons
+from screen import ScreenBase
+from GameScreenButtons import GameScreenButtons
 import pygame
 import os
 import sys
@@ -14,6 +14,10 @@ import sys
 # Get the absolute path to the src directory
 src_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), '../'))
 sys.path.append(src_dir)
+from screen import ScreenBase
+from GameScreenButtons import GameScreenButtons
+
+
 
 class WinLevelScreen(ScreenBase):
     """
@@ -23,6 +27,11 @@ class WinLevelScreen(ScreenBase):
 
     def __init__(self):
         super().__init__(self.MIN_WIDTH, self.MIN_HEIGHT)
+        self.nextLvl = False
+        self.saveGame = False
+        self.type = 'winLevelScreen'
+        self.catagory = ''
+        self.levelMove = 0
 
     def draw(self):
         super().draw()
@@ -64,9 +73,29 @@ class WinLevelScreen(ScreenBase):
         self.screen.blit(self.options_text, self.options_rect)
         self.screen.blit(self.save_text, self.save_rect)
 
+    def continueGame(self):
+        self.nextLvl = True
+        print('button clicked')
+    
+    def save(self):
+        self.saveGame = True
+
     def handle_events(self):
         # call parent class event handling
         super().handle_events()
+        mouse = pygame.mouse.get_pos()
+        for event in pygame.event.get():
+            if event.type == pygame.QUIT:
+                self.running = False
+                pygame.quit()
+                sys.exit()
+            elif event.type == pygame.VIDEORESIZE:
+                super().resize_screen(event)
+            elif event.type == pygame.MOUSEBUTTONDOWN:
+                if self.width/5*4 <= mouse[0] <= self.width/5*4+80 and self.height/15*13 <= mouse[1] <= self.height/15*13+90:
+                    self.continueGame()
+                if self.width/5*4 <= mouse[0] <= self.width/5*4+80 and self.height/15 <= mouse[1] <= self.height/15+30:
+                    self.save()
 
     def run(self):
         super().run()
