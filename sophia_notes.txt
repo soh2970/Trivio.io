@@ -8,6 +8,7 @@ mar 31
 - screen resizing
 - audio and options connecting
 - need to chnage notes in gamebutton class
+- nates game text in 2 needs to add textrect
 
 
 
