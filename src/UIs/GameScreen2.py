@@ -252,12 +252,18 @@ class GameScreen(ScreenBase):
     """ method will end the game if user HP is 0 or Boss Hp is 0"""            
     def endGame(self):
         datetime_string = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+
+        if (self.player.playerHP > 0):
+            finalScore = self.player.playerHP * self.score 
+        else: finalScore = self.score       
+        
         gameState = {
             "timeStamp": datetime_string,
             "levelAchieved": str(self.level),
             "subject": self.type,
-            "score": str(self.score)
+            "score": str(finalScore)
         }
+
 
         # Correctly calculate the path to the playerBank.json file
         base_dir = os.path.dirname(os.path.dirname(__file__))  # This navigates up to the 'src' directory from 'src/UIs'
@@ -269,6 +275,9 @@ class GameScreen(ScreenBase):
                 gameHistory = data[self.player.playerId]['gameHistory']
                 gameHistory.append(gameState)        
                 data[self.player.playerId]['gameHistory'] = gameHistory
+
+                if data[self.player.playerId]['highscore'] < finalScore:
+                    data[self.player.playerId]['highscore'] = finalScore
                 file.seek(0)
                 json.dump(data, file, indent=4)
                 file.truncate()

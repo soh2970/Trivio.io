@@ -1,20 +1,7 @@
 {
     "natetyu": {
         "password": "hello",
-        "gameHistory": [
-            {
-                "timeStamp": "2024-05-29 13:20:15",
-                "levelAchieved": "3",
-                "subject": "math",
-                "score": "102"
-            },
-            {
-                "timeStamp": "2024-05-30 09:10:35",
-                "levelAchieved": "2",
-                "subject": "geography",
-                "score": "40"
-            }
-        ],
+        "gameHistory": [],
         "currentSavedGame": {
             "timeStamp": "2024-03-27 02:03:07",
             "levelAchieved": "1",
@@ -22,158 +9,39 @@
             "score": 34,
             "playerHP": "96",
             "bossHP": "96"
-        }
-    },
-    "harjapg": {
-        "password": "54321",
-        "gameHistory": [],
-        "currentSavedGame": {
-            "timeStamp": "2024-03-27 02:03:07",
-            "levelAchieved": "1",
-            "subject": "science",
-            "score": 24,
-            "playerHP": "96",
-            "bossHP": "96"
-        }
-    },
-    "michaelkim": {
-        "password": "12345",
-        "gameHistory": [],
-        "currentSavedGame": {
-            "timeStamp": "2024-03-27 02:03:07",
-            "levelAchieved": "1",
-            "subject": "science",
-            "score": 45,
-            "playerHP": "96",
-            "bossHP": "96"
-        }
-    },
-    "kachlan": {
-        "password": "22222",
-        "gameHistory": [],
-        "currentSavedGame": {
-            "timeStamp": "2024-03-27 02:03:07",
-            "levelAchieved": "1",
-            "subject": "science",
-            "score": 48,
-            "playerHP": "96",
-            "bossHP": "96"
-        }
-    },
-    "braydeng": {
-        "password": "hi",
-        "gameHistory": [],
-        "currentSavedGame": {
-            "timeStamp": "2024-03-27 02:03:07",
-            "levelAchieved": "1",
-            "subject": "science",
-            "score": 41,
-            "playerHP": "96",
-            "bossHP": "96"
-        }
-    },
-    "t": {
-        "password": "t",
-        "gameHistory": [
-            {
-                "timeStamp": "2024-03-29 21:36:22",
-                "levelAchieved": "3",
-                "subject": "social_sciences",
-                "score": "70"
-            },
-            {
-                "timeStamp": "2024-03-29 21:52:15",
-                "levelAchieved": "3",
-                "subject": "social_sciences",
-                "score": "50"
-            },
-            {
-                "timeStamp": "2024-03-29 22:08:06",
-                "levelAchieved": "3",
-                "subject": "social_sciences",
-                "score": "60"
-            }
-        ],
-        "currentSavedGame": {
-            "timeStamp": "2024-03-31 17:09:33",
-            "levelAchieved": "1",
-            "subject": "social_sciences",
-            "score": 8,
-            "playerHP": "96",
-            "bossHP": "92"
-        }
-    },
-    "tt": {
-        "password": "t",
-        "gameHistory": [],
-        "currentSavedGame": {
-            "timeStamp": "2024-03-27 02:03:07",
-            "levelAchieved": "1",
-            "subject": "science",
-            "score": 49,
-            "playerHP": "96",
-            "bossHP": "96"
-        }
-    },
-    "test": {
-        "password": "t",
-        "gameHistory": [],
-        "currentSavedGame": {
-            "timeStamp": "2024-03-27 02:03:07",
-            "levelAchieved": "1",
-            "subject": "science",
-            "score": 14,
-            "playerHP": "96",
-            "bossHP": "96"
-        }
-    },
-    "nateyu": {
-        "password": "hello",
-        "gameHistory": [],
-        "currentSavedGame": {
-            "timeStamp": "2024-03-31 21:27:25",
-            "levelAchieved": "1",
-            "subject": "math",
-            "score": 0,
-            "playerHP": "100",
-            "bossHP": "100"
-        }
+        },
+        "highscore": 0
     },
     "": {
         "password": "",
         "gameHistory": [
             {
-                "timeStamp": "2024-03-31 22:22:52",
+                "timeStamp": "2024-03-31 23:34:56",
                 "levelAchieved": "3",
                 "subject": "social_sciences",
                 "score": "100"
             },
             {
-                "timeStamp": "2024-03-31 22:25:39",
+                "timeStamp": "2024-03-31 23:40:52",
                 "levelAchieved": "3",
                 "subject": "social_sciences",
-                "score": "100"
+                "score": "1400"
             },
             {
-                "timeStamp": "2024-03-31 22:29:33",
+                "timeStamp": "2024-03-31 23:44:26",
                 "levelAchieved": "3",
                 "subject": "social_sciences",
-                "score": "100"
-            },
-            {
-                "timeStamp": "2024-03-31 22:57:31",
-                "levelAchieved": "3",
-                "subject": "social_sciences",
-                "score": "100"
+                "score": "2400"
             }
         ],
         "currentSavedGame": {
-            "timeStamp": "2024-03-31 22:54:01",
-            "levelAchieved": "1",
+            "timeStamp": "2024-03-31 23:34:53",
+            "levelAchieved": "3",
             "subject": "social_sciences",
-            "score": 4,
-            "playerHP": "96",
-            "bossHP": "96"
-        }
+            "score": 90,
+            "playerHP": "24",
+            "bossHP": "10"
+        },
+        "highscore": 2400
     }
 }

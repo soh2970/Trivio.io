@@ -3,7 +3,10 @@ import os
 
 # Assuming main.py is in the root directory of personalRepo2212
 sys.path.insert(0, os.path.join(os.path.dirname(__file__), 'src'))
+<<<<<<< HEAD
 
+=======
+>>>>>>> 80cf2557bb5b21b7d582256b6b10ae73ddeaf76a
 """
 #options screen logic 
         if (current_screen.type == "OptionsScreen"):
@@ -331,6 +334,7 @@ def run_game():
                     current_screen = GameScreen('social_sciences', current_player, boss, level.getNextQuestion(), level.levelNum, score, audio_manager)
                     current_screen.endGame()
                     if (boss.bossHp <= 0):
+                        score = score * current_player.playerHP
                         current_screen = WinGameScreen(score)
                     
                 elif (boss.bossHp <= 50 and boss.bossHp > 0):

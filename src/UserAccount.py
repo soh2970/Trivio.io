@@ -26,7 +26,8 @@ class UserAccount:
         playerData = {
             "password": password,
             "gameHistory" : [],
-            "currentSavedGame": {}
+            "currentSavedGame": {},
+            "highscore": 0
         }
 
         base_dir = os.path.dirname(__file__)  # Get the directory where UserAccount.py is located
