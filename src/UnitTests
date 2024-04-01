@@ -9,6 +9,7 @@ from Player import Player
 from Level import Level
 from Boss import Boss
 from HighScorer import HighScore
+from UserAccount import UserAccount
 
 
 
@@ -114,11 +115,27 @@ class TestHighScore(unittest.TestCase):
     def test_checkForScore(self):
         self.assertTrue(self.highscore.checkForScore(''))
         self.assertFalse(self.highscore.checkForScore('NeverGonnaGiveYouUp'))        
-        
-
     
     def test_playerInfo(self):
         self.assertIs(type(self.highscore.getPlayerGameInfo('')), dict)
+
+
+class TestUserAccount(unittest.TestCase):
+    
+    def setUp(self):
+        print("\nRunning setUp method...")
+        self.account = UserAccount('', '')
+
+    def tearDown(self):
+        print("Running tearDown method...")
+
+
+    def test_login(self):
+        self.assertTrue(self.account.validateLogin())
+    
+    def test_createAccount(self):
+        with self.assertRaises(Exception):
+            self.account.createAccount()
 
 
 
