@@ -2625,104 +2625,104 @@
                     "correctAnswer": "Hydrogen"
                 },
                 {
-                    "question": " ",
+                    "question": "What is the main component of the sun?",
                     "options": [
-                        " ",
-                        " ",
-                        " ",
-                        " "
+                        "Oxygen",
+                        "Hydrogen",
+                        "Carbon",
+                        "Helium"
                     ],
-                    "correctAnswer": " "
+                    "correctAnswer": "Hydrogen"
                 },
                 {
-                    "question": " ",
+                    "question": "What principle explains the buoyancy of objects in fluid?",
                     "options": [
-                        " ",
-                        " ",
-                        " ",
-                        " "
+                        "Pascal's Principle",
+                        "Archimedes' Principle",
+                        "Newton's First Law",
+                        "Bernoulli's Principle"
                     ],
-                    "correctAnswer": " "
+                    "correctAnswer": "Archimedes' Principle"
                 },
                 {
-                    "question": " ",
+                    "question": " What is the term for the number of protons in an atom's nucleus?",
                     "options": [
-                        " ",
-                        " ",
-                        " ",
-                        " "
+                        "Atomic number",
+                        "Mass number",
+                        "Isotope number",
+                        "Neutron count"
                     ],
-                    "correctAnswer": " "
+                    "correctAnswer": "Atomic number"
                 },
                 {
-                    "question": " ",
+                    "question": "In which layer of the Earth's atmosphere do most weather events occur?",
                     "options": [
-                        " ",
-                        " ",
-                        " ",
-                        " "
+                        "Troposphere",
+                        "Stratosphere",
+                        "Mesosphere",
+                        "Thermospher"
                     ],
-                    "correctAnswer": " "
+                    "correctAnswer": "Troposphere"
                 },
                 {
-                    "question": " ",
+                    "question": "What is the universal solvent?",
                     "options": [
-                        " ",
-                        " ",
-                        " ",
-                        " "
+                        "Alcohol",
+                        "Water",
+                        "Acetone",
+                        "Hydrochloric Acid"
                     ],
-                    "correctAnswer": " "
+                    "correctAnswer": "Water"
                 },
                 {
-                    "question": " ",
+                    "question": "Which element has the highest electrical conductivity?",
                     "options": [
-                        " ",
-                        " ",
-                        " ",
-                        " "
+                        "Copper",
+                        "Gold",
+                        "Silicon",
+                        "Silver"
                     ],
-                    "correctAnswer": " "
+                    "correctAnswer": "Silver"
                 },
                 {
-                    "question": " ",
+                    "question": "What phenomenon causes mirages?",
                     "options": [
-                        " ",
-                        " ",
-                        " ",
-                        " "
+                        "Diffraction",
+                        "Refraction",
+                        "Dispersion",
+                        "Reflection"
                     ],
-                    "correctAnswer": " "
+                    "correctAnswer": "Refraction"
                 },
                 {
-                    "question": " ",
+                    "question": "What type of bond involves the sharing of electrons?",
                     "options": [
-                        " ",
-                        " ",
-                        " ",
-                        " "
+                        "Ionic bond",
+                        "Covalent bond",
+                        "Hydrogen bond",
+                        "Van der Waals bond"
                     ],
-                    "correctAnswer": " "
+                    "correctAnswer": "Covalent bond"
                 },
                 {
-                    "question": " ",
+                    "question": "Which of the following is not a type of RNA?",
                     "options": [
-                        " ",
-                        " ",
-                        " ",
-                        " "
+                        "mDNA",
+                        "mRNA",
+                        "tRNA",
+                        "rRNA"
                     ],
-                    "correctAnswer": " "
+                    "correctAnswer": "mDNA"
                 },
                 {
-                    "question": " ",
+                    "question": " What genetic disorder is caused by the presence of an extra 21st chromosome?",
                     "options": [
-                        " ",
-                        " ",
-                        " ",
-                        " "
+                        "Turner Syndrome",
+                        "Klinefelter Syndrome",
+                        "Down Syndrome",
+                        "Patau Syndrome"
                     ],
-                    "correctAnswer": " "
+                    "correctAnswer": "Down Syndrome"
                 }
             ]
         }
