@@ -2,18 +2,21 @@
 Tutorial Screen 1
 
 """
-from screen import ScreenBase
-from GameScreenButtons import GameScreenButtons
+from src.UIs.screen import ScreenBase
+from src.UIs.GameScreenButtons import GameScreenButtons
 import pygame
 import os
 import sys
 
 images_dir = os.path.join(os.path.dirname(__file__), '..', '..', 'images')
 
-class GameTutorialScreen(ScreenBase):
+class GameTutorialScreenOne(ScreenBase):
 
     def __init__(self):
         super().__init__(self.MIN_WIDTH, self.MIN_HEIGHT)
+        self.type = 'tutorialOne'
+        self.toNextPage = False
+        self.toGameMode = False
 
 
     def draw(self):
@@ -35,15 +38,27 @@ class GameTutorialScreen(ScreenBase):
         self.screen.blit(self.text1, self.textRect1)
         
         #buttons
-        self.next_button = GameScreenButtons(self.width/25*19, self.height/25*16, 140,40, "Next Tutorial", lambda: self.choiceMade(), self.BLUE, self.BLACK)
+        self.next_button = GameScreenButtons(self.width/25*19, self.height/25*16, 140,40, "Next Tutorial", lambda: self.toNextTutorial(), self.BLUE, self.BLACK)
         self.next_button.draw(self.screen)
-        self.done_button = GameScreenButtons(self.width/25*19, self.height/25*18, 140,40, "Done Tutorial", lambda: self.choiceMade(), self.GREEN, self.BLACK)
+        self.done_button = GameScreenButtons(self.width/25*19, self.height/25*18, 140,40, "Done Tutorial", lambda: self.toGameModeSelect(), self.GREEN, self.BLACK)
         self.done_button.draw(self.screen)
+
+    def toNextTutorial(self):
+        self.toNextPage = True
+
+    def toGameModeSelect(self):
+        self.toGameMode = True
 
 
     def handle_events(self):
-        # call parent class event handling
-        super().handle_events()
+        event_list = pygame.event.get()
+        for event in event_list:
+            if event.type == pygame.QUIT:
+                pygame.quit()
+                sys.exit()
+
+            self.next_button.handle_event(event)
+            self.done_button.handle_event(event)
 
     def run(self):
         super().run()
@@ -61,5 +76,5 @@ class GameTutorialScreen(ScreenBase):
 
 #initialize instance and run
 if __name__ == '__main__':
-    game_screen1 = GameTutorialScreen()
+    game_screen1 = GameTutorialScreenOne()
     game_screen1.run()
