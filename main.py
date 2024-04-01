@@ -247,27 +247,30 @@ def run_game():
 
                     current_screen = GameScreen('math', current_player, boss, level.getNextQuestion(), level.levelNum, score, audio_manager)
                     current_screen.endGame()
-                    running = False
+                    if (boss.bossHp <= 0):
+                        score = score * current_player.playerHP
+                        current_screen = WinGameScreen(score)
 
                 elif (boss.bossHp <= 50 and boss.bossHp > 0):
                     #show level passed
-
-                    level = Level(3, 'math')
+                    if level.levelNum != 3:
+                        level.moveToNextLevel(3)
+                        current_screen = GameScreen('math', current_player, boss, level.getNextQuestion(), level.levelNum, score, audio_manager)
 
                 elif (boss.bossHp <= 80 and boss.bossHp > 50):
                     #show level passed
     
-                    level = Level(2, 'math')
+                    if level.levelNum != 2:
+                        level.moveToNextLevel(2)
+                        current_screen = GameScreen('math', current_player, boss, level.getNextQuestion(), level.levelNum, score, audio_manager)
 
-                current_screen = GameScreen('math', current_player, boss, level.getNextQuestion(), level.levelNum, score, audio_manager)
+                if (current_screen.type != 'winGameScreen'):
+                    current_screen = GameScreen('science', current_player, boss, level.getNextQuestion(), level.levelNum, score, audio_manager)
 
-            elif current_screen.transitionToOptions:
-                current_screen = OptionsScreen()
 
         if current_screen.type == "options":
             current_screen.draw()
             current_screen.handle_events()
-
 
 
 
@@ -295,16 +298,24 @@ def run_game():
                 if (boss.bossHp <= 0) or (current_player.playerHP <= 0):
                     current_screen = GameScreen('science', current_player, boss, level.getNextQuestion(), level.levelNum, score, audio_manager)
                     current_screen.endGame()
-                    running = False
+                    if (boss.bossHp <= 0):
+                        score = score * current_player.playerHP
+                        current_screen = WinGameScreen(score)
 
 
                 elif (boss.bossHp <= 50 and boss.bossHp > 0):
-                    level = Level(3, 'science')
-                    current_screen = GameScreen('science', current_player, boss, level.getNextQuestion(), level.levelNum, score, audio_manager)
+                    if level.levelNum != 3:
+                        level.moveToNextLevel(3)
+                        current_screen = GameScreen('science', current_player, boss, level.getNextQuestion(), level.levelNum, score, audio_manager)
 
                 elif (boss.bossHp <= 80 and boss.bossHp > 50):
-                    level = Level(2, 'science')
+                    if level.levelNum != 2:
+                        level.moveToNextLevel(2)
+                        current_screen = GameScreen('science', current_player, boss, level.getNextQuestion(), level.levelNum, score, audio_manager)
+
+                if (current_screen.type != 'winGameScreen'):
                     current_screen = GameScreen('science', current_player, boss, level.getNextQuestion(), level.levelNum, score, audio_manager)
+
                 
     
 
