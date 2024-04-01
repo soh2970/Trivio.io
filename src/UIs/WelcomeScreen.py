@@ -70,6 +70,12 @@ class WelcomeScreen(ScreenBase):
         self.width = self.screen.get_width()
         self.height = self.screen.get_height()
 
+        self.buttons = [
+            GameScreenButtons(self.width/5*2,self.height/3*2,200,40, "start", lambda: self.choiceMade(), self.WHITE, self.BLACK)
+        ]
+        self.optionsButton = GameScreenButtons(self.width/5*4, self.height/15*2, 150, 40, "Options", lambda: self.openOptions(), self.WHITE, self.BLACK)
+        
+
         self.text = self.PARAGRAPH_FONT.render('START' , True , self.BLACK) 
         self.welcome = self.MEDIUM_FONT.render('WELCOME TO' , True , self.BLACK) 
         self.trivio = self.MEDIUM_FONT.render('T R I V I O' , True , self.BLACK) 
@@ -132,8 +138,3 @@ class WelcomeScreen(ScreenBase):
 
     def run(self):
         super().run()
-
-#initialize instance and run
-if __name__ == '__main__':
-    game_screen1 = WelcomeScreen()
-    game_screen1.run()

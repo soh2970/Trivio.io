@@ -15,7 +15,7 @@ os.chdir(os.path.dirname(os.path.abspath(__file__)))
             current_screen.handle_events()
             if (current_screen.back == True):
                 current_screen = GameScreen('math', current_player, boss, level.getNextQuestion(), level.levelNum, score)
-    needs to be in every game screen
+    needs to be in every game screen 
 """
 
 
