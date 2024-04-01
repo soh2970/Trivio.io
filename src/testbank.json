@@ -845,18 +845,8 @@
                 {
                     "question": "What ocean is the Bermuda Triangle located",
                     "options": [
-                        "lol",
-                        "lol",
-                        "lol",
-                        "lol"
-                    ],
-                    "correctAnswer": "lol"
-                },
-                {
-                    "question": "lol",
-                    "options": [
                         "Arctic",
-                        "Eastern",
+                        "EasternEastern",
                         "Pacific",
                         "Atlantic"
                     ],
@@ -1135,7 +1125,7 @@
                     "correctAnswer": "Mesopotamians"
                 },
                 {
-                    "question": "lWho is often considered the father of Western philosophy?ol",
+                    "question": "Who is often considered the father of Western philosophy?",
                     "options": [
                         "Confucious",
                         "Plato",
