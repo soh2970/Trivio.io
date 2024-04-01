@@ -19,7 +19,6 @@ class LoseGameScreen(ScreenBase):
         self.questions_right = questions_right
         self.questions_wrong = questions_wrong
         self.score = score
-        self.returnToMenu = False
         self.transitionToLeaderboard = False
         
     def draw(self):
@@ -91,10 +90,10 @@ class LoseGameScreen(ScreenBase):
                         window_size = (event.w, event.h)
                         window = pygame.display.set_mode(window_size, pygame.RESIZABLE)
 
-                if event.type == pygame.MOUSEBUTTONDOWN:
+                elif event.type == pygame.MOUSEBUTTONDOWN:
                     # Check if the "Next" button was clicked
                     if self.next_button.collidepoint(event.pos):
-                        self.returnToMenu = True
+                        self.transitionToLeaderboard = True
                         
 
     def run(self):
