@@ -394,6 +394,9 @@ def run_game():
             current_screen.draw()
             current_screen.handle_events()
             if (current_screen.returnToMenu == True):
+                score = 0
+                boss = Boss()
+                level = Level(1, 'science')
                 current_screen = NewSavedGameScreen(current_player)
 
         pygame.display.flip()
