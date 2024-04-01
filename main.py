@@ -1,14 +1,13 @@
 import sys
 import os
 
-<<<<<<< HEAD
+
 # Assuming main.py is in the root directory of personalRepo2212
 sys.path.insert(0, os.path.join(os.path.dirname(__file__), 'src'))
-=======
 
 # Set the working directory to the directory of main.py
 os.chdir(os.path.dirname(os.path.abspath(__file__)))
->>>>>>> fc2d29d568ecd87da8b92f166712df3507f8c485
+
 """
 #options screen logic 
         if (current_screen.type == "OptionsScreen"):
@@ -48,6 +47,7 @@ from src.UIs.WinGameScreen import WinGameScreen
 from src.UIs.HighscoreLeaderboardScreen import LeaderboardScreen
 from src.UIs.TutorialScreen1 import GameTutorialScreenOne
 from src.UIs.TutorialScreen2 import ScoringTutorialScreenTwo
+from src.UIs.LoseGameScreen import LoseGameScreen
 
 
 audio_manager = AudioManager()
@@ -64,6 +64,8 @@ def run_game():
     current_player = None
     boss = Boss()
     score = 0
+    questions_correct = 0
+    questions_incorrect = 0
 
 
     current_screen = WelcomeScreen(audio_manager)
@@ -203,11 +205,14 @@ def run_game():
                 category = current_screen.currentSave['subject']
                 level = Level(levelNum, category)
 
+                questions_correct = current_screen.questions_correct
+                questions_incorrect = current_screen.questions_incorrect
+
                 #initialize score
                 score = int(current_screen.currentSave['score'])
                 
                 #switch to game screen with saved game data
-                current_screen = GameScreen(category, current_player, boss, level.getNextQuestion(), level.levelNum, score, audio_manager)
+                current_screen = GameScreen(category, current_player, boss, level.getNextQuestion(), level.levelNum, score, audio_manager, questions_correct, questions_incorrect)
 
 
 
@@ -223,15 +228,15 @@ def run_game():
             elif (current_screen.choice == 'math'):
                 print("math was chosen")
                 level = Level(1, 'math')
-                current_screen = GameScreen('math', current_player, boss, level.getNextQuestion(), level.levelNum, score, audio_manager)
+                current_screen = GameScreen('math', current_player, boss, level.getNextQuestion(), level.levelNum, score, audio_manager, questions_correct, questions_incorrect)
             elif (current_screen.choice == 'social_sciences'):
                 print("social science was chosen")
                 level = Level(1, 'social_sciences')
-                current_screen = GameScreen('social_sciences', current_player, boss, level.getNextQuestion(), level.levelNum, score, audio_manager)
+                current_screen = GameScreen('social_sciences', current_player, boss, level.getNextQuestion(), level.levelNum, score, audio_manager, questions_correct, questions_incorrect)
             elif (current_screen.choice == 'science'):
                 print("science was chosen")
                 level = Level(1, 'science')
-                current_screen = GameScreen('science', current_player, boss, level.getNextQuestion(), level.levelNum, score, audio_manager)
+                current_screen = GameScreen('science', current_player, boss, level.getNextQuestion(), level.levelNum, score, audio_manager, questions_correct, questions_incorrect)
 
             elif current_screen.choice == 'tutorial':
                 print('to tutorial screen')
@@ -262,13 +267,18 @@ def run_game():
             current_screen.draw()
             current_screen.handle_events()
 
-            if (current_screen.answered):
+            if current_screen.goToMain:
+                current_screen = NewSavedGameScreen(current_player)
+
+            elif (current_screen.answered):
                 # Increase global score
                 score = current_screen.score
                 # Correct answer screen displayed
                 if (current_screen.answeredCorrectly == True):
+                    questions_correct += 1
                     current_screen = CorrectAnswerScreen(level.levelNum)
                 else:
+                    questions_incorrect += 1
                     current_screen = IncorrectAnswerScreen(level.levelNum)
                     
                 while (current_screen.nextQuestion == False):
@@ -281,29 +291,41 @@ def run_game():
                     #lose game screen /// win game screen
                     #high score leaderboard screen
 
-                    current_screen = GameScreen('math', current_player, boss, level.getNextQuestion(), level.levelNum, score, audio_manager)
+                    current_screen = GameScreen('math', current_player, boss, level.getNextQuestion(), level.levelNum, score, audio_manager, questions_correct, questions_incorrect)
                     current_screen.endGame()
-                    running = False
+                    print(current_player.playerHP)
+                    if (boss.bossHp <= 0):
+                        score = score * current_player.playerHP
+                        current_screen = WinGameScreen(score)
 
+                        if current_screen.transitionToLeaderboard == True:
+                            print("user wants to leaderboard")
+                            current_screen = LeaderboardScreen()
+
+                    elif (current_player.playerHP <= 0):
+                        print("nate test")
+                        current_screen = LoseGameScreen('math', level.levelNum, boss.bossHp, questions_correct, questions_incorrect, score)
+                
                 elif (boss.bossHp <= 50 and boss.bossHp > 0):
                     #show level passed
-
-                    level = Level(3, 'math')
+                    if level.levelNum != 3:
+                        level.moveToNextLevel(3)
+                        current_screen = GameScreen('math', current_player, boss, level.getNextQuestion(), level.levelNum, score, audio_manager, questions_correct, questions_incorrect)
 
                 elif (boss.bossHp <= 80 and boss.bossHp > 50):
                     #show level passed
     
-                    level = Level(2, 'math')
+                    if level.levelNum != 2:
+                        level.moveToNextLevel(2)
+                        current_screen = GameScreen('math', current_player, boss, level.getNextQuestion(), level.levelNum, score, audio_manager, questions_correct, questions_incorrect)
 
-                current_screen = GameScreen('math', current_player, boss, level.getNextQuestion(), level.levelNum, score, audio_manager)
+                if (current_screen.type != 'winGameScreen' and current_screen.type != 'loseGameScreen'):
+                    current_screen = GameScreen('math', current_player, boss, level.getNextQuestion(), level.levelNum, score, audio_manager, questions_correct, questions_incorrect)
 
-            elif current_screen.transitionToOptions:
-                current_screen = OptionsScreen()
 
         if current_screen.type == "options":
             current_screen.draw()
             current_screen.handle_events()
-
 
 
 
@@ -312,12 +334,17 @@ def run_game():
             current_screen.draw()
             current_screen.handle_events()
 
-            if (current_screen.answered):
+            if current_screen.goToMain:
+                current_screen = NewSavedGameScreen(current_player)
+
+            elif (current_screen.answered):
                 # Increase global score
                 score = current_screen.score
                 if (current_screen.answeredCorrectly == True):
+                    questions_correct += 1
                     current_screen = CorrectAnswerScreen(level.levelNum)
                 else:
+                    questions_incorrect += 1
                     current_screen = IncorrectAnswerScreen(level.levelNum)
                     
 
@@ -329,18 +356,33 @@ def run_game():
 
 
                 if (boss.bossHp <= 0) or (current_player.playerHP <= 0):
-                    current_screen = GameScreen('science', current_player, boss, level.getNextQuestion(), level.levelNum, score, audio_manager)
+                    current_screen = GameScreen('science', current_player, boss, level.getNextQuestion(), level.levelNum, score, audio_manager, questions_correct, questions_incorrect)
                     current_screen.endGame()
-                    running = False
+                    if (boss.bossHp <= 0):
+                        score = score * current_player.playerHP
+                        current_screen = WinGameScreen(score)
 
+                        if current_screen.transitionToLeaderboard == True:
+                            print("user wants to leaderboard")
+                            current_screen = LeaderboardScreen()
+                
+                elif (current_player.playerHP <= 0):
+                        current_screen = LoseGameScreen('science', level.levelNum, boss.bossHp, questions_correct, questions_incorrect, score)
+                        
 
                 elif (boss.bossHp <= 50 and boss.bossHp > 0):
-                    level = Level(3, 'science')
-                    current_screen = GameScreen('science', current_player, boss, level.getNextQuestion(), level.levelNum, score, audio_manager)
+                    if level.levelNum != 3:
+                        level.moveToNextLevel(3)
+                        current_screen = GameScreen('science', current_player, boss, level.getNextQuestion(), level.levelNum, score, audio_manager, questions_correct, questions_incorrect)
 
                 elif (boss.bossHp <= 80 and boss.bossHp > 50):
-                    level = Level(2, 'science')
-                    current_screen = GameScreen('science', current_player, boss, level.getNextQuestion(), level.levelNum, score, audio_manager)
+                    if level.levelNum != 2:
+                        level.moveToNextLevel(2)
+                        current_screen = GameScreen('science', current_player, boss, level.getNextQuestion(), level.levelNum, score, audio_manager, questions_correct, questions_incorrect)
+
+                if (current_screen.type != 'winGameScreen' and current_screen.type != 'loseGameScreen'):
+                    current_screen = GameScreen('science', current_player, boss, level.getNextQuestion(), level.levelNum, score, audio_manager, questions_correct, questions_incorrect)
+
                 
     
 
@@ -349,13 +391,18 @@ def run_game():
             current_screen.draw()
             current_screen.handle_events()
 
-            if (current_screen.answered):
+            if current_screen.goToMain:
+                current_screen = NewSavedGameScreen(current_player)
+
+            elif (current_screen.answered):
                 # Increase global score
                 score = current_screen.score
                 # Correct answer screen displayed
                 if (current_screen.answeredCorrectly == True):
+                    questions_correct += 1
                     current_screen = CorrectAnswerScreen(level.levelNum)
                 else:
+                    questions_incorrect += 1
                     current_screen = IncorrectAnswerScreen(level.levelNum)
                     
                 while (current_screen.nextQuestion == False):
@@ -363,32 +410,67 @@ def run_game():
                     current_screen.handle_events()
                     pygame.display.flip()
                 if (boss.bossHp <= 0) or (current_player.playerHP <= 0):
-                    current_screen = GameScreen('social_sciences', current_player, boss, level.getNextQuestion(), level.levelNum, score, audio_manager)
+                    current_screen = GameScreen('social_sciences', current_player, boss, level.getNextQuestion(), level.levelNum, score, audio_manager, questions_correct, questions_incorrect)
                     current_screen.endGame()
                     if (boss.bossHp <= 0):
                         score = score * current_player.playerHP
                         current_screen = WinGameScreen(score)
+                        if current_screen.transitionToLeaderboard == True:
+                            print("user wants to leaderboard")
+                            current_screen = LeaderboardScreen()
+
+
+                    elif (current_player.playerHP <= 0):
+                        current_screen = LoseGameScreen('social_sciences', level.levelNum, boss.bossHp, questions_correct, questions_incorrect, score)
+                        
                     
                 elif (boss.bossHp <= 50 and boss.bossHp > 0):
                     if level.levelNum != 3:
                         level.moveToNextLevel(3)
-                        current_screen = GameScreen('social_sciences', current_player, boss, level.getNextQuestion(), level.levelNum, score, audio_manager)
+                        current_screen = GameScreen('social_sciences', current_player, boss, level.getNextQuestion(), level.levelNum, score, audio_manager, questions_correct, questions_incorrect)
 
                 elif (boss.bossHp <= 80 and boss.bossHp > 50):
                     if level.levelNum != 2:
                         level.moveToNextLevel(2)
                         print('moving to next level')
-                        current_screen = GameScreen('social_sciences', current_player, boss, level.getNextQuestion(), level.levelNum, score, audio_manager)
+                        current_screen = GameScreen('social_sciences', current_player, boss, level.getNextQuestion(), level.levelNum, score, audio_manager, questions_correct, questions_incorrect)
 
-                if (current_screen.type != 'winGameScreen'):
-                    current_screen = GameScreen('social_sciences', current_player, boss, level.getNextQuestion(), level.levelNum, score, audio_manager)
+                if (current_screen.type != 'winGameScreen' and current_screen.type != 'loseGameScreen'):
+                    current_screen = GameScreen('social_sciences', current_player, boss, level.getNextQuestion(), level.levelNum, score, audio_manager, questions_correct, questions_incorrect)
 
 
         if (current_screen.type == 'winGameScreen'):
             current_screen.draw()
             current_screen.handle_events()
-            if (current_screen.returnToMenu == True):
-                current_screen = NewSavedGameScreen(current_player)
+            score = 0
+            boss = Boss()
+            level = Level(1, 'science')
+            current_player.playerHP = 100
+            questions_correct = 0
+            questions_incorrect = 0
+            #user clicks next to return to main menu
+
+            if (current_screen.transitionToLeaderboard == True):
+                score = 0
+                boss = Boss()
+                level = Level(1, 'science')
+                current_screen = LeaderboardScreen()
+
+        if (current_screen.type == 'loseGameScreen'):
+            current_screen.draw()
+            current_screen.handle_events()
+            score = 0
+            boss = Boss()
+            level = Level(1, 'science')
+            current_player.playerHP = 100
+            questions_correct = 0
+            questions_incorrect = 0
+
+            #user clicks next to return to the main menu
+
+
+            # if (current_screen.transitionToLeaderboard == True):
+            #     current_screen = LeaderboardScreen()
 
         pygame.display.flip()
         

@@ -25,7 +25,6 @@ class UserAccount:
 
         playerData = {
             "password": password,
-            "gameHistory" : [],
             "currentSavedGame": {},
             "highscore": 0
         }

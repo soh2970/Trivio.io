@@ -48,6 +48,8 @@ class LoadGameScreen(ScreenBase):
         self.backButton = GameScreenButtons(self.screen.get_width()/2 - 400, self.screen.get_height()/2 - 270, 100, 40, "Back", lambda: self.handleBack(), self.WHITE, self.BLACK)
         self.back = False
         self.userContinue = False
+        self.questions_correct = 0
+        self.questions_incorrect = 0
 
     def handleContinue(self):
         print("user wants to continue")
@@ -93,6 +95,10 @@ class LoadGameScreen(ScreenBase):
             bossHP = self.currentSave['bossHP']
             text_surface = self.MODE_SELECT_FONT.render(f'Boss HP = {bossHP}', True, self.BLACK)
             self.screen.blit(text_surface, (200,400))
+
+            #logic for getting questions_correct and questions_incorrect
+            self.questions_correct = self.currentSave['questions_correct']
+            self.questions_incorrect = self.currentSave['questions_incorrect']
 
             #draw continue button
             self.continueButton.draw(self.screen)
