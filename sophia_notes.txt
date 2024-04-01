@@ -9,6 +9,8 @@ mar 31
 - audio and options connecting
 - need to chnage notes in gamebutton class
 - nates game text in 2 needs to add textrect
+- button events in tut 1
+
 
 
 
