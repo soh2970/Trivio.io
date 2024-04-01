@@ -105,6 +105,13 @@ class LoadGameScreen(ScreenBase):
 
             #draw back button
             self.backButton.draw(self.screen)
+        else: 
+            text_surface = self.MODE_SELECT_FONT.render(f'No saved game exists for {self.player.playerId}', True, self.BLACK)
+            self.screen.blit(text_surface, (100,130))
+
+            #draw back button
+            self.backButton.draw(self.screen)
+
 
     def handle_events(self):
         for event in pygame.event.get():
@@ -118,7 +125,9 @@ class LoadGameScreen(ScreenBase):
                 self.resize_screen(event)  
             
             if event.type == pygame.MOUSEBUTTONDOWN:
-                self.continueButton.handle_event(event)
+                if (self.getSavedGame() == True):
+                    print("user wants to continue")
+                    self.continueButton.handle_event(event)
                 self.backButton.handle_event(event)
 
 
@@ -131,6 +140,7 @@ class LoadGameScreen(ScreenBase):
             data = json.load(file)
             if self.player.playerId in data:
                 self.currentSave = data[self.player.playerId]["currentSavedGame"]
-                return True
+                if (self.currentSave != {}):
+                    return True
             else:
                 return False

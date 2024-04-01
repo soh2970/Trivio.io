@@ -147,7 +147,7 @@ class GameScreen(ScreenBase):
 
         #display current question prompt
         # make it a text rect
-        self.draw_text(self.question.prompt, self.promptFont, (255,0,0), self.screen, self.width//4, self.height/12*3)
+        self.draw_text(self.question.prompt, self.promptFont, (255,0,0), self.screen, self.width/6, self.screen.get_height()/12*3)
 
 
         for button in self.buttons:
