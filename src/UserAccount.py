@@ -39,7 +39,7 @@ class UserAccount:
                 file.seek(0)
                 json.dump(data, file, indent=4)
                 file.truncate()
-            else: raise Exception("Player already found in database")
+            else: raise UserFoundException("Player already found in database")
 
 
 
