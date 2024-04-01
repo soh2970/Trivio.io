@@ -29,7 +29,7 @@ class Boss:
     # Method to check if the boss of the game has been defeated.
     # @return boolean, true if defeated and false if not.
     def isBossDefeated(self):
-        if (self.bossHP <= 0):
+        if (self.bossHp <= 0):
             return True
         
         else:

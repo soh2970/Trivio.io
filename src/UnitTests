@@ -1,0 +1,130 @@
+
+import sys
+import os
+import unittest
+import pygame
+
+
+from Player import Player
+from Level import Level
+from Boss import Boss
+from HighScorer import HighScore
+
+
+
+class TestPlayer(unittest.TestCase):
+    
+
+    def setUp(self):
+        print("\nRunning setUp method...")
+        self.player = Player('harjap', 100, 100, 1)
+
+    def tearDown(self):
+        print("Running tearDown method...")
+
+
+    def test_loseHp(self):
+        self.player.losePlayerHP(1)
+        self.assertEqual(self.player.playerHP, 96)
+        self.player.losePlayerHP(2)
+        self.assertEqual(self.player.playerHP, 90)
+        self.player.losePlayerHP(3)
+        self.assertEqual(self.player.playerHP, 80)
+
+    def test_defeat(self):
+        self.assertFalse(self.player.isPlayerDefeated())
+        self.player.playerHP = 0
+        self.assertTrue(self.player.isPlayerDefeated())
+    
+    def test_incrementScore(self):
+        self.player.incrementScore()
+        self.assertEqual(self.player.playerScore, 104)
+        self.player.currentLevel = 2
+        self.player.incrementScore()
+        self.assertEqual(self.player.playerScore, 110)
+        self.player.currentLevel = 3
+        self.player.incrementScore()
+        self.assertEqual(self.player.playerScore, 120)
+    
+    def test_moveNextLevel(self):
+        self.player.moveToNextLevel(2)
+        self.assertEqual(self.player.currentLevel, 2)
+        with self.assertRaises(Exception):
+            self.player.moveToNextLevel(5)
+            
+
+
+
+
+class TestLevel(unittest.TestCase):
+    
+    # Not testing completeLevel
+
+    def setUp(self):
+        print("\nRunning setUp method...")
+        self.level = Level(1, 'math')
+
+    def tearDown(self):
+        print("Running tearDown method...")
+
+
+    def test_moveToNextLevel(self):
+      self.level.moveToNextLevel(2)
+      self.assertEqual(self.level.levelNum, 2)
+    
+
+class TestBoss(unittest.TestCase):
+    
+    def setUp(self):
+        print("\nRunning setUp method...")
+        self.boss = Boss()
+
+    def tearDown(self):
+        print("Running tearDown method...")
+
+
+    def test_loseBossHp(self):
+        self.boss.loseBossHP(1)
+        self.assertTrue(self.boss.bossHp,96)
+        self.boss.loseBossHP(2)
+        self.assertTrue(self.boss.bossHp,90)
+        self.boss.loseBossHP(3)
+        self.assertTrue(self.boss.bossHp,80)
+        
+        with self.assertRaises(Exception):
+            self.boss.loseBossHP(5)
+
+    
+    def test_bossDefeated(self):
+        self.assertFalse(self.boss.isBossDefeated())
+        self.boss.bossHp = 0
+        self.assertTrue(self.boss.isBossDefeated())
+
+
+class TestHighScore(unittest.TestCase):
+    
+    def setUp(self):
+        print("\nRunning setUp method...")
+        self.highscore = HighScore()
+
+    def tearDown(self):
+        print("Running tearDown method...")
+
+
+    def test_checkForScore(self):
+        self.assertTrue(self.highscore.checkForScore(''))
+        self.assertFalse(self.highscore.checkForScore('NeverGonnaGiveYouUp'))        
+        
+
+    
+    def test_playerInfo(self):
+        self.assertIs(type(self.highscore.getPlayerGameInfo('')), dict)
+
+
+
+           
+if __name__ == '__main__':
+    unittest.main()
+    
+
+
