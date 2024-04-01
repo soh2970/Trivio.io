@@ -44,7 +44,7 @@ class WelcomeScreen(ScreenBase):
         self.buttons = [
             GameScreenButtons(self.screen.get_width()/5*2,self.screen.get_height()/3*2,200,40, "start", lambda: self.choiceMade(), self.WHITE, self.BLACK)
         ]
-        self.optionsButton = GameScreenButtons(self.screen.get_width()/5*2, self.screen.get_height()/15*13,200,40, "options", lambda: self.optionsChoice(), self.WHITE, self.BLACK)
+        self.optionsButton = GameScreenButtons(self.screen.get_width()/5*2, self.screen.get_height()/15*13,200,40, "options", lambda: self.optionsChoice(), self.WHITE, self.BLACK,)
         self.transitionToNextScreen = False
         self.options = False
         self.audio_manager = audio_manager
