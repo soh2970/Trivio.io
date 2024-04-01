@@ -63,7 +63,7 @@ def run_game():
         #initial welcome screen
         if (current_screen.type == 'welcomeScreen'):
             current_screen.draw()
-            current_screen.handle_events()            
+            current_screen.handle_events()
             if (current_screen.options): current_screen = OptionsScreen('welcomeScreen', audio_manager)
             if (current_screen.transitionToNextScreen): current_screen = LoginScreen()
 
@@ -111,8 +111,8 @@ def run_game():
                 current_screen = LoginScreen()
 
             elif current_screen.transitionToDashboard:
-                 print("Transitioning to Instructor Dashboard...")
-                 current_screen = InstructorDashboardScreen()
+                print("Transitioning to Instructor Dashboard...")
+                current_screen = InstructorDashboardScreen()
                 
 
         #logic for InstructorDashboard goes here
