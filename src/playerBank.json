@@ -69,5 +69,10 @@
             "questions_incorrect": 24
         },
         "highscore": 9000
+    },
+    "goat": {
+        "password": "",
+        "currentSavedGame": {},
+        "highscore": 0
     }
 }
