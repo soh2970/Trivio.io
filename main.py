@@ -449,9 +449,6 @@ def run_game():
             questions_correct = 0
             questions_incorrect = 0
             #user clicks next to return to main menu
-            if (current_screen.returnToMenu == True):
-
-                current_screen = NewSavedGameScreen(current_player)
 
             if (current_screen.transitionToLeaderboard == True):
                 score = 0
@@ -470,8 +467,7 @@ def run_game():
             questions_incorrect = 0
 
             #user clicks next to return to the main menu
-            if (current_screen.returnToMenu == True):
-                current_screen = NewSavedGameScreen(current_player)
+
 
             # if (current_screen.transitionToLeaderboard == True):
             #     current_screen = LeaderboardScreen()
