@@ -1,3 +1,4 @@
+#saver
 import pygame 
 import sys
 import os
@@ -41,9 +42,9 @@ class WelcomeScreen(ScreenBase):
         super().__init__(self.MIN_WIDTH, self.MIN_HEIGHT)
         self.type = 'welcomeScreen'
         self.buttons = [
-            GameScreenButtons(self.screen.get_width()/2-100,self.screen.get_height()/2+100,200,40, "start", lambda: self.choiceMade(), self.WHITE, self.BLACK)
+            GameScreenButtons(self.screen.get_width()/5*2,self.screen.get_height()/3*2,200,40, "start", lambda: self.choiceMade(), self.WHITE, self.BLACK)
         ]
-        self.optionsButton = GameScreenButtons(self.screen.get_width()/5*4, self.screen.get_height()/15*13,200,40, "options", lambda: self.optionsChoice(), self.WHITE, self.BLACK)
+        self.optionsButton = GameScreenButtons(self.screen.get_width()/5*2, self.screen.get_height()/15*13,200,40, "options", lambda: self.optionsChoice(), self.WHITE, self.BLACK)
         self.transitionToNextScreen = False
         self.options = False
         self.audio_manager = audio_manager
@@ -87,16 +88,15 @@ class WelcomeScreen(ScreenBase):
         """
         potentially delete
         """
-        pygame.draw.rect(self.screen,self.GREY,[self.width/2-405,self.height/2-293,30,30]) 
+        pygame.draw.rect(self.screen,self.GREY,[self.width/844*17,self.height/600*7,30,30]) 
 
 		# superimposing the text onto our button 
-        # self.screen.blit(self.text , (self.width/2-65,self.height/2+100))
-        self.screen.blit(self.welcome, (self.width/2-200,self.height/2-100))
+        self.screen.blit(self.welcome, (self.width/422*111,self.height/3))
         self.screen.blit(self.trivio, (self.width/2,self.height/2))
         """
         potentially delete
         """
-        self.screen.blit(self.esc , (self.width/2-400,self.height/2-300))
+        self.screen.blit(self.esc , (self.width/422*11,self.height/600))
 
     def handle_events(self):
         # stores the (x,y) coordinates into the variable as a tuple
@@ -112,7 +112,7 @@ class WelcomeScreen(ScreenBase):
             elif event.type == pygame.VIDEORESIZE:
                 super().resize_screen(event)
                 for button in self.buttons:
-                    button.rect = pygame.Rect(self.screen.get_width()/2-100,self.screen.get_height()/2+100,200,40)
+                    button = pygame.Rect(self.width/844*322,self.height/3*2,200,40)
 
             for button in self.buttons:
                 button.handle_event(event)
@@ -123,7 +123,7 @@ class WelcomeScreen(ScreenBase):
             # user clicking our exit button
             if event.type == pygame.MOUSEBUTTONDOWN: 
                 #if the mouse is clicked on the x button the game is terminated 
-                if self.width/2-405 <= self.mouse[0] <= self.width/2+435 and self.height/2-293 <=self.mouse[1] <= self.height/2-263:
+                if self.width/844*17 <= self.mouse[0] <= self.width/844*17+30 and self.height/600*7 <=self.mouse[1] <= self.height/600*7+30:
                     pygame.quit()
                     sys.exit()
 
