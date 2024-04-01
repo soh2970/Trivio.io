@@ -78,6 +78,8 @@ class InstructorDashboardScreen(ScreenBase):
             self.output = ''
             for i in info.keys():
                 self.output += str(i) + ': ' + str(info[i]) + '\n'
+            self.output += 'Highscore' + ': ' + str(self.scores.json_data[self.userName]['highscore']) + '\n'
+
             self.usernameValid = True
 
         else:

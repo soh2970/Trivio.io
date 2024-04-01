@@ -100,7 +100,7 @@ class GameModeSelectScreen(ScreenBase):
 
     def handle_events(self):
         self.clock.tick(60)
-        mouse = pygame.mouse.get_pos() 
+        mouse = pygame.mouse.get_pos()
 
         # for rb in self.radioButtons:
         #     rb.setRadioButtons(self.radioButtons)

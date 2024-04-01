@@ -1,8 +1,9 @@
 import sys
 import os
 
-# Assuming main.py is in the root directory of personalRepo2212
-sys.path.insert(0, os.path.join(os.path.dirname(__file__), 'src'))
+
+# Set the working directory to the directory of main.py
+os.chdir(os.path.dirname(os.path.abspath(__file__)))
 """
 #options screen logic 
         if (current_screen.type == "OptionsScreen"):
@@ -40,6 +41,8 @@ from src.UIs.OptionsScreen import OptionsScreen
 from src.UIs.WinLevelScreen import WinLevelScreen
 from src.UIs.WinGameScreen import WinGameScreen
 from src.UIs.HighscoreLeaderboardScreen import LeaderboardScreen
+from src.UIs.TutorialScreen1 import GameTutorialScreenOne
+from src.UIs.TutorialScreen2 import ScoringTutorialScreenTwo
 
 
 audio_manager = AudioManager()
@@ -65,7 +68,7 @@ def run_game():
         #initial welcome screen
         if (current_screen.type == 'welcomeScreen'):
             current_screen.draw()
-            current_screen.handle_events()            
+            current_screen.handle_events()
             if (current_screen.transitionToNextScreen): current_screen = LoginScreen()
 
 
@@ -201,6 +204,10 @@ def run_game():
                 #switch to game screen with saved game data
                 current_screen = GameScreen(category, current_player, boss, level.getNextQuestion(), level.levelNum, score, audio_manager)
 
+
+
+
+
         #game mode selection logic
         if (current_screen.type == 'gameModeSelect'):
             current_screen.draw()
@@ -220,6 +227,30 @@ def run_game():
                 print("science was chosen")
                 level = Level(1, 'science')
                 current_screen = GameScreen('science', current_player, boss, level.getNextQuestion(), level.levelNum, score, audio_manager)
+
+            elif current_screen.choice == 'tutorial':
+                print('to tutorial screen')
+                current_screen = GameTutorialScreenOne()
+
+        if current_screen.type == 'tutorialOne':
+            current_screen.draw()
+            current_screen.handle_events()
+
+            if current_screen.toNextPage:
+                current_screen = ScoringTutorialScreenTwo()
+            elif current_screen.toGameMode:
+                current_screen = GameModeSelectScreen()
+
+        if current_screen.type == 'tutorialTwo':
+            current_screen.draw()
+            current_screen.handle_events()
+
+            if current_screen.prevTut:
+                current_screen = GameTutorialScreenOne()
+            elif current_screen.toGameMode:
+                current_screen = GameModeSelectScreen()
+
+
 
         # math gameplay
         if (current_screen.type == 'math'):

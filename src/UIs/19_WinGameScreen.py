@@ -29,41 +29,49 @@ pygame.display.set_caption('Trivio')
 # update game screen
 pygame.display.update()
 
-from src.UIs.screen import ScreenBase
+from screen import ScreenBase
 
 class WinGameScreen(ScreenBase):
     """
-	The screen that is shown when the player wins the game. It presents a congratulatory message two trophy images, and the final score of the player.
+    The screen that is shown when the player wins the game. It presents a congratulatory message,
+    two trophy images, and the final score of the player.
 
-	Inherits from ScreenBase, utilizing its setup for a Pygame window/screen.
+    Inherits from ScreenBase, utilizing its setup for a Pygame window/screen.
 
-	Attributes:
-		type (str): Identifier for the screen type, set to ‘winGameScreen’.
-		score (int): The player's final score, passed to the class upon initialization.
-		returnToMenu (bool): A boolean indicating whether the player has chosen to return to the main menu, initially set to False.
+    Attributes:
+        user_text (str): Text input by the user for the username.
+        pass_text (str): Text input by the user for the password.
+        usernameInput (bool): Indicates if the username input box is active.
+        passwordInput (bool): Indicates if the password input box is active.
+        transitionToDebuggerPassword (bool): Flag to transition to the debugger password screen.
+        transitionToInstructorPassword (bool): Flag to transition to the instructor password screen.
+        type (str): Identifier for the screen type, set to 'loginScreen'.
+        input_box (pygame.Rect): Rectangle for the username input box.
+        pass_input_box (pygame.Rect): Rectangle for the password input box.
+        input_box_color (pygame.Color): Color of the input boxes.
+        text_color (tuple): Color of the input text.
+        loginButton (GameScreenButtons): Button for logging in.
+        createAccountButton (GameScreenButtons): Button for creating a new account.
+        isValidUser (bool): Indicates whether the user is validated.
+        Player (Player or None): The player instance created upon successful login.
+        
+    Methods:
+        __init__(self):
 
-	Methods:
-		__init__(self, score): 
-            Initializes the win game screen with the player's score and basic settings.
-		
-        draw(self): 
-            Renders the win screen, including two trophy images as visual feedback for winning, dynamic text displaying the player’s final score, and a congratulatory message. It also has a ’Next’ button, presumably to proceed to the next screen.
-		
-        handle_events(self): 
-            Handles input events, such as window resizing, quitting the game, and detecting clicks on the "Next" button, updating returnToMenu to True upon a click.
-		
-        run(self): 
-            Contains the main loop for handling events and rendering updates, inherited from ScreenBase.
-		
-        getSavedGame(self): 
-            Attempts to load saved game data, indicating it also handles aspects of game progression or player achievements.
+        def draw(self):
+
+        def handle_events(self):
+        
+        def run(self):
+        
+        def getSavedGame(self):
+        
     """
-
-    def __init__(self, score):
+    def __init__(self):
         super().__init__(self.MIN_WIDTH, self.MIN_HEIGHT)  # Initialize with ScreenBase settings
-        self.score = score
-        self.type = 'winGameScreen'
-        self.returnToMenu = False
+        self.type = 'WinGameScreen'
+        
+
 
     def draw(self):
         super().draw()
@@ -98,7 +106,7 @@ class WinGameScreen(ScreenBase):
         self.screen.blit(stats_text, (self.width/2-110, self.width/2-200))
 
         # Draw the score change to self.score
-        score_text = self.SMALLER_FONT.render(f'Final Score: {self.score}', True, self.BLACK)
+        score_text = self.SMALLER_FONT.render(f'Final Score: 90', True, self.BLACK)
         self.screen.blit(score_text, (self.width/2-90, self.width/2-150))
 
         # Draw the "Next" button
@@ -121,7 +129,7 @@ class WinGameScreen(ScreenBase):
                 if event.type == pygame.MOUSEBUTTONDOWN:
                     # Check if the "Next" button was clicked
                     if self.next_button.collidepoint(event.pos):
-                        self.returnToMenu = True
+                        sys.exit()
 
     def run(self):
         super().run()
