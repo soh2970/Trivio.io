@@ -13,8 +13,34 @@ sys.path.append(src_dir)
 
 
 class LeaderboardScreen(ScreenBase):
-    """a
-    
+    """
+    Displays a leaderboard screen in a Pygame application, listing the top scores achieved by players.
+    This screen is responsible for fetching and displaying a ranked list of high scores from the game's
+    database, allowing users to see where they stand among other players in terms of game performance.
+
+    Inherits from ScreenBase to utilize core screen functionalities such as rendering and event handling,
+    while incorporating specific features for displaying high score data.
+
+    Attributes:
+        scores (HighScore): An instance of the HighScore class, used to access and sort player high scores.
+        active (bool): Indicates whether the leaderboard screen is currently active and responding to user input.
+        type (str): Screen identifier, used within the application to manage different screens, set to 'highscoreLeaderboard'.
+        goToMain (bool): Flag indicating whether there is a request to return to the main menu screen.
+
+    Methods:
+        draw(self):
+            Renders the leaderboard, including the title, high score rankings, and a button to return to the main menu.
+
+        toMain(self):
+            Signals that the user has requested to return to the main menu screen.
+
+        handle_events(self):
+            Handles user inputs, specifically looking for interactions that indicate a desire to return to the main menu or close the application.
+
+        run(self):
+            Manages the main event loop for the leaderboard screen, continuously updating the display and responding to user actions.
+
+    The LeaderboardScreen class enhances the game's competitiveness by providing a visible metric of success through high scores, encouraging players to improve their gameplay to climb the rankings.
     """
 
     def __init__(self):

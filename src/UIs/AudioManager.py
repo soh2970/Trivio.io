@@ -5,34 +5,41 @@ import pygame
 
 class AudioManager:
     """
-    Manages background music playback for a game, allowing for song loading, playback,
-    volume control, and navigation between tracks.
+    Manages background music playback for a game, utilizing pygame for music control.
+    Allows for loading songs, playing them on a loop, stopping playback, navigating between
+    tracks, and adjusting volume.
 
     Attributes:
-        songs (list of dict): A list containing dictionaries of song names and their file paths.
-        current_song_index (int): The index of the currently loaded song in the songs list.
+        songs (list of dict): A list of dictionaries where each dictionary contains 'name'
+            and 'path' keys for song names and their respective file paths.
+        current_song_index (int): The index of the currently loaded song in the songs list,
+            used to keep track of which song is playing.
 
     Methods:
         __init__(self):
-            Initializes the AudioManager, sets the volume, and loads the default song.
+            Initializes the AudioManager instance, sets up the pygame mixer, sets the initial
+            volume to 50%, and loads the default song.
 
         load_song(self, index):
-            Loads a song from the songs list based on its index.
+            Loads a song based on the provided index from the songs list into the pygame mixer.
 
         play_song(self):
-            Plays the currently loaded song on a loop.
+            Plays the currently loaded song on a loop indefinitely until stopped or changed.
 
         stop_song(self):
-            Stops the music playback.
+            Stops the music playback immediately.
 
         next_song(self):
-            Advances to the next song in the list, wraps around to the first song if at the end of the list, and plays it.
+            Advances to the next song in the list, automatically wraps to the first song if
+            currently at the last song, and plays the selected song.
 
         prev_song(self):
-            Moves to the previous song in the list, wraps around to the last song if at the beginning of the list, and plays it.
+            Moves to the previous song in the list, automatically wraps to the last song if
+            currently at the first song, and plays the selected song.
 
         set_volume(self, volume):
-            Sets the music playback volume.
+            Sets the volume for music playback. The volume should be a float between 0.0 and 1.0,
+            where 0.0 is silent and 1.0 is the maximum volume.
 
         get_current_song_name(self):
             Returns the name of the currently playing song.

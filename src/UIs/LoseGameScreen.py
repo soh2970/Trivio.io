@@ -10,6 +10,38 @@ sys.path.append(src_dir)
 from src.UIs.screen import ScreenBase
 
 class LoseGameScreen(ScreenBase):
+    """
+    Displays a screen to the player upon losing a game in a Pygame application, showcasing defeat with
+    an accompanying image and detailed game statistics. This screen serves as a feedback mechanism for the player,
+    summarizing their performance in the game, including the level reached, category played, score achieved, and
+    questions answered correctly or incorrectly.
+
+    Inherits from ScreenBase to leverage foundational screen management and rendering functionalities.
+
+    Attributes:
+        type (str): Identifies the screen's role within the application, set to 'loseGameScreen'.
+        category (str): The game category the player was engaging in.
+        level (int): The final level the player reached before losing.
+        hp (int): Remaining health points of the boss, indicating how close the player was to winning.
+        questions_right (int): The number of questions the player answered correctly.
+        questions_wrong (int): The number of questions the player answered incorrectly.
+        score (int): The final score the player achieved.
+        transitionToLeaderboard (bool): Flag to transition to the leaderboard screen, triggered by player interaction.
+
+    Methods:
+        draw(self):
+            Constructs and renders the defeat screen, including visual and textual elements that convey the player's game outcome.
+
+        handle_events(self):
+            Manages user input, specifically looking for interactions that trigger a transition to the leaderboard or other screens.
+
+        run(self):
+            Encapsulates the main event loop for the LoseGameScreen, ensuring continuous update and response to user actions.
+
+    The LoseGameScreen class provides critical closure to the gameplay experience, offering players insight into their performance
+    and encouraging reflection and future improvement.
+    """
+
     def __init__(self, category, level, hp, questions_right, questions_wrong, score):
         super().__init__(self.MIN_WIDTH, self.MIN_HEIGHT)  # Initialize with ScreenBase settings
         self.type = 'loseGameScreen'
@@ -79,8 +111,8 @@ class LoseGameScreen(ScreenBase):
                 # user resizing screen
                 elif event.type == pygame.VIDEORESIZE:
                     # check if the new size is below the minimum size
-                    new_width = max(event.w, MIN_WIDTH)
-                    new_height = max(event.h, MIN_HEIGHT)
+                    new_width = max(event.w, self.MIN_WIDTH)
+                    new_height = max(event.h, self.MIN_HEIGHT)
 
                     # resize window if below min
                     if new_width<event.w or new_height != event.h:

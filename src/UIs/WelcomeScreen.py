@@ -14,28 +14,37 @@ import pygame
 
 class WelcomeScreen(ScreenBase):
     """
-    The initial screen displayed upon launching the game. It presents a welcoming message and
-    a start button that transitions the user to the main game or login screen.
+    A welcoming interface for the game, presenting users with the initial screen upon launching the game.
+    This screen displays a welcome message and provides a start button to transition the user to the main
+    game interface or login screen, and an options button to customize game settings.
 
-    Inherits from ScreenBase, utilizing its setup for a Pygame window/screen.
+    Inherits from ScreenBase, leveraging its foundational setup for a consistent Pygame window/screen configuration.
 
     Attributes:
         type (str): Identifier for the screen type, set to 'welcomeScreen'.
-        buttons (list): A list containing the start button as a GameScreenButtons object.
-        transitionToNextScreen (bool): Flag indicating whether the start button has been clicked, signaling a transition to the next screen.
+        buttons (list): A list containing the start button, implemented as a GameScreenButtons object.
+        transitionToNextScreen (bool): Flag indicating whether the start button has been clicked, signaling the user's intention to transition to the next screen.
+        options (bool): Flag indicating whether the options button has been clicked, signaling the user's desire to view the options screen.
+        audio_manager: Manages audio playback for the screen.
+        optionsButton (GameScreenButtons): Button to open the options screen for adjusting settings such as volume.
 
     Methods:
+        optionsChoice(self):
+            Invokes the display of the options screen, allowing users to adjust game settings.
+
         choiceMade(self):
-            Sets the transitionToNextScreen flag to True, indicating the user's decision to proceed from the welcome screen.
+            Sets the transitionToNextScreen flag to True, indicating the user's decision to proceed from the welcome screen to the next phase of the game interface.
 
         draw(self):
-            Renders the welcome screen, including any welcoming messages and the start button.
+            Renders the welcome screen, including welcoming messages, and the start and options buttons.
 
         handle_events(self):
-            Processes input events, specifically handling the start button click and potential window resizing.
+            Processes input events, notably handling clicks on the start and options buttons and managing window resizing.
 
         run(self):
-            Contains the main loop for the WelcomeScreen, handling events and rendering updates.
+            Contains the main loop for the WelcomeScreen, facilitating event handling and screen updates to reflect user interactions.
+
+    The WelcomeScreen class serves as the entry point to the game, setting the tone with a welcoming atmosphere and providing straightforward navigation to the game's core functionalities or customization settings.
     """
 
     def __init__(self, audio_manager):

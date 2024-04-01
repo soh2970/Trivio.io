@@ -8,36 +8,42 @@ import os
 
 class LoadGameScreen(ScreenBase):
     """
-    A screen in a Pygame application that allows a player to load a previously saved game state.
+    Facilitates loading of a previously saved game state for a player in a Pygame application, presenting the player
+    with their saved progress including level, score, and health status. This screen is integral for games that offer
+    long-term progression, allowing players to return to their last checkpoint rather than starting anew each session.
 
-    This screen displays the details of the saved game, including the date of the save, the current level,
-    the game category, the player's score, and the health points of both the player and the boss. It provides
-    options for the player to continue with the loaded game or go back to the previous screen.
+    Inherits from ScreenBase to utilize core screen management and rendering capabilities, integrating seamlessly with
+    the application's overall UI/UX design.
 
     Attributes:
-        type (str): Identifier for the screen type, set to 'loadGameScreen'.
-        player (Player): The player instance whose saved game is to be loaded.
-        currentSave (dict or None): The currently loaded save game data.
-        continueButton (GameScreenButtons): A button that, when clicked, continues the game from the saved state.
-        backButton (GameScreenButtons): A button that, when clicked, returns the player to the previous screen.
-        back (bool): Flag indicating whether the player has chosen to go back.
-        userContinue (bool): Flag indicating whether the player has chosen to continue with the saved game.
+        type (str): Identifier for the screen, facilitating screen management within the application.
+        player (Player): The current player instance, whose game state is to be loaded.
+        currentSave (dict or None): Loaded save data, including game progress and player stats.
+        continueButton (GameScreenButtons): A button enabling the player to proceed with the loaded game state.
+        backButton (GameScreenButtons): A button for returning to the previous screen, typically the main menu.
+        back (bool): Indicates the player's decision to return to the previous screen.
+        userContinue (bool): Indicates the player's decision to proceed with the loaded game.
+        questions_correct (int): Number of questions the player answered correctly in the saved game.
+        questions_incorrect (int): Number of questions the player answered incorrectly in the saved game.
 
     Methods:
         handleContinue(self):
-            Sets the flag indicating the player's decision to continue with the loaded game.
+            Marks the player's choice to continue with the saved game, setting `userContinue` to true.
 
         handleBack(self):
-            Sets the flag indicating the player's decision to go back to the previous screen.
+            Marks the player's choice to return to the previous screen, setting `back` to true.
 
         draw(self):
-            Renders the screen, including saved game details and options for the player.
+            Renders the screen with the saved game details and interactive buttons for game continuation or return.
 
         handle_events(self):
-            Handles events such as button clicks.
+            Handles user inputs, detecting interactions with the `continueButton` and `backButton`.
 
         getSavedGame(self):
-            Loads the saved game data for the current player from a file.
+            Retrieves and loads the player's saved game data from a file, updating `currentSave` with the fetched data.
+
+    This class plays a crucial role in enhancing player engagement and retention by enabling seamless continuation of gameplay
+    across multiple sessions, contributing to a user-friendly and satisfying game experience.
     """
     def __init__(self, player):
         super().__init__(self.MIN_WIDTH, self.MIN_HEIGHT)

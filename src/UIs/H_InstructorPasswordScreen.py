@@ -11,7 +11,36 @@ sys.path.append(src_dir)
 
 class InstructorPasswordScreen(ScreenBase):
     """
-    
+    Presents a password entry screen for instructors to access secure areas of a Pygame application.
+    This screen requires the instructor to enter a correct password before proceeding to instructor-specific
+    functionalities such as viewing or editing educational content, tracking student progress, or accessing
+    administrative settings.
+
+    Inherits from ScreenBase to leverage common screen functionalities such as drawing and event handling.
+
+    Attributes:
+        password_text (str): Stores the input from the instructor as they type the password.
+        active (bool): Indicates whether the password input field is currently active, allowing for text input.
+
+    Methods:
+        draw(self):
+            Renders the password input field, along with instructions, and OK/Cancel buttons on the screen.
+
+        check_password(self):
+            Verifies the entered password against a predefined string, granting access if the password matches.
+
+        cancel(self):
+            Exits the password screen and potentially the application, depending on the intended flow.
+
+        handle_events(self):
+            Processes user input, capturing keyboard events for password entry, and mouse events for button interaction.
+
+        run(self):
+            Executes the main loop for the password screen, continually updating the display and responding to events.
+
+    This class is part of the application's security system, ensuring that only authorized instructors can access
+    certain functionalities. It is crucial for maintaining the integrity and privacy of educational content and
+    student data within the application.
     """
 
     def __init__(self):

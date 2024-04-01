@@ -53,6 +53,29 @@ from src.UIs.LoseGameScreen import LoseGameScreen
 audio_manager = AudioManager()
 
 def run_game():
+    """
+    The main function to run the entire game application. It initializes the game,
+    manages the game loop, and transitions between different screens based on game state
+    and user interactions.
+
+    It initializes the audio manager, sets up the initial screen, and continuously checks
+    for screen type to manage transitions between game screens including welcome screen,
+    login screen, main game screen, tutorial screens, win/lose screens, and others.
+
+    Attributes:
+        audio_manager (AudioManager): Manages game audio.
+        current_screen (ScreenBase): The current game screen being displayed.
+        current_player (Player): The current player instance.
+        boss (Boss): Instance of the game's boss.
+        score (int): Current score of the player.
+        questions_correct (int): Number of questions correctly answered.
+        questions_incorrect (int): Number of questions incorrectly answered.
+        level (Level): Current level of the game.
+
+    The function also handles user actions like answering questions, transitioning between
+    levels, saving/loading game states, and more, ensuring a smooth flow and interaction
+    throughout the game.
+    """
 
     audio_manager.__init__()
     audio_manager.play_song()

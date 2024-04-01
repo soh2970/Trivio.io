@@ -15,25 +15,36 @@ pygame.init()
 
 class NewSavedGameScreen(ScreenBase):
     """
-    A screen presented to the player offering the choice between starting a new game
-    or loading a previously saved game. This screen is part of the initial setup
-    and decision-making process for the player upon starting the game.
+    Presents the player with the option to start a new game or load an existing game from a saved state,
+    offering a straightforward navigation point at the beginning of the game session. Additionally, this screen
+    provides access to view the game's leaderboard.
+
+    Inherits from ScreenBase, leveraging general screen setup and event handling while implementing specific
+    functionalities for game state selection.
 
     Attributes:
-        player (Player): The player instance, which may carry over saved player data if a game is loaded.
-        type (str): Identifier for the screen type, set to 'newSavedGameScreen'.
-        transitionToNewGame (bool): Flag indicating whether the player has chosen to start a new game.
-        transitionToLoadGame (bool): Flag indicating whether the player has chosen to load a saved game.
+        player (Player, optional): The player instance, potentially carrying over data if a game is loaded.
+        type (str): Screen identifier, used to manage different screens within the application.
+        transitionToNewGame (bool): Indicates the player's decision to start a new game.
+        transitionToLoadGame (bool): Indicates the player's decision to load a saved game.
+        transitionToLeaderboard (bool): Indicates the player's decision to view the leaderboard.
+        leaderBbutton (GameScreenButtons): Button that transitions the player to the leaderboard screen.
 
     Methods:
+        on_leaderboard(self):
+            Handles the transition to the leaderboard screen upon button interaction.
+
         draw(self):
-            Renders the screen elements, including options for new game and load game.
+            Renders the screen's UI elements, including interactive buttons for new game, load game, and leaderboard options.
 
         handle_events(self):
-            Processes input events such as button clicks, specifically detecting clicks on the new game or load game options.
+            Processes input events, detecting clicks on new game, load game, or leaderboard buttons, and triggers the corresponding actions.
 
         run(self):
-            Contains the main loop for the NewSavedGameScreen, handling events and rendering updates.
+            Manages the main event loop for the screen, handling events and rendering updates to provide a responsive UI for game state selection.
+
+    The NewSavedGameScreen class acts as an initial decision point for players, facilitating seamless game state management
+    and enhancing the game's accessibility and user engagement.
     """
     def __init__(self, player=None):
         super().__init__(self.MIN_WIDTH, self.MIN_HEIGHT)

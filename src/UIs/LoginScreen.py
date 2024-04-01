@@ -16,42 +16,50 @@ pygame.init()
 
 class LoginScreen(ScreenBase):
     """
-    A screen for user login in a Pygame application, providing fields for username and password input,
-    as well as buttons for submitting the login request or creating a new account.
+    Facilitates user authentication in a Pygame application, providing an interface for both logging in to an existing account
+    and creating a new account. This screen is the entry point for users to access personalized game experiences, including loading
+    saved games or accessing user-specific content.
+
+    Inherits from ScreenBase to utilize core screen management and rendering capabilities, integrating seamlessly with the application's
+    overall design and navigation structure.
 
     Attributes:
-        user_text (str): Text input by the user for the username.
-        pass_text (str): Text input by the user for the password.
-        usernameInput (bool): Indicates if the username input box is active.
-        passwordInput (bool): Indicates if the password input box is active.
-        transitionToDebuggerPassword (bool): Flag to transition to the debugger password screen.
-        transitionToInstructorPassword (bool): Flag to transition to the instructor password screen.
-        type (str): Identifier for the screen type, set to 'loginScreen'.
-        input_box (pygame.Rect): Rectangle for the username input box.
-        pass_input_box (pygame.Rect): Rectangle for the password input box.
-        input_box_color (pygame.Color): Color of the input boxes.
-        text_color (tuple): Color of the input text.
-        loginButton (GameScreenButtons): Button for logging in.
-        createAccountButton (GameScreenButtons): Button for creating a new account.
-        isValidUser (bool): Indicates whether the user is validated.
-        Player (Player or None): The player instance created upon successful login.
+        user_text (str): Stores the current input in the username field.
+        pass_text (str): Stores the current input in the password field.
+        usernameInput (bool): Flag indicating whether the username input field is active.
+        passwordInput (bool): Flag indicating whether the password input field is active.
+        transitionToDebuggerPassword (bool): Triggers the transition to the debugger password screen.
+        transitionToInstructorPassword (bool): Triggers the transition to the instructor password screen.
+        type (str): Identifies the screen within the application, aiding in screen management.
+        input_box (pygame.Rect): Graphical representation of the username input field.
+        pass_input_box (pygame.Rect): Graphical representation of the password input field.
+        input_box_color, pass_input_box_color (pygame.Color): Colors of the input fields.
+        text_color (tuple): Color of the text in the input fields.
+        loginButton (GameScreenButtons): Button for initiating the login process.
+        createAccountButton (GameScreenButtons): Button for initiating account creation.
+        isValidUser (bool): Indicates the success of the login process.
+        Player (Player): Represents the player instance upon successful login.
+        userFoundError (bool): Indicates an attempt to create an account with a username that already exists.
 
     Methods:
         handleLogIn(self):
-            Handles the login logic, validating the user credentials.
+            Validates the user's credentials against stored data, initiating session continuation for valid users.
 
         handleCreateAccount(self):
-            Handles the creation of a new user account.
+            Attempts to create a new user account with the provided credentials, handling conflicts with existing data.
 
         draw(self):
-            Renders the login screen, including input fields and buttons.
+            Constructs and displays the login interface, including input fields for username and password, and buttons for submitting or creating an account.
 
         handle_events(self):
-            Handles events such as text input, button clicks, and transitions.
+            Manages user interaction with the login screen, including text input and button selection.
 
         run(self):
-            Contains the main loop for the LoginScreen, handling events and rendering updates.
+            Executes the main event loop for the LoginScreen, continuously rendering updates and responding to user inputs, facilitating the authentication process.
+
+    The LoginScreen class is a critical component of the application's user experience, enabling secure access to personalized game features and progress tracking.
     """
+    
     def __init__(self):
         super().__init__(self.MIN_WIDTH, self.MIN_HEIGHT)
         self.user_text=''

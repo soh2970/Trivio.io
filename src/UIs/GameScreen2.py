@@ -24,45 +24,41 @@ images_dir = os.path.join(os.path.dirname(__file__), '..', '..', 'images')
 
 class GameScreen(ScreenBase):
     """
-    The main game screen for a Pygame application, displaying the current question, 
-    player and boss health points, and providing multiple choice answers for the player to select from.
-
-    This screen is central to the gameplay, presenting challenges to the player and updating the game state
-    based on the player's responses, including updating scores and health points for both the player and the boss.
+    Facilitates the main gameplay interface in a Pygame application, where players engage with questions, 
+    answer them, and see immediate effects on the game's dynamics, including changes to player and boss health
+    based on the correctness of answers. This screen is where the core gameplay unfolds, with the player navigating
+    through questions of varying difficulty across different educational categories.
 
     Attributes:
-        startTime (int): Timestamp of when the game screen was initiated.
-        boss (Boss): An instance of the Boss class, representing the game's antagonist.
-        player (Player): An instance of the Player class, representing the user playing the game.
-        level (int): The current level of difficulty in the game.
-        question (Question): The current question being posed to the player.
-        correctAnswer (str): The correct answer to the current question.
-        answered (bool): Flag indicating whether the player has answered the current question.
-        answeredCorrectly (bool or None): Indicates whether the player answered the current question correctly.
-        levelFont, hpFont, promptFont (pygame.font.Font): Fonts for displaying the level, health points, and question prompt.
-        buttons (list): A list of GameScreenButtons for the answer choices.
-        saveGameButton (GameScreenButtons): A button that allows the player to save the game state.
-        type (str): The category of the current question.
-        score (int): The player's current score.
+        startTime (datetime): The timestamp marking the beginning of the game session.
+        boss (Boss): Instance of Boss class, representing the adversary in the game, with its health points.
+        player (Player): Instance of Player class, representing the user's avatar in the game, with its health points.
+        level (int): Current difficulty level of the game, affecting the complexity of questions and damage mechanics.
+        question (Question): The current question object presented to the player.
+        correctAnswer (str): The correct answer for the current question, used for validation.
+        answered (bool): Flag to check if the current question has been answered.
+        answeredCorrectly (bool or None): Indicates the correctness of the player's last answer; True if correct.
+        levelFont, hpFont, promptFont (pygame.font.Font): Custom fonts for displaying game information (level, health points, question prompts).
+        buttons (list of GameScreenButtons): Interactive buttons for each of the multiple-choice answers.
+        saveGameButton (GameScreenButtons): Button to save the current game state.
+        type (str): The category of the current question being asked.
+        score (int): The player's current score, updated based on performance.
+        audio_manager: Manages game audio, including background music and sound effects.
+        questions_correct, questions_incorrect (int): Counters for the number of questions answered correctly and incorrectly.
+        goToMain (bool): Flag for navigating back to the main menu.
+        showSaveFeedback (bool): Indicates whether feedback for a game save operation should be displayed.
+        saveFeedbackTimer (int): Timer to control the display duration of the save feedback message.
 
     Methods:
-        choiceMade(self, choice):
-            Processes the player's answer choice and updates the game state accordingly.
-
-        draw(self):
-            Renders the game screen, including the question, answers, and game state information.
-
-        handle_events(self):
-            Handles events such as button clicks and window resizing.
-
-        draw_text(self, text, font, color, surface, x, y):
-            Helper method for drawing text on the screen.
-
-        saveGame(self):
-            Saves the current game state to a file.
-
-        endGame(self):
-            Ends the game, saving the final state and transitioning to an end game screen.
+        choiceMade(self, choice): Processes the player's answer, updating game state based on correctness.
+        draw(self): Renders all game elements on the screen, including question text, answer buttons, and player/boss HP.
+        handle_events(self): Handles user input, including answer selection and navigation.
+        draw_text(self, text, font, color, surface, x, y): Utility method for drawing text on the screen.
+        saveGame(self): Serializes the current game state to a file for later retrieval.
+        endGame(self): Concludes the game session, potentially saving final scores and transitioning to an end game screen.
+        displaySaveFeedback(self): Temporarily displays a save confirmation message on the screen.
+        openOptions(self): Transitions to the options screen for game settings adjustments.
+        toMainScreen(self): Flags the screen to return to the main menu.
     """
 
     def __init__(self, category, player, boss, question, level, score, audio_manager, questions_correct, questions_incorrect):

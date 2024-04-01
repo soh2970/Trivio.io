@@ -12,37 +12,42 @@ pygame.init()
 
 class ScreenBase:
     """
-    A base class for creating UI screens in a Pygame application. It provides a common
-    structure and functionality for various screens, including screen resizing, event handling,
-    and drawing base elements.
+    Serves as the foundational class for creating and managing UI screens in a Pygame application. It establishes a common framework
+    and set of functionalities that are essential for the creation, display, and interaction of various UI components across different screens. 
+    This includes handling common events such as screen resizing and quitting, as well as establishing a uniform appearance through predefined
+    color and font attributes.
 
-    Attributes and Constants:
-        MIN_WIDTH (int): Minimum width for the Pygame window.
-        MIN_HEIGHT (int): Minimum height for the Pygame window.
-        SCREEN_SIZE (tuple): Default screen size (width, height).
-        WHITE, BLACK, BLUE, GREY, DARKGREY, GREEN, RED (tuple): Color definitions.
-        MODE_FONT, BUTTON_FONT, SMALLER_FONT, MID_FONT, MODE_SELECT_FONT, PARAGRAPH_FONT, MEDIUM_FONT, HEADING_FONT, BASE_FONT, SELECT_FONT (pygame.font.Font): Font definitions for text rendering.
-        screen (pygame.Surface): The main Pygame window surface.
-        running (bool): Flag indicating if the screen's main loop is running.
+    Attributes:
+        MIN_WIDTH (int): The minimum width allowed for the game window.
+        MIN_HEIGHT (int): The minimum height allowed for the game window.
+        SCREEN_SIZE (tuple): The default size of the game window, defined by MIN_WIDTH and MIN_HEIGHT.
+        WHITE, BLACK, BLUE, GREY, DARKGREY, GREEN, RED (tuple): Color constants used throughout the UI for consistency.
+        MODE_FONT, BUTTON_FONT, SMALLER_FONT, MID_FONT, MODE_SELECT_FONT, PARAGRAPH_FONT, MEDIUM_FONT, HEADING_FONT, BASE_FONT, SELECT_FONT (pygame.font.Font): 
+            Font attributes for different textual elements within the UI, providing a consistent look and feel.
+        screen (pygame.Surface): The main surface for drawing UI elements, acting as the primary display area for the application.
+        running (bool): A flag to control the main event loop of the screen, indicating whether the application is actively running.
 
     Methods:
-        __init__(self):
-            Initializes the screen with default settings and starts the main loop.
+        __init__(self, width, height):
+            Initializes a new screen with the specified dimensions, setting up the main display window and application caption.
 
         resize_screen(self, event):
-            Resizes the screen based on user input while maintaining minimum dimensions.
+            Adjusts the screen's dimensions based on user input while enforcing minimum size constraints, ensuring the UI remains usable.
 
         handle_events(self):
-            Handles base Pygame events such as quitting the application or resizing the window.
+            Processes basic Pygame events, including quitting the game and resizing the window, maintaining core application functionality.
 
         draw(self):
-            Draws base elements onto the screen. Override this method in subclasses to draw specific UI elements.
+            Fills the screen with a solid background color. Meant to be overridden in subclasses to include screen-specific drawing logic.
 
         update(self):
-            Updates the game state. Override this method in subclasses for specific screen updates.
+            A placeholder for updating the game state. Subclasses should override this method to implement specific game logic.
 
         run(self):
-            Contains the main loop for the screen, updating the display and handling events.
+            Contains the main loop for the screen, responsible for drawing the screen, updating game state, and processing events.
+    
+    ScreenBase abstracts common functionalities needed by various screens within the application, promoting code reuse and reducing redundancy.
+    Subclasses should extend ScreenBase to inherit these base functionalities while implementing additional features specific to the screen's purpose.
     """
     # CONSTANTS
     # base screen dimensions

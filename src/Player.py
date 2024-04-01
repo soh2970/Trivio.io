@@ -1,4 +1,31 @@
 class Player:
+    """
+    Represents a player in the game, holding player-specific data such as ID, health points (HP),
+    score, and the current level the player is on. Provides methods to manage the player's state
+    and actions within the game.
+
+    Attributes:
+        playerId (str): A unique identifier for the player.
+        playerHP (int): The player's current health points.
+        playerScore (int): The player's current score.
+        currentLevel (int): The current level the player is on.
+
+    Methods:
+        answerQuestion(self, question, answer):
+            Determines if the provided answer to a question is correct, affecting the game state.
+
+        losePlayerHP(self, level):
+            Deducts health points from the player based on the difficulty level of a question.
+
+        isPlayerDefeated(self):
+            Checks if the player's health points have dropped to zero or below.
+
+        incrementScore(self):
+            Increases the player's score based on the difficulty level of a correctly answered question.
+
+        moveToNextLevel(self, level):
+            Advances the player to the specified level, with validation to ensure it's within an acceptable range.
+    """
 
     def __init__(self, playerId, playerHP, playerScore, currentLevel):
         self.playerId = playerId
