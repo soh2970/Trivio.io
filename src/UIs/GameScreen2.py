@@ -86,6 +86,7 @@ class GameScreen(ScreenBase):
         self.score = score
         self.audio_manager = audio_manager
         self.options = False
+        self.goToMain = False
 
         self.showSaveFeedback = False
         self.saveFeedbackTimer = 0
@@ -112,6 +113,9 @@ class GameScreen(ScreenBase):
 
         print(f'Score = {self.score}')
 
+    def toMainScreen(self):
+        self.goToMain = True
+
 
     #displays text, buttons, images on the screen 
     def draw(self):
@@ -123,7 +127,7 @@ class GameScreen(ScreenBase):
         if self.showSaveFeedback:
             current_time = pygame.time.get_ticks()
             if current_time - self.saveFeedbackTimer < 2000:  # Display the message for 2 seconds
-                self.draw_text("Game Saved!", self.promptFont, (0, 255, 0), self.screen, 20,20)
+                self.draw_text("Game Saved!", self.promptFont, (0, 255, 0), self.screen, 20,70)
             else:
                 self.showSaveFeedback = False
 
@@ -138,6 +142,8 @@ class GameScreen(ScreenBase):
         self.saveGameButton = GameScreenButtons(self.width/5*4, self.height/15*1, 150, 40, "Save Game", lambda: self.saveGame(), self.WHITE, self.BLACK)
         self.optionsButton = GameScreenButtons(self.width/5*4, self.height/15*2, 150, 40, "Options", lambda: self.openOptions(), self.WHITE, self.BLACK)
 
+        self.toMainButton = GameScreenButtons(20, 20, 100, 40, 'To Main', lambda: self.toMainScreen(), self.WHITE, self.BLACK)
+
         #display current question prompt
         # make it a text rect
         self.draw_text(self.question.prompt, self.promptFont, (255,0,0), self.screen, self.width//4, self.screen.get_height()/12*3)
@@ -148,6 +154,7 @@ class GameScreen(ScreenBase):
 
         self.saveGameButton.draw(self.screen)
         self.optionsButton.draw(self.screen)
+        self.toMainButton.draw(self.screen)
 
         #display current level
         self.draw_text(f'Level: {str(self.level)}', self.levelFont, (255,0,0), self.screen, self.width/2 - 20, self.screen.get_height()/2 - 240)
@@ -217,6 +224,7 @@ class GameScreen(ScreenBase):
                     button.handle_event(event)
                 self.saveGameButton.handle_event(event)
                 self.optionsButton.handle_event(event)
+                self.toMainButton.handle_event(event)
 
 
     #draws text onto the screen

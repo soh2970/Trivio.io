@@ -257,7 +257,10 @@ def run_game():
             current_screen.draw()
             current_screen.handle_events()
 
-            if (current_screen.answered):
+            if current_screen.goToMain:
+                current_screen = NewSavedGameScreen(current_player)
+
+            elif (current_screen.answered):
                 # Increase global score
                 score = current_screen.score
                 # Correct answer screen displayed
@@ -314,7 +317,10 @@ def run_game():
             current_screen.draw()
             current_screen.handle_events()
 
-            if (current_screen.answered):
+            if current_screen.goToMain:
+                current_screen = NewSavedGameScreen(current_player)
+
+            elif (current_screen.answered):
                 # Increase global score
                 score = current_screen.score
                 if (current_screen.answeredCorrectly == True):
@@ -362,7 +368,10 @@ def run_game():
             current_screen.draw()
             current_screen.handle_events()
 
-            if (current_screen.answered):
+            if current_screen.goToMain:
+                current_screen = NewSavedGameScreen(current_player)
+
+            elif (current_screen.answered):
                 # Increase global score
                 score = current_screen.score
                 # Correct answer screen displayed
