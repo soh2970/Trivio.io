@@ -11,6 +11,9 @@ mar 31
 - nates game text in 2 needs to add textrect
 - button events in tut 1 and tut 2 need to be implemented and need to be added to main script
 - add in win level screen to main game script
+- bug - no createaccount screen
+    - create account user saved game crashes
+- 
 
 
 
