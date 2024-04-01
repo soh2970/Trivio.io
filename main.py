@@ -3,7 +3,6 @@ import os
 
 # Assuming main.py is in the root directory of personalRepo2212
 sys.path.insert(0, os.path.join(os.path.dirname(__file__), 'src'))
-git a
 """
 #options screen logic 
         if (current_screen.type == "OptionsScreen"):
