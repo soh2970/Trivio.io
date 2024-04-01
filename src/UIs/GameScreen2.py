@@ -147,7 +147,7 @@ class GameScreen(ScreenBase):
 
         #display current question prompt
         # make it a text rect
-        self.draw_text(self.question.prompt, self.promptFont, (255,0,0), self.screen, self.width//4, self.screen.get_height()/12*3)
+        self.draw_text(self.question.prompt, self.promptFont, (255,0,0), self.screen, self.width//4, self.height/12*3)
 
 
         for button in self.buttons:
@@ -168,20 +168,20 @@ class GameScreen(ScreenBase):
 
         #display images based on boss and player hp
         if (self.boss.bossHp <= 100 and self.boss.bossHp > 80):
-            self.screen.blit(self.boss1_imageResized, (self.width/2 - 160, self.screen.get_height()/2 - 100))
+            self.screen.blit(self.boss1_imageResized, (self.width/2, self.height/2 - 100))
         elif (self.boss.bossHp <= 80 and self.boss.bossHp > 50):
-            self.screen.blit(self.boss2_imageResized, (self.width/2 - 160, self.screen.get_height()/2 - 100))
+            self.screen.blit(self.boss2_imageResized, (self.width/2 - 160, self.height/2 - 100))
         elif (self.boss.bossHp <= 50 and self.boss.bossHp > 0):
-            self.screen.blit(self.boss3_imageResized, (self.width/2 - 160, self.screen.get_height()/2 - 100))
+            self.screen.blit(self.boss3_imageResized, (self.width/2 - 160, self.height/2 - 100))
 
         if (self.player.playerHP <= 100 and self.player.playerHP > 80):
-            self.screen.blit(self.player1_imageResized, (self.width/2 + 80, self.screen.get_height()/2 - 100))
+            self.screen.blit(self.player1_imageResized, (self.width/2 + 80, self.height/2 - 100))
         elif (self.player.playerHP <= 80 and self.player.playerHP > 50):
-            self.screen.blit(self.player2_imageResized, (self.width/2 + 80, self.screen.get_height()/2 - 100))
+            self.screen.blit(self.player2_imageResized, (self.width/2 + 80, self.height/2 - 100))
         elif (self.player.playerHP <= 50 and self.player.playerHP > 0):
-            self.screen.blit(self.player3_imageResized, (self.width/2 + 80, self.screen.get_height()/2 - 100))
+            self.screen.blit(self.player3_imageResized, (self.width/2 + 80,self.height/2 - 100))
         elif (self.player.playerHP == 0):
-            self.screen.blit(self.playerLose_imageResized, (self.width/2 + 80, self.screen.get_height()/2 - 100))
+            self.screen.blit(self.playerLose_imageResized, (self.width/2 + 80, self.height/2 - 100))
         
     #overridden from parent class
     def handle_events(self):
