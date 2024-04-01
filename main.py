@@ -1,14 +1,9 @@
 import sys
 import os
 
-<<<<<<< HEAD
-# Assuming main.py is in the root directory of personalRepo2212
-sys.path.insert(0, os.path.join(os.path.dirname(__file__), 'src'))
-=======
 
 # Set the working directory to the directory of main.py
 os.chdir(os.path.dirname(os.path.abspath(__file__)))
->>>>>>> fc2d29d568ecd87da8b92f166712df3507f8c485
 """
 #options screen logic 
         if (current_screen.type == "OptionsScreen"):
@@ -286,6 +281,9 @@ def run_game():
                     if (boss.bossHp <= 0):
                         score = score * current_player.playerHP
                         current_screen = WinGameScreen(score)
+                        if current_screen.transitionToLeaderboard == True:
+                            print("user wants to leaderboard")
+                            current_screen = LeaderboardScreen()
 
                 elif (boss.bossHp <= 50 and boss.bossHp > 0):
                     #show level passed
@@ -301,7 +299,8 @@ def run_game():
                         current_screen = GameScreen('math', current_player, boss, level.getNextQuestion(), level.levelNum, score, audio_manager)
 
                 if (current_screen.type != 'winGameScreen'):
-                    current_screen = GameScreen('science', current_player, boss, level.getNextQuestion(), level.levelNum, score, audio_manager)
+                    current_screen = GameScreen('math', current_player, boss, level.getNextQuestion(), level.levelNum, score, audio_manager)
+                    
 
 
         if current_screen.type == "options":
@@ -337,6 +336,9 @@ def run_game():
                     if (boss.bossHp <= 0):
                         score = score * current_player.playerHP
                         current_screen = WinGameScreen(score)
+                        if current_screen.transitionToLeaderboard == True:
+                            print("user wants to leaderboard")
+                            current_screen = LeaderboardScreen()
 
 
                 elif (boss.bossHp <= 50 and boss.bossHp > 0):
@@ -351,7 +353,7 @@ def run_game():
 
                 if (current_screen.type != 'winGameScreen'):
                     current_screen = GameScreen('science', current_player, boss, level.getNextQuestion(), level.levelNum, score, audio_manager)
-
+        
                 
     
 
@@ -379,6 +381,9 @@ def run_game():
                     if (boss.bossHp <= 0):
                         score = score * current_player.playerHP
                         current_screen = WinGameScreen(score)
+                        if current_screen.transitionToLeaderboard == True:
+                            print("user wants to leaderboard")
+                            current_screen = LeaderboardScreen()
                     
                 elif (boss.bossHp <= 50 and boss.bossHp > 0):
                     if level.levelNum != 3:
@@ -393,16 +398,16 @@ def run_game():
 
                 if (current_screen.type != 'winGameScreen'):
                     current_screen = GameScreen('social_sciences', current_player, boss, level.getNextQuestion(), level.levelNum, score, audio_manager)
-
+                    
 
         if (current_screen.type == 'winGameScreen'):
             current_screen.draw()
             current_screen.handle_events()
-            if (current_screen.returnToMenu == True):
+            if (current_screen.transitionToLeaderboard == True):
                 score = 0
                 boss = Boss()
                 level = Level(1, 'science')
-                current_screen = NewSavedGameScreen(current_player)
+                current_screen = LeaderboardScreen()
 
         pygame.display.flip()
         
