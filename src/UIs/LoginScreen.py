@@ -94,10 +94,14 @@ class LoginScreen(ScreenBase):
     def handleCreateAccount(self):
         print("account created")
         user = UserAccount(self.user_text, self.pass_text)
-        user.createAccount()
-        self.isValidUser = True
-        player = Player(user.ID, 100, 0, 1)
-        self.Player = player
+        try:
+            user.createAccount()
+            self.isValidUser = True
+            player = Player(user.ID, 100, 0, 1)
+            self.Player = player
+        except: 
+            print("User already database")
+
 
     def draw(self):
         super().draw()
