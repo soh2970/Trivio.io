@@ -114,10 +114,10 @@ class GameScreen(ScreenBase):
         self.height = self.screen.get_height()
 
         self.buttons = [
-            GameScreenButtons(self.screen.get_width()/12*2, self.screen.get_height()/15*9, 250, 100, self.question.choices[0], lambda: self.choiceMade(self.question.choices[0]), self.WHITE, self.BLACK),
-            GameScreenButtons(self.screen.get_width()/12*2, self.screen.get_height()/15*12, 250, 100, self.question.choices[1], lambda: self.choiceMade(self.question.choices[1]), self.WHITE, self.BLACK),
-            GameScreenButtons(self.screen.get_width()/12*7, self.screen.get_height()/15*9, 250, 100, self.question.choices[2], lambda: self.choiceMade(self.question.choices[2]), self.WHITE, self.BLACK),
-            GameScreenButtons(self.screen.get_width()/12*7, self.screen.get_height()/15*12, 250, 100, self.question.choices[3], lambda: self.choiceMade(self.question.choices[3]), self.WHITE, self.BLACK),
+            GameScreenButtons(self.screen.get_width()/16*3, self.screen.get_height()/15*9, 250, 100, self.question.choices[0], lambda: self.choiceMade(self.question.choices[0]), self.WHITE, self.BLACK),
+            GameScreenButtons(self.screen.get_width()/16*3, self.screen.get_height()/15*12, 250, 100, self.question.choices[1], lambda: self.choiceMade(self.question.choices[1]), self.WHITE, self.BLACK),
+            GameScreenButtons(self.screen.get_width()/16*8, self.screen.get_height()/15*9, 250, 100, self.question.choices[2], lambda: self.choiceMade(self.question.choices[2]), self.WHITE, self.BLACK),
+            GameScreenButtons(self.screen.get_width()/16*8, self.screen.get_height()/15*12, 250, 100, self.question.choices[3], lambda: self.choiceMade(self.question.choices[3]), self.WHITE, self.BLACK),
         ]
 
         self.saveGameButton = GameScreenButtons(self.width/5*4, self.height/15*1, 150, 40, "Save Game", lambda: self.saveGame(), self.WHITE, self.BLACK)

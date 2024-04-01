@@ -1,9 +1,14 @@
 import sys
 import os
 
+<<<<<<< HEAD
+# Assuming main.py is in the root directory of personalRepo2212
+sys.path.insert(0, os.path.join(os.path.dirname(__file__), 'src'))
+=======
 
 # Set the working directory to the directory of main.py
 os.chdir(os.path.dirname(os.path.abspath(__file__)))
+>>>>>>> fc2d29d568ecd87da8b92f166712df3507f8c485
 """
 #options screen logic 
         if (current_screen.type == "OptionsScreen"):
