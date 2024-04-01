@@ -125,7 +125,8 @@ class LoadGameScreen(ScreenBase):
                 self.resize_screen(event)  
             
             if event.type == pygame.MOUSEBUTTONDOWN:
-                if (self.getSavedGame == True):
+                if (self.getSavedGame() == True):
+                    print("user wants to continue")
                     self.continueButton.handle_event(event)
                 self.backButton.handle_event(event)
 
