@@ -13,10 +13,7 @@ mar 31
 - add in win level screen to main game script
 - bug - no createaccount screen
     - create account user saved game crashes
-- 
-
-
-
+- we changed it so that the tutorial is on the mode select screen and you go back to choose what mode you want to play
 
 
 - 1_welcome screen - remove the x because where are you exiting
