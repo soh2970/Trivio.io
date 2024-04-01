@@ -10,10 +10,11 @@ import sys
 
 images_dir = os.path.join(os.path.dirname(__file__), '..', '..', 'images')
 
-class GameTutorialScreen(ScreenBase):
+class GameTutorialScreenOne(ScreenBase):
 
     def __init__(self):
         super().__init__(self.MIN_WIDTH, self.MIN_HEIGHT)
+        self.toNextPage = False
 
 
     def draw(self):
@@ -40,6 +41,9 @@ class GameTutorialScreen(ScreenBase):
         self.done_button = GameScreenButtons(self.width/25*19, self.height/25*18, 140,40, "Done Tutorial", lambda: self.choiceMade(), self.GREEN, self.BLACK)
         self.done_button.draw(self.screen)
 
+    def choiceMade(self):
+        self.toNextPage = True
+
 
     def handle_events(self):
         # call parent class event handling
@@ -61,5 +65,5 @@ class GameTutorialScreen(ScreenBase):
 
 #initialize instance and run
 if __name__ == '__main__':
-    game_screen1 = GameTutorialScreen()
+    game_screen1 = GameTutorialScreenOne()
     game_screen1.run()

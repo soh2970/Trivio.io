@@ -3,10 +3,6 @@ import os
 
 # Assuming main.py is in the root directory of personalRepo2212
 sys.path.insert(0, os.path.join(os.path.dirname(__file__), 'src'))
-<<<<<<< HEAD
-
-=======
->>>>>>> 80cf2557bb5b21b7d582256b6b10ae73ddeaf76a
 """
 #options screen logic 
         if (current_screen.type == "OptionsScreen"):
@@ -44,6 +40,8 @@ from src.UIs.OptionsScreen import OptionsScreen
 from src.UIs.WinLevelScreen import WinLevelScreen
 from src.UIs.WinGameScreen import WinGameScreen
 from src.UIs.HighscoreLeaderboardScreen import LeaderboardScreen
+from src.UIs.TutorialScreen1 import GameTutorialScreenOne
+from src.UIs.TutorialScreen2 import ScoringTutorialScreenTwo
 
 
 audio_manager = AudioManager()

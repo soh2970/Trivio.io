@@ -10,7 +10,7 @@ import sys
 
 images_dir = os.path.join(os.path.dirname(__file__), '..', '..', 'images')
 
-class ScoringTutorialScreen(ScreenBase):
+class ScoringTutorialScreenTwo(ScreenBase):
 
     def __init__(self):
         super().__init__(self.MIN_WIDTH, self.MIN_HEIGHT)
@@ -61,5 +61,5 @@ class ScoringTutorialScreen(ScreenBase):
 
 #initialize instance and run
 if __name__ == '__main__':
-    game_screen1 = ScoringTutorialScreen()
+    game_screen1 = ScoringTutorialScreenTwo()
     game_screen1.run()
