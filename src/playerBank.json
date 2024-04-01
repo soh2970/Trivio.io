@@ -131,7 +131,7 @@
         "password": "hello",
         "gameHistory": [],
         "currentSavedGame": {
-            "timeStamp": "2024-03-31 18:32:03",
+            "timeStamp": "2024-03-31 21:27:25",
             "levelAchieved": "1",
             "subject": "math",
             "score": 0,
@@ -141,14 +141,33 @@
     },
     "": {
         "password": "",
-        "gameHistory": [],
+        "gameHistory": [
+            {
+                "timeStamp": "2024-03-31 22:22:52",
+                "levelAchieved": "3",
+                "subject": "social_sciences",
+                "score": "100"
+            },
+            {
+                "timeStamp": "2024-03-31 22:25:39",
+                "levelAchieved": "3",
+                "subject": "social_sciences",
+                "score": "100"
+            },
+            {
+                "timeStamp": "2024-03-31 22:29:33",
+                "levelAchieved": "3",
+                "subject": "social_sciences",
+                "score": "100"
+            }
+        ],
         "currentSavedGame": {
-            "timeStamp": "2024-03-31 16:51:00",
-            "levelAchieved": "1",
-            "subject": "math",
-            "score": 0,
-            "playerHP": "100",
-            "bossHP": "100"
+            "timeStamp": "2024-03-31 22:29:19",
+            "levelAchieved": "3",
+            "subject": "social_sciences",
+            "score": 90,
+            "playerHP": "48",
+            "bossHP": "10"
         }
     }
 }

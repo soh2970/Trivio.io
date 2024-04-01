@@ -47,6 +47,7 @@ class CorrectAnswerScreen(ScreenBase):
 
         self.continueButton = GameScreenButtons(self.screen.get_width() / 2 - 50, self.screen.get_height() / 2 + 200, 130, 40, "Continue", lambda: self.choiceMade(), self.WHITE, self.BLACK)
         self.nextQuestion = False
+        self.type = 'correctAnswerScreen'
 
     def choiceMade(self):
         self.nextQuestion = True

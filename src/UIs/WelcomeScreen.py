@@ -8,6 +8,7 @@ sys.path.append(src_dir)
 
 from src.UIs.GameScreenButtons import GameScreenButtons
 from src.UIs.screen import ScreenBase
+from src.UIs.OptionsScreen import OptionsScreen
 import pygame
 
 class WelcomeScreen(ScreenBase):
@@ -36,7 +37,7 @@ class WelcomeScreen(ScreenBase):
             Contains the main loop for the WelcomeScreen, handling events and rendering updates.
     """
 
-    def __init__(self):
+    def __init__(self, audio_manager):
         super().__init__(self.MIN_WIDTH, self.MIN_HEIGHT)
         self.type = 'welcomeScreen'
         self.buttons = [
@@ -45,10 +46,18 @@ class WelcomeScreen(ScreenBase):
         self.optionsButton = GameScreenButtons(self.screen.get_width()/5*4, self.screen.get_height()/15*13,200,40, "options", lambda: self.optionsChoice(), self.WHITE, self.BLACK)
         self.transitionToNextScreen = False
         self.options = False
+        self.audio_manager = audio_manager
 
     def optionsChoice(self):
         print("transitioning to options screen")
-        self.options = True
+        self.options = True            
+        optionsDisplay = OptionsScreen(self.audio_manager)
+        while (self.options == True):
+            optionsDisplay.draw()
+            optionsDisplay.handle_events()
+            if (optionsDisplay.goBack == True):
+                self.options = False
+            pygame.display.flip()
 
     def choiceMade(self):
         print("transitioning from mainmenu to log in screen")

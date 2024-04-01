@@ -117,7 +117,7 @@ class InstructorPasswordScreen(ScreenBase):
                     self.check_password()
 
                 # Check if buttons are clicked
-                if self.cancel_button.rect1.collidepoint(event.pos):
+                if self.cancel_button.button.collidepoint(event.pos):
                     self.cancel_button.callback()
 
 

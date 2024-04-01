@@ -16,6 +16,7 @@ from src.question2 import Question
 from src.UIs.screen import ScreenBase
 from src.UIs.GameScreenButtons import GameScreenButtons
 from src.UIs.CorrectAnswerScreen import CorrectAnswerScreen
+from src.UIs.OptionsScreen import OptionsScreen
 
 from src.UIs.WinLevelScreen import WinLevelScreen
 
@@ -64,7 +65,7 @@ class GameScreen(ScreenBase):
             Ends the game, saving the final state and transitioning to an end game screen.
     """
 
-    def __init__(self, category, player, boss, question, level, score):
+    def __init__(self, category, player, boss, question, level, score, audio_manager):
         super().__init__(self.MIN_WIDTH, self.MIN_HEIGHT)
         
         self.startTime = pygame.time.get_ticks()
@@ -83,6 +84,8 @@ class GameScreen(ScreenBase):
         else: self.promptFont = self.MID_FONT
         self.type = category
         self.score = score
+        self.audio_manager = audio_manager
+        self.options = False
 
     # logic for when user selects and answer
     def choiceMade(self, choice):
@@ -198,6 +201,7 @@ class GameScreen(ScreenBase):
                 for button in self.buttons:
                     button.handle_event(event)
                 self.saveGameButton.handle_event(event)
+                self.optionsButton.handle_event(event)
 
 
     #draws text onto the screen
@@ -208,15 +212,15 @@ class GameScreen(ScreenBase):
         surface.blit(textobj, textrect)
 
     def openOptions(self):
-        print("Transitioning to options page...")
-        gameState = {
-            "levelAchieved": str(self.level),
-            "subject": self.type,
-            "score": int(self.score),
-            "playerHP": str(self.player.playerHP),
-            "bossHP": str(self.boss.bossHp)
-        }
-        self.transitionToOptions = True
+        print("transitioning to options screen")
+        self.options = True            
+        optionsDisplay = OptionsScreen(self.audio_manager)
+        while (self.options == True):
+            optionsDisplay.draw()
+            optionsDisplay.handle_events()
+            if (optionsDisplay.goBack == True):
+                self.options = False
+            pygame.display.flip()
 
     def saveGame(self):
         datetime_string = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
