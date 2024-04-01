@@ -32,6 +32,33 @@ pygame.display.update()
 from src.UIs.screen import ScreenBase
 
 class WinGameScreen(ScreenBase):
+    """
+	The screen that is shown when the player wins the game. It presents a congratulatory message two trophy images, and the final score of the player.
+
+	Inherits from ScreenBase, utilizing its setup for a Pygame window/screen.
+
+	Attributes:
+		type (str): Identifier for the screen type, set to ‘winGameScreen’.
+		score (int): The player's final score, passed to the class upon initialization.
+		returnToMenu (bool): A boolean indicating whether the player has chosen to return to the main menu, initially set to False.
+
+	Methods:
+		__init__(self, score): 
+            Initializes the win game screen with the player's score and basic settings.
+		
+        draw(self): 
+            Renders the win screen, including two trophy images as visual feedback for winning, dynamic text displaying the player’s final score, and a congratulatory message. It also has a ’Next’ button, presumably to proceed to the next screen.
+		
+        handle_events(self): 
+            Handles input events, such as window resizing, quitting the game, and detecting clicks on the "Next" button, updating returnToMenu to True upon a click.
+		
+        run(self): 
+            Contains the main loop for handling events and rendering updates, inherited from ScreenBase.
+		
+        getSavedGame(self): 
+            Attempts to load saved game data, indicating it also handles aspects of game progression or player achievements.
+    """
+
     def __init__(self, score):
         super().__init__(self.MIN_WIDTH, self.MIN_HEIGHT)  # Initialize with ScreenBase settings
         self.score = score
