@@ -25,8 +25,14 @@ class GameScreenButtons:
             Processes Pygame events, checking for mouse clicks on the button and triggering the callback if detected.
     """
     def __init__(self, x, y, width, height, text, callback, colour, text_color):
+        '''
         self.rect1 = pygame.Rect(x, y, width, height) # text
         self.rect2 = pygame.Rect(x, y, width, height) # border
+        '''
+        self.x = x
+        self.y = y
+        self.width = width
+        self.height = height
         self.text_color = text_color 
         self.colour = colour
         self.text = text
@@ -37,16 +43,16 @@ class GameScreenButtons:
 
     def draw(self, screen):
         # Draw the button rectangle
-        button = pygame.draw.rect(screen, self.colour, self.rect1)
-        pygame.draw.rect(screen, (0,0,0), self.rect2, 1)
+        self.button = pygame.draw.rect(screen, self.colour, (self.x, self.y, self.width, self.height))
+        self.button_border = pygame.draw.rect(screen, (0,0,0), (self.x, self.y, self.width, self.height), 1)
         # Render the text
-        text_surf = self.font.render(self.text, (button.centerx, button.centery), self.text_color)
+        text_surf = self.font.render(self.text, True, self.text_color)
         # Center the text on the button
-        text_rect = text_surf.get_rect(center=self.rect1.center)
+        text_rect = text_surf.get_rect(center=(self.x + self.width / 2, self.y + self.height / 2))
         # Blit the text onto the screen
         screen.blit(text_surf, text_rect)
 
     def handle_event(self, event):
         if event.type == pygame.MOUSEBUTTONDOWN:  # Mouse clicked
-            if self.rect1.collidepoint(event.pos):  # Check if click is within button rect
+            if self.button.collidepoint(event.pos):  # Check if click is within button rect
                 self.callback()  # Trigger the button's action/callback

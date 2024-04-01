@@ -1,6 +1,8 @@
+import json
 import pygame 
 import sys
 import os
+
 
 # Get the absolute path to the src directory
 src_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), '../'))
@@ -62,10 +64,6 @@ class WinGameScreen(ScreenBase):
         header_text = self.HEADING_FONT.render('WINNER', True, self.BLACK)
         self.screen.blit(header_text, (self.width/2-200, self.width/2-350))
 
-        # Draw the trophy images
-        #self.screen.blit(self.trophy_image, (-100, 200))
-        #self.screen.blit(self.trophy_image, (400, 200))
-
         # Draw the congratulations message
         congrats_text = self.SMALLER_FONT.render('Congratulations on beating the boss!', True, self.BLACK)
         self.screen.blit(congrats_text, (self.width/2-200, self.width/2-250))
@@ -100,6 +98,20 @@ class WinGameScreen(ScreenBase):
 
     def run(self):
         super().run()
+    
+    #fix this to get score of game
+    def getSavedGame(self):
+        # Correctly calculate the path to the playerBank.json file
+        base_dir = os.path.dirname(os.path.dirname(__file__))  # This navigates up to the 'src' directory from 'src/UIs'
+        json_path = os.path.join(base_dir, 'playerBank.json')  # Now, correctly points to 'src/playerBank.json'
+
+        with open(json_path, "r") as file:
+            data = json.load(file)
+            if self.player.playerId in data:
+                self.currentSave = data[self.player.playerId]["currentSavedGame"]
+                return True
+            else:
+                return False
 
 
 #initialize instance and run

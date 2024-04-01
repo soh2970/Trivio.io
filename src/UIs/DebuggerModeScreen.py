@@ -203,9 +203,9 @@ class DebuggerModeScreen(ScreenBase):
                 self.running = False
             elif event.type == pygame.MOUSEBUTTONDOWN:
                 # Handle button clicks
-                if self.back_button.rect1.collidepoint(event.pos):
+                if self.back_button.button.collidepoint(event.pos):
                     self.back_button.callback()
-                elif self.home_button.rect1.collidepoint(event.pos):
+                elif self.home_button.button.collidepoint(event.pos):
                     self.home_button.callback()
                 
                 # Scroll up

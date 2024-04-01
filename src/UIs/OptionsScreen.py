@@ -87,7 +87,7 @@ class OptionsScreen(ScreenBase):
         #display buttons
         self.screen.blit(self.light_button_text, self.light_button_textrect)
         self.screen.blit(self.dark_button_text, self.dark_button_textrect)
-'''
+        '''
         #display arrows
        # left_arrow_image_path= ''
         #left_arrow_image = pygame.image.load(left_arrow_image_path)

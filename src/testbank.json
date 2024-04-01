@@ -201,6 +201,106 @@
                         "425"
                     ],
                     "correctAnswer": "425"
+                },
+                {
+                    "question": "452 - 838 =",
+                    "options": [
+                        "-376",
+                        "-385",
+                        "-386",
+                        "-395"
+                    ],
+                    "correctAnswer": "-386"
+                },
+                {
+                    "question": "951 + 911 =",
+                    "options": [
+                        "1870",
+                        "1867",
+                        "1862",
+                        "1861"
+                    ],
+                    "correctAnswer": "1862"
+                },
+                {
+                    "question": "36 + 18 =",
+                    "options": [
+                        "54",
+                        "56",
+                        "48",
+                        "52"
+                    ],
+                    "correctAnswer": "54"
+                },
+                {
+                    "question": "78 - 13 =",
+                    "options": [
+                        "61",
+                        "55",
+                        "65",
+                        "59"
+                    ],
+                    "correctAnswer": "65"
+                },
+                {
+                    "question": "95 + 60 =",
+                    "options": [
+                        "155",
+                        "145",
+                        "165",
+                        "175"
+                    ],
+                    "correctAnswer": "155"
+                },
+                {
+                    "question": "45 - 40 =",
+                    "options": [
+                        "4",
+                        "3",
+                        "6",
+                        "5"
+                    ],
+                    "correctAnswer": "5"
+                },
+                {
+                    "question": "49 + 49 =",
+                    "options": [
+                        "92",
+                        "98",
+                        "97",
+                        "108"
+                    ],
+                    "correctAnswer": "98"
+                },
+                {
+                    "question": "85 + 66 =",
+                    "options": [
+                        "151",
+                        "161",
+                        "156",
+                        "153"
+                    ],
+                    "correctAnswer": "151"
+                },
+                {
+                    "question": "45 + 64 =",
+                    "options": [
+                        "99",
+                        "104",
+                        "106",
+                        "109"
+                    ],
+                    "correctAnswer": "109"
+                },
+                {
+                    "question": "58 + 133 =",
+                    "options": [
+                        "191",
+                        "201",
+                        "195",
+                        "189"
+                    ],
+                    "correctAnswer": "191"
                 }
             ],
             "level2": [
@@ -403,6 +503,106 @@
                         "7"
                     ],
                     "correctAnswer": "5"
+                },
+                {
+                    "question": "12 x 7 =",
+                    "options": [
+                        "85",
+                        "82",
+                        "84",
+                        "74"
+                    ],
+                    "correctAnswer": "84"
+                },
+                {
+                    "question": "18 / 3 =",
+                    "options": [
+                        "6",
+                        "9",
+                        "8",
+                        "7"
+                    ],
+                    "correctAnswer": "6"
+                },
+                {
+                    "question": "11 x 6 =",
+                    "options": [
+                        "63",
+                        "64",
+                        "65",
+                        "66"
+                    ],
+                    "correctAnswer": "66"
+                },
+                {
+                    "question": "12 x 12 =",
+                    "options": [
+                        "156",
+                        "144",
+                        "146",
+                        "154"
+                    ],
+                    "correctAnswer": "144"
+                },
+                {
+                    "question": "11 x 12 =",
+                    "options": [
+                        "132",
+                        "142",
+                        "122",
+                        "136"
+                    ],
+                    "correctAnswer": "132"
+                },
+                {
+                    "question": "11 x 11 =",
+                    "options": [
+                        "111",
+                        "101",
+                        "131",
+                        "121"
+                    ],
+                    "correctAnswer": "121"
+                },
+                {
+                    "question": "156 / 12 =",
+                    "options": [
+                        "13",
+                        "14",
+                        "12",
+                        "15"
+                    ],
+                    "correctAnswer": "13"
+                },
+                {
+                    "question": "108 / 9 =",
+                    "options": [
+                        "12",
+                        "14",
+                        "13",
+                        "11"
+                    ],
+                    "correctAnswer": "12"
+                },
+                {
+                    "question": "105 / 3 =",
+                    "options": [
+                        "15",
+                        "45",
+                        "35",
+                        "42"
+                    ],
+                    "correctAnswer": "35"
+                },
+                {
+                    "question": "119 / 7 =",
+                    "options": [
+                        "15",
+                        "16",
+                        "17",
+                        "18"
+                    ],
+                    "correctAnswer": "17"
                 }
             ],
             "level3": [
@@ -419,12 +619,12 @@
                 {
                     "question": "What is the area of a square with side length 5 units",
                     "options": [
-                        "15 square units",
-                        "20 square units",
-                        "25 square units",
-                        "30 square units"
+                        "15 units squared",
+                        "20 units squared",
+                        "25 units squared",
+                        "30 units squared"
                     ],
-                    "correctAnswer": "25 square units"
+                    "correctAnswer": "25 units squared"
                 },
                 {
                     "question": "What is the perimeter of a triangle with side lengths 7 units, 9 units, and 12 units?",
@@ -439,12 +639,12 @@
                 {
                     "question": "What is the area of a rectangle with length 10 units and width 4 units?",
                     "options": [
-                        "28 square units",
-                        "36 square units",
-                        "40 square units",
-                        "42 square units"
+                        "28 units squared",
+                        "36 units squared",
+                        "40 units squared",
+                        "42 units squared"
                     ],
-                    "correctAnswer": "40 square units"
+                    "correctAnswer": "40 units squared"
                 },
                 {
                     "question": "What is the perimeter of a square with side length 9 units?",
@@ -469,12 +669,12 @@
                 {
                     "question": "What is the area of a triangle with base 6 units and height 10 units?",
                     "options": [
-                        "30 square units",
-                        "36 square units",
-                        "40 square units",
-                        "45 square units"
+                        "30 units squared",
+                        "36 units squared",
+                        "40 units squared",
+                        "45 units squared"
                     ],
-                    "correctAnswer": "30 square units"
+                    "correctAnswer": "30 units squared"
                 },
                 {
                     "question": "What is the perimeter of a rhombus with side length 8 units?",
@@ -487,7 +687,7 @@
                     "correctAnswer": "32 units"
                 },
                 {
-                    "question": "What is the length of the radius of a circle with area 64\u03c0 square units?",
+                    "question": "What is the length of the radius of a circle with area 64\u03c0 units squared?",
                     "options": [
                         "4 units",
                         "6 units",
@@ -499,12 +699,12 @@
                 {
                     "question": "What is the area of a square with diagonal length 10 \u221a{2} units?",
                     "options": [
-                        "50 square units",
-                        "75 square units",
-                        "100 square units",
-                        "125 square units"
+                        "50 units squared",
+                        "75 units squared",
+                        "100 units squared",
+                        "125 units squared"
                     ],
-                    "correctAnswer": "100 square units"
+                    "correctAnswer": "100 units squared"
                 },
                 {
                     "question": "What is the perimeter of a triangle with side lengths 5 units, 12 units, and 13 units?",
@@ -529,12 +729,12 @@
                 {
                     "question": "What is the area of a rectangle with diagonal length 10 units and width 6 units?",
                     "options": [
-                        "30 square units",
-                        "60 square units",
-                        "45 square units",
-                        "48 square units"
+                        "30 units squared",
+                        "60 units squared",
+                        "45 units squared",
+                        "48 units squared"
                     ],
-                    "correctAnswer": "48 square units"
+                    "correctAnswer": "48 units squared"
                 },
                 {
                     "question": "What is the perimeter of a circle with radius 7 units?",
@@ -547,7 +747,7 @@
                     "correctAnswer": "14\u03c0 units"
                 },
                 {
-                    "question": "What is the length of the base of a parallelogram with area 48 square units and height 6 units?",
+                    "question": "What is the length of the base of a parallelogram with area 48 units squared and height 6 units?",
                     "options": [
                         "6 units",
                         "8 units",
@@ -559,12 +759,12 @@
                 {
                     "question": "What is the area of a trapezoid with bases 6 units and 10 units, and height 8 units?",
                     "options": [
-                        "64 square units",
-                        "72 square units",
-                        "80 square units",
-                        "88 square units"
+                        "64 units squared",
+                        "72 units squared",
+                        "80 units squared",
+                        "88 units squared"
                     ],
-                    "correctAnswer": "64 square units"
+                    "correctAnswer": "64 units squared"
                 },
                 {
                     "question": "What is the perimeter of a regular hexagon with side length 4 units?",
@@ -589,12 +789,12 @@
                 {
                     "question": "What is the area of a circle with circumference 10\u03c0 units?",
                     "options": [
-                        "5 square units",
-                        "10 square units",
-                        "25 square units",
-                        "50 square units"
+                        "5 units squared",
+                        "10 units squared",
+                        "25 units squared",
+                        "50 units squared"
                     ],
-                    "correctAnswer": "25 square units"
+                    "correctAnswer": "25 units squared"
                 },
                 {
                     "question": "What is the perimeter of a rectangle with diagonal length 17 units and length 8 units?",
@@ -605,6 +805,106 @@
                         "38 units"
                     ],
                     "correctAnswer": "34 units"
+                },
+                {
+                    "question": "What is the perimeter of a rectangle with a length of 12 cm and a width of 5 cm?",
+                    "options": [
+                        "32  cm",
+                        "34 cm",
+                        "36 cm",
+                        "30 cm"
+                    ],
+                    "correctAnswer": "34 cm"
+                },
+                {
+                    "question": "If a circle has a radius of 7 cm, what is its area?",
+                    "options": [
+                        "49\u03c0 cm",
+                        "56\u03c0 cm",
+                        "64\u03c0 cm",
+                        "42\u03c0 cm"
+                    ],
+                    "correctAnswer": "49\u03c0 cm"
+                },
+                {
+                    "question": "An equilateral triangle has a side length of 8 m. Calculate its perimeter.",
+                    "options": [
+                        "64 m",
+                        "16 m",
+                        "24 m",
+                        "34 m"
+                    ],
+                    "correctAnswer": "24 m"
+                },
+                {
+                    "question": "Find the area of a square with a side length of 9 cm.",
+                    "options": [
+                        "81 cm squared",
+                        "36 cm squared",
+                        "18 cm squared",
+                        "72 cm squared"
+                    ],
+                    "correctAnswer": "81 cm squared"
+                },
+                {
+                    "question": "What is the area of a circular ring with an outer radius of 10 cm and an inner radius of 7 cm?",
+                    "options": [
+                        "51\u03c0 cm",
+                        "49\u03c0 cm",
+                        "100\u03c0 cm",
+                        "64\u03c0 cm"
+                    ],
+                    "correctAnswer": "51\u03c0 cm"
+                },
+                {
+                    "question": "A rectangle has dimensions of 15 cm and 20 cm. Calculate its area.",
+                    "options": [
+                        "200 cm",
+                        "250 cm",
+                        "300 cm",
+                        "400 cm"
+                    ],
+                    "correctAnswer": "300 cm"
+                },
+                {
+                    "question": "If the diameter of a circle is 20 cm, what is its circumference?",
+                    "options": [
+                        "20\u03c0 cm",
+                        "10\u03c0 cm",
+                        "100\u03c0 cm",
+                        "40\u03c0 cm"
+                    ],
+                    "correctAnswer": "20\u03c0 cm"
+                },
+                {
+                    "question": "A parallelogram has a base of 11 cm and a height of 6 cm. What is its area?",
+                    "options": [
+                        "66 cm squared",
+                        "33 cm squared",
+                        "44 cm squared",
+                        "55 cm squared"
+                    ],
+                    "correctAnswer": "66 cm squared"
+                },
+                {
+                    "question": "Calculate the area of a right-angled triangle with a base of 5 cm and a height of 12 cm.",
+                    "options": [
+                        "60 cm squared",
+                        "45 cm squared",
+                        "30 cm squared",
+                        "40 cm squared"
+                    ],
+                    "correctAnswer": "30 cm squared"
+                },
+                {
+                    "question": "A regular hexagon has sides each of length 4 cm. Calculate its perimeter.",
+                    "options": [
+                        "32 cm",
+                        "24 cm",
+                        "28 cm",
+                        "30 cm"
+                    ],
+                    "correctAnswer": "24 cm"
                 }
             ]
         },
@@ -799,6 +1099,106 @@
                         "9"
                     ],
                     "correctAnswer": "7"
+                },
+                {
+                    "question": "Who was the second President of the United States?",
+                    "options": [
+                        "Thomas Jefferson",
+                        "Abraham Lincoln",
+                        "John Adams",
+                        "Benjamin Franklin"
+                    ],
+                    "correctAnswer": "John Adams"
+                },
+                {
+                    "question": "What is the capital of France?",
+                    "options": [
+                        "Berlin",
+                        "Paris",
+                        "London",
+                        "Madrid"
+                    ],
+                    "correctAnswer": "Paris"
+                },
+                {
+                    "question": "Which continent is Portugal in?",
+                    "options": [
+                        "North America",
+                        "South America",
+                        "Europe",
+                        "Asia"
+                    ],
+                    "correctAnswer": "Europe"
+                },
+                {
+                    "question": "In which continent is the Amazon Rainforest primarily located?",
+                    "options": [
+                        "Africa",
+                        "Asia",
+                        "South America",
+                        "North America"
+                    ],
+                    "correctAnswer": "South America"
+                },
+                {
+                    "question": "The Great Wall of China was built for the protection against which group?",
+                    "options": [
+                        "The Mongols",
+                        "The Japanese",
+                        "The British",
+                        "The Vikings"
+                    ],
+                    "correctAnswer": "The Mongols"
+                },
+                {
+                    "question": "Which of the following is a renewable resource?",
+                    "options": [
+                        "Coal",
+                        "Oil",
+                        "Natural gas",
+                        "Solar energy"
+                    ],
+                    "correctAnswer": "Solar energy"
+                },
+                {
+                    "question": "What historical period came after the Middle Ages in Europe?",
+                    "options": [
+                        "The Renaissance",
+                        "The Roman Empire",
+                        "The Industrial Revolution",
+                        "The Bronze age"
+                    ],
+                    "correctAnswer": "The Renaissance"
+                },
+                {
+                    "question": "Where was the Library of Alexandira?",
+                    "options": [
+                        "Greece",
+                        "Egypt",
+                        "France",
+                        "Italy"
+                    ],
+                    "correctAnswer": "Egypt"
+                },
+                {
+                    "question": "The Nile River flows into which body of water?",
+                    "options": [
+                        "The Indian Ocean",
+                        "The Mediterranean Sea",
+                        "The Red Sea",
+                        "The Atlantic Ocean"
+                    ],
+                    "correctAnswer": "The Mediterranean Sea"
+                },
+                {
+                    "question": "What is the largest planet in our solar system?",
+                    "options": [
+                        "Earth",
+                        "Mars",
+                        "Jupiter",
+                        "Uranus"
+                    ],
+                    "correctAnswer": "Jupiter"
                 }
             ],
             "level2": [
@@ -1011,6 +1411,106 @@
                         "1939"
                     ],
                     "correctAnswer": "1918"
+                },
+                {
+                    "question": "Who wrote the Declaration of Independence?",
+                    "options": [
+                        "George Washington",
+                        "Thomas Jefferson",
+                        "John Adams",
+                        "Benjamin Franklin"
+                    ],
+                    "correctAnswer": "Thomas Jefferson"
+                },
+                {
+                    "question": "Which empire was known as the Land of the Rising Sun?",
+                    "options": [
+                        "Ottoman Empire",
+                        "Roman Empire",
+                        "British Empire",
+                        "Japanese Empire"
+                    ],
+                    "correctAnswer": "Japanese Empire"
+                },
+                {
+                    "question": "The Battle of Gettysburg wwas a turning point in which war?",
+                    "options": [
+                        "World War 1",
+                        "World War 2",
+                        "The American Civil War",
+                        "The Revolutionary War"
+                    ],
+                    "correctAnswer": "The American Civil War"
+                },
+                {
+                    "question": "What is the study of maps called?",
+                    "options": [
+                        "Geology",
+                        "Cartography",
+                        "Topography",
+                        "Anthropology"
+                    ],
+                    "correctAnswer": "Cartography"
+                },
+                {
+                    "question": "Which of these cities was once known as Byzantium?",
+                    "options": [
+                        "Rome",
+                        "Istanbul",
+                        "Athens",
+                        "Cairo"
+                    ],
+                    "correctAnswer": "Istanbul"
+                },
+                {
+                    "question": "Who was the first woman to fly solo across the Atlantic Ocean?",
+                    "options": [
+                        "Marie Curie",
+                        "Florence Nightingale",
+                        "Amelia Earhart",
+                        "Harriet Tubman"
+                    ],
+                    "correctAnswer": "Amelia Earhart"
+                },
+                {
+                    "question": "Which African country was formerly known as Abyssinia?",
+                    "options": [
+                        "Nigeria",
+                        "Egypt",
+                        "Ethiopia",
+                        "South Africa"
+                    ],
+                    "correctAnswer": "Ethiopia"
+                },
+                {
+                    "question": "What was the primary cause of the Cold War?",
+                    "options": [
+                        "Territorial disputes",
+                        "Conflict between the USSR and the USA",
+                        "Assassination of a political leader",
+                        "Economic sanctions"
+                    ],
+                    "correctAnswer": "Conflict between the USSR and the USA"
+                },
+                {
+                    "question": "The Treaty of Versailles ended which conflict?",
+                    "options": [
+                        "World War 1",
+                        "World War 2",
+                        "The Franco-Prussian War",
+                        "The Napoleonic Wars"
+                    ],
+                    "correctAnswer": "World War 1"
+                },
+                {
+                    "question": "The concept of Manifest Destiny was associated with expansion of which country?",
+                    "options": [
+                        "Canada",
+                        "Mexico",
+                        "Russia",
+                        "United States"
+                    ],
+                    "correctAnswer": "United States"
                 }
             ],
             "level3": [
@@ -1213,6 +1713,106 @@
                         "Barcelona"
                     ],
                     "correctAnswer": "Lisbon"
+                },
+                {
+                    "question": "Which philosopher is associated with the social contract theory?",
+                    "options": [
+                        "Socrates",
+                        "John Locke",
+                        "Aristotle",
+                        "Plato"
+                    ],
+                    "correctAnswer": "John Locke"
+                },
+                {
+                    "question": "The term Iron Curtain was coined by which historical figure?",
+                    "options": [
+                        "Joseph Stalin",
+                        "Franklin D. Roosevelt",
+                        "Winston Churchill",
+                        "Harry S. Truman"
+                    ],
+                    "correctAnswer": "Winston Churchill"
+                },
+                {
+                    "question": "Which country was the first to grant women the right to vote?",
+                    "options": [
+                        "United States",
+                        "New Zealand",
+                        "United Kingdom",
+                        "France"
+                    ],
+                    "correctAnswer": "New Zealand"
+                },
+                {
+                    "question": "During which century did the Renaissance begin?",
+                    "options": [
+                        "14th century",
+                        "15th century",
+                        "16th century",
+                        "17th century"
+                    ],
+                    "correctAnswer": "14th century"
+                },
+                {
+                    "question": "Who was known as the Father of History?",
+                    "options": [
+                        "Aristotle",
+                        "Plato",
+                        "Herodotus",
+                        "Socrates"
+                    ],
+                    "correctAnswer": "Herodotus"
+                },
+                {
+                    "question": "The Silk Road connected China with which region?",
+                    "options": [
+                        "Sub Saharan Africa",
+                        "The Mediterranean",
+                        "South America",
+                        "North America"
+                    ],
+                    "correctAnswer": "The Mediterranean"
+                },
+                {
+                    "question": "Which revolution started in 1789?",
+                    "options": [
+                        "The American Revolution",
+                        "The Russian Revolution",
+                        "The French Revolution",
+                        "The Industrial Revolution"
+                    ],
+                    "correctAnswer": "The French Revolution"
+                },
+                {
+                    "question": "Which year did India gain independence from British rule?",
+                    "options": [
+                        "1945",
+                        "1947",
+                        "1950",
+                        "1963"
+                    ],
+                    "correctAnswer": "1947"
+                },
+                {
+                    "question": "What is the primary function of the United Nations?",
+                    "options": [
+                        "Provide global financial assistance",
+                        "Enforce international law",
+                        "Promote peace and security worldwide",
+                        "COnduct global trade agreements"
+                    ],
+                    "correctAnswer": "Promote peace and security worldwide"
+                },
+                {
+                    "question": " Mount Everest is located on the border between which two countries?",
+                    "options": [
+                        "India and China",
+                        "Nepal and Tibet (China)",
+                        "Bhutan and Nepal",
+                        "China and Pakistan"
+                    ],
+                    "correctAnswer": "Nepal and Tibet (China)"
                 }
             ]
         },
@@ -1417,6 +2017,106 @@
                         "Brain"
                     ],
                     "correctAnswer": "Liver"
+                },
+                {
+                    "question": "Which of the following is a non renewable resource?",
+                    "options": [
+                        "Wind",
+                        "Solar energy",
+                        "Coal",
+                        "Trees"
+                    ],
+                    "correctAnswer": "Coal"
+                },
+                {
+                    "question": "What gas do plants produce during photosynthesis?",
+                    "options": [
+                        "Oxygen",
+                        "Carbon Dioxide",
+                        "Nitrogen",
+                        "Hydrogen"
+                    ],
+                    "correctAnswer": "Oxygen"
+                },
+                {
+                    "question": "What is the center of an atom called?",
+                    "options": [
+                        "Electron",
+                        "Nucleus",
+                        "Protons",
+                        "Neutrons"
+                    ],
+                    "correctAnswer": "Nucleus"
+                },
+                {
+                    "question": "What part of a plant conducts photosynthesis?",
+                    "options": [
+                        "Root",
+                        "Stem",
+                        "Leaf",
+                        "Flower"
+                    ],
+                    "correctAnswer": "Leaf"
+                },
+                {
+                    "question": "Which of these animal is a mammal?",
+                    "options": [
+                        "Shark",
+                        "Dolphin",
+                        "Crocodile",
+                        "Octopus"
+                    ],
+                    "correctAnswer": "Dolphin"
+                },
+                {
+                    "question": " Which vitamin is known as ascorbic acid?",
+                    "options": [
+                        "Vitamin A",
+                        "Vitamin B",
+                        "Vitamin C",
+                        "Vitamin D"
+                    ],
+                    "correctAnswer": "Vitamin C"
+                },
+                {
+                    "question": "Which vitamin do you get from the sun?",
+                    "options": [
+                        "Vitamin A",
+                        "Vitamin B",
+                        "Vitamin C",
+                        "Vitamin D"
+                    ],
+                    "correctAnswer": "Vitamin D"
+                },
+                {
+                    "question": "Which planet is known as the Red Planet?",
+                    "options": [
+                        "Mercury",
+                        "Venus",
+                        "Earth",
+                        "Mars"
+                    ],
+                    "correctAnswer": "Mars"
+                },
+                {
+                    "question": "How many Newton's laws of motion are there?",
+                    "options": [
+                        "1",
+                        "2",
+                        "3",
+                        "4"
+                    ],
+                    "correctAnswer": "3"
+                },
+                {
+                    "question": "How many laws of thermodynamics are there?",
+                    "options": [
+                        "1",
+                        "2",
+                        "3",
+                        "4"
+                    ],
+                    "correctAnswer": "4"
                 }
             ],
             "level2": [
@@ -1620,6 +2320,106 @@
                         "5"
                     ],
                     "correctAnswer": "4"
+                },
+                {
+                    "question": " What is the most abundant gas in the Earth's atmosphere?",
+                    "options": [
+                        "Oxygen",
+                        "Hydrogen",
+                        "Carbon Dioxide",
+                        "Nitrogen"
+                    ],
+                    "correctAnswer": "Nitrogen"
+                },
+                {
+                    "question": "Which element has the chemical symbol 'O'?",
+                    "options": [
+                        "Gold",
+                        "Oxygen",
+                        "Osmium",
+                        "Olmium"
+                    ],
+                    "correctAnswer": "Oxygen"
+                },
+                {
+                    "question": "What type of blood cells fight for infection?",
+                    "options": [
+                        "Red Blood Cells",
+                        "White Blood Cells",
+                        "Platelets",
+                        "Plasma Cells"
+                    ],
+                    "correctAnswer": "White Blood Cells"
+                },
+                {
+                    "question": "Who proposed th theory of evolution by natural selection?",
+                    "options": [
+                        "Issac Newton",
+                        "Albert Einstein",
+                        "Charles Darwin",
+                        "Nikola Tesla"
+                    ],
+                    "correctAnswer": "Charles Darwin"
+                },
+                {
+                    "question": "What is the chemical formula for table salt?",
+                    "options": [
+                        "CO2",
+                        "NaH",
+                        "NaCl",
+                        "CH4"
+                    ],
+                    "correctAnswer": "NaCl"
+                },
+                {
+                    "question": "What phenomenon explains wwhy the sky is blue?",
+                    "options": [
+                        "Reflection",
+                        "Refraction",
+                        "Scattering",
+                        "Diffraction"
+                    ],
+                    "correctAnswer": "Scattering"
+                },
+                {
+                    "question": "What type of animal was the first to go into space?",
+                    "options": [
+                        "Monkey",
+                        "Dog",
+                        "Cat",
+                        "Mouse"
+                    ],
+                    "correctAnswer": "Dog"
+                },
+                {
+                    "question": "What ",
+                    "options": [
+                        " ",
+                        " ",
+                        " ",
+                        " "
+                    ],
+                    "correctAnswer": " "
+                },
+                {
+                    "question": " ",
+                    "options": [
+                        " ",
+                        " ",
+                        " ",
+                        " "
+                    ],
+                    "correctAnswer": " "
+                },
+                {
+                    "question": " ",
+                    "options": [
+                        " ",
+                        " ",
+                        " ",
+                        " "
+                    ],
+                    "correctAnswer": " "
                 }
             ],
             "level3": [
@@ -1823,6 +2623,106 @@
                         "Hydrogen"
                     ],
                     "correctAnswer": "Hydrogen"
+                },
+                {
+                    "question": "What is the main component of the sun?",
+                    "options": [
+                        "Oxygen",
+                        "Hydrogen",
+                        "Carbon",
+                        "Helium"
+                    ],
+                    "correctAnswer": "Hydrogen"
+                },
+                {
+                    "question": "What principle explains the buoyancy of objects in fluid?",
+                    "options": [
+                        "Pascal's Principle",
+                        "Archimedes' Principle",
+                        "Newton's First Law",
+                        "Bernoulli's Principle"
+                    ],
+                    "correctAnswer": "Archimedes' Principle"
+                },
+                {
+                    "question": " What is the term for the number of protons in an atom's nucleus?",
+                    "options": [
+                        "Atomic number",
+                        "Mass number",
+                        "Isotope number",
+                        "Neutron count"
+                    ],
+                    "correctAnswer": "Atomic number"
+                },
+                {
+                    "question": "In which layer of the Earth's atmosphere do most weather events occur?",
+                    "options": [
+                        "Troposphere",
+                        "Stratosphere",
+                        "Mesosphere",
+                        "Thermospher"
+                    ],
+                    "correctAnswer": "Troposphere"
+                },
+                {
+                    "question": "What is the universal solvent?",
+                    "options": [
+                        "Alcohol",
+                        "Water",
+                        "Acetone",
+                        "Hydrochloric Acid"
+                    ],
+                    "correctAnswer": "Water"
+                },
+                {
+                    "question": "Which element has the highest electrical conductivity?",
+                    "options": [
+                        "Copper",
+                        "Gold",
+                        "Silicon",
+                        "Silver"
+                    ],
+                    "correctAnswer": "Silver"
+                },
+                {
+                    "question": "What phenomenon causes mirages?",
+                    "options": [
+                        "Diffraction",
+                        "Refraction",
+                        "Dispersion",
+                        "Reflection"
+                    ],
+                    "correctAnswer": "Refraction"
+                },
+                {
+                    "question": "What type of bond involves the sharing of electrons?",
+                    "options": [
+                        "Ionic bond",
+                        "Covalent bond",
+                        "Hydrogen bond",
+                        "Van der Waals bond"
+                    ],
+                    "correctAnswer": "Covalent bond"
+                },
+                {
+                    "question": "Which of the following is not a type of RNA?",
+                    "options": [
+                        "mDNA",
+                        "mRNA",
+                        "tRNA",
+                        "rRNA"
+                    ],
+                    "correctAnswer": "mDNA"
+                },
+                {
+                    "question": " What genetic disorder is caused by the presence of an extra 21st chromosome?",
+                    "options": [
+                        "Turner Syndrome",
+                        "Klinefelter Syndrome",
+                        "Down Syndrome",
+                        "Patau Syndrome"
+                    ],
+                    "correctAnswer": "Down Syndrome"
                 }
             ]
         }

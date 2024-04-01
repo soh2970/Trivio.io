@@ -80,6 +80,6 @@ class IncorrectAnswerScreen(ScreenBase):
             # user resizing screen
             elif event.type == pygame.VIDEORESIZE:
                 self.resize_screen(event)
-                self.continueButton.rect = pygame.Rect(self.screen.get_width() / 2 - 50, self.screen.get_height() / 2 + 200, 130, 40)
+                self.continueButton.button = pygame.Rect(self.screen.get_width() / 2 - 50, self.screen.get_height() / 2 + 200, 130, 40)
             
             self.continueButton.handle_event(event)
