@@ -1,4 +1,18 @@
 still needs to be edited:
+mar 31
+- buttons need to be gamebuttons because they aren't showing up right on michaels screen
+    - debugger okay
+    - everything that nate didn't do
+    - instructor mode okay
+- adding 10 more questions to each category 
+- screen resizing
+- audio and options connecting
+- need to chnage notes in gamebutton class
+
+
+
+
+
 - 1_welcome screen - remove the x because where are you exiting
 - 3_newsaved game screen - still needs to add methods for selecting new or saved game
     - we need a saved game search ui screen

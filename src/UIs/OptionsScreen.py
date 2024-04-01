@@ -15,16 +15,22 @@ import sys
 src_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), '../'))
 sys.path.append(src_dir)
 
-audio_manager = AudioManager()
 
 class OptionsScreen(ScreenBase):
 
-    def __init__(self):
+    def __init__(self, prevScreen, audio_manager, category=None, player=None, boss=None, question=None, level=None, score=None):
         super().__init__(self.MIN_WIDTH, self.MIN_HEIGHT)
-
-        self.vol_slider = slider(self.screen.get_width()/5*2, self.screen.get_width()/5*4, self.screen.get_height()/12*7, self.screen.get_width()/5*3)
-        self.choice = None
+        self.prevScreen = prevScreen
+        self.goBack = False
+        self.audio_manager = audio_manager
+        self.vol_slider = slider(self.screen.get_width()/5*2, self.screen.get_width()/5*4, self.screen.get_height()/12*7, self.screen.get_width()/5*3, self.audio_manager)
         self.type = "options"
+        self.player = player
+        self.category = category
+        self.boss = boss
+        self.question = question
+        self.level = level
+        self.score = score
 
 
     def draw(self):
@@ -49,7 +55,7 @@ class OptionsScreen(ScreenBase):
         # slider button
         pygame.draw.circle(self.screen, self.BLACK, (self.vol_slider.pos, self.vol_slider.height), 10)
         
-        self.back_button = GameScreenButtons(self.width/25*1, self.height/25*1, 80,30, "Back", lambda: self.choiceMade('back'), self.GREY, self.BLACK)
+        self.back_button = GameScreenButtons(self.width/25*1, self.height/25*1, 80,30, "Back", lambda: self.choiceMade(), self.GREY, self.BLACK)
         self.back_button.draw(self.screen)
  
 
@@ -86,7 +92,7 @@ class OptionsScreen(ScreenBase):
         #display buttons
         self.screen.blit(self.light_button_text, self.light_button_textrect)
         self.screen.blit(self.dark_button_text, self.dark_button_textrect)
-'''
+        '''
         #display arrows
        # left_arrow_image_path= ''
         #left_arrow_image = pygame.image.load(left_arrow_image_path)
@@ -122,21 +128,22 @@ class OptionsScreen(ScreenBase):
 
             self.back_button.handle_event(event)
     
-    def choiceMade(self, event):
-        self.choice = event
+    def choiceMade(self):
+        self.goBack == True
         
     
     def run(self):
         super().run()
 
 class slider:
-    def __init__(self, low, high, h, initial_pos):
+    def __init__(self, low, high, h, initial_pos, audio_manager):
         self.x1 = low # left slider x-coord
         self.x2 = high # right sldier x-coord
         self.height = h # slider y value
         self.pos = initial_pos
         self.colour = (0,0,0)
         self.is_dragging = False  # Track whether the slider is being dragged
+        self.audio_manager = audio_manager
     
     def update_slider_pos(self, width, height):
         relative_slider_pos = (self.pos - self.x1) / (self.x2 - self.x1)
@@ -158,7 +165,7 @@ class slider:
 
     def adjust_volume(self):
         volume = (self.pos - self.x1) / (self.x2 - self.x1)
-        audio_manager.set_volume(volume)
+        self.audio_manager.set_volume(volume)
 
 '''
 class ArrowButton:

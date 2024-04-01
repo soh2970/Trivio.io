@@ -18,7 +18,7 @@ class InstructorDashboardScreen(ScreenBase):
     """
 
     def __init__(self):
-        super().__init__()
+        super().__init__(self.MIN_WIDTH, self.MIN_HEIGHT)
         self.userName = ''
         self.output = ''
         self.usernameValid = False
@@ -100,6 +100,12 @@ class InstructorDashboardScreen(ScreenBase):
             elif event.type == pygame.MOUSEBUTTONDOWN:
                 if self.width/2+120 <= mouse[0] <= self.width/2+165 and self.height/2-108 <= mouse[1] <= self.height/2+45:
                     self.check_username()
+
+
+
+                #pygame.draw.rect(self.screen,self.GREY,[self.width/2-350,self.height/2-290,90,20]) 
+                if self.width/2-350 <= mouse[0] <= self.width/2-200 and self.height/2-290 <= mouse[1] <= self.height/2-263:
+                    self.cancel()
                     
                 if self.width/2-405 <= mouse[0] <= self.width/2-385 and self.height/2-293 <= mouse[1] <= self.height/2-263:
                     self.cancel()
