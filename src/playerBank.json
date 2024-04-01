@@ -56,15 +56,113 @@
                 "levelAchieved": "3",
                 "subject": "science",
                 "score": "5000"
+            },
+            {
+                "timeStamp": "2024-04-01 14:48:35",
+                "levelAchieved": "3",
+                "subject": "science",
+                "score": "6000"
+            },
+            {
+                "timeStamp": "2024-04-01 15:03:14",
+                "levelAchieved": "1",
+                "subject": "social_sciences",
+                "score": "16"
+            },
+            {
+                "timeStamp": "2024-04-01 15:04:03",
+                "levelAchieved": "1",
+                "subject": "social_sciences",
+                "score": "16"
+            },
+            {
+                "timeStamp": "2024-04-01 15:30:24",
+                "levelAchieved": "2",
+                "subject": "social_sciences",
+                "score": "20"
+            },
+            {
+                "timeStamp": "2024-04-01 15:33:37",
+                "levelAchieved": "2",
+                "subject": "social_sciences",
+                "score": "20"
+            },
+            {
+                "timeStamp": "2024-04-01 15:34:13",
+                "levelAchieved": "2",
+                "subject": "social_sciences",
+                "score": "20"
+            },
+            {
+                "timeStamp": "2024-04-01 15:34:36",
+                "levelAchieved": "2",
+                "subject": "social_sciences",
+                "score": "20"
+            },
+            {
+                "timeStamp": "2024-04-01 15:35:22",
+                "levelAchieved": "2",
+                "subject": "social_sciences",
+                "score": "20"
+            },
+            {
+                "timeStamp": "2024-04-01 15:36:57",
+                "levelAchieved": "2",
+                "subject": "social_sciences",
+                "score": "20"
+            },
+            {
+                "timeStamp": "2024-04-01 15:37:11",
+                "levelAchieved": "2",
+                "subject": "social_sciences",
+                "score": "26"
+            },
+            {
+                "timeStamp": "2024-04-01 15:41:04",
+                "levelAchieved": "2",
+                "subject": "social_sciences",
+                "score": "20"
+            },
+            {
+                "timeStamp": "2024-04-01 15:42:03",
+                "levelAchieved": "2",
+                "subject": "social_sciences",
+                "score": "20"
+            },
+            {
+                "timeStamp": "2024-04-01 15:45:59",
+                "levelAchieved": "2",
+                "subject": "social_sciences",
+                "score": "20"
+            },
+            {
+                "timeStamp": "2024-04-01 15:47:20",
+                "levelAchieved": "2",
+                "subject": "social_sciences",
+                "score": "20"
+            },
+            {
+                "timeStamp": "2024-04-01 15:49:20",
+                "levelAchieved": "2",
+                "subject": "social_sciences",
+                "score": "20"
+            },
+            {
+                "timeStamp": "2024-04-01 15:49:45",
+                "levelAchieved": "2",
+                "subject": "social_sciences",
+                "score": "20"
             }
         ],
         "currentSavedGame": {
-            "timeStamp": "2024-04-01 00:00:37",
-            "levelAchieved": "3",
+            "timeStamp": "2024-04-01 15:54:38",
+            "levelAchieved": "2",
             "subject": "science",
-            "score": 90,
-            "playerHP": "70",
-            "bossHP": "10"
+            "score": 32,
+            "playerHP": "8",
+            "bossHP": "68",
+            "questions_correct": 7,
+            "questions_incorrect": 19
         },
         "highscore": 7000
     }

@@ -65,7 +65,7 @@ class GameScreen(ScreenBase):
             Ends the game, saving the final state and transitioning to an end game screen.
     """
 
-    def __init__(self, category, player, boss, question, level, score, audio_manager):
+    def __init__(self, category, player, boss, question, level, score, audio_manager, questions_correct, questions_incorrect):
         super().__init__(self.MIN_WIDTH, self.MIN_HEIGHT)
         
         self.startTime = pygame.time.get_ticks()
@@ -86,6 +86,8 @@ class GameScreen(ScreenBase):
         self.score = score
         self.audio_manager = audio_manager
         self.options = False
+        self.questions_correct = questions_correct
+        self.questions_incorrect = questions_incorrect
 
     # logic for when user selects and answer
     def choiceMade(self, choice):
@@ -230,7 +232,9 @@ class GameScreen(ScreenBase):
             "subject": self.type,
             "score": int(self.score),
             "playerHP": str(self.player.playerHP),
-            "bossHP": str(self.boss.bossHp)
+            "bossHP": str(self.boss.bossHp),
+            "questions_correct": self.questions_correct,
+            "questions_incorrect": self.questions_incorrect
         }
 
         # Correctly calculate the path to the playerBank.json file
@@ -256,13 +260,6 @@ class GameScreen(ScreenBase):
         if (self.player.playerHP > 0):
             finalScore = self.player.playerHP * self.score 
         else: finalScore = self.score       
-        
-        gameState = {
-            "timeStamp": datetime_string,
-            "levelAchieved": str(self.level),
-            "subject": self.type,
-            "score": str(finalScore)
-        }
 
 
         # Correctly calculate the path to the playerBank.json file
@@ -272,9 +269,6 @@ class GameScreen(ScreenBase):
         with open(json_path, "r+") as file:
             data = json.load(file)
             if self.player.playerId in data:
-                gameHistory = data[self.player.playerId]['gameHistory']
-                gameHistory.append(gameState)        
-                data[self.player.playerId]['gameHistory'] = gameHistory
 
                 if data[self.player.playerId]['highscore'] < finalScore:
                     data[self.player.playerId]['highscore'] = finalScore
