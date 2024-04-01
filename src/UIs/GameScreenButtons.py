@@ -2,27 +2,32 @@ import pygame
 
 class GameScreenButtons:
     """
-    Represents a button in a Pygame application, capable of displaying text and executing a callback when clicked.
-
-    This class is designed to create interactive buttons on a game screen. Each button can display custom text
-    and perform an action defined by a callback function when the user clicks the button. The appearance of the button
-    (color, text color, size) can be customized.
+    Provides an interactive button component for Pygame applications, designed to execute specific actions upon being clicked.
+    This class enables the creation of visually customizable buttons that can display text and respond to user input, facilitating
+    user interaction within the game. Each button can be individually configured to perform a distinct callback function, allowing
+    for a wide range of interactive capabilities across various game screens.
 
     Attributes:
-        rect1 (pygame.Rect): The rectangle defining the position and size of the button's text area.
-        rect2 (pygame.Rect): The rectangle defining the position and size of the button's border.
-        text_color (tuple): The color of the button's text.
-        colour (tuple): The background color of the button.
-        text (str): The text displayed on the button.
-        callback (function): The function to be called when the button is clicked.
-        font (pygame.font.Font): The font used for the button's text.
+        x (int): The x-coordinate of the button's top-left corner.
+        y (int): The y-coordinate of the button's top-left corner.
+        width (int): The width of the button.
+        height (int): The height of the button.
+        text_color (tuple): The RGB color value for the text displayed on the button.
+        colour (tuple): The RGB color value for the button's background.
+        text (str): The label text displayed on the button.
+        callback (function): A callback function that is executed when the button is clicked.
+        font (pygame.font.Font): The font used for rendering the button's text. The font size adjusts based on the length of the text.
 
     Methods:
         draw(self, screen):
-            Renders the button on the provided Pygame screen, including its text and border.
+            Renders the button onto the specified Pygame screen object. This includes drawing the button's background, border, and text label.
 
         handle_event(self, event):
-            Processes Pygame events, checking for mouse clicks on the button and triggering the callback if detected.
+            Responds to Pygame events, specifically checking for mouse clicks within the button's boundaries. If a click is detected,
+            the button's associated callback function is executed.
+
+    The GameScreenButtons class streamlines the process of adding interactive elements to a game's UI, supporting enhanced player engagement
+    through clear visual cues and responsive actions.
     """
     def __init__(self, x, y, width, height, text, callback, colour, text_color):
         '''

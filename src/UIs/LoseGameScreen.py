@@ -81,6 +81,8 @@ class LoseGameScreen(ScreenBase):
                     # check if the new size is below the minimum size
                     new_width = max(event.w, self.MIN_WIDTH)
                     new_height = max(event.h, self.MIN_HEIGHT)
+                    new_width = max(event.w, self.MIN_WIDTH)
+                    new_height = max(event.h, self.MIN_HEIGHT)
 
                     # resize window if below min
                     if new_width<event.w or new_height != event.h:

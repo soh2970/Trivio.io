@@ -14,7 +14,36 @@ from src.HighScorer import HighScore
 
 class InstructorDashboardScreen(ScreenBase):
     """
-    
+    A specialized screen within a Pygame application designed for instructors to view player
+    details and high scores. It prompts the instructor to enter a username, and upon submission,
+    displays the corresponding player's game information and high score if available.
+
+    Inherits from ScreenBase to utilize foundational screen management and rendering functionalities.
+
+    Attributes:
+        userName (str): Stores the username entered by the instructor for lookup.
+        output (str): The formatted string containing the player's game information and high score to be displayed.
+        usernameValid (bool): Indicates whether the entered username matches an existing player.
+        scores (HighScore): An instance of the HighScore class used to access player scores and information.
+        active (bool): Tracks if the input field is currently active for text entry.
+        type (str): Identifier for the type of screen, used in screen management, set to 'instructorDashboard'.
+        transitionToLogin (bool): Flag indicating a request to return to the login screen.
+
+    Methods:
+        draw(self):
+            Renders the screen's UI elements, including the username input field, informational text, and any retrieved player data.
+
+        check_username(self):
+            Validates the entered username against stored player data and updates the screen's output with the relevant information.
+
+        cancel(self):
+            Handles the operation to exit the instructor dashboard and return to the login screen.
+
+        handle_events(self):
+            Manages user inputs, including text entry, button clicks, and window resizing, facilitating interaction with the screen's functionalities.
+
+        run(self):
+            Executes the main event loop for the screen, continuously updating the display and responding to user actions.
     """
 
     def __init__(self, width, height):

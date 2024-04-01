@@ -67,46 +67,35 @@ class RadioButton(pygame.sprite.Sprite):
 
 class DebuggerDashboardPage(ScreenBase):
     """
-    A screen that presents a dashboard for selecting a category and level for the debugger mode
-    in a pygame application. This dashboard allows the user to choose among different categories
-    and levels for debugging purposes.
+    Represents a dashboard screen in a Pygame application that allows the user to select
+    debugging categories and levels. This screen facilitates the selection process by providing
+    interactive radio buttons for category and level choices, aiming to streamline the debugging
+    process in the application.
+
+    Inherits from ScreenBase, leveraging general screen setup and event handling capabilities, while
+    introducing specific elements such as radio buttons for selections and navigation buttons.
 
     Attributes:
-        clock (pygame.time.Clock): A clock for controlling the frame rate.
-        font (pygame.font.Font): The font used for rendering text.
-        big_font (pygame.font.Font): A larger font for headings.
-        bg_color (tuple): The background color of the screen.
-        text_color (tuple): The color of the text.
-        transitionToModeScreen (bool): Flag to indicate transition to the specific debugger mode screen.
-        type (str): A string identifier for the screen type, set to 'debuggerDashboard'.
-        transitionToLogin (bool): Flag to indicate transition back to the login screen.
-        category_mapping (dict): Maps category names to their respective codes.
-        header_text (pygame.Surface): Rendered surface for the header text.
-        subheader_text (pygame.Surface): Rendered surface for the subheader text.
-        home_button (GameScreenButtons): Button for returning to the home screen.
-        next_button (GameScreenButtons): Button for proceeding to the next selection.
-        category_buttons (list): List of RadioButton instances for category selection.
-        level_buttons (list): List of RadioButton instances for level selection.
-        category_label_pos (tuple): Position for the category label.
-        level_label_pos (tuple): Position for the level label.
-        selected_category (str or None): The currently selected category code.
-        selected_level (str or None): The currently selected level code.
+        clock (pygame.time.Clock): Controls the screen's update frequency.
+        font, big_font (pygame.font.Font): Fonts for text rendering, with `big_font` used for headings.
+        bg_color (tuple): Background color of the screen.
+        text_color (tuple): Color used for rendering text.
+        transitionToModeScreen (bool): Indicates whether to transition to the debugger mode screen based on user selection.
+        type (str): Identifies the screen type, used in screen management.
+        transitionToLogin (bool): Indicates whether to return to the login screen.
+        category_mapping (dict): Maps human-readable category names to their codes.
+        header_text, subheader_text (pygame.Surface): Surfaces for rendering header and subheader texts.
+        home_button, next_button (GameScreenButtons): Buttons for navigating to the home screen and proceeding to the next screen.
+        category_buttons, level_buttons (list of RadioButton): Radio buttons for selecting categories and levels.
+        category_label_pos, level_label_pos (tuple): Positions for rendering labels for categories and levels.
+        selected_category, selected_level (str or None): Stores the codes of the selected category and level.
 
     Methods:
-        on_home(self):
-            Sets the flag to indicate that the user wishes to return to the login screen.
-
-        on_next(self):
-            Sets the flag to proceed to the debugger mode screen based on selected category and level.
-
-        handle_events(self):
-            Handles user input and system events such as button clicks, window resizing, and application exit.
-
-        draw(self):
-            Renders the screen elements including the buttons, labels, and radio buttons.
-
-        run(self):
-            Contains the main loop for the DebuggerDashboardPage, handling events and rendering updates.
+        on_home(self): Triggers the transition back to the login screen.
+        on_next(self): Triggers the transition to the debugger mode screen based on selected options.
+        handle_events(self): Handles input and system events, updating screen state accordingly.
+        draw(self): Renders the screen elements, including buttons, labels, and radio buttons.
+        run(self): Encapsulates the main event loop for the screen, facilitating interaction and updates.
     """
 
     def __init__(self, width, height):

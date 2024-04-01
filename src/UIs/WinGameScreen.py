@@ -33,30 +33,37 @@ from src.UIs.screen import ScreenBase
 
 class WinGameScreen(ScreenBase):
     """
-	The screen that is shown when the player wins the game. It presents a congratulatory message two trophy images, and the final score of the player.
+    Represents the victory screen displayed when a player wins the game, featuring celebratory messages,
+    trophy imagery to symbolize the victory, and a display of the player's final score. This screen is part
+    of the game's flow, marking the completion of the game with a positive acknowledgment of the player's success.
 
-	Inherits from ScreenBase, utilizing its setup for a Pygame window/screen.
+    Inherits from ScreenBase, making use of its foundational setup for a Pygame window/screen, including handling
+    resizing and basic event management.
 
-	Attributes:
-		type (str): Identifier for the screen type, set to ‘winGameScreen’.
-		score (int): The player's final score, passed to the class upon initialization.
-		returnToMenu (bool): A boolean indicating whether the player has chosen to return to the main menu, initially set to False.
+    Attributes:
+        score (int): The player's final score, which is displayed on the screen.
+        type (str): Identifier for the screen type, set to 'winGameScreen'.
+        transitionToLeaderboard (bool): Flag indicating whether to transition to the leaderboard screen,
+            typically activated when the player clicks the "Next" button.
 
-	Methods:
-		__init__(self, score): 
-            Initializes the win game screen with the player's score and basic settings.
-		
+    Methods:
+        __init__(self, score): 
+            Constructor for initializing the win game screen with the player's final score.
+        
         draw(self): 
-            Renders the win screen, including two trophy images as visual feedback for winning, dynamic text displaying the player’s final score, and a congratulatory message. It also has a ’Next’ button, presumably to proceed to the next screen.
-		
+            Renders the victory screen, showing trophy images, congratulatory text, player's final score,
+            and a "Next" button for proceeding.
+        
         handle_events(self): 
-            Handles input events, such as window resizing, quitting the game, and detecting clicks on the "Next" button, updating returnToMenu to True upon a click.
-		
+            Processes input events such as clicking the "Next" button, resizing the window, and closing the game.
+            Transitions to the leaderboard screen upon clicking "Next".
+        
         run(self): 
-            Contains the main loop for handling events and rendering updates, inherited from ScreenBase.
-		
+            Executes the main loop for the win game screen, handling events and updating the display.
+        
         getSavedGame(self): 
-            Attempts to load saved game data, indicating it also handles aspects of game progression or player achievements.
+            Loads saved game data, potentially for displaying progress or achievements leading up to the win. This method
+            suggests the presence of saved game management, though its relevance to the win screen's primary function appears limited.
     """
 
     def __init__(self, score, width, height):

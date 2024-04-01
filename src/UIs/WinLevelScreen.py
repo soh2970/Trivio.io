@@ -19,8 +19,32 @@ sys.path.append(src_dir)
 
 class WinLevelScreen(ScreenBase):
     """
-    Class WinLevelScreen
-    inherits all methods from ScreenBase
+    A screen displayed to the player upon successfully completing a level in the game. It congratulates
+    the player on passing the level, and offers options to proceed to the next level, save the game, or
+    access other options.
+
+    Attributes:
+        nextLvl (bool): Indicates whether the player has chosen to proceed to the next level.
+        saveGame (bool): Indicates whether the player has chosen to save the current game state.
+        type (str): Identifier for the screen type, set to 'winLevelScreen'.
+        category (str): The category of questions the player was facing in the level.
+        levelMove (int): Indicates the level progression, potentially used for determining the next level's difficulty or theme.
+
+    Methods:
+        draw(self):
+            Renders the screen, displaying congratulatory messages, and drawing buttons for the player to choose their next action.
+        
+        continueGame(self):
+            Sets the nextLvl flag to True, indicating the player's choice to continue to the next level.
+        
+        save(self):
+            Sets the saveGame flag to True, indicating the player's choice to save their game state.
+        
+        handle_events(self):
+            Processes input events, such as button clicks for proceeding to the next level, saving the game, or accessing options.
+        
+        run(self):
+            Contains the main loop for the WinLevelScreen, handling events and updating the display.
     """
 
     def __init__(self):

@@ -13,50 +13,36 @@ sys.path.append(src_dir)
 
 class DebuggerModeScreen(ScreenBase):
     """
-    A screen within a Pygame application that displays questions and answers
-    for a selected category and level, specifically for debugging purposes.
+    Displays a detailed view of questions and their correct answers for a selected
+    category and level within a Pygame application, tailored for debugging purposes.
+    This functionality aids in reviewing and verifying the game's question bank, ensuring
+    accuracy and appropriateness of the content for different difficulty levels and categories.
 
-    This screen is part of a debugger tool allowing the user to review questions
-    and their correct answers from a specified category and level, facilitating
-    the debugging and verification of content within the game.
+    Inherits from ScreenBase, using its foundational screen setup and event management,
+    while introducing specialized components for navigating through the debugger's content.
 
     Attributes:
-        category (str): The selected category of questions to display.
-        level (str): The selected level of difficulty for the questions.
-        questions (list): A list of questions fetched based on the selected category and level.
-        width (int): The current width of the Pygame window.
-        height (int): The current height of the Pygame window.
-        type (str): Identifier for the type of screen, set to "debuggerModeScreen".
-        transitionToLogin (bool): Flag indicating whether a transition back to the login screen is requested.
-        transitionToDashboard (bool): Flag indicating whether a transition back to the debugger dashboard is requested.
-        content_start_y (int): The Y-coordinate starting point for rendering content on the screen.
-        scroll_offset (int): The current vertical scroll position for scrolling through questions.
-        start (int): Placeholder for scroll start index (not actively used in provided code).
-        end (int): Placeholder for scroll end index (not actively used in provided code).
-        scrollbar_rect (pygame.Rect): The rectangle defining the scrollbar's position and size.
-        is_dragging (bool): Indicates whether the scrollbar is currently being dragged (not actively used in provided code).
+        category (str): Category of the questions to be displayed, chosen from predefined options.
+        level (str): Difficulty level of the questions, typically indicated by a simple tier system.
+        questions (list): Loaded questions from the JSON data file, filtered by the selected category and level.
+        width, height (int): Dimensions of the Pygame window, used for layout calculations.
+        type (str): Identifier for the screen type, set to 'debuggerModeScreen'.
+        transitionToLogin (bool): Signals when the user wishes to return to the login screen.
+        transitionToDashboard (bool): Signals when the user wishes to return to the debugger dashboard.
+        content_start_y (int): Vertical starting point for rendering question content on the screen.
+        scroll_offset (int): Current vertical scroll position, facilitating content scrolling.
+        start, end (int): Indices for slicing the questions list to display, accommodating for scroll position.
+        scrollbar_rect (pygame.Rect): Defines the graphical boundaries and positioning of the scrollbar.
+        is_dragging (bool): Tracks whether the scrollbar is currently being dragged by the user.
 
     Methods:
-        load_questions(self):
-            Loads questions from a JSON file based on the selected category and level.
-
-        on_back(self):
-            Handles the action to go back to the previous screen (debugger dashboard).
-
-        on_home(self):
-            Handles the action to go back to the home screen (login screen).
-
-        draw(self):
-            Renders the screen, including questions, answers, and UI elements like buttons.
-
-        handle_events(self):
-            Processes input events, such as button clicks and scroll actions.
-
-        get_max_scroll(self):
-            Calculates the maximum scroll offset based on the content height.
-
-        run(self):
-            The main loop for the screen, handling events and updating the display.
+        load_questions(self): Loads the relevant questions from a JSON file based on the selected category and level.
+        on_back(self): Callback for handling the event when the user presses the 'Back' button.
+        on_home(self): Callback for handling the event when the user presses the 'Home' button.
+        draw(self): Renders the debugger screen, including the questions, answers, and navigation controls.
+        handle_events(self): Processes user input and system events, such as mouse clicks and window resizing.
+        get_max_scroll(self): Determines the maximum scroll position based on the content's total height.
+        run(self): Encapsulates the main event loop for the debugger screen, continuously handling events and rendering updates.
     """
     content_start_y = 150
     def __init__(self, width, height, category=None, level=None):
