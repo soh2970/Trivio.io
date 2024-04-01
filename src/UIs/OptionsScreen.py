@@ -18,8 +18,8 @@ sys.path.append(src_dir)
 
 class OptionsScreen(ScreenBase):
 
-    def __init__(self, audio_manager):
-        super().__init__(self.MIN_WIDTH, self.MIN_HEIGHT)
+    def __init__(self, audio_manager, width, height):
+        super().__init__(width, height)
 
         self.goBack = False
         self.audio_manager = audio_manager

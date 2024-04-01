@@ -59,8 +59,8 @@ class WinGameScreen(ScreenBase):
             Attempts to load saved game data, indicating it also handles aspects of game progression or player achievements.
     """
 
-    def __init__(self, score):
-        super().__init__(self.MIN_WIDTH, self.MIN_HEIGHT)  # Initialize with ScreenBase settings
+    def __init__(self, score, width, height):
+        super().__init__(width, height)  # Initialize with ScreenBase settings
         self.score = score
         self.type = 'winGameScreen'
         self.transitionToLeaderboard = False

@@ -12,8 +12,8 @@ images_dir = os.path.join(os.path.dirname(__file__), '..', '..', 'images')
 
 class GameTutorialScreenOne(ScreenBase):
 
-    def __init__(self):
-        super().__init__(self.MIN_WIDTH, self.MIN_HEIGHT)
+    def __init__(self, width, height):
+        super().__init__(width, height)
         self.type = 'tutorialOne'
         self.toNextPage = False
         self.toGameMode = False

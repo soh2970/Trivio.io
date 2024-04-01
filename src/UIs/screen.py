@@ -77,8 +77,8 @@ class ScreenBase:
     # FUNCTIONS
     # initialize the game screen and caption
     def __init__(self, width, height):
-        self.screen_width = width
-        self.screen_height = height
+        self.screen_width = int(width)
+        self.screen_height = int(height)
         self.screen = pygame.display.set_mode((self.screen_width, self.screen_height), pygame.RESIZABLE)
         pygame.display.set_caption('Trivio')
         self.running = True

@@ -59,8 +59,8 @@ class DebuggerModeScreen(ScreenBase):
             The main loop for the screen, handling events and updating the display.
     """
     content_start_y = 150
-    def __init__(self, category=None, level=None):
-        super().__init__(self.MIN_WIDTH, self.MIN_HEIGHT)
+    def __init__(self, width, height, category=None, level=None):
+        super().__init__(width, height)
         self.category = category
         self.level = level
         self.questions = []

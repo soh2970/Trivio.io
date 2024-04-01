@@ -10,8 +10,8 @@ sys.path.append(src_dir)
 from src.UIs.screen import ScreenBase
 
 class LoseGameScreen(ScreenBase):
-    def __init__(self, category, level, hp, questions_right, questions_wrong, score):
-        super().__init__(self.MIN_WIDTH, self.MIN_HEIGHT)  # Initialize with ScreenBase settings
+    def __init__(self, category, level, hp, questions_right, questions_wrong, score, width, height):
+        super().__init__(width, height)  # Initialize with ScreenBase settings
         self.type = 'loseGameScreen'
         self.category = category
         self.level = level
@@ -79,8 +79,8 @@ class LoseGameScreen(ScreenBase):
                 # user resizing screen
                 elif event.type == pygame.VIDEORESIZE:
                     # check if the new size is below the minimum size
-                    new_width = max(event.w, MIN_WIDTH)
-                    new_height = max(event.h, MIN_HEIGHT)
+                    new_width = max(event.w, self.MIN_WIDTH)
+                    new_height = max(event.h, self.MIN_HEIGHT)
 
                     # resize window if below min
                     if new_width<event.w or new_height != event.h:

@@ -39,8 +39,8 @@ class LoadGameScreen(ScreenBase):
         getSavedGame(self):
             Loads the saved game data for the current player from a file.
     """
-    def __init__(self, player):
-        super().__init__(self.MIN_WIDTH, self.MIN_HEIGHT)
+    def __init__(self, player, width, height):
+        super().__init__(width, height)
         self.type = "loadGameScreen"
         self.player = player
         self.currentSave = None

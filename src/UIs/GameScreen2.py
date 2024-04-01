@@ -65,8 +65,8 @@ class GameScreen(ScreenBase):
             Ends the game, saving the final state and transitioning to an end game screen.
     """
 
-    def __init__(self, category, player, boss, question, level, score, audio_manager, questions_correct, questions_incorrect):
-        super().__init__(self.MIN_WIDTH, self.MIN_HEIGHT)
+    def __init__(self, category, player, boss, question, level, score, audio_manager, questions_correct, questions_incorrect, width, height):
+        super().__init__(width, height)
         
         self.startTime = pygame.time.get_ticks()
         self.boss = boss
@@ -238,7 +238,7 @@ class GameScreen(ScreenBase):
     def openOptions(self):
         print("transitioning to options screen")
         self.options = True            
-        optionsDisplay = OptionsScreen(self.audio_manager)
+        optionsDisplay = OptionsScreen(self.audio_manager, self.width, self.height)
         while (self.options == True):
             optionsDisplay.draw()
             optionsDisplay.handle_events()

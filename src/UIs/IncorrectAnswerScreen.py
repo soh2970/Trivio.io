@@ -31,8 +31,8 @@ class IncorrectAnswerScreen(ScreenBase):
         handle_events(self):
             Handles events such as button clicks and window resizing.
     """
-    def __init__(self, level):
-        super().__init__(self.MIN_WIDTH, self.MIN_HEIGHT)
+    def __init__(self, level, width, height):
+        super().__init__(width, height)
         self.level = level
         # Correctly calculate the path to the image file
         base_dir = os.path.dirname(os.path.dirname(__file__))  # This should navigate up to the project root
