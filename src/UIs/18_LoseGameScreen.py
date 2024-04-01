@@ -59,7 +59,6 @@ class LoseGameScreen(ScreenBase):
         # Draw the rip images
         self.screen.blit(self.rip_image, (self.width/100*6, self.height/4))
         self.screen.blit(self.rip_image, (self.width/10*6, self.height/4))
-       
 
         # Draw the  message
         lost_text = self.SMALLER_FONT.render('You lost to boss!', True, self.BLACK)
@@ -76,7 +75,6 @@ class LoseGameScreen(ScreenBase):
         self.screen.blit(right_text, (self.width/2-110, self.width/2-110))
         wrong_text = self.SMALLER_FONT.render(f'Questions Wrong:{'6'}', True, self.BLACK)
         self.screen.blit(wrong_text, (self.width/2-110, self.width/2-80))
-
 
 
         # Draw the "Next" button
