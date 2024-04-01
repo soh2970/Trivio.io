@@ -330,6 +330,7 @@ def run_game():
                     current_screen = GameScreen('social_sciences', current_player, boss, level.getNextQuestion(), level.levelNum, score, audio_manager)
                     current_screen.endGame()
                     if (boss.bossHp <= 0):
+                        score = score * current_player.playerHP
                         current_screen = WinGameScreen(score)
                     
                 elif (boss.bossHp <= 50 and boss.bossHp > 0):
