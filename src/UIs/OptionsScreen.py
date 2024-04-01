@@ -18,19 +18,14 @@ sys.path.append(src_dir)
 
 class OptionsScreen(ScreenBase):
 
-    def __init__(self, prevScreen, audio_manager, category=None, player=None, boss=None, question=None, level=None, score=None):
+    def __init__(self, audio_manager):
         super().__init__(self.MIN_WIDTH, self.MIN_HEIGHT)
-        self.prevScreen = prevScreen
+
         self.goBack = False
         self.audio_manager = audio_manager
         self.vol_slider = slider(self.screen.get_width()/5*2, self.screen.get_width()/5*4, self.screen.get_height()/12*7, self.screen.get_width()/5*3, self.audio_manager)
         self.type = "options"
-        self.player = player
-        self.category = category
-        self.boss = boss
-        self.question = question
-        self.level = level
-        self.score = score
+
 
 
     def draw(self):
@@ -126,10 +121,12 @@ class OptionsScreen(ScreenBase):
                 super().resize_screen(event)
                 self.vol_slider.update_slider_pos(self.screen.get_width(),self.screen.get_height())
 
-            self.back_button.handle_event(event)
+            if event.type == pygame.MOUSEBUTTONDOWN:
+                self.back_button.handle_event(event)
     
     def choiceMade(self):
-        self.goBack == True
+        print("user wants to go back")
+        self.goBack = True
         
     
     def run(self):

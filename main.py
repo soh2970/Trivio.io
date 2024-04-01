@@ -39,11 +39,15 @@ from src.UIs.InstructorPasswordScreen import InstructorPasswordScreen
 from src.UIs.H_InstructorDashboardScreen import InstructorDashboardScreen
 from src.UIs.OptionsScreen import OptionsScreen
 from src.UIs.WinLevelScreen import WinLevelScreen
+from src.UIs.WinGameScreen import WinGameScreen
 
 
 audio_manager = AudioManager()
 
 def run_game():
+
+    audio_manager.__init__()
+    audio_manager.play_song()
 
     running = True
     screen = pygame.display.set_mode((844,600), pygame.RESIZABLE)
@@ -52,28 +56,17 @@ def run_game():
     current_player = None
     boss = Boss()
     score = 0
-    current_screen = WelcomeScreen()
-    level = Level(1, 'science')
 
-    audio_manager.__init__()
-    audio_manager.play_song()
+
+    current_screen = WelcomeScreen(audio_manager)
+    level = Level(1, 'science')
 
     while running:
         #initial welcome screen
         if (current_screen.type == 'welcomeScreen'):
             current_screen.draw()
             current_screen.handle_events()            
-            if (current_screen.options): current_screen = OptionsScreen('welcomeScreen', audio_manager)
             if (current_screen.transitionToNextScreen): current_screen = LoginScreen()
-
-
-
-        if current_screen.type == 'options':
-            current_screen.draw()
-            current_screen.handle_events()
-            if current_screen.goBack == True:
-                if (current_screen.prevScreen == 'welcomeScreen'):
-                    current_screen = WelcomeScreen()
 
 
         if current_screen.type == 'winLevel':
@@ -195,7 +188,7 @@ def run_game():
                 score = int(current_screen.currentSave['score'])
                 
                 #switch to game screen with saved game data
-                current_screen = GameScreen(category, current_player, boss, level.getNextQuestion(), level.levelNum, score)
+                current_screen = GameScreen(category, current_player, boss, level.getNextQuestion(), level.levelNum, score, audio_manager)
 
         #game mode selection logic
         if (current_screen.type == 'gameModeSelect'):
@@ -207,15 +200,15 @@ def run_game():
             elif (current_screen.choice == 'math'):
                 print("math was chosen")
                 level = Level(1, 'math')
-                current_screen = GameScreen('math', current_player, boss, level.getNextQuestion(), level.levelNum, score)
+                current_screen = GameScreen('math', current_player, boss, level.getNextQuestion(), level.levelNum, score, audio_manager)
             elif (current_screen.choice == 'social_sciences'):
                 print("social science was chosen")
                 level = Level(1, 'social_sciences')
-                current_screen = GameScreen('social_sciences', current_player, boss, level.getNextQuestion(), level.levelNum, score)
+                current_screen = GameScreen('social_sciences', current_player, boss, level.getNextQuestion(), level.levelNum, score, audio_manager)
             elif (current_screen.choice == 'science'):
                 print("science was chosen")
                 level = Level(1, 'science')
-                current_screen = GameScreen('science', current_player, boss, level.getNextQuestion(), level.levelNum, score)
+                current_screen = GameScreen('science', current_player, boss, level.getNextQuestion(), level.levelNum, score, audio_manager)
 
         # math gameplay
         if (current_screen.type == 'math'):
@@ -241,7 +234,7 @@ def run_game():
                     #lose game screen /// win game screen
                     #high score leaderboard screen
 
-                    current_screen = GameScreen('math', current_player, boss, level.getNextQuestion(), level.levelNum, score)
+                    current_screen = GameScreen('math', current_player, boss, level.getNextQuestion(), level.levelNum, score, audio_manager)
                     current_screen.endGame()
                     running = False
 
@@ -255,7 +248,7 @@ def run_game():
     
                     level = Level(2, 'math')
 
-                current_screen = GameScreen('math', current_player, boss, level.getNextQuestion(), level.levelNum, score)
+                current_screen = GameScreen('math', current_player, boss, level.getNextQuestion(), level.levelNum, score, audio_manager)
 
             elif current_screen.transitionToOptions:
                 current_screen = OptionsScreen()
@@ -289,19 +282,18 @@ def run_game():
 
 
                 if (boss.bossHp <= 0) or (current_player.playerHP <= 0):
-                    current_screen = GameScreen('science', current_player, boss, level.getNextQuestion(), level.levelNum, score)
+                    current_screen = GameScreen('science', current_player, boss, level.getNextQuestion(), level.levelNum, score, audio_manager)
                     current_screen.endGame()
                     running = False
 
 
                 elif (boss.bossHp <= 50 and boss.bossHp > 0):
                     level = Level(3, 'science')
-                    current_screen = GameScreen('science', current_player, boss, level.getNextQuestion(), level.levelNum, score)
+                    current_screen = GameScreen('science', current_player, boss, level.getNextQuestion(), level.levelNum, score, audio_manager)
 
                 elif (boss.bossHp <= 80 and boss.bossHp > 50):
                     level = Level(2, 'science')
-                    current_screen = GameScreen('science', current_player, boss, level.getNextQuestion(), level.levelNum, score)
-                    print("idk")
+                    current_screen = GameScreen('science', current_player, boss, level.getNextQuestion(), level.levelNum, score, audio_manager)
                 
     
 
@@ -324,21 +316,32 @@ def run_game():
                     current_screen.handle_events()
                     pygame.display.flip()
                 if (boss.bossHp <= 0) or (current_player.playerHP <= 0):
-                    current_screen = GameScreen('social_sciences', current_player, boss, level.getNextQuestion(), level.levelNum, score)
+                    current_screen = GameScreen('social_sciences', current_player, boss, level.getNextQuestion(), level.levelNum, score, audio_manager)
                     current_screen.endGame()
-                    running = False
+                    if (boss.bossHp <= 0):
+                        current_screen = WinGameScreen(score)
                     
                 elif (boss.bossHp <= 50 and boss.bossHp > 0):
                     if level.levelNum != 3:
                         level.moveToNextLevel(3)
+                        current_screen = GameScreen('social_sciences', current_player, boss, level.getNextQuestion(), level.levelNum, score, audio_manager)
 
                 elif (boss.bossHp <= 80 and boss.bossHp > 50):
                     if level.levelNum != 2:
                         level.moveToNextLevel(2)
-    
+                        print('moving to next level')
+                        current_screen = GameScreen('social_sciences', current_player, boss, level.getNextQuestion(), level.levelNum, score, audio_manager)
 
-                current_screen = GameScreen('social_sciences', current_player, boss, level.getNextQuestion(), level.levelNum, score)
-                
+                if (current_screen.type != 'winGameScreen'):
+                    current_screen = GameScreen('social_sciences', current_player, boss, level.getNextQuestion(), level.levelNum, score, audio_manager)
+
+
+        if (current_screen.type == 'winGameScreen'):
+            current_screen.draw()
+            current_screen.handle_events()
+            if (current_screen.returnToMenu == True):
+                current_screen = NewSavedGameScreen(current_player)
+
         pygame.display.flip()
         
 if __name__ == "__main__":

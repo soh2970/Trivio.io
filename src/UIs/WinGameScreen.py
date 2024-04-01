@@ -27,12 +27,14 @@ pygame.display.set_caption('Trivio')
 # update game screen
 pygame.display.update()
 
-from screen import ScreenBase
+from src.UIs.screen import ScreenBase
 
 class WinGameScreen(ScreenBase):
-    def __init__(self):
-        super().__init__()  # Initialize with ScreenBase settings
-
+    def __init__(self, score):
+        super().__init__(self.MIN_WIDTH, self.MIN_HEIGHT)  # Initialize with ScreenBase settings
+        self.score = score
+        self.type = 'winGameScreen'
+        self.returnToMenu = False
 
     def draw(self):
         super().draw()
@@ -71,7 +73,7 @@ class WinGameScreen(ScreenBase):
         self.screen.blit(stats_text, (self.width/2-110, self.width/2-200))
 
         # Draw the score change to self.score
-        score_text = self.SMALLER_FONT.render(f'Final Score: {'90'}', True, self.BLACK)
+        score_text = self.SMALLER_FONT.render(f'Final Score: {self.score}', True, self.BLACK)
         self.screen.blit(score_text, (self.width/2-90, self.width/2-150))
 
         # Draw the "Next" button
@@ -94,7 +96,7 @@ class WinGameScreen(ScreenBase):
                 if event.type == pygame.MOUSEBUTTONDOWN:
                     # Check if the "Next" button was clicked
                     if self.next_button.collidepoint(event.pos):
-                        sys.exit()
+                        self.returnToMenu = True
 
     def run(self):
         super().run()
