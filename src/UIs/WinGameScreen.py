@@ -63,7 +63,7 @@ class WinGameScreen(ScreenBase):
         super().__init__(self.MIN_WIDTH, self.MIN_HEIGHT)  # Initialize with ScreenBase settings
         self.score = score
         self.type = 'winGameScreen'
-        self.returnToMenu = False
+        self.transitionToLeaderboard = False
 
     def draw(self):
         super().draw()
@@ -121,7 +121,7 @@ class WinGameScreen(ScreenBase):
                 if event.type == pygame.MOUSEBUTTONDOWN:
                     # Check if the "Next" button was clicked
                     if self.next_button.collidepoint(event.pos):
-                        self.returnToMenu = True
+                        self.transitionToLeaderboard = True
 
     def run(self):
         super().run()

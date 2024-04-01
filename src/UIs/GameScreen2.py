@@ -89,6 +89,13 @@ class GameScreen(ScreenBase):
         self.questions_correct = questions_correct
         self.questions_incorrect = questions_incorrect
 
+        self.showSaveFeedback = False
+        self.saveFeedbackTimer = 0
+
+    def displaySaveFeedback(self):
+        self.showSaveFeedback = True
+        self.saveFeedbackTimer = pygame.time.get_ticks()
+
     # logic for when user selects and answer
     def choiceMade(self, choice):
         if (choice == self.correctAnswer):
@@ -114,6 +121,14 @@ class GameScreen(ScreenBase):
 
         self.width = self.screen.get_width()
         self.height = self.screen.get_height()
+
+        if self.showSaveFeedback:
+            current_time = pygame.time.get_ticks()
+            if current_time - self.saveFeedbackTimer < 2000:  # Display the message for 2 seconds
+                self.draw_text("Game Saved!", self.promptFont, (0, 255, 0), self.screen, 20,20)
+            else:
+                self.showSaveFeedback = False
+
 
         self.buttons = [
             GameScreenButtons(self.screen.get_width()/16*3, self.screen.get_height()/15*9, 250, 100, self.question.choices[0], lambda: self.choiceMade(self.question.choices[0]), self.WHITE, self.BLACK),
@@ -249,6 +264,7 @@ class GameScreen(ScreenBase):
                 json.dump(data, file, indent=4)
                 file.truncate()
                 print("Game saved")
+                self.displaySaveFeedback()
             else:
                 raise Exception("Player not found in database")
 

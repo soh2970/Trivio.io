@@ -20,6 +20,7 @@ class LoseGameScreen(ScreenBase):
         self.questions_wrong = questions_wrong
         self.score = score
         self.returnToMenu = False
+        self.transitionToLeaderboard = False
         
     def draw(self):
         super().draw()
