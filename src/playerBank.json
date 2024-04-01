@@ -159,15 +159,21 @@
                 "levelAchieved": "3",
                 "subject": "social_sciences",
                 "score": "100"
+            },
+            {
+                "timeStamp": "2024-03-31 22:57:31",
+                "levelAchieved": "3",
+                "subject": "social_sciences",
+                "score": "100"
             }
         ],
         "currentSavedGame": {
-            "timeStamp": "2024-03-31 22:29:19",
-            "levelAchieved": "3",
+            "timeStamp": "2024-03-31 22:54:01",
+            "levelAchieved": "1",
             "subject": "social_sciences",
-            "score": 90,
-            "playerHP": "48",
-            "bossHP": "10"
+            "score": 4,
+            "playerHP": "96",
+            "bossHP": "96"
         }
     }
 }
