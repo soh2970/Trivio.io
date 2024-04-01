@@ -41,10 +41,6 @@ class WelcomeScreen(ScreenBase):
     def __init__(self, audio_manager):
         super().__init__(self.MIN_WIDTH, self.MIN_HEIGHT)
         self.type = 'welcomeScreen'
-        self.buttons = [
-            GameScreenButtons(self.screen.get_width()/5*2,self.screen.get_height()/3*2,200,40, "start", lambda: self.choiceMade(), self.WHITE, self.BLACK)
-        ]
-        self.optionsButton = GameScreenButtons(self.screen.get_width()/5*2, self.screen.get_height()/15*13,200,40, "options", lambda: self.optionsChoice(), self.WHITE, self.BLACK)
         self.transitionToNextScreen = False
         self.options = False
         self.audio_manager = audio_manager
@@ -69,6 +65,12 @@ class WelcomeScreen(ScreenBase):
         # get the current width and height of the screen
         self.width = self.screen.get_width()
         self.height = self.screen.get_height()
+
+        self.buttons = [
+            GameScreenButtons(self.width/5*2,self.height/3*2,200,40, "start", lambda: self.choiceMade(), self.WHITE, self.BLACK)
+        ]
+        self.optionsButton = GameScreenButtons(self.width/5*4, self.height/15*2, 150, 40, "Options", lambda: self.openOptions(), self.WHITE, self.BLACK)
+        
 
         self.text = self.PARAGRAPH_FONT.render('START' , True , self.BLACK) 
         self.welcome = self.MEDIUM_FONT.render('WELCOME TO' , True , self.BLACK) 
@@ -132,8 +134,3 @@ class WelcomeScreen(ScreenBase):
 
     def run(self):
         super().run()
-
-#initialize instance and run
-if __name__ == '__main__':
-    game_screen1 = WelcomeScreen()
-    game_screen1.run()
