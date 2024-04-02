@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Python: module src.UIs.LoadGameScreen</title>
+</head><body>
+
+<table class="heading">
+<tr class="heading-text decor">
+<td class="title">&nbsp;<br><strong class="title"><a href="src.html" class="white">src</a>.<a href="src.UIs.html" class="white">UIs</a>.LoadGameScreen</strong></td>
+<td class="extra"><a href=".">index</a><br><a href="file:/Users/nathanyu/repos/group46/src/UIs/LoadGameScreen.py">/Users/nathanyu/repos/group46/src/UIs/LoadGameScreen.py</a></td></tr></table>
+    <p></p>
+<p>
+<table class="section">
+<tr class="decor pkg-content-decor heading-text">
+<td class="section-title" colspan=3>&nbsp;<br><strong class="bigsection">Modules</strong></td></tr>
+    
+<tr><td class="decor pkg-content-decor"><span class="code">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></td><td>&nbsp;</td>
+<td class="singlecolumn"><table><tr><td class="multicolumn"><a href="json.html">json</a><br>
+</td><td class="multicolumn"><a href="os.html">os</a><br>
+</td><td class="multicolumn"><a href="pygame.html">pygame</a><br>
+</td><td class="multicolumn"><a href="sys.html">sys</a><br>
+</td></tr></table></td></tr></table><p>
+<table class="section">
+<tr class="decor index-decor heading-text">
+<td class="section-title" colspan=3>&nbsp;<br><strong class="bigsection">Classes</strong></td></tr>
+    
+<tr><td class="decor index-decor"><span class="code">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></td><td>&nbsp;</td>
+<td class="singlecolumn"><dl>
+<dt class="heading-text"><a href="src.UIs.screen.html#ScreenBase">src.UIs.screen.ScreenBase</a>(<a href="builtins.html#object">builtins.object</a>)
+</dt><dd>
+<dl>
+<dt class="heading-text"><a href="src.UIs.LoadGameScreen.html#LoadGameScreen">LoadGameScreen</a>
+</dt></dl>
+</dd>
+</dl>
+ <p>
+<table class="section">
+<tr class="decor title-decor heading-text">
+<td class="section-title" colspan=3>&nbsp;<br><a name="LoadGameScreen">class <strong>LoadGameScreen</strong></a>(<a href="src.UIs.screen.html#ScreenBase">src.UIs.screen.ScreenBase</a>)</td></tr>
+    
+<tr><td class="decor title-decor" rowspan=2><span class="code">&nbsp;&nbsp;&nbsp;</span></td>
+<td class="decor title-decor" colspan=2><span class="code"><a href="#LoadGameScreen">LoadGameScreen</a>(player,&nbsp;width,&nbsp;height)<br>
+&nbsp;<br>
+Facilitates&nbsp;loading&nbsp;of&nbsp;a&nbsp;previously&nbsp;saved&nbsp;game&nbsp;state&nbsp;for&nbsp;a&nbsp;player&nbsp;in&nbsp;a&nbsp;Pygame&nbsp;application,&nbsp;presenting&nbsp;the&nbsp;player<br>
+with&nbsp;their&nbsp;saved&nbsp;progress&nbsp;including&nbsp;level,&nbsp;score,&nbsp;and&nbsp;health&nbsp;status.&nbsp;This&nbsp;screen&nbsp;is&nbsp;integral&nbsp;for&nbsp;games&nbsp;that&nbsp;offer<br>
+long-term&nbsp;progression,&nbsp;allowing&nbsp;players&nbsp;to&nbsp;return&nbsp;to&nbsp;their&nbsp;last&nbsp;checkpoint&nbsp;rather&nbsp;than&nbsp;starting&nbsp;anew&nbsp;each&nbsp;session.<br>
+&nbsp;<br>
+Inherits&nbsp;from&nbsp;<a href="src.UIs.screen.html#ScreenBase">ScreenBase</a>&nbsp;to&nbsp;utilize&nbsp;core&nbsp;screen&nbsp;management&nbsp;and&nbsp;rendering&nbsp;capabilities,&nbsp;integrating&nbsp;seamlessly&nbsp;with<br>
+the&nbsp;application's&nbsp;overall&nbsp;UI/UX&nbsp;design.<br>
+&nbsp;<br>
+Attributes:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;type&nbsp;(str):&nbsp;Identifier&nbsp;for&nbsp;the&nbsp;screen,&nbsp;facilitating&nbsp;screen&nbsp;management&nbsp;within&nbsp;the&nbsp;application.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;player&nbsp;(Player):&nbsp;The&nbsp;current&nbsp;player&nbsp;instance,&nbsp;whose&nbsp;game&nbsp;state&nbsp;is&nbsp;to&nbsp;be&nbsp;loaded.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;currentSave&nbsp;(dict&nbsp;or&nbsp;None):&nbsp;Loaded&nbsp;save&nbsp;data,&nbsp;including&nbsp;game&nbsp;progress&nbsp;and&nbsp;player&nbsp;stats.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;continueButton&nbsp;(GameScreenButtons):&nbsp;A&nbsp;button&nbsp;enabling&nbsp;the&nbsp;player&nbsp;to&nbsp;proceed&nbsp;with&nbsp;the&nbsp;loaded&nbsp;game&nbsp;state.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;backButton&nbsp;(GameScreenButtons):&nbsp;A&nbsp;button&nbsp;for&nbsp;returning&nbsp;to&nbsp;the&nbsp;previous&nbsp;screen,&nbsp;typically&nbsp;the&nbsp;main&nbsp;menu.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;back&nbsp;(bool):&nbsp;Indicates&nbsp;the&nbsp;player's&nbsp;decision&nbsp;to&nbsp;return&nbsp;to&nbsp;the&nbsp;previous&nbsp;screen.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;userContinue&nbsp;(bool):&nbsp;Indicates&nbsp;the&nbsp;player's&nbsp;decision&nbsp;to&nbsp;proceed&nbsp;with&nbsp;the&nbsp;loaded&nbsp;game.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;questions_correct&nbsp;(int):&nbsp;Number&nbsp;of&nbsp;questions&nbsp;the&nbsp;player&nbsp;answered&nbsp;correctly&nbsp;in&nbsp;the&nbsp;saved&nbsp;game.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;questions_incorrect&nbsp;(int):&nbsp;Number&nbsp;of&nbsp;questions&nbsp;the&nbsp;player&nbsp;answered&nbsp;incorrectly&nbsp;in&nbsp;the&nbsp;saved&nbsp;game.<br>
+&nbsp;<br>
+Methods:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="#LoadGameScreen-handleContinue">handleContinue</a>(self):<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Marks&nbsp;the&nbsp;player's&nbsp;choice&nbsp;to&nbsp;continue&nbsp;with&nbsp;the&nbsp;saved&nbsp;game,&nbsp;setting&nbsp;`userContinue`&nbsp;to&nbsp;true.<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="#LoadGameScreen-handleBack">handleBack</a>(self):<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Marks&nbsp;the&nbsp;player's&nbsp;choice&nbsp;to&nbsp;return&nbsp;to&nbsp;the&nbsp;previous&nbsp;screen,&nbsp;setting&nbsp;`back`&nbsp;to&nbsp;true.<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="#LoadGameScreen-draw">draw</a>(self):<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Renders&nbsp;the&nbsp;screen&nbsp;with&nbsp;the&nbsp;saved&nbsp;game&nbsp;details&nbsp;and&nbsp;interactive&nbsp;buttons&nbsp;for&nbsp;game&nbsp;continuation&nbsp;or&nbsp;return.<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="#LoadGameScreen-handle_events">handle_events</a>(self):<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Handles&nbsp;user&nbsp;inputs,&nbsp;detecting&nbsp;interactions&nbsp;with&nbsp;the&nbsp;`continueButton`&nbsp;and&nbsp;`backButton`.<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="#LoadGameScreen-getSavedGame">getSavedGame</a>(self):<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Retrieves&nbsp;and&nbsp;loads&nbsp;the&nbsp;player's&nbsp;saved&nbsp;game&nbsp;data&nbsp;from&nbsp;a&nbsp;file,&nbsp;updating&nbsp;`currentSave`&nbsp;with&nbsp;the&nbsp;fetched&nbsp;data.<br>
+&nbsp;<br>
+This&nbsp;class&nbsp;plays&nbsp;a&nbsp;crucial&nbsp;role&nbsp;in&nbsp;enhancing&nbsp;player&nbsp;engagement&nbsp;and&nbsp;retention&nbsp;by&nbsp;enabling&nbsp;seamless&nbsp;continuation&nbsp;of&nbsp;gameplay<br>
+across&nbsp;multiple&nbsp;sessions,&nbsp;contributing&nbsp;to&nbsp;a&nbsp;user-friendly&nbsp;and&nbsp;satisfying&nbsp;game&nbsp;experience.<br>&nbsp;</span></td></tr>
+<tr><td>&nbsp;</td>
+<td class="singlecolumn"><dl><dt>Method resolution order:</dt>
+<dd><a href="src.UIs.LoadGameScreen.html#LoadGameScreen">LoadGameScreen</a></dd>
+<dd><a href="src.UIs.screen.html#ScreenBase">src.UIs.screen.ScreenBase</a></dd>
+<dd><a href="builtins.html#object">builtins.object</a></dd>
+</dl>
+<hr>
+Methods defined here:<br>
+<dl><dt><a name="LoadGameScreen-__init__"><strong>__init__</strong></a>(self, player, width, height)</dt><dd><span class="code">Initialize&nbsp;self.&nbsp;&nbsp;See&nbsp;help(type(self))&nbsp;for&nbsp;accurate&nbsp;signature.</span></dd></dl>
+
+<dl><dt><a name="LoadGameScreen-draw"><strong>draw</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="LoadGameScreen-getSavedGame"><strong>getSavedGame</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="LoadGameScreen-handleBack"><strong>handleBack</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="LoadGameScreen-handleContinue"><strong>handleContinue</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="LoadGameScreen-handle_events"><strong>handle_events</strong></a>(self)</dt></dl>
+
+<hr>
+Methods inherited from <a href="src.UIs.screen.html#ScreenBase">src.UIs.screen.ScreenBase</a>:<br>
+<dl><dt><a name="LoadGameScreen-resize_screen"><strong>resize_screen</strong></a>(self, event)</dt><dd><span class="code">#&nbsp;function&nbsp;to&nbsp;resize&nbsp;the&nbsp;screen</span></dd></dl>
+
+<dl><dt><a name="LoadGameScreen-run"><strong>run</strong></a>(self)</dt><dd><span class="code">#we&nbsp;need&nbsp;this</span></dd></dl>
+
+<dl><dt><a name="LoadGameScreen-update"><strong>update</strong></a>(self)</dt><dd><span class="code">#updating&nbsp;game&nbsp;state</span></dd></dl>
+
+<hr>
+Data descriptors inherited from <a href="src.UIs.screen.html#ScreenBase">src.UIs.screen.ScreenBase</a>:<br>
+<dl><dt><strong>__dict__</strong></dt>
+<dd><span class="code">dictionary&nbsp;for&nbsp;instance&nbsp;variables&nbsp;(if&nbsp;defined)</span></dd>
+</dl>
+<dl><dt><strong>__weakref__</strong></dt>
+<dd><span class="code">list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object&nbsp;(if&nbsp;defined)</span></dd>
+</dl>
+<hr>
+Data and other attributes inherited from <a href="src.UIs.screen.html#ScreenBase">src.UIs.screen.ScreenBase</a>:<br>
+<dl><dt><strong>BASE_FONT</strong> = &lt;pygame.font.Font object&gt;</dl>
+
+<dl><dt><strong>BLACK</strong> = (0, 0, 0)</dl>
+
+<dl><dt><strong>BLUE</strong> = (159, 197, 248)</dl>
+
+<dl><dt><strong>BUTTON_FONT</strong> = &lt;pygame.font.Font object&gt;</dl>
+
+<dl><dt><strong>DARKGREY</strong> = (45, 45, 45)</dl>
+
+<dl><dt><strong>GREEN</strong> = (204, 245, 205)</dl>
+
+<dl><dt><strong>GREY</strong> = (220, 220, 220)</dl>
+
+<dl><dt><strong>HEADING_FONT</strong> = &lt;pygame.font.Font object&gt;</dl>
+
+<dl><dt><strong>HP_FONT</strong> = &lt;pygame.font.Font object&gt;</dl>
+
+<dl><dt><strong>LEVEL_FONT</strong> = &lt;pygame.font.Font object&gt;</dl>
+
+<dl><dt><strong>MEDIUM_FONT</strong> = &lt;pygame.font.Font object&gt;</dl>
+
+<dl><dt><strong>MID_FONT</strong> = &lt;pygame.font.Font object&gt;</dl>
+
+<dl><dt><strong>MIN_HEIGHT</strong> = 600</dl>
+
+<dl><dt><strong>MIN_WIDTH</strong> = 844</dl>
+
+<dl><dt><strong>MODE_FONT</strong> = &lt;pygame.font.Font object&gt;</dl>
+
+<dl><dt><strong>MODE_SELECT_FONT</strong> = &lt;pygame.font.Font object&gt;</dl>
+
+<dl><dt><strong>PARAGRAPH_FONT</strong> = &lt;pygame.font.Font object&gt;</dl>
+
+<dl><dt><strong>RED</strong> = (255, 0, 0)</dl>
+
+<dl><dt><strong>SCREEN_SIZE</strong> = (844, 600)</dl>
+
+<dl><dt><strong>SELECT_FONT</strong> = &lt;pygame.font.Font object&gt;</dl>
+
+<dl><dt><strong>SMALLER_FONT</strong> = &lt;pygame.font.Font object&gt;</dl>
+
+<dl><dt><strong>WHITE</strong> = (255, 255, 255)</dl>
+
+</td></tr></table></td></tr></table>
+</body></html>

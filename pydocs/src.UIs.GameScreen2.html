@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Python: module src.UIs.GameScreen2</title>
+</head><body>
+
+<table class="heading">
+<tr class="heading-text decor">
+<td class="title">&nbsp;<br><strong class="title"><a href="src.html" class="white">src</a>.<a href="src.UIs.html" class="white">UIs</a>.GameScreen2</strong></td>
+<td class="extra"><a href=".">index</a><br><a href="file:/Users/nathanyu/repos/group46/src/UIs/GameScreen2.py">/Users/nathanyu/repos/group46/src/UIs/GameScreen2.py</a></td></tr></table>
+    <p></p>
+<p>
+<table class="section">
+<tr class="decor pkg-content-decor heading-text">
+<td class="section-title" colspan=3>&nbsp;<br><strong class="bigsection">Modules</strong></td></tr>
+    
+<tr><td class="decor pkg-content-decor"><span class="code">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></td><td>&nbsp;</td>
+<td class="singlecolumn"><table><tr><td class="multicolumn"><a href="json.html">json</a><br>
+</td><td class="multicolumn"><a href="os.html">os</a><br>
+</td><td class="multicolumn"><a href="pygame.html">pygame</a><br>
+</td><td class="multicolumn"><a href="sys.html">sys</a><br>
+</td></tr></table></td></tr></table><p>
+<table class="section">
+<tr class="decor index-decor heading-text">
+<td class="section-title" colspan=3>&nbsp;<br><strong class="bigsection">Classes</strong></td></tr>
+    
+<tr><td class="decor index-decor"><span class="code">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></td><td>&nbsp;</td>
+<td class="singlecolumn"><dl>
+<dt class="heading-text"><a href="src.UIs.screen.html#ScreenBase">src.UIs.screen.ScreenBase</a>(<a href="builtins.html#object">builtins.object</a>)
+</dt><dd>
+<dl>
+<dt class="heading-text"><a href="src.UIs.GameScreen2.html#GameScreen">GameScreen</a>
+</dt></dl>
+</dd>
+</dl>
+ <p>
+<table class="section">
+<tr class="decor title-decor heading-text">
+<td class="section-title" colspan=3>&nbsp;<br><a name="GameScreen">class <strong>GameScreen</strong></a>(<a href="src.UIs.screen.html#ScreenBase">src.UIs.screen.ScreenBase</a>)</td></tr>
+    
+<tr><td class="decor title-decor" rowspan=2><span class="code">&nbsp;&nbsp;&nbsp;</span></td>
+<td class="decor title-decor" colspan=2><span class="code"><a href="#GameScreen">GameScreen</a>(category,&nbsp;player,&nbsp;boss,&nbsp;question,&nbsp;level,&nbsp;score,&nbsp;audio_manager,&nbsp;questions_correct,&nbsp;questions_incorrect,&nbsp;width,&nbsp;height)<br>
+&nbsp;<br>
+Facilitates&nbsp;the&nbsp;main&nbsp;gameplay&nbsp;interface&nbsp;in&nbsp;a&nbsp;Pygame&nbsp;application,&nbsp;where&nbsp;players&nbsp;engage&nbsp;with&nbsp;questions,&nbsp;<br>
+answer&nbsp;them,&nbsp;and&nbsp;see&nbsp;immediate&nbsp;effects&nbsp;on&nbsp;the&nbsp;game's&nbsp;dynamics,&nbsp;including&nbsp;changes&nbsp;to&nbsp;player&nbsp;and&nbsp;boss&nbsp;health<br>
+based&nbsp;on&nbsp;the&nbsp;correctness&nbsp;of&nbsp;answers.&nbsp;This&nbsp;screen&nbsp;is&nbsp;where&nbsp;the&nbsp;core&nbsp;gameplay&nbsp;unfolds,&nbsp;with&nbsp;the&nbsp;player&nbsp;navigating<br>
+through&nbsp;questions&nbsp;of&nbsp;varying&nbsp;difficulty&nbsp;across&nbsp;different&nbsp;educational&nbsp;categories.<br>
+&nbsp;<br>
+Attributes:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;startTime&nbsp;(datetime):&nbsp;The&nbsp;timestamp&nbsp;marking&nbsp;the&nbsp;beginning&nbsp;of&nbsp;the&nbsp;game&nbsp;session.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;boss&nbsp;(Boss):&nbsp;Instance&nbsp;of&nbsp;Boss&nbsp;class,&nbsp;representing&nbsp;the&nbsp;adversary&nbsp;in&nbsp;the&nbsp;game,&nbsp;with&nbsp;its&nbsp;health&nbsp;points.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;player&nbsp;(Player):&nbsp;Instance&nbsp;of&nbsp;Player&nbsp;class,&nbsp;representing&nbsp;the&nbsp;user's&nbsp;avatar&nbsp;in&nbsp;the&nbsp;game,&nbsp;with&nbsp;its&nbsp;health&nbsp;points.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;level&nbsp;(int):&nbsp;Current&nbsp;difficulty&nbsp;level&nbsp;of&nbsp;the&nbsp;game,&nbsp;affecting&nbsp;the&nbsp;complexity&nbsp;of&nbsp;questions&nbsp;and&nbsp;damage&nbsp;mechanics.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;question&nbsp;(Question):&nbsp;The&nbsp;current&nbsp;question&nbsp;object&nbsp;presented&nbsp;to&nbsp;the&nbsp;player.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;correctAnswer&nbsp;(str):&nbsp;The&nbsp;correct&nbsp;answer&nbsp;for&nbsp;the&nbsp;current&nbsp;question,&nbsp;used&nbsp;for&nbsp;validation.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;answered&nbsp;(bool):&nbsp;Flag&nbsp;to&nbsp;check&nbsp;if&nbsp;the&nbsp;current&nbsp;question&nbsp;has&nbsp;been&nbsp;answered.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;answeredCorrectly&nbsp;(bool&nbsp;or&nbsp;None):&nbsp;Indicates&nbsp;the&nbsp;correctness&nbsp;of&nbsp;the&nbsp;player's&nbsp;last&nbsp;answer;&nbsp;True&nbsp;if&nbsp;correct.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;levelFont,&nbsp;hpFont,&nbsp;promptFont&nbsp;(pygame.font.Font):&nbsp;Custom&nbsp;fonts&nbsp;for&nbsp;displaying&nbsp;game&nbsp;information&nbsp;(level,&nbsp;health&nbsp;points,&nbsp;question&nbsp;prompts).<br>
+&nbsp;&nbsp;&nbsp;&nbsp;buttons&nbsp;(list&nbsp;of&nbsp;GameScreenButtons):&nbsp;Interactive&nbsp;buttons&nbsp;for&nbsp;each&nbsp;of&nbsp;the&nbsp;multiple-choice&nbsp;answers.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;saveGameButton&nbsp;(GameScreenButtons):&nbsp;Button&nbsp;to&nbsp;save&nbsp;the&nbsp;current&nbsp;game&nbsp;state.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;type&nbsp;(str):&nbsp;The&nbsp;category&nbsp;of&nbsp;the&nbsp;current&nbsp;question&nbsp;being&nbsp;asked.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;score&nbsp;(int):&nbsp;The&nbsp;player's&nbsp;current&nbsp;score,&nbsp;updated&nbsp;based&nbsp;on&nbsp;performance.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;audio_manager:&nbsp;Manages&nbsp;game&nbsp;audio,&nbsp;including&nbsp;background&nbsp;music&nbsp;and&nbsp;sound&nbsp;effects.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;questions_correct,&nbsp;questions_incorrect&nbsp;(int):&nbsp;Counters&nbsp;for&nbsp;the&nbsp;number&nbsp;of&nbsp;questions&nbsp;answered&nbsp;correctly&nbsp;and&nbsp;incorrectly.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;goToMain&nbsp;(bool):&nbsp;Flag&nbsp;for&nbsp;navigating&nbsp;back&nbsp;to&nbsp;the&nbsp;main&nbsp;menu.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;showSaveFeedback&nbsp;(bool):&nbsp;Indicates&nbsp;whether&nbsp;feedback&nbsp;for&nbsp;a&nbsp;game&nbsp;save&nbsp;operation&nbsp;should&nbsp;be&nbsp;displayed.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;saveFeedbackTimer&nbsp;(int):&nbsp;Timer&nbsp;to&nbsp;control&nbsp;the&nbsp;display&nbsp;duration&nbsp;of&nbsp;the&nbsp;save&nbsp;feedback&nbsp;message.<br>
+&nbsp;<br>
+Methods:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="#GameScreen-choiceMade">choiceMade</a>(self,&nbsp;choice):&nbsp;Processes&nbsp;the&nbsp;player's&nbsp;answer,&nbsp;updating&nbsp;game&nbsp;state&nbsp;based&nbsp;on&nbsp;correctness.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="#GameScreen-draw">draw</a>(self):&nbsp;Renders&nbsp;all&nbsp;game&nbsp;elements&nbsp;on&nbsp;the&nbsp;screen,&nbsp;including&nbsp;question&nbsp;text,&nbsp;answer&nbsp;buttons,&nbsp;and&nbsp;player/boss&nbsp;HP.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="#GameScreen-handle_events">handle_events</a>(self):&nbsp;Handles&nbsp;user&nbsp;input,&nbsp;including&nbsp;answer&nbsp;selection&nbsp;and&nbsp;navigation.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="#GameScreen-draw_text">draw_text</a>(self,&nbsp;text,&nbsp;font,&nbsp;color,&nbsp;surface,&nbsp;x,&nbsp;y):&nbsp;Utility&nbsp;method&nbsp;for&nbsp;drawing&nbsp;text&nbsp;on&nbsp;the&nbsp;screen.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="#GameScreen-saveGame">saveGame</a>(self):&nbsp;Serializes&nbsp;the&nbsp;current&nbsp;game&nbsp;state&nbsp;to&nbsp;a&nbsp;file&nbsp;for&nbsp;later&nbsp;retrieval.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="#GameScreen-endGame">endGame</a>(self):&nbsp;Concludes&nbsp;the&nbsp;game&nbsp;session,&nbsp;potentially&nbsp;saving&nbsp;final&nbsp;scores&nbsp;and&nbsp;transitioning&nbsp;to&nbsp;an&nbsp;end&nbsp;game&nbsp;screen.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="#GameScreen-displaySaveFeedback">displaySaveFeedback</a>(self):&nbsp;Temporarily&nbsp;displays&nbsp;a&nbsp;save&nbsp;confirmation&nbsp;message&nbsp;on&nbsp;the&nbsp;screen.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="#GameScreen-openOptions">openOptions</a>(self):&nbsp;Transitions&nbsp;to&nbsp;the&nbsp;options&nbsp;screen&nbsp;for&nbsp;game&nbsp;settings&nbsp;adjustments.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="#GameScreen-toMainScreen">toMainScreen</a>(self):&nbsp;Flags&nbsp;the&nbsp;screen&nbsp;to&nbsp;return&nbsp;to&nbsp;the&nbsp;main&nbsp;menu.<br>&nbsp;</span></td></tr>
+<tr><td>&nbsp;</td>
+<td class="singlecolumn"><dl><dt>Method resolution order:</dt>
+<dd><a href="src.UIs.GameScreen2.html#GameScreen">GameScreen</a></dd>
+<dd><a href="src.UIs.screen.html#ScreenBase">src.UIs.screen.ScreenBase</a></dd>
+<dd><a href="builtins.html#object">builtins.object</a></dd>
+</dl>
+<hr>
+Methods defined here:<br>
+<dl><dt><a name="GameScreen-__init__"><strong>__init__</strong></a>(self, category, player, boss, question, level, score, audio_manager, questions_correct, questions_incorrect, width, height)</dt><dd><span class="code">Initialize&nbsp;self.&nbsp;&nbsp;See&nbsp;help(type(self))&nbsp;for&nbsp;accurate&nbsp;signature.</span></dd></dl>
+
+<dl><dt><a name="GameScreen-choiceMade"><strong>choiceMade</strong></a>(self, choice)</dt><dd><span class="code">#&nbsp;logic&nbsp;for&nbsp;when&nbsp;user&nbsp;selects&nbsp;and&nbsp;answer</span></dd></dl>
+
+<dl><dt><a name="GameScreen-displaySaveFeedback"><strong>displaySaveFeedback</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="GameScreen-draw"><strong>draw</strong></a>(self)</dt><dd><span class="code">#displays&nbsp;text,&nbsp;buttons,&nbsp;images&nbsp;on&nbsp;the&nbsp;screen</span></dd></dl>
+
+<dl><dt><a name="GameScreen-draw_text"><strong>draw_text</strong></a>(self, text, font, color, surface, x, y)</dt><dd><span class="code">#draws&nbsp;text&nbsp;onto&nbsp;the&nbsp;screen</span></dd></dl>
+
+<dl><dt><a name="GameScreen-endGame"><strong>endGame</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="GameScreen-handle_events"><strong>handle_events</strong></a>(self)</dt><dd><span class="code">#overridden&nbsp;from&nbsp;parent&nbsp;class</span></dd></dl>
+
+<dl><dt><a name="GameScreen-openOptions"><strong>openOptions</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="GameScreen-saveGame"><strong>saveGame</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="GameScreen-toMainScreen"><strong>toMainScreen</strong></a>(self)</dt></dl>
+
+<hr>
+Data and other attributes defined here:<br>
+<dl><dt><strong>boss1_image</strong> = &lt;Surface(181x183x32 SW)&gt;</dl>
+
+<dl><dt><strong>boss1_imageResized</strong> = &lt;Surface(80x80x32 SW)&gt;</dl>
+
+<dl><dt><strong>boss1_image_path</strong> = '/Users/nathanyu/repos/group46/src/UIs/../../images/level1MathApple.png'</dl>
+
+<dl><dt><strong>boss2_image</strong> = &lt;Surface(188x187x32 SW)&gt;</dl>
+
+<dl><dt><strong>boss2_imageResized</strong> = &lt;Surface(80x80x32 SW)&gt;</dl>
+
+<dl><dt><strong>boss2_image_path</strong> = '/Users/nathanyu/repos/group46/src/UIs/../../images/level2MathApple.png'</dl>
+
+<dl><dt><strong>boss3_image</strong> = &lt;Surface(205x191x32 SW)&gt;</dl>
+
+<dl><dt><strong>boss3_imageResized</strong> = &lt;Surface(80x80x32 SW)&gt;</dl>
+
+<dl><dt><strong>boss3_image_path</strong> = '/Users/nathanyu/repos/group46/src/UIs/../../images/level3MathApple.png'</dl>
+
+<dl><dt><strong>player1_image</strong> = &lt;Surface(738x614x32 SW)&gt;</dl>
+
+<dl><dt><strong>player1_imageResized</strong> = &lt;Surface(80x80x32 SW)&gt;</dl>
+
+<dl><dt><strong>player1_image_path</strong> = '/Users/nathanyu/repos/group46/src/UIs/../../images/userLevel1.png'</dl>
+
+<dl><dt><strong>player2_image</strong> = &lt;Surface(512x512x32 SW)&gt;</dl>
+
+<dl><dt><strong>player2_imageResized</strong> = &lt;Surface(80x80x32 SW)&gt;</dl>
+
+<dl><dt><strong>player2_image_path</strong> = '/Users/nathanyu/repos/group46/src/UIs/../../images/userLevel2.png'</dl>
+
+<dl><dt><strong>player3_image</strong> = &lt;Surface(117x112x32 SW)&gt;</dl>
+
+<dl><dt><strong>player3_imageResized</strong> = &lt;Surface(80x80x32 SW)&gt;</dl>
+
+<dl><dt><strong>player3_image_path</strong> = '/Users/nathanyu/repos/group46/src/UIs/../../images/userLevel3.png'</dl>
+
+<dl><dt><strong>playerLose_image</strong> = &lt;Surface(626x626x24 SW)&gt;</dl>
+
+<dl><dt><strong>playerLose_imageResized</strong> = &lt;Surface(80x80x24 SW)&gt;</dl>
+
+<dl><dt><strong>playerLose_image_path</strong> = '/Users/nathanyu/repos/group46/src/UIs/../../images/userLose.jpeg'</dl>
+
+<hr>
+Methods inherited from <a href="src.UIs.screen.html#ScreenBase">src.UIs.screen.ScreenBase</a>:<br>
+<dl><dt><a name="GameScreen-resize_screen"><strong>resize_screen</strong></a>(self, event)</dt><dd><span class="code">#&nbsp;function&nbsp;to&nbsp;resize&nbsp;the&nbsp;screen</span></dd></dl>
+
+<dl><dt><a name="GameScreen-run"><strong>run</strong></a>(self)</dt><dd><span class="code">#we&nbsp;need&nbsp;this</span></dd></dl>
+
+<dl><dt><a name="GameScreen-update"><strong>update</strong></a>(self)</dt><dd><span class="code">#updating&nbsp;game&nbsp;state</span></dd></dl>
+
+<hr>
+Data descriptors inherited from <a href="src.UIs.screen.html#ScreenBase">src.UIs.screen.ScreenBase</a>:<br>
+<dl><dt><strong>__dict__</strong></dt>
+<dd><span class="code">dictionary&nbsp;for&nbsp;instance&nbsp;variables&nbsp;(if&nbsp;defined)</span></dd>
+</dl>
+<dl><dt><strong>__weakref__</strong></dt>
+<dd><span class="code">list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object&nbsp;(if&nbsp;defined)</span></dd>
+</dl>
+<hr>
+Data and other attributes inherited from <a href="src.UIs.screen.html#ScreenBase">src.UIs.screen.ScreenBase</a>:<br>
+<dl><dt><strong>BASE_FONT</strong> = &lt;pygame.font.Font object&gt;</dl>
+
+<dl><dt><strong>BLACK</strong> = (0, 0, 0)</dl>
+
+<dl><dt><strong>BLUE</strong> = (159, 197, 248)</dl>
+
+<dl><dt><strong>BUTTON_FONT</strong> = &lt;pygame.font.Font object&gt;</dl>
+
+<dl><dt><strong>DARKGREY</strong> = (45, 45, 45)</dl>
+
+<dl><dt><strong>GREEN</strong> = (204, 245, 205)</dl>
+
+<dl><dt><strong>GREY</strong> = (220, 220, 220)</dl>
+
+<dl><dt><strong>HEADING_FONT</strong> = &lt;pygame.font.Font object&gt;</dl>
+
+<dl><dt><strong>HP_FONT</strong> = &lt;pygame.font.Font object&gt;</dl>
+
+<dl><dt><strong>LEVEL_FONT</strong> = &lt;pygame.font.Font object&gt;</dl>
+
+<dl><dt><strong>MEDIUM_FONT</strong> = &lt;pygame.font.Font object&gt;</dl>
+
+<dl><dt><strong>MID_FONT</strong> = &lt;pygame.font.Font object&gt;</dl>
+
+<dl><dt><strong>MIN_HEIGHT</strong> = 600</dl>
+
+<dl><dt><strong>MIN_WIDTH</strong> = 844</dl>
+
+<dl><dt><strong>MODE_FONT</strong> = &lt;pygame.font.Font object&gt;</dl>
+
+<dl><dt><strong>MODE_SELECT_FONT</strong> = &lt;pygame.font.Font object&gt;</dl>
+
+<dl><dt><strong>PARAGRAPH_FONT</strong> = &lt;pygame.font.Font object&gt;</dl>
+
+<dl><dt><strong>RED</strong> = (255, 0, 0)</dl>
+
+<dl><dt><strong>SCREEN_SIZE</strong> = (844, 600)</dl>
+
+<dl><dt><strong>SELECT_FONT</strong> = &lt;pygame.font.Font object&gt;</dl>
+
+<dl><dt><strong>SMALLER_FONT</strong> = &lt;pygame.font.Font object&gt;</dl>
+
+<dl><dt><strong>WHITE</strong> = (255, 255, 255)</dl>
+
+</td></tr></table></td></tr></table><p>
+<table class="section">
+<tr class="decor data-decor heading-text">
+<td class="section-title" colspan=3>&nbsp;<br><strong class="bigsection">Data</strong></td></tr>
+    
+<tr><td class="decor data-decor"><span class="code">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></td><td>&nbsp;</td>
+<td class="singlecolumn"><strong>images_dir</strong> = '/Users/nathanyu/repos/group46/src/UIs/../../images'<br>
+<strong>src_dir</strong> = '/Users/nathanyu/repos/group46/src'</td></tr></table>
+</body></html>
