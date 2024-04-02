@@ -55,13 +55,13 @@ class InstructorDashboardScreen(ScreenBase):
         self.active = False
         self.type = 'instructorDashboard'
         self.transitionToLogin = False
-
-    def draw(self):
-        super().draw()
         self.width = self.screen.get_width()
         self.height = self.screen.get_height()
 
-        userName_rect = pygame.Rect(330,190,200,32)
+    def draw(self):
+        super().draw()
+
+        userName_rect = pygame.Rect(self.width/6*2, self.height/6*2,200,32)
 
         titleOne = self.SMALLER_FONT.render('Enter Username', True, self.BLACK)
         titleTwo = self.SMALLER_FONT.render('For Player Details', True, self.BLACK)
@@ -128,6 +128,10 @@ class InstructorDashboardScreen(ScreenBase):
                 sys.exit()
             elif event.type == pygame.VIDEORESIZE:
                 super().resize_screen(event)
+
+
+
+
             elif event.type == pygame.MOUSEBUTTONDOWN:
                 if self.width/2+120 <= mouse[0] <= self.width/2+165 and self.height/2-108 <= mouse[1] <= self.height/2+45:
                     self.check_username()

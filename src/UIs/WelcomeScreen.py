@@ -53,7 +53,7 @@ class WelcomeScreen(ScreenBase):
         self.buttons = [
             GameScreenButtons(self.screen.get_width()/5*2,self.screen.get_height()/3*2,200,40, "start", lambda: self.choiceMade(), self.WHITE, self.BLACK)
         ]
-        self.optionsButton = GameScreenButtons(self.screen.get_width()/5*2, self.screen.get_height()/15*13,200,40, "options", lambda: self.optionsChoice(), self.WHITE, self.BLACK,)
+        self.optionsButton = GameScreenButtons(self.screen.get_width()/5*2, self.screen.get_height()/15*13,200,40, "options", lambda: self.optionsChoice(), self.WHITE, self.BLACK)
         self.transitionToNextScreen = False
         self.options = False
         self.audio_manager = audio_manager
@@ -80,7 +80,8 @@ class WelcomeScreen(ScreenBase):
         self.height = self.screen.get_height()
 
         self.buttons = [
-            GameScreenButtons(self.width/5*2,self.height/3*2,200,40, "start", lambda: self.choiceMade(), self.WHITE, self.BLACK)
+            GameScreenButtons(self.width/5*2,self.height/3*2,200,40, "start", lambda: self.choiceMade(), self.WHITE, self.BLACK),
+            GameScreenButtons(self.width/5*2, self.height/15*13,200,40, "options", lambda: self.optionsChoice(), self.WHITE, self.BLACK)
         ]
         
 
@@ -97,7 +98,6 @@ class WelcomeScreen(ScreenBase):
         for button in self.buttons:
             button.draw(self.screen)
         
-        self.optionsButton.draw(self.screen)
 
         """
         potentially delete
@@ -128,7 +128,6 @@ class WelcomeScreen(ScreenBase):
                 for button in self.buttons:
                     button = pygame.Rect(self.width/844*322,self.height/3*2,200,40)
 
-                self.optionsButton = pygame.Rect(self.width/844*322,self.height/3*2,200,40)
 
             for button in self.buttons:
                 button.handle_event(event)
@@ -143,7 +142,6 @@ class WelcomeScreen(ScreenBase):
                     pygame.quit()
                     sys.exit()
 
-                self.optionsButton.handle_event(event)
                           
 
     def run(self):
