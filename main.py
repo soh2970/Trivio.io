@@ -1,6 +1,8 @@
 import sys
 import os
 
+import pydoc
+
 
 # Assuming main.py is in the root directory of personalRepo2212
 sys.path.insert(0, os.path.join(os.path.dirname(__file__), 'src'))
@@ -572,5 +574,3 @@ def run_game():
             #     current_screen = LeaderboardScreen()
         pygame.display.flip()
         
-if __name__ == "__main__":
-    run_game()
