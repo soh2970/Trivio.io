@@ -72,11 +72,17 @@ The debugger mode password is: <b>debug</b>
 Username - <i>nateyu</i>
 Password - <b>hello</b>
 
-Username - <i>hihi</i>
+Username - <i>sophiayuan</i>
 Password - <b>123</b>
 
 Username - <i>stephoh</i>
-Password - <b>123</b>
+Password - <b>oh</b>
+
+Username - <i>michaelkim</i>
+Password - <b>0987</b>
+
+Username - <i>harjapgrewal</i>
+Password - <b>harjapgrewal</b>
 
 ## Additional Notes
 
