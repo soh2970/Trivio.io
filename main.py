@@ -1,7 +1,7 @@
 import sys
 import os
+import pydoc
 import pygame
-
 # Assuming main.py is in the root directory of personalRepo2212
 sys.path.insert(0, os.path.join(os.path.dirname(__file__), 'src'))
 # Set the working directory to the directory of main.py
@@ -34,7 +34,6 @@ from src.UIs.HighscoreLeaderboardScreen import LeaderboardScreen
 from src.UIs.TutorialScreen1 import GameTutorialScreenOne
 from src.UIs.TutorialScreen2 import ScoringTutorialScreenTwo
 from src.UIs.LoseGameScreen import LoseGameScreen
-
 
 def run_game():
     """
@@ -555,10 +554,6 @@ def run_game():
 
             # if (current_screen.transitionToLeaderboard == True):
             #     current_screen = LeaderboardScreen()
-                
-
+                pygame.display.flip()        
+run_game()
         
-        pygame.display.flip()
-        
-if __name__ == "__main__":
-    run_game()

@@ -12,105 +12,7 @@
         },
         "highscore": 0
     },
-    "": {
-        "password": "",
-        "gameHistory": [
-            {
-                "timeStamp": "2024-03-31 23:34:56",
-                "levelAchieved": "3",
-                "subject": "social_sciences",
-                "score": "100"
-            },
-            {
-                "timeStamp": "2024-03-31 23:40:52",
-                "levelAchieved": "3",
-                "subject": "social_sciences",
-                "score": "1400"
-            },
-            {
-                "timeStamp": "2024-03-31 23:44:26",
-                "levelAchieved": "3",
-                "subject": "social_sciences",
-                "score": "2400"
-            },
-            {
-                "timeStamp": "2024-03-31 23:50:43",
-                "levelAchieved": "3",
-                "subject": "social_sciences",
-                "score": "2400"
-            },
-            {
-                "timeStamp": "2024-04-01 00:00:41",
-                "levelAchieved": "3",
-                "subject": "science",
-                "score": "7000"
-            },
-            {
-                "timeStamp": "2024-04-01 14:40:05",
-                "levelAchieved": "3",
-                "subject": "science",
-                "score": "7000"
-            },
-            {
-                "timeStamp": "2024-04-01 14:42:25",
-                "levelAchieved": "3",
-                "subject": "science",
-                "score": "5000"
-            },
-            {
-                "timeStamp": "2024-04-01 14:57:46",
-                "levelAchieved": "3",
-                "subject": "science",
-                "score": "8000"
-            },
-            {
-                "timeStamp": "2024-04-01 15:04:13",
-                "levelAchieved": "3",
-                "subject": "science",
-                "score": "9000"
-            },
-            {
-                "timeStamp": "2024-04-01 15:14:27",
-                "levelAchieved": "3",
-                "subject": "math",
-                "score": "7000"
-            },
-            {
-                "timeStamp": "2024-04-01 15:16:56",
-                "levelAchieved": "3",
-                "subject": "social_sciences",
-                "score": "7400"
-            },
-            {
-                "timeStamp": "2024-04-01 15:20:08",
-                "levelAchieved": "3",
-                "subject": "social_sciences",
-                "score": "3200"
-            }
-        ],
-        "currentSavedGame": {
-            "timeStamp": "2024-04-01 22:24:45",
-            "levelAchieved": "1",
-            "subject": "social_sciences",
-            "score": 4,
-            "playerHP": "100",
-            "bossHP": "96",
-            "questions_correct": 1,
-            "questions_incorrect": 0
-        },
-        "highscore": 9000
-    },
-    "goat": {
-        "password": "",
-        "currentSavedGame": {},
-        "highscore": 0
-    },
-    "sophia": {
-        "password": "",
-        "currentSavedGame": {},
-        "highscore": 0
-    },
-    "sophiay": {
+    "sophiayuan": {
         "password": "123",
         "currentSavedGame": {
             "timeStamp": "2024-04-01 23:42:38",
@@ -124,14 +26,20 @@
         },
         "highscore": 0
     },
-    "nateyu": {
-        "password": "123",
+    "stephoh": {
+        "password": "oh",
         "currentSavedGame": {},
         "highscore": 0
     },
-    "hihi": {
-        "password": "123",
+    "michaelkim": {
+        "password": "0987",
+        "currentSavedGame": {},
+        "highscore": 7600
+    },
+    "harjapgrewal": {
+        "password": "harjapgrewal",
         "currentSavedGame": {},
         "highscore": 7600
     }
+
 }

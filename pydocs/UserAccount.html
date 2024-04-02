@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Python: module UserAccount</title>
+</head><body>
+
+<table class="heading">
+<tr class="heading-text decor">
+<td class="title">&nbsp;<br><strong class="title">UserAccount</strong></td>
+<td class="extra"><a href=".">index</a><br><a href="file:/Users/nathanyu/repos/group46/src/UserAccount.py">/Users/nathanyu/repos/group46/src/UserAccount.py</a></td></tr></table>
+    <p></p>
+<p>
+<table class="section">
+<tr class="decor pkg-content-decor heading-text">
+<td class="section-title" colspan=3>&nbsp;<br><strong class="bigsection">Modules</strong></td></tr>
+    
+<tr><td class="decor pkg-content-decor"><span class="code">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></td><td>&nbsp;</td>
+<td class="singlecolumn"><table><tr><td class="multicolumn"><a href="json.html">json</a><br>
+</td><td class="multicolumn"><a href="os.html">os</a><br>
+</td><td class="multicolumn"></td><td class="multicolumn"></td></tr></table></td></tr></table><p>
+<table class="section">
+<tr class="decor index-decor heading-text">
+<td class="section-title" colspan=3>&nbsp;<br><strong class="bigsection">Classes</strong></td></tr>
+    
+<tr><td class="decor index-decor"><span class="code">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></td><td>&nbsp;</td>
+<td class="singlecolumn"><dl>
+<dt class="heading-text"><a href="builtins.html#object">builtins.object</a>
+</dt><dd>
+<dl>
+<dt class="heading-text"><a href="UserAccount.html#UserAccount">UserAccount</a>
+</dt></dl>
+</dd>
+</dl>
+ <p>
+<table class="section">
+<tr class="decor title-decor heading-text">
+<td class="section-title" colspan=3>&nbsp;<br><a name="UserAccount">class <strong>UserAccount</strong></a>(<a href="builtins.html#object">builtins.object</a>)</td></tr>
+    
+<tr><td class="decor title-decor" rowspan=2><span class="code">&nbsp;&nbsp;&nbsp;</span></td>
+<td class="decor title-decor" colspan=2><span class="code"><a href="#UserAccount">UserAccount</a>(userID,&nbsp;userPassword)<br>
+&nbsp;<br>
+Handles&nbsp;user&nbsp;account&nbsp;creation,&nbsp;validation,&nbsp;and&nbsp;management&nbsp;within&nbsp;the&nbsp;game,&nbsp;storing&nbsp;user&nbsp;data&nbsp;in&nbsp;a&nbsp;JSON&nbsp;file.<br>
+&nbsp;<br>
+Attributes:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;ID&nbsp;(str):&nbsp;The&nbsp;user&nbsp;ID,&nbsp;which&nbsp;is&nbsp;converted&nbsp;to&nbsp;lowercase&nbsp;to&nbsp;ensure&nbsp;case-insensitive&nbsp;login.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;password&nbsp;(str):&nbsp;The&nbsp;user's&nbsp;password.<br>
+&nbsp;<br>
+Methods:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="#UserAccount-__init__">__init__</a>(self,&nbsp;userID,&nbsp;userPassword):<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Initializes&nbsp;a&nbsp;new&nbsp;user&nbsp;account&nbsp;with&nbsp;the&nbsp;provided&nbsp;ID&nbsp;and&nbsp;password.<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="#UserAccount-validateLogin">validateLogin</a>(self):<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Validates&nbsp;the&nbsp;user's&nbsp;login&nbsp;attempt&nbsp;by&nbsp;checking&nbsp;the&nbsp;provided&nbsp;credentials&nbsp;against&nbsp;the&nbsp;stored&nbsp;data.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Returns&nbsp;True&nbsp;if&nbsp;the&nbsp;login&nbsp;is&nbsp;successful,&nbsp;False&nbsp;otherwise.<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="#UserAccount-createAccount">createAccount</a>(self):<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Creates&nbsp;a&nbsp;new&nbsp;user&nbsp;account&nbsp;with&nbsp;the&nbsp;provided&nbsp;ID&nbsp;and&nbsp;password.&nbsp;If&nbsp;the&nbsp;user&nbsp;ID&nbsp;already&nbsp;exists&nbsp;in&nbsp;the&nbsp;data&nbsp;store,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;raises&nbsp;a&nbsp;UserFoundException&nbsp;indicating&nbsp;that&nbsp;the&nbsp;user&nbsp;cannot&nbsp;be&nbsp;created&nbsp;because&nbsp;it&nbsp;already&nbsp;exists.<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;User&nbsp;data&nbsp;includes&nbsp;a&nbsp;default&nbsp;saved&nbsp;game&nbsp;state&nbsp;and&nbsp;an&nbsp;initial&nbsp;high&nbsp;score&nbsp;of&nbsp;0.&nbsp;The&nbsp;method&nbsp;updates&nbsp;the&nbsp;JSON&nbsp;data&nbsp;store<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;with&nbsp;the&nbsp;new&nbsp;user&nbsp;information.<br>&nbsp;</span></td></tr>
+<tr><td>&nbsp;</td>
+<td class="singlecolumn">Methods defined here:<br>
+<dl><dt><a name="UserAccount-__init__"><strong>__init__</strong></a>(self, userID, userPassword)</dt><dd><span class="code">Initialize&nbsp;self.&nbsp;&nbsp;See&nbsp;help(type(self))&nbsp;for&nbsp;accurate&nbsp;signature.</span></dd></dl>
+
+<dl><dt><a name="UserAccount-createAccount"><strong>createAccount</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="UserAccount-validateLogin"><strong>validateLogin</strong></a>(self)</dt></dl>
+
+<hr>
+Data descriptors defined here:<br>
+<dl><dt><strong>__dict__</strong></dt>
+<dd><span class="code">dictionary&nbsp;for&nbsp;instance&nbsp;variables&nbsp;(if&nbsp;defined)</span></dd>
+</dl>
+<dl><dt><strong>__weakref__</strong></dt>
+<dd><span class="code">list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object&nbsp;(if&nbsp;defined)</span></dd>
+</dl>
+</td></tr></table></td></tr></table>
+</body></html>

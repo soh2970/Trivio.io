@@ -26,11 +26,20 @@ Visual Studio Code v(1.83.2)<br>
 Pycharm v(2023.3)
 
 ## Step by Step guide to compiling from source code
+1. Make sure cx_Freeze is installed, this is to compile source code into an executable file.
+2. Install cx_Freeze by typing "pip install cx_Freeze"
+3. Open terminal and in the project directory, run the command "python setup.py build"
+4. After the build is complete, change directories from current-->build-->exe.sometext
+5. Move the images folder into the lib folder
+
 
 ## Step by Step guide to running compiled software
+1. From terminal, in the exe.sometext directory, type "./main"
+2. Trivio will now run
+
 
 ## User Guide
-
+1. 
 
 ## Passwords and User Accounts
 ### Teacher (Instructor Mode)
@@ -50,8 +59,8 @@ Password - <b>hello</b>
 Username - <i>hihi</i>
 Password - <b>123</b>
 
-Username - <i>goat</i>
-Password - <b></b>
+Username - <i>stephoh</i>
+Password - <b>123</b>
 
 ## Additional Notes
 
