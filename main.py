@@ -574,3 +574,5 @@ def run_game():
             #     current_screen = LeaderboardScreen()
         pygame.display.flip()
         
+if __name__ == "__main__":
+    run_game()
