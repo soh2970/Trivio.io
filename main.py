@@ -1,25 +1,11 @@
 import sys
 import os
-
+import pygame
 
 # Assuming main.py is in the root directory of personalRepo2212
 sys.path.insert(0, os.path.join(os.path.dirname(__file__), 'src'))
-
 # Set the working directory to the directory of main.py
 os.chdir(os.path.dirname(os.path.abspath(__file__)))
-
-"""
-#options screen logic 
-        if (current_screen.type == "OptionsScreen"):
-            current_screen.draw()
-            current_screen.handle_events()
-            if (current_screen.back == True):
-                current_screen = GameScreen('math', current_player, boss, level.getNextQuestion(), level.levelNum, score)
-    needs to be in every game screen 
-"""
-
-
-import pygame
 from src.UIs.screen import ScreenBase
 from src.UIs.AudioManager import AudioManager
 from src.UIs.GameScreen2 import GameScreen
@@ -50,8 +36,6 @@ from src.UIs.TutorialScreen2 import ScoringTutorialScreenTwo
 from src.UIs.LoseGameScreen import LoseGameScreen
 
 
-audio_manager = AudioManager()
-
 def run_game():
     """
     The main function to run the entire game application. It initializes the game,
@@ -77,6 +61,7 @@ def run_game():
     throughout the game.
     """
 
+    audio_manager = AudioManager()
     audio_manager.__init__()
     audio_manager.play_song()
 
@@ -570,6 +555,9 @@ def run_game():
 
             # if (current_screen.transitionToLeaderboard == True):
             #     current_screen = LeaderboardScreen()
+                
+
+        
         pygame.display.flip()
         
 if __name__ == "__main__":

@@ -1,24 +1,20 @@
 import sys
 import os
-
+import json
+import pygame
 # Get the absolute path to the src directory
 src_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), '../'))
 sys.path.append(src_dir)
-
 from Boss import Boss
 from datetime import datetime
-import json
-import pygame
-import sys
-#from src.UIs.OptionsScreen import OptionsScreen
 from src.Player import Player
 from src.question2 import Question
 from src.UIs.screen import ScreenBase
 from src.UIs.GameScreenButtons import GameScreenButtons
 from src.UIs.CorrectAnswerScreen import CorrectAnswerScreen
 from src.UIs.OptionsScreen import OptionsScreen
-
 from src.UIs.WinLevelScreen import WinLevelScreen
+
 
 images_dir = os.path.join(os.path.dirname(__file__), '..', '..', 'images')
 

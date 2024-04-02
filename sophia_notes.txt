@@ -14,6 +14,14 @@ mar 31
 - bug - no createaccount screen
     - create account user saved game crashes
 - we changed it so that the tutorial is on the mode select screen and you go back to choose what mode you want to play
+- ending game score not working- high score leaderboard displays something different than what is written?
+
+- moving to next level only displayed once in terminal
+- pydoc comments in methods !!!!!
+- delete some of the comments
+- button on high score screen 
+
+
 
 
 - 1_welcome screen - remove the x because where are you exiting
@@ -142,3 +150,16 @@ class InstructorPassScreen(ScreenBase):
 if __name__ == '__main__':
     game_screen1 = InstructorPassScreen()
     game_screen1.run()
+
+
+
+
+"""
+#options screen logic 
+        if (current_screen.type == "OptionsScreen"):
+            current_screen.draw()
+            current_screen.handle_events()
+            if (current_screen.back == True):
+                current_screen = GameScreen('math', current_player, boss, level.getNextQuestion(), level.levelNum, score)
+    needs to be in every game screen 
+"""

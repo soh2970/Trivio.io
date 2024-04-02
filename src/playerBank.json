@@ -128,5 +128,10 @@
         "password": "123",
         "currentSavedGame": {},
         "highscore": 0
+    },
+    "hihi": {
+        "password": "123",
+        "currentSavedGame": {},
+        "highscore": 7600
     }
 }

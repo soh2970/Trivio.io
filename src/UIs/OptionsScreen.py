@@ -26,8 +26,6 @@ class OptionsScreen(ScreenBase):
         self.vol_slider = slider(self.screen.get_width()/5*2, self.screen.get_width()/5*4, self.screen.get_height()/12*7, self.screen.get_width()/5*3, self.audio_manager)
         self.type = "options"
 
-
-
     def draw(self):
         super().draw()
 
@@ -53,8 +51,6 @@ class OptionsScreen(ScreenBase):
         self.back_button = GameScreenButtons(self.width/25*1, self.height/25*1, 80,30, "Back", lambda: self.choiceMade(), self.GREY, self.BLACK)
         self.back_button.draw(self.screen)
  
-
-        
         '''
         #back button 
         self.back_button = pygame.draw.rect(self.screen, self.BLACK, (self.width/25*1, self.height/25*1, 80,30),1)
@@ -142,12 +138,16 @@ class slider:
         self.is_dragging = False  # Track whether the slider is being dragged
         self.audio_manager = audio_manager
     
-    def update_slider_pos(self, width, height):
-        relative_slider_pos = (self.pos - self.x1) / (self.x2 - self.x1)
-        self.x2= width/5*4 
-        self.x1 = width/5*2  
-        self.height = height/12*5
-        self.pos = self.x1 + relative_slider_pos * (self.x2 - self.x1)
+    def update_slider_pos(self, slider_width, slider_height):
+        # Horizontal positions based on percentage of screen width
+        self.x1 = slider_width * 0.35  # 25% from the left edge of the screen
+        self.x2 = slider_width * 0.75  # 75% from the left edge of the screen
+        
+        # Vertical position based on percentage of screen height
+        self.height = slider_height * 0.6  # 60% from the top of the screen
+
+        # Update slider position (if you're tracking the knob's position as a percentage)
+        self.pos = self.x1 + (self.volume * (self.x2 - self.x1))
 
     def slider_events(self, events):
         for event in events:
@@ -161,8 +161,8 @@ class slider:
                 self.pos = min(max(event.pos[0], self.x1), self.x2)
 
     def adjust_volume(self):
-        volume = (self.pos - self.x1) / (self.x2 - self.x1)
-        self.audio_manager.set_volume(volume)
+        self.volume = (self.pos - self.x1) / (self.x2 - self.x1)
+        self.audio_manager.set_volume(self.volume)
 
 '''
 class ArrowButton:
