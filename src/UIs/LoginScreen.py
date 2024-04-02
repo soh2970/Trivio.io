@@ -84,14 +84,17 @@ class LoginScreen(ScreenBase):
         self.Player = None
 
         self.userFoundError = False
+        self.loginError = False
 
     def handleLogIn(self):
-        print("logged in")
         user = UserAccount(self.user_text, self.pass_text)
         if (user.validateLogin() == True):
             self.isValidUser = True
             player = Player(user.ID, 100, 0, 1)
             self.Player = player
+        elif (user.validateLogin() == False):
+            print("incorrect username or password")
+            self.loginError = True
 
     def handleCreateAccount(self):
         print("account created")
@@ -168,6 +171,10 @@ class LoginScreen(ScreenBase):
         if (self.userFoundError == True):
             txt_surface = self.font.render("User already in database", True, self.RED)
             self.screen.blit(txt_surface, (self.screen_width/25*8, self.screen_height/25*20))
+
+        if (self.loginError == True):
+            txt_surface = self.font.render("Invalid Login Information", True, self.RED)
+            self.screen.blit(txt_surface, (self.screen_width/25*8, self.screen_height/25*20 + 40))
 
 
     def handle_events(self):
