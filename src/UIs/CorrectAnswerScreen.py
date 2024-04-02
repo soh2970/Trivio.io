@@ -6,33 +6,43 @@ from src.UIs.GameScreenButtons import GameScreenButtons
 
 class CorrectAnswerScreen(ScreenBase):
     """
-    A screen displayed in a Pygame application to inform the player that they have
-    selected the correct answer for a question. It shows a celebratory message and
-    indicates the impact of the correct answer on the game's boss (HP reduction).
+    Displays a congratulatory screen in a Pygame application when the player selects the correct
+    answer to a question. This screen showcases a success message, indicates the positive impact
+    of the player's correct answer on the game's boss (e.g., HP reduction), and prompts the player
+    to proceed with the game.
 
-    Inherits from ScreenBase, utilizing its setup for a Pygame window/screen.
+    Inherits ScreenBase for Pygame window/screen setup and utilizes attributes and methods from
+    ScreenBase to render elements specific to this success state.
 
     Attributes:
-        level (int): The current level of difficulty, which affects the amount of damage
-                     dealt to the boss for a correct answer.
-        image (pygame.Surface): The image displayed on this screen, typically indicating success.
-        header (str): The main message displayed to the player, indicating a correct answer.
-        footer (str): Additional information shown to the player, such as the effect on the boss's HP.
-        continueButton (GameScreenButtons): A button that allows the player to proceed to the next question.
-        nextQuestion (bool): Flag indicating whether the player has chosen to proceed to the next question.
+        level (int): Current game level or difficulty, affecting the damage to the boss on a correct answer.
+        image (pygame.Surface): Success indication image displayed on this screen.
+        header (str): Primary message to the player, acknowledging the correct answer.
+        footer (str): Additional message informing about the impact on the boss's HP.
+        continueButton (GameScreenButtons): Button widget to advance to the next question or game state.
+        nextQuestion (bool): Flag to track if the player decides to move on to the next question.
 
     Methods:
+        __init__(self, level):
+            Initializes the CorrectAnswerScreen with the specified level of difficulty, loads the success
+            image, sets up the screen's text messages based on the level, and prepares the "Continue"
+            button.
+
         choiceMade(self):
-            Sets the flag indicating the player's decision to proceed to the next question.
+            Marks the player's decision to proceed, setting the nextQuestion flag to True.
 
         draw(self):
-            Renders the screen, including the success image, header, footer, and the continue button.
+            Draws the screen elements, including the success image, header, footer messages, and the
+            "Continue" button, using Pygame's drawing methods. Inherits the basic screen drawing from
+            ScreenBase and adds specific elements for this screen.
 
         handle_events(self):
-            Handles events such as button clicks and window resizing.
+            Handles Pygame events, such as button clicks and window resizing. Ensures that the screen
+            responds appropriately to user inputs, including proceeding to the next question when the
+            "Continue" button is clicked.
     """
-    def __init__(self, level):
-        super().__init__(self.MIN_WIDTH, self.MIN_HEIGHT)
+    def __init__(self, level, width, height):
+        super().__init__(width, height)
         self.level = level
         # Correctly calculate the path to the image file
         base_dir = os.path.dirname(os.path.dirname(__file__))  # This should navigate up to the project root

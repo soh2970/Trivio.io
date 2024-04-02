@@ -11,16 +11,31 @@ pygame.init()
 
 class Game:
     """
-    Class representing the game engine for Trivio.
+    Manages the core gameplay mechanics for Trivio, including starting a game, answering questions, handling levels, and managing boss fights.
 
     Attributes:
-        player (Player): The current player.
-        currentLevel (int): The current level of the game.
-        testBank (dict): The dictionary containing test bank questions.
-        currentCategory (str): The current category of questions.
-        currentQuestions (list): The list of current questions.
-        gameState (str): The current state of the game.
-        boss (Boss): The boss object for boss fights.
+        player (Player): The current player instance.
+        currentLevel (int): The current level of the game, affecting question difficulty.
+        testBank (dict): A loaded dictionary containing questions from the test bank.
+        currentCategory (str): The current category of questions being answered.
+        currentQuestions (list): A list of questions for the current category and level.
+        gameState (str): The current state of the game, e.g., 'NotStarted', 'InProgress', 'Completed'.
+        boss (Boss): An instance of the Boss class, representing the current boss enemy.
+
+    Methods:
+        __init__(): Initializes a new Game instance with default values.
+        load_test_bank(): Loads questions from a JSON file into the test bank dictionary.
+        selectCategory(category): Sets the current category and loads relevant questions.
+        startGame(playerId): Starts a new game session with the specified player ID.
+        presentQuestion(): Selects and returns a random question from the currentQuestions list.
+        answerQuestion(question, answer): Evaluates the player's answer to a question, updating scores and health.
+        calculateScore(): Calculates the player's current score based on answered questions.
+        nextLevel(): Advances the game to the next level, updating the list of current questions.
+        bossFight(): Initiates a boss fight, modifying player and boss health based on outcomes.
+        endGame(): Marks the game as completed and performs any necessary cleanup.
+        saveGame(): Saves the current game state to an external file for later retrieval.
+        loadGame(): Loads a previously saved game state, setting up the game to continue from that point.
+        exitToMainMenu(): Exits the current game and returns to the main menu.
     """
 
     def __init__(self):

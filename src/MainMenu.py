@@ -3,6 +3,35 @@ import sys
 from src.UIs.screen import ScreenBase
 
 class MainMenu(ScreenBase):
+    """
+    Represents the main menu of a Pygame application, where a player can choose to start a new game,
+    load an existing game, or exit the application. This class inherits from ScreenBase, using its
+    setup for the Pygame window/screen along with additional functionalities specific to the main menu.
+
+    Attributes:
+        player (Player): The player instance associated with the main menu.
+        screen_width (int): The width of the screen.
+        screen_height (int): The height of the screen.
+        bg_color (tuple): The background color of the menu.
+        font (pygame.font.Font): The font used for menu item texts.
+        menu_items (list): A list of strings representing the menu options available.
+        selected_item (int): The index of the currently selected menu item.
+        running (bool): A flag to control the main loop, indicating if the menu is currently active.
+        type (str): A string identifier for the screen type, set to 'mainMenu'.
+
+    Methods:
+        run(self):
+            Contains the main loop for the MainMenu, processing events and updating the display.
+
+        display(self, screen):
+            Renders the main menu options on the provided Pygame screen object. Highlights the currently selected menu item and displays the logged-in user.
+
+        handle_events(self):
+            Processes input events such as navigation through menu items and selection.
+
+        handle_selection(self):
+            Executes the action associated with the selected menu item, such as starting a new game, loading a game, or exiting.
+    """
     def __init__(self, player):
         super().__init__()
         self.screen_width = 844

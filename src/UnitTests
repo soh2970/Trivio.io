@@ -14,7 +14,23 @@ from UserAccount import UserAccount
 
 
 class TestPlayer(unittest.TestCase):
-    
+    """
+    Unit tests for the Player class.
+
+    Methods:
+        setUp():
+            Prepares the environment before each test method execution.
+        tearDown():
+            Cleans up the environment after each test method execution.
+        test_loseHp():
+            Tests the losePlayerHP method of the Player class.
+        test_defeat():
+            Tests the isPlayerDefeated method of the Player class.
+        test_incrementScore():
+            Tests the incrementScore method of the Player class.
+        test_moveNextLevel():
+            Tests the moveToNextLevel method of the Player class.
+    """
 
     def setUp(self):
         print("\nRunning setUp method...")
@@ -58,7 +74,17 @@ class TestPlayer(unittest.TestCase):
 
 
 class TestLevel(unittest.TestCase):
-    
+    """
+    Unit tests for the Level class.
+
+    Methods:
+        setUp():
+            Prepares the environment before each test method execution.
+        tearDown():
+            Cleans up the environment after each test method execution.
+        test_moveToNextLevel():
+            Tests the moveToNextLevel method of the Level class.
+    """
     # Not testing completeLevel
 
     def setUp(self):
@@ -75,7 +101,19 @@ class TestLevel(unittest.TestCase):
     
 
 class TestBoss(unittest.TestCase):
-    
+    """
+    Unit tests for the Boss class.
+
+    Methods:
+        setUp():
+            Prepares the environment before each test method execution.
+        tearDown():
+            Cleans up the environment after each test method execution.
+        test_loseBossHp():
+            Tests the loseBossHp method of the Boss class.
+        test_bossDefeated():
+            Tests the isBossDefeated method of the Boss class.
+    """
     def setUp(self):
         print("\nRunning setUp method...")
         self.boss = Boss()
@@ -103,7 +141,19 @@ class TestBoss(unittest.TestCase):
 
 
 class TestHighScore(unittest.TestCase):
-    
+    """
+    Unit tests for the HighScore class.
+
+    Methods:
+        setUp():
+            Prepares the environment before each test method execution.
+        tearDown():
+            Cleans up the environment after each test method execution.
+        test_checkForScore():
+            Tests the checkForScore method of the HighScore class.
+        test_playerInfo():
+            Tests the getPlayerGameInfo method of the HighScore class.
+    """
     def setUp(self):
         print("\nRunning setUp method...")
         self.highscore = HighScore()
@@ -121,7 +171,19 @@ class TestHighScore(unittest.TestCase):
 
 
 class TestUserAccount(unittest.TestCase):
-    
+    """
+    Unit tests for the UserAccount class.
+
+    Methods:
+        setUp():
+            Prepares the environment before each test method execution.
+        tearDown():
+            Cleans up the environment after each test method execution.
+        test_login():
+            Tests the validateLogin method of the UserAccount class.
+        test_createAccount():
+            Tests the createAccount method of the UserAccount class.
+    """
     def setUp(self):
         print("\nRunning setUp method...")
         self.account = UserAccount('', '')

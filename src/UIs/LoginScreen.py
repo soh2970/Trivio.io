@@ -52,8 +52,8 @@ class LoginScreen(ScreenBase):
         run(self):
             Contains the main loop for the LoginScreen, handling events and rendering updates.
     """
-    def __init__(self):
-        super().__init__(self.MIN_WIDTH, self.MIN_HEIGHT)
+    def __init__(self, current_width, current_height):
+        super().__init__(current_width, current_height)
         self.user_text=''
         self.pass_text=''
         self.usernameInput = False
@@ -66,20 +66,20 @@ class LoginScreen(ScreenBase):
 
         # username input box setup
         self.input_box_color = pygame.Color('dodgerblue2')
-        self.input_box = pygame.Rect(self.screen.get_width()/2 - 110, self.screen.get_height()/2 - 15, 200, 40)  # Position and size of the input box
+        self.input_box = pygame.Rect(self.screen.get_width()/211*78, self.screen.get_height()/120*57, 200, 40)  # Position and size of the input box
         self.text_color = self.BLACK
         self.font = self.SMALLER_FONT
         self.active = False  # Indicates if the input box is active
 
         # password input box setup
         self.pass_input_box_color = pygame.Color('dodgerblue2')
-        self.pass_input_box = pygame.Rect(self.screen.get_width()/2 - 110, self.screen.get_height()/2 + 30, 200, 40)  # Position and size of the input box
+        self.pass_input_box = pygame.Rect(self.screen.get_width()/211*78, self.screen.get_height()/20*11, 200, 40)  # Position and size of the input box
         self.pass_text_color = self.BLACK
         self.font = self.SMALLER_FONT
         self.pass_active = False  # Indicates if the input box is active
 
-        self.loginButton = GameScreenButtons(self.screen.get_width()/2 - 150, self.screen.get_height()/2 + 100, 100, 30, "Log In", lambda: self.handleLogIn(), self.WHITE, self.BLACK)
-        self.createAccountButton = GameScreenButtons(self.screen.get_width()/2 - 10, self.screen.get_height()/2 + 100, 200, 30, "Create Account", lambda: self.handleCreateAccount(), self.WHITE, self.BLACK)
+        self.loginButton = GameScreenButtons(self.screen.get_width()/211*68, self.screen.get_height()/3*2, 100, 30, "Log In", lambda: self.handleLogIn(), self.WHITE, self.BLACK)
+        self.createAccountButton = GameScreenButtons(self.screen.get_width()/211*103, self.screen.get_height()/3*2, 200, 30, "Create Account", lambda: self.handleCreateAccount(), self.WHITE, self.BLACK)
         self.isValidUser = False
         self.Player = None
 
@@ -123,20 +123,20 @@ class LoginScreen(ScreenBase):
         instruct_mode = self.MODE_FONT.render('Instructor mode' , True , self.BLACK) 
 
         #button
-        pygame.draw.rect(self.screen,self.GREY,[self.width/2-405,self.height/2-293,30,30]) 
-        pygame.draw.rect(self.screen, self.GREY, [self.width/2-350, self.height/2-290, 90, 20])
+        pygame.draw.rect(self.screen,self.GREY,[self.width/844*17,self.height/600*7,30,30]) 
+        pygame.draw.rect(self.screen, self.GREY, [self.width/211*18, self.height/60, 90, 20])
 
-        pygame.draw.rect(self.screen,self.GREY,[self.width/2-350,self.height/2-265,90,20]) 
+        pygame.draw.rect(self.screen,self.GREY,[self.width/844*72,self.height/600*35,90,20]) 
 
 
         # superimposing the text onto our button 
-        self.screen.blit(login, (self.width/2-200,self.height/2-200))
-        self.screen.blit(started, (self.width/2-50,self.height/2-150))
-        self.screen.blit(esc , (self.width/2-400,self.height/2-300)) 
-        self.screen.blit(username, (self.width/2 - 250, self.height/2 - 10))
-        self.screen.blit(password, (self.width/2 - 250, self.height/2 + 40))
-        self.screen.blit(debug_mode, (self.width/2-349, self.height/2-285))
-        self.screen.blit(instruct_mode, (self.width/2-348, self.height/2-260))
+        self.screen.blit(login, (self.width/844*222,self.height/6))
+        self.screen.blit(started, (self.width/844*372,self.height/60*15))
+        self.screen.blit(esc , (self.width/422*11,0)) 
+        self.screen.blit(username, (self.width/844*172, self.height/60*29))
+        self.screen.blit(password, (self.width/844*172, self.height/60*34))
+        self.screen.blit(debug_mode, (self.width/844*73, self.height/40))
+        self.screen.blit(instruct_mode, (self.width/844*74, self.height/15))
 
         
        
@@ -184,15 +184,15 @@ class LoginScreen(ScreenBase):
                 super().resize_screen(event)
 
                 #resizes buttons based on window size
-                self.input_box = pygame.Rect(self.screen.get_width()/2 - 110, self.screen.get_height()/2 - 15, 200, 40)
-                self.pass_input_box = pygame.Rect(self.screen.get_width()/2 - 110, self.screen.get_height()/2 + 30, 200, 40)
-                self.loginButton.rect = pygame.Rect(self.screen.get_width()/2 - 150, self.screen.get_height()/2 + 100, 100, 30)
-                self.createAccountButton.rect = pygame.Rect(self.screen.get_width()/2 - 10, self.screen.get_height()/2 + 100, 200, 30)
+                self.input_box = pygame.Rect(self.screen.get_width()/844*312, self.screen.get_height()/600*285, 200, 40)
+                self.pass_input_box = pygame.Rect(self.screen.get_width()/844*312, self.screen.get_height()/20*11, 200, 40)
+                self.loginButton.rect = pygame.Rect(self.screen.get_width()/844*272, self.screen.get_height()/3*2, 100, 30)
+                self.createAccountButton.rect = pygame.Rect(self.screen.get_width()/211*103, self.screen.get_height()/3*2, 200, 30)
             
             #checks if a mouse is clicked 
             if event.type == pygame.MOUSEBUTTONDOWN:
                 # Transition to DebuggerPasswordScreen
-                if self.width/2-350 <= mouse[0] <= self.width/2-250 and self.height/2-290 <= mouse[1] <= self.height/2-276:
+                if self.width/211*18 <= mouse[0] <= self.width and self.height/2-290 <= mouse[1] <= self.height/2-276:
                     print("debugger clicked")
                     self.transitionToDebuggerPassword = True
 

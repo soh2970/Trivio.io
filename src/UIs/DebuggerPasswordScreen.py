@@ -11,44 +11,34 @@ pygame.init()
 
 class DebuggerPasswordScreen(ScreenBase):
     """
-    A screen for entering the debugger mode password in a pygame application.
+    Presents a secure entry point for accessing the debugger mode in a Pygame application by requiring
+    a password. Users must input the correct password to proceed to the debugger dashboard. This security
+    measure ensures that debugger access is restricted to authorized users only.
 
-    This screen is responsible for accepting a password input from the user,
-    validating it, and then either transitioning to the debugger dashboard
-    screen upon successful password entry or remaining on the password screen
-    if the entry is invalid. It also provides an option to cancel and return
-    to the login screen.
+    Inherits from ScreenBase for common screen functionality while implementing specific features for
+    password verification, input handling, and screen transition management.
 
     Attributes:
-        password_text (str): The password input by the user.
-        active (bool): Indicates whether the password input field is active.
-        type (str): A string identifier for the screen type, set to 'debuggerPassword'.
-        width (int): The current width of the screen.
-        height (int): The current height of the screen.
-        transitionToDashboard (bool): Flag to indicate transition to the debugger dashboard screen.
-        transitionToLogin (bool): Flag to indicate transition back to the login screen.
-        cancel_button (GameScreenButtons): Button to cancel and trigger transition back to the login screen.
+        password_text (str): Dynamically updated string representing the user's password input.
+        active (bool): Flag indicating whether the password input field is actively being edited.
+        type (str): Screen type identifier, set to 'debuggerPassword' for internal management purposes.
+        width, height (int): Dimensions of the screen, updated dynamically for responsive layouts.
+        transitionToDashboard (bool): True if password verification is successful and a transition to
+            the debugger dashboard is requested.
+        transitionToLogin (bool): True if the user opts to cancel and return to the login screen.
+        cancel_button (GameScreenButtons): UI button to cancel the operation and return to the previous screen.
 
     Methods:
-        draw(self):
-            Renders the password input field, labels, and buttons on the screen.
-
-        check_password(self):
-            Validates the entered password against the expected value ('debug').
-
-        cancel(self):
-            Sets the flag to transition back to the login screen.
-
-        handle_events(self):
-            Handles events such as input in the password field, button clicks,
-            and screen resizing.
-
-        run(self):
-            Contains the main loop for the screen that handles events and renders the screen.
+        draw(self): Renders the password input field, instructional text, and interactive buttons on the screen.
+        check_password(self): Compares the user's input to the expected password and sets the transition flag
+            appropriately based on the result.
+        cancel(self): Handler for the cancel operation, setting the necessary flag to return to the login screen.
+        handle_events(self): Manages user interactions, including text input, button presses, and screen resizing.
+        run(self): Executes the main loop, updating screen content and responding to events in real time.
     """
 
-    def __init__(self):
-        super().__init__(self.MIN_WIDTH, self.MIN_HEIGHT)
+    def __init__(self, width, height):
+        super().__init__(width, height)
         self.password_text = ''
         self.active = False
         self.type = 'debuggerPassword'

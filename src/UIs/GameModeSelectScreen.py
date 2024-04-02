@@ -12,33 +12,35 @@ pygame.init()
 
 class GameModeSelectScreen(ScreenBase):
     """
-    A screen within a Pygame application that allows the user to select the game mode
-    by choosing between various categories such as Math, Social Science, and Science.
-    Additionally, provides options for returning to the previous screen or starting a tutorial.
+    Displays a screen for selecting the game mode within a Pygame application, offering
+    users choices between different educational categories such as Math, Social Science,
+    and Science. It facilitates the transition to game mode-specific screens based on the
+    user's selection, while also providing options to navigate back or access tutorial content.
 
-    Inherits from ScreenBase, utilizing its setup for a Pygame window/screen.
+    Inherits from ScreenBase, using its window/screen setup capabilities to create a
+    user-friendly selection interface.
 
     Attributes:
-        clock (pygame.time.Clock): A clock for controlling the frame rate of the screen.
-        buttons (list): A list of GameScreenButtons objects representing the different options available on the screen.
-        type (str): Identifier for the type of screen, set to 'gameModeSelect'.
-        choice (str or None): The choice made by the user, indicating the selected category or action.
+        clock (pygame.time.Clock): Manages screen update intervals to ensure smooth rendering.
+        buttons (list of GameScreenButtons): Contains button objects for each game mode option,
+            including actions for navigating to other screens.
+        type (str): Screen identifier, used to differentiate this screen within the application.
+        choice (str or None): Stores the user's selection. A specific category name for
+            navigation to the respective game mode, 'back' for returning to the previous screen,
+            or 'tutorial' for accessing the tutorial content.
 
     Methods:
-        choiceMade(self, event):
-            Records the user's choice based on the button clicked.
+        choiceMade(self, event): Captures and records the user's selection based on button interactions.
+        draw(self): Renders the screen's graphical elements, including mode selection buttons and labels.
+        handle_events(self): Listens for and processes user input events such as button clicks.
+        run(self): Implements the main loop for the screen, continuously handling events and updating
+            the screen's display to reflect the current state.
 
-        draw(self):
-            Renders the screen, displaying the buttons and other UI elements.
-
-        handle_events(self):
-            Processes input events such as button clicks.
-
-        run(self):
-            Contains the main loop for the GameModeSelectScreen, handling events and rendering the screen.
+    The GameModeSelectScreen class encapsulates the functionality required for presenting users with
+    a straightforward mode selection interface, enhancing the application's usability and navigation.
     """
-    def __init__(self):
-        super().__init__(self.MIN_WIDTH, self.MIN_HEIGHT)
+    def __init__(self, width, height):
+        super().__init__(width, height)
         self.clock = pygame.time.Clock()
         self.buttons = [
         GameScreenButtons(560, 280, 270, 90, "Math", lambda: self.choiceMade('math'), self.WHITE, self.BLACK ),
