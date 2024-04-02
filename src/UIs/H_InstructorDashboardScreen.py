@@ -66,7 +66,6 @@ class InstructorDashboardScreen(ScreenBase):
         titleOne = self.SMALLER_FONT.render('Enter Username', True, self.BLACK)
         titleTwo = self.SMALLER_FONT.render('For Player Details', True, self.BLACK)
         ok = self.SMALLER_FONT.render('OK', True, self.BLACK)
-        cancel = self.SMALLER_FONT.render('Cancel', True, self.BLACK)
         esc = self.PARAGRAPH_FONT.render('x' , True , self.BLACK)
 
         pygame.draw.rect(self.screen, self.GREY, userName_rect)
@@ -78,9 +77,6 @@ class InstructorDashboardScreen(ScreenBase):
         #back button
         pygame.draw.rect(self.screen,self.GREY,[self.screen_width/2-405,self.screen_height/2-293,30,30]) 
 
-        #scores button
-        pygame.draw.rect(self.screen,self.GREY,[self.screen_width/2-350,self.screen_height/2-290,90,20]) 
-
         #display of
         pygame.draw.rect(self.screen,self.GREY,[self.screen_width/2-170,self.screen_height/2,350,300]) 
 
@@ -88,7 +84,7 @@ class InstructorDashboardScreen(ScreenBase):
         self.screen.blit(titleOne, (self.screen_width/2.5, self.screen_height/2-200))
         self.screen.blit(titleTwo, ((self.screen_width/2 - 100,self.screen_height/2-150)))
         self.screen.blit(ok, (self.screen_width/2+120, self.screen_height/2-108))
-        self.screen.blit(cancel, (self.screen_width/2-349, self.screen_height/2-285))
+
         self.screen.blit(esc , (self.screen_width/2-400,self.screen_height/2-300))
 
         if (self.usernameValid):
