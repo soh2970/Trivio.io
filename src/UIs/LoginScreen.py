@@ -66,20 +66,20 @@ class LoginScreen(ScreenBase):
 
         # username input box setup
         self.input_box_color = pygame.Color('dodgerblue2')
-        self.input_box = pygame.Rect(self.width/211*78, self.height/120*57, 200, 40)  # Position and size of the input box
+        self.input_box = pygame.Rect(self.screen_width/211*78, self.screen_height/120*57, 200, 40)  # Position and size of the input box
         self.text_color = self.BLACK
         self.font = self.SMALLER_FONT
         self.active = False  # Indicates if the input box is active
 
         # password input box setup
         self.pass_input_box_color = pygame.Color('dodgerblue2')
-        self.pass_input_box = pygame.Rect(self.width/211*78, self.height/20*11, 200, 40)  # Position and size of the input box
+        self.pass_input_box = pygame.Rect(self.screen_width/211*78, self.screen_height/20*11, 200, 40)  # Position and size of the input box
         self.pass_text_color = self.BLACK
         self.font = self.SMALLER_FONT
         self.pass_active = False  # Indicates if the input box is active
 
-        self.loginButton = GameScreenButtons(self.width/211*68, self.height/3*2, 100, 30, "Log In", lambda: self.handleLogIn(), self.WHITE, self.BLACK)
-        self.createAccountButton = GameScreenButtons(self.width/211*103, self.height/3*2, 200, 30, "Create Account", lambda: self.handleCreateAccount(), self.WHITE, self.BLACK)
+        self.loginButton = GameScreenButtons(self.screen_width/211*68, self.screen_height/3*2, 100, 30, "Log In", lambda: self.handleLogIn(), self.WHITE, self.BLACK)
+        self.createAccountButton = GameScreenButtons(self.screen_width/211*103, self.screen_height/3*2, 200, 30, "Create Account", lambda: self.handleCreateAccount(), self.WHITE, self.BLACK)
         self.isValidUser = False
         self.Player = None
 
@@ -123,20 +123,20 @@ class LoginScreen(ScreenBase):
         instruct_mode = self.MODE_FONT.render('Instructor mode' , True , self.BLACK) 
 
         #button
-        pygame.draw.rect(self.screen,self.GREY,[self.width/844*17,self.height/600*7,30,30]) 
-        pygame.draw.rect(self.screen, self.GREY, [self.width/211*18, self.height/60, 90, 20])
+        pygame.draw.rect(self.screen,self.GREY,[self.screen_width/844*17,self.screen_height/600*7,30,30]) 
+        pygame.draw.rect(self.screen, self.GREY, [self.screen_width/211*18, self.screen_height/60, 90, 20])
 
-        pygame.draw.rect(self.screen,self.GREY,[self.width/844*72,self.height/600*35,90,20]) 
+        pygame.draw.rect(self.screen,self.GREY,[self.screen_width/844*72,self.screen_height/600*35,90,20]) 
 
 
         # superimposing the text onto our button 
-        self.screen.blit(login, (self.width/844*222,self.height/6))
-        self.screen.blit(started, (self.width/844*372,self.height/60*15))
-        self.screen.blit(esc , (self.width/422*11,0)) 
-        self.screen.blit(username, (self.width/844*172, self.height/60*29))
-        self.screen.blit(password, (self.width/844*172, self.height/60*34))
-        self.screen.blit(debug_mode, (self.width/844*73, self.height/40))
-        self.screen.blit(instruct_mode, (self.width/844*74, self.height/15))
+        self.screen.blit(login, (self.screen_width/844*222,self.screen_height/6))
+        self.screen.blit(started, (self.screen_width/844*372,self.screen_height/60*15))
+        self.screen.blit(esc , (self.screen_width/422*11,0)) 
+        self.screen.blit(username, (self.screen_width/844*172, self.screen_height/60*29))
+        self.screen.blit(password, (self.screen_width/844*172, self.screen_height/60*34))
+        self.screen.blit(debug_mode, (self.screen_width/844*73, self.screen_height/40))
+        self.screen.blit(instruct_mode, (self.screen_width/844*74, self.screen_height/15))
 
         
        
@@ -167,7 +167,7 @@ class LoginScreen(ScreenBase):
 
         if (self.userFoundError == True):
             txt_surface = self.font.render("User already in database", True, self.RED)
-            self.screen.blit(txt_surface, (self.width/25*8, self.height/25*20))
+            self.screen.blit(txt_surface, (self.screen_width/25*8, self.screen_height/25*20))
 
 
     def handle_events(self):
@@ -184,25 +184,28 @@ class LoginScreen(ScreenBase):
                 super().resize_screen(event)
 
                 #resizes buttons based on window size
-                self.input_box = pygame.Rect(self.width/844*312, self.height/600*285, 200, 40)
-                self.pass_input_box = pygame.Rect(self.width/844*312, self.height/20*11, 200, 40)
-                self.loginButton.rect = pygame.Rect(self.width/844*272, self.height/3*2, 100, 30)
-                self.createAccountButton.rect = pygame.Rect(self.width/211*103, self.height/3*2, 200, 30)
+                self.input_box = pygame.Rect(self.screen_width/844*312, self.screen_height/600*285, 200, 40)
+                self.pass_input_box = pygame.Rect(self.screen_width/844*312, self.screen_height/20*11, 200, 40)
+                self.loginButton.rect = pygame.Rect(self.screen_width/844*272, self.screen_height/3*2, 100, 30)
+                self.createAccountButton.rect = pygame.Rect(self.screen_width/211*103, self.screen_height/3*2, 200, 30)
+
+                self.loginButton = GameScreenButtons(self.screen_width/211*68, self.screen_height/3*2, 100, 30, "Log In", lambda: self.handleLogIn(), self.WHITE, self.BLACK)
+                self.createAccountButton = GameScreenButtons(self.screen_width/211*103, self.screen_height/3*2, 200, 30, "Create Account", lambda: self.handleCreateAccount(), self.WHITE, self.BLACK)
             
             #checks if a mouse is clicked 
             if event.type == pygame.MOUSEBUTTONDOWN:
                 # Transition to DebuggerPasswordScreen
-                if self.width/211*18 <= mouse[0] <= self.width/211*18+100 and self.height/60 <= mouse[1] <= self.height/60+14:
+                if self.screen_width/211*18 <= mouse[0] <= self.screen_width/211*18+100 and self.screen_height/60 <= mouse[1] <= self.screen_height/60+14:
                     print("debugger clicked")
                     self.transitionToDebuggerPassword = True
 
                 # Transition to InstructorPasswordScreen
-                if self.width/211*18 <= mouse[0] <= self.width/211*18+100 and self.height/24 <= mouse[1] <= self.height/24+20:
+                if self.screen_width/211*18 <= mouse[0] <= self.screen_width/211*18+100 and self.screen_height/24 <= mouse[1] <= self.screen_height/24+20:
                     print("instructor clicked")
                     self.transitionToInstructorPassword = True
 
                 #if the mouse is clicked on the x button the game is terminated 
-                if self.width/844*17 <= mouse[0] <= self.width/844*17+20 and self.height/600*7 <= mouse[1] <= self.height/600*7+30: 
+                if self.screen_width/844*17 <= mouse[0] <= self.screen_width/844*17+20 and self.screen_height/600*7 <= mouse[1] <= self.screen_height/600*7+30: 
                     pygame.quit()
 
 

@@ -61,7 +61,7 @@ class InstructorDashboardScreen(ScreenBase):
     def draw(self):
         super().draw()
 
-        userName_rect = pygame.Rect(self.width/6*2, self.height/6*2,200,32)
+        userName_rect = pygame.Rect(self.screen_width/2 - 100, self.screen_height/2 - 120,200,32)
 
         titleOne = self.SMALLER_FONT.render('Enter Username', True, self.BLACK)
         titleTwo = self.SMALLER_FONT.render('For Player Details', True, self.BLACK)
@@ -73,29 +73,35 @@ class InstructorDashboardScreen(ScreenBase):
         passwordSurface = self.BASE_FONT.render(self.userName, True, (0,0,0))
         self.screen.blit(passwordSurface, (userName_rect.x+5, userName_rect.y+5))
 
-        pygame.draw.rect(self.screen,self.BLUE,[self.width/2+120,self.height/2-108,45,30]) 
-        pygame.draw.rect(self.screen,self.GREY,[self.width/2-405,self.height/2-293,30,30]) 
-        pygame.draw.rect(self.screen,self.GREY,[self.width/2-350,self.height/2-290,90,20]) 
-        pygame.draw.rect(self.screen,self.GREY,[self.width/2-170,self.height/2,350,300]) 
+        pygame.draw.rect(self.screen,self.BLUE,[self.screen_width/2+120,self.screen_height/2-108,45,30]) 
+
+        #back button
+        pygame.draw.rect(self.screen,self.GREY,[self.screen_width/2-405,self.screen_height/2-293,30,30]) 
+
+        #scores button
+        pygame.draw.rect(self.screen,self.GREY,[self.screen_width/2-350,self.screen_height/2-290,90,20]) 
+
+        #display of
+        pygame.draw.rect(self.screen,self.GREY,[self.screen_width/2-170,self.screen_height/2,350,300]) 
 
 
-        self.screen.blit(titleOne, (self.width/2-100, self.height/2-200))
-        self.screen.blit(titleTwo, ((self.width/2 - 100,self.height/2-150)))
-        self.screen.blit(ok, (self.width/2+120, self.height/2-108))
-        self.screen.blit(cancel, (self.width/2-349, self.height/2-285))
-        self.screen.blit(esc , (self.width/2-400,self.height/2-300))
+        self.screen.blit(titleOne, (self.screen_width/2.5, self.screen_height/2-200))
+        self.screen.blit(titleTwo, ((self.screen_width/2 - 100,self.screen_height/2-150)))
+        self.screen.blit(ok, (self.screen_width/2+120, self.screen_height/2-108))
+        self.screen.blit(cancel, (self.screen_width/2-349, self.screen_height/2-285))
+        self.screen.blit(esc , (self.screen_width/2-400,self.screen_height/2-300))
 
         if (self.usernameValid):
             i = 0
 
             for item in self.output.splitlines():
                 outText = self.MODE_FONT.render(item, True, self.BLACK)
-                out_rect = outText.get_rect(center=(self.width/2,self.height/2 + 100 + i * 20))
+                out_rect = outText.get_rect(center=(self.screen_width/2,self.screen_height/2 + 100 + i * 20))
                 self.screen.blit(outText , out_rect)
                 i+= 1
         else:
             outText = self.MODE_FONT.render(self.output, True, self.BLACK)
-            out_rect = outText.get_rect(center=(self.width/2,self.height/2 + 120))
+            out_rect = outText.get_rect(center=(self.screen_width/2,self.screen_height/2 + 120))
             self.screen.blit(outText , out_rect)
 
 
