@@ -81,7 +81,8 @@ class WinGameScreen(ScreenBase):
         # Load the image
         # Since the Python file is in src/UI and the image is in src/image,
         # the relative path to the image is '../image/trophy.png'
-        image_path = os.path.join('images', 'trophy.png')
+        images_dir = os.path.join(os.path.dirname(__file__), '..', '..', 'images')
+        image_path = os.path.join(images_dir, 'trophy.png')
         self.trophy_image = pygame.image.load(image_path)
 
         # Resize the image

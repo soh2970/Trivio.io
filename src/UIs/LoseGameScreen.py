@@ -37,7 +37,8 @@ class LoseGameScreen(ScreenBase):
         # Load the image
         # Since the Python file is in src/UI and the image is in src/image,
         # the relative path to the image is '../image/rip.png'
-        image_path = os.path.join('images', 'rip.png')
+        images_dir = os.path.join(os.path.dirname(__file__), '..', '..', 'images')
+        image_path = os.path.join(images_dir, 'rip.png')
         self.rip_image = pygame.image.load(image_path)
 
         # Resize the image
