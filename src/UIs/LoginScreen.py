@@ -192,7 +192,7 @@ class LoginScreen(ScreenBase):
             #checks if a mouse is clicked 
             if event.type == pygame.MOUSEBUTTONDOWN:
                 # Transition to DebuggerPasswordScreen
-                if self.width/211*18 <= mouse[0] <= self.width/ and self.height/2-290 <= mouse[1] <= self.height/2-276:
+                if self.width/211*18 <= mouse[0] <= self.width and self.height/2-290 <= mouse[1] <= self.height/2-276:
                     print("debugger clicked")
                     self.transitionToDebuggerPassword = True
 
