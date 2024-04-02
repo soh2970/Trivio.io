@@ -184,25 +184,25 @@ class LoginScreen(ScreenBase):
                 super().resize_screen(event)
 
                 #resizes buttons based on window size
-                self.input_box = pygame.Rect(self.screen.get_width()/844*312, self.screen.get_height()/600*285, 200, 40)
-                self.pass_input_box = pygame.Rect(self.screen.get_width()/844*312, self.screen.get_height()/20*11, 200, 40)
-                self.loginButton.rect = pygame.Rect(self.screen.get_width()/844*272, self.screen.get_height()/3*2, 100, 30)
-                self.createAccountButton.rect = pygame.Rect(self.screen.get_width()/211*103, self.screen.get_height()/3*2, 200, 30)
+                self.input_box = pygame.Rect(self.width/844*312, self.height/600*285, 200, 40)
+                self.pass_input_box = pygame.Rect(self.width/844*312, self.height/20*11, 200, 40)
+                self.loginButton.rect = pygame.Rect(self.width/844*272, self.height/3*2, 100, 30)
+                self.createAccountButton.rect = pygame.Rect(self.width/211*103, self.height/3*2, 200, 30)
             
             #checks if a mouse is clicked 
             if event.type == pygame.MOUSEBUTTONDOWN:
                 # Transition to DebuggerPasswordScreen
-                if self.width/211*18 <= mouse[0] <= self.width/ and self.height/2-290 <= mouse[1] <= self.height/2-276:
+                if self.width/211*18 <= mouse[0] <= self.width/211*18+100 and self.height/60 <= mouse[1] <= self.height/60+14:
                     print("debugger clicked")
                     self.transitionToDebuggerPassword = True
 
                 # Transition to InstructorPasswordScreen
-                if self.width/2-350 <= mouse[0] <= self.width/2-250 and self.height/2-275 <= mouse[1] <= self.height/2-255:
+                if self.width/211*18 <= mouse[0] <= self.width/211*18+100 and self.height/24 <= mouse[1] <= self.height/24+20:
                     print("instructor clicked")
                     self.transitionToInstructorPassword = True
 
                 #if the mouse is clicked on the x button the game is terminated 
-                if self.width/2-405 <= mouse[0] <= self.width/2-385 and self.height/2-293 <= mouse[1] <= self.height/2-263: 
+                if self.width/844*17 <= mouse[0] <= self.width/844*17+20 and self.height/600*7 <= mouse[1] <= self.height/600*7+30: 
                     pygame.quit()
 
 
