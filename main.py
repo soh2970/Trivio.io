@@ -293,7 +293,6 @@ def run_game():
                 level = Level(1, 'social_sciences')
                 current_screen = GameScreen('social_sciences', current_player, boss, level.getNextQuestion(), level.levelNum, score, audio_manager, questions_correct, questions_incorrect, current_screen_width, current_screen_height)
             elif (current_screen.choice == 'science'):
-                print("science was chosen")
                 level = Level(1, 'science')
                 current_screen = GameScreen('science', current_player, boss, level.getNextQuestion(), level.levelNum, score, audio_manager, questions_correct, questions_incorrect, current_screen_width, current_screen_height)
 
