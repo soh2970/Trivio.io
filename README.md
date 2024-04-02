@@ -18,10 +18,11 @@ Trivio is a educational trivia game designed for school aged children ages 10-14
 Trivio was designed with python, using the pygame libarary. File formats handling data storage used the JSON format. It was developed using Visual Studio Code and Pycharm as development environments. 
 
 ## Required Libraries and Tools
-Python v(3.9.13)
-pygame v(2.5.2)
+Python v(3.9.13)<br>
+pygame v(2.5.2)<br>
+<br>
 
-Visual Studio Code v(1.83.2)
+Visual Studio Code v(1.83.2)<br>
 Pycharm v(2023.3)
 
 ## Step by Step guide to compiling from source code
@@ -40,14 +41,17 @@ Pycharm v(2023.3)
 5. Type in a username in the search bar to find a student 
 
 ### Debugger Mode Password
-<b>debug</b>
+The debugger mode password is: <b>debug</b>
 
 ### User Accounts
-Username - 'nateyu'
-Password - ' '
+Username - <i>nateyu</i>
+Password - <b>hello</b>
 
-Username - 'hihi'
-Password - '123'
+Username - <i>hihi</i>
+Password - <b>123</b>
+
+Username - <i>goat</i>
+Password - <b></b>
 
 ## Additional Notes
 
