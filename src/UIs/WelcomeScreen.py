@@ -128,6 +128,8 @@ class WelcomeScreen(ScreenBase):
                 for button in self.buttons:
                     button = pygame.Rect(self.width/844*322,self.height/3*2,200,40)
 
+                self.optionsButton = pygame.Rect(self.width/844*322,self.height/3*2,200,40)
+
             for button in self.buttons:
                 button.handle_event(event)
            
