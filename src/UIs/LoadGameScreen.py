@@ -50,8 +50,8 @@ class LoadGameScreen(ScreenBase):
         self.type = "loadGameScreen"
         self.player = player
         self.currentSave = None
-        self.continueButton = GameScreenButtons(self.screen.get_width()/2 - 80, self.screen.get_height()/2 + 180, 150, 40, "Continue?", lambda: self.handleContinue(), self.WHITE, self.BLACK)
-        self.backButton = GameScreenButtons(self.screen.get_width()/2 - 400, self.screen.get_height()/2 - 270, 100, 40, "Back", lambda: self.handleBack(), self.WHITE, self.BLACK)
+        self.continueButton = GameScreenButtons(self.screen_width/2.3, self.screen_height/1.2, 150, 40, "Continue?", lambda: self.handleContinue(), self.WHITE, self.BLACK)
+        self.backButton = GameScreenButtons(self.screen_width/2 - 400, self.screen_height/2 - 270, 100, 40, "Back", lambda: self.handleBack(), self.WHITE, self.BLACK)
         self.back = False
         self.userContinue = False
         self.questions_correct = 0
@@ -70,37 +70,37 @@ class LoadGameScreen(ScreenBase):
         if (self.getSavedGame() == True):
             #draw header text
             text_surface = self.MODE_SELECT_FONT.render(f'Current Saved Game for {self.player.playerId}', True, self.BLACK)
-            self.screen.blit(text_surface, (100,130))
+            self.screen.blit(text_surface, (self.screen_width/4, self.screen_height/4))
 
             #draw saved date text
             date = self.currentSave['timeStamp']
             text_surface = self.MODE_SELECT_FONT.render(f'Date = {date}', True, self.BLACK)
-            self.screen.blit(text_surface, (200,200))
+            self.screen.blit(text_surface, (self.screen_width/4, self.screen_height/3))
 
             #draw saved level data
             currentLevel = self.currentSave['levelAchieved']
             text_surface = self.MODE_SELECT_FONT.render(f'Current Level = {currentLevel}', True, self.BLACK)
-            self.screen.blit(text_surface, (200,240))
+            self.screen.blit(text_surface, (self.screen_width/4, self.screen_height/2.4))
 
             #draw saved category data
             category = self.currentSave['subject']
             text_surface = self.MODE_SELECT_FONT.render(f'Category = {category}', True, self.BLACK)
-            self.screen.blit(text_surface, (200,280))
+            self.screen.blit(text_surface, (self.screen_width/4, self.screen_height/2.1))
 
             #draw saved score data
             score = self.currentSave['score']
             text_surface = self.MODE_SELECT_FONT.render(f'Score = {score}', True, self.BLACK)
-            self.screen.blit(text_surface, (200,320))
+            self.screen.blit(text_surface, (self.screen_width/4, self.screen_height/1.8))
 
             #draw saved playerHP data
             playerHP = self.currentSave['playerHP']
             text_surface = self.MODE_SELECT_FONT.render(f'Player HP = {playerHP}', True, self.BLACK)
-            self.screen.blit(text_surface, (200,360))
+            self.screen.blit(text_surface, (self.screen_width/4, self.screen_height/1.6))
 
             #draw saved bossHP data
             bossHP = self.currentSave['bossHP']
             text_surface = self.MODE_SELECT_FONT.render(f'Boss HP = {bossHP}', True, self.BLACK)
-            self.screen.blit(text_surface, (200,400))
+            self.screen.blit(text_surface, (self.screen_width/4, self.screen_height/1.4))
 
             #logic for getting questions_correct and questions_incorrect
             self.questions_correct = self.currentSave['questions_correct']
@@ -113,7 +113,7 @@ class LoadGameScreen(ScreenBase):
             self.backButton.draw(self.screen)
         else: 
             text_surface = self.MODE_SELECT_FONT.render(f'No saved game exists for {self.player.playerId}', True, self.BLACK)
-            self.screen.blit(text_surface, (100,130))
+            self.screen.blit(text_surface, (self.screen_width/4, self.screen_height/4))
 
             #draw back button
             self.backButton.draw(self.screen)
@@ -129,6 +129,7 @@ class LoadGameScreen(ScreenBase):
             # user resizing screen
             if event.type == pygame.VIDEORESIZE:
                 self.resize_screen(event)  
+                self.continueButton = GameScreenButtons(self.screen_width/2.5, self.screen_height/1.2, 150, 40, "Continue?", lambda: self.handleContinue(), self.WHITE, self.BLACK)
             
             if event.type == pygame.MOUSEBUTTONDOWN:
                 if (self.getSavedGame() == True):

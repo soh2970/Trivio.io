@@ -62,11 +62,11 @@ class GameModeSelectScreen(ScreenBase):
         super().draw()
 
         self.buttons = [
-        GameScreenButtons(self.screen_width/6, self.screen_height/2, 270, 90, "Math", lambda: self.choiceMade('math'), self.WHITE, self.BLACK ),
-        GameScreenButtons(self.screen_width/4, 280, 270, 90, "Social Science", lambda: self.choiceMade('social_sciences'), self.WHITE, self.BLACK ),
-        GameScreenButtons(self.screen_width/2, 280, 270, 90, "Science", lambda: self.choiceMade('science'), self.WHITE, self.BLACK ),
-        GameScreenButtons(30, 70, 70, 50, "Back", lambda: self.choiceMade('back'), self.WHITE, self.BLACK ),
-        GameScreenButtons(700, 380, 100, 60, "Tutorial", lambda: self.choiceMade('tutorial'), self.WHITE, self.BLACK ),
+        GameScreenButtons(self.screen_width/11, self.screen_height/2, 250, 90, "Math", lambda: self.choiceMade('math'), self.WHITE, self.BLACK ),
+        GameScreenButtons(self.screen_width/2.6, self.screen_height/2, 250, 90, "Social Science", lambda: self.choiceMade('social_sciences'), self.WHITE, self.BLACK ),
+        GameScreenButtons(self.screen_width/1.5, self.screen_height/2, 250, 90, "Science", lambda: self.choiceMade('science'), self.WHITE, self.BLACK ),
+        GameScreenButtons(self.screen_width/11, self.screen_height/1.5, 70, 50, "Back", lambda: self.choiceMade('back'), self.WHITE, self.BLACK ),
+        GameScreenButtons(self.screen_width/1.2, self.screen_height/1.5, 100, 60, "Tutorial", lambda: self.choiceMade('tutorial'), self.WHITE, self.BLACK ),
         ]
 
         # get the current width and height of the screen
@@ -79,7 +79,7 @@ class GameModeSelectScreen(ScreenBase):
         #texts on screen
         mode = self.PARAGRAPH_FONT.render('Mode Selection', True, 0)
         categories = self.SMALLER_FONT.render('Select a Category to start', True, 0)
-        category_text = self.SMALLER_FONT.render('Category', True, 0)
+
         
         for button in self.buttons:
             button.draw(self.screen)
@@ -100,7 +100,6 @@ class GameModeSelectScreen(ScreenBase):
 
         self.screen.blit(categories, (self.width/2-140,self.height/2-180))
         self.screen.blit(mode, (self.width/2-130, self.height/2-230))
-        self.screen.blit(category_text, (self.width/2-370, self.height/2-60))
 
         # #start tutorial button
         # pygame.draw.rect(self.screen,self.BLUE,[self.width/2+215,self.height/2+50,180,40]) 
