@@ -41,8 +41,8 @@ class CorrectAnswerScreen(ScreenBase):
             responds appropriately to user inputs, including proceeding to the next question when the
             "Continue" button is clicked.
     """
-    def __init__(self, level):
-        super().__init__(self.MIN_WIDTH, self.MIN_HEIGHT)
+    def __init__(self, level, width, height):
+        super().__init__(width, height)
         self.level = level
         # Correctly calculate the path to the image file
         base_dir = os.path.dirname(os.path.dirname(__file__))  # This should navigate up to the project root

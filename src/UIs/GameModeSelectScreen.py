@@ -39,8 +39,8 @@ class GameModeSelectScreen(ScreenBase):
     The GameModeSelectScreen class encapsulates the functionality required for presenting users with
     a straightforward mode selection interface, enhancing the application's usability and navigation.
     """
-    def __init__(self):
-        super().__init__(self.MIN_WIDTH, self.MIN_HEIGHT)
+    def __init__(self, width, height):
+        super().__init__(width, height)
         self.clock = pygame.time.Clock()
         self.buttons = [
         GameScreenButtons(560, 280, 270, 90, "Math", lambda: self.choiceMade('math'), self.WHITE, self.BLACK ),

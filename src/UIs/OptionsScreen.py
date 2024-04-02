@@ -17,43 +17,9 @@ sys.path.append(src_dir)
 
 
 class OptionsScreen(ScreenBase):
-    """
-    Provides an interface for users to modify game settings such as audio volume within a Pygame application.
-    This screen includes interactive elements like sliders for adjusting settings, and buttons for navigating
-    back to the main menu or other parts of the game. It's designed to enhance user experience by allowing
-    customization of the game environment according to player preferences.
 
-    Inherits from ScreenBase, utilizing its methods for consistent screen rendering and event handling.
-
-    Attributes:
-        goBack (bool): Flag to signal the user's intention to return to the previous screen.
-        audio_manager (AudioManager): The AudioManager instance used to adjust game audio settings.
-        vol_slider (slider): A custom slider object for adjusting the volume.
-        type (str): Identifier for the screen type, used in screen management within the application.
-        back_button (GameScreenButtons): Button that allows the user to navigate back to the previous screen.
-
-    Methods:
-        draw(self):
-            Renders the options screen elements, including the volume slider and back button.
-
-        handle_events(self):
-            Processes user input, updating settings based on user interaction with screen elements.
-
-        choiceMade(self):
-            Updates the `goBack` flag when the user selects the option to return to the previous screen, facilitating navigation.
-
-        run(self):
-            Contains the main loop for the OptionsScreen, handling events and rendering the screen.
-
-    Additionally, a custom `slider` class is used within this screen to implement the volume slider functionality, allowing
-    users to visually adjust game settings such as sound volume. The `slider` class manages its position, detects user
-    interaction, and updates the AudioManager's volume accordingly.
-
-    Note: Some parts of the class, such as `ArrowButton`, are commented out in the provided code and assumed to be
-    for future implementation or enhancement of the options screen functionality.
-    """
-    def __init__(self, audio_manager):
-        super().__init__(self.MIN_WIDTH, self.MIN_HEIGHT)
+    def __init__(self, audio_manager, width, height):
+        super().__init__(width, height)
 
         self.goBack = False
         self.audio_manager = audio_manager

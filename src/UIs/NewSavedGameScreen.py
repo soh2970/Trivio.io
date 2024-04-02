@@ -46,8 +46,8 @@ class NewSavedGameScreen(ScreenBase):
     The NewSavedGameScreen class acts as an initial decision point for players, facilitating seamless game state management
     and enhancing the game's accessibility and user engagement.
     """
-    def __init__(self, player=None):
-        super().__init__(self.MIN_WIDTH, self.MIN_HEIGHT)
+    def __init__(self, current_width, current_height, player=None):
+        super().__init__(current_width, current_height)
         self.player = player
         self.type = 'newSavedGameScreen'
         self.transitionToNewGame = False

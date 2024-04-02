@@ -46,8 +46,8 @@ class InstructorPasswordScreen(ScreenBase):
     The InstructorPasswordScreen class plays a crucial role in maintaining the application's integrity and security by restricting
     access to sensitive administrative functionalities through a password protection mechanism.
     """
-    def __init__(self):
-        super().__init__(self.MIN_WIDTH, self.MIN_HEIGHT)
+    def __init__(self, width, height):
+        super().__init__(width, height)
         self.password_text = ''
         self.active = False
         self.type = 'instructorPassword'

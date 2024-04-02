@@ -46,8 +46,8 @@ class InstructorDashboardScreen(ScreenBase):
             Executes the main event loop for the screen, continuously updating the display and responding to user actions.
     """
 
-    def __init__(self):
-        super().__init__(self.MIN_WIDTH, self.MIN_HEIGHT)
+    def __init__(self, width, height):
+        super().__init__(width, height)
         self.userName = ''
         self.output = ''
         self.usernameValid = False

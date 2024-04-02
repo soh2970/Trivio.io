@@ -45,8 +45,8 @@ class LoadGameScreen(ScreenBase):
     This class plays a crucial role in enhancing player engagement and retention by enabling seamless continuation of gameplay
     across multiple sessions, contributing to a user-friendly and satisfying game experience.
     """
-    def __init__(self, player):
-        super().__init__(self.MIN_WIDTH, self.MIN_HEIGHT)
+    def __init__(self, player, width, height):
+        super().__init__(width, height)
         self.type = "loadGameScreen"
         self.player = player
         self.currentSave = None

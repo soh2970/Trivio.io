@@ -66,8 +66,8 @@ class WinGameScreen(ScreenBase):
             suggests the presence of saved game management, though its relevance to the win screen's primary function appears limited.
     """
 
-    def __init__(self, score):
-        super().__init__(self.MIN_WIDTH, self.MIN_HEIGHT)  # Initialize with ScreenBase settings
+    def __init__(self, score, width, height):
+        super().__init__(width, height)  # Initialize with ScreenBase settings
         self.score = score
         self.type = 'winGameScreen'
         self.transitionToLeaderboard = False

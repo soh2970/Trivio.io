@@ -43,8 +43,8 @@ class InstructorPasswordScreen(ScreenBase):
     student data within the application.
     """
 
-    def __init__(self):
-        super().__init__(self.MIN_WIDTH, self.MIN_HEIGHT)
+    def __init__(self, width, height):
+        super().__init__(width, height)
         self.password_text = ''
         self.active = False
 

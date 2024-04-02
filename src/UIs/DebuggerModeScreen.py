@@ -45,8 +45,8 @@ class DebuggerModeScreen(ScreenBase):
         run(self): Encapsulates the main event loop for the debugger screen, continuously handling events and rendering updates.
     """
     content_start_y = 150
-    def __init__(self, category=None, level=None):
-        super().__init__(self.MIN_WIDTH, self.MIN_HEIGHT)
+    def __init__(self, width, height, category=None, level=None):
+        super().__init__(width, height)
         self.category = category
         self.level = level
         self.questions = []

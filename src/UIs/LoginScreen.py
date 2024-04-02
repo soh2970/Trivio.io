@@ -52,8 +52,8 @@ class LoginScreen(ScreenBase):
         run(self):
             Contains the main loop for the LoginScreen, handling events and rendering updates.
     """
-    def __init__(self):
-        super().__init__(self.MIN_WIDTH, self.MIN_HEIGHT)
+    def __init__(self, current_width, current_height):
+        super().__init__(current_width, current_height)
         self.user_text=''
         self.pass_text=''
         self.usernameInput = False

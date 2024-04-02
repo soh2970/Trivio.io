@@ -37,8 +37,8 @@ class DebuggerPasswordScreen(ScreenBase):
         run(self): Executes the main loop, updating screen content and responding to events in real time.
     """
 
-    def __init__(self):
-        super().__init__(self.MIN_WIDTH, self.MIN_HEIGHT)
+    def __init__(self, width, height):
+        super().__init__(width, height)
         self.password_text = ''
         self.active = False
         self.type = 'debuggerPassword'

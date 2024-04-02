@@ -104,5 +104,10 @@
         "password": "",
         "currentSavedGame": {},
         "highscore": 0
+    },
+    "sophia": {
+        "password": "",
+        "currentSavedGame": {},
+        "highscore": 0
     }
 }

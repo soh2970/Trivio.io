@@ -11,48 +11,9 @@ import sys
 images_dir = os.path.join(os.path.dirname(__file__), '..', '..', 'images')
 
 class ScoringTutorialScreenTwo(ScreenBase):
-    """
-    The second tutorial screen within a Pygame application series, designed to educate the player on how scoring works
-    in the game. This screen displays images and texts that explain the scoring mechanics, including how points are
-    awarded for correct answers and the impact of incorrect answers.
 
-    Inherits from ScreenBase, utilizing the base class's functionality for screen rendering and event handling while
-    presenting tutorial-specific content and navigation options.
-
-    Attributes:
-        type (str): Screen identifier, indicating this is the second tutorial screen focused on scoring.
-        prevTut (bool): Flag to transition back to the previous tutorial screen.
-        toGameMode (bool): Flag to indicate completion of the tutorial and transition to the game mode selection screen.
-        gamescreen_imageResized (pygame.Surface): Resized image depicting the game screen layout.
-        gametext_imageResized (pygame.Surface): Resized image containing text explaining the scoring system.
-
-    Methods:
-        __init__(self):
-            Initializes the tutorial screen with default settings and scoring-specific content.
-
-        draw(self):
-            Renders tutorial content related to scoring, including instructional images and text, as well as navigation
-            buttons for reviewing previous information or completing the tutorial.
-
-        toPrevTutorial(self):
-            Sets the `prevTut` flag, indicating the user's request to return to the previous tutorial screen.
-
-        toGameSelectMode(self):
-            Sets the `toGameMode` flag, indicating the user's decision to exit the tutorial and proceed to the game mode
-            selection screen.
-
-        handle_events(self):
-            Processes input events, including button clicks for navigation within or exit from the tutorial series.
-
-        run(self):
-            Contains the main loop for the tutorial screen, handling events and updating the display.
-
-    ScoringTutorialScreenTwo further educates players on the game mechanics, specifically focusing on how their actions
-    within the game influence their score. It's part of a tutorial series, each screen of which progressively builds
-    upon the player's understanding of the game.
-    """
-    def __init__(self):
-        super().__init__(self.MIN_WIDTH, self.MIN_HEIGHT)
+    def __init__(self, width, height):
+        super().__init__(width, height)
         self.type = 'tutorialTwo'
         self.prevTut = False
         self.toGameMode = False

@@ -61,7 +61,7 @@ class WelcomeScreen(ScreenBase):
     def optionsChoice(self):
         print("transitioning to options screen")
         self.options = True            
-        optionsDisplay = OptionsScreen(self.audio_manager)
+        optionsDisplay = OptionsScreen(self.audio_manager, self.screen.get_width(), self.screen.get_height())
         while (self.options == True):
             optionsDisplay.draw()
             optionsDisplay.handle_events()
@@ -82,7 +82,6 @@ class WelcomeScreen(ScreenBase):
         self.buttons = [
             GameScreenButtons(self.width/5*2,self.height/3*2,200,40, "start", lambda: self.choiceMade(), self.WHITE, self.BLACK)
         ]
-        self.optionsButton = GameScreenButtons(self.width/5*4, self.height/15*2, 150, 40, "Options", lambda: self.openOptions(), self.WHITE, self.BLACK)
         
 
         self.text = self.PARAGRAPH_FONT.render('START' , True , self.BLACK) 

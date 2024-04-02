@@ -11,48 +11,9 @@ import sys
 images_dir = os.path.join(os.path.dirname(__file__), '..', '..', 'images')
 
 class GameTutorialScreenOne(ScreenBase):
-    """
-    The first tutorial screen in a series within a Pygame application, designed to introduce the player to the game's
-    basic mechanics and interface. This screen displays images and texts that guide the player through the initial steps
-    of gameplay, including an overview of the game screen layout and basic game interactions.
 
-    Inherits from ScreenBase, leveraging the base class's functionality for screen rendering and event handling while
-    providing tutorial-specific content and navigation options.
-
-    Attributes:
-        type (str): Screen identifier, indicating this is the first tutorial screen.
-        toNextPage (bool): Flag to transition to the next tutorial screen.
-        toGameMode (bool): Flag to indicate completion of the tutorial and transition to the game mode selection screen.
-        gamescreen_imageResized (pygame.Surface): Resized image depicting the game screen layout.
-        gametext_imageResized (pygame.Surface): Resized image containing introductory text for the tutorial.
-
-    Methods:
-        __init__(self):
-            Initializes the tutorial screen with default settings and tutorial-specific content.
-
-        draw(self):
-            Renders tutorial content, including instructional images and text, as well as navigation buttons for progressing
-            through or exiting the tutorial.
-
-        toNextTutorial(self):
-            Sets the `toNextPage` flag, indicating the user's request to proceed to the next tutorial screen.
-
-        toGameModeSelect(self):
-            Sets the `toGameMode` flag, indicating the user's decision to exit the tutorial and proceed to the game mode
-            selection screen.
-
-        handle_events(self):
-            Processes input events, including button clicks for navigation within the tutorial series.
-
-        run(self):
-            Contains the main loop for the tutorial screen, handling events and updating the display.
-
-    GameTutorialScreenOne provides a structured and informative introduction to the game, ensuring players understand the
-    basics before proceeding to gameplay. It's part of a series, with subsequent screens offering more detailed guidance
-    on playing the game.
-    """
-    def __init__(self):
-        super().__init__(self.MIN_WIDTH, self.MIN_HEIGHT)
+    def __init__(self, width, height):
+        super().__init__(width, height)
         self.type = 'tutorialOne'
         self.toNextPage = False
         self.toGameMode = False
