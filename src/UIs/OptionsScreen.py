@@ -89,9 +89,9 @@ class OptionsScreen(ScreenBase):
         self.screen.blit(self.dark_button_text, self.dark_button_textrect)
         '''
         #display arrows
-       # left_arrow_image_path= ''
+        #left_arrow_image_path= ''
         #left_arrow_image = pygame.image.load(left_arrow_image_path)
-       # left_arrow_image_resized = pygame.transform.scale(boss2_image, (80,80))
+        #left_arrow_image_resized = pygame.transform.scale(boss2_image, (80,80))
         #right_arrow_image_path = ''
         #right_arrrow_image = pygame.image.load(boss2_image_path)
         #right_arrow_image_resized = pygame.transform.scale(boss2_image, (80,80))
