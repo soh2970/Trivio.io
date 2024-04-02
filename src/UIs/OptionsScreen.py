@@ -119,7 +119,7 @@ class OptionsScreen(ScreenBase):
             # user resizing screen
             elif event.type == pygame.VIDEORESIZE:
                 super().resize_screen(event)
-                self.vol_slider.update_slider_pos(self.screen.get_width(),self.screen.get_height())
+                self.vol_slider.update_slider_pos(self.width,self.height)
 
             if event.type == pygame.MOUSEBUTTONDOWN:
                 self.back_button.handle_event(event)

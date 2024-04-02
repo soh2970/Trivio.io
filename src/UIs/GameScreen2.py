@@ -156,7 +156,17 @@ class GameScreen(ScreenBase):
             button_y = start_y + row * (button_height + vertical_spacing)
             
             # Instantiate the button and add it to the list
-            button = GameScreenButtons(button_x, button_y, button_width, button_height,self.question.choices[i], lambda: self.choiceMade(self.question.choices[i]), self.WHITE, self.BLACK)
+            button = GameScreenButtons(
+                button_x, 
+                button_y, 
+                button_width, 
+                button_height,
+                self.question.choices[i], 
+                lambda i=i: self.choiceMade(self.question.choices[i]),
+                self.WHITE, 
+                self.BLACK
+            )
+            self.buttons.append(button)
             self.buttons.append(button)
 
 
