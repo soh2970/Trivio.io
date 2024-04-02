@@ -15,14 +15,14 @@
     "sophiayuan": {
         "password": "123",
         "currentSavedGame": {
-            "timeStamp": "2024-04-02 17:59:50",
-            "levelAchieved": "1",
+            "timeStamp": "2024-04-02 18:07:03",
+            "levelAchieved": "2",
             "subject": "social_sciences",
-            "score": 32,
-            "playerHP": "88",
-            "bossHP": "68",
-            "questions_correct": 7,
-            "questions_incorrect": 3
+            "score": 38,
+            "playerHP": "92",
+            "bossHP": "62",
+            "questions_correct": 8,
+            "questions_incorrect": 2
         },
         "highscore": 0
     },

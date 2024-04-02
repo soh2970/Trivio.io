@@ -320,6 +320,8 @@ def run_game():
 
 
             if current_screen.goToMain:
+                current_player.playerHP = 100
+                boss.bossHp = 100
                 current_screen = NewSavedGameScreen(current_screen_width, current_screen_height, current_player)
 
             elif (current_screen.answered):
@@ -397,6 +399,8 @@ def run_game():
             current_screen_height = current_screen.screen_height
 
             if current_screen.goToMain:
+                current_player.playerHP = 100
+                boss.bossHp = 100
                 current_screen = NewSavedGameScreen(current_screen_width, current_screen_height, current_player)
 
             elif (current_screen.answered):
@@ -459,6 +463,10 @@ def run_game():
             current_screen_height = current_screen.screen_height
 
             if current_screen.goToMain:
+
+                current_player.playerHP = 100
+                boss.bossHp = 100
+                
                 current_screen = NewSavedGameScreen(current_screen_width, current_screen_height, current_player)
 
             elif (current_screen.answered):
