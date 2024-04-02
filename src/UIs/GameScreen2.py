@@ -129,12 +129,36 @@ class GameScreen(ScreenBase):
                 self.showSaveFeedback = False
 
 
-        self.buttons = [
-            GameScreenButtons(self.screen.get_width()/16*3, self.screen.get_height()/15*9, 250, 100, self.question.choices[0], lambda: self.choiceMade(self.question.choices[0]), self.WHITE, self.BLACK),
-            GameScreenButtons(self.screen.get_width()/16*3, self.screen.get_height()/15*12, 250, 100, self.question.choices[1], lambda: self.choiceMade(self.question.choices[1]), self.WHITE, self.BLACK),
-            GameScreenButtons(self.screen.get_width()/16*8, self.screen.get_height()/15*9, 250, 100, self.question.choices[2], lambda: self.choiceMade(self.question.choices[2]), self.WHITE, self.BLACK),
-            GameScreenButtons(self.screen.get_width()/16*8, self.screen.get_height()/15*12, 250, 100, self.question.choices[3], lambda: self.choiceMade(self.question.choices[3]), self.WHITE, self.BLACK),
-        ]
+        # Define the relative size for each button
+        button_width = self.width * 0.3
+        button_height = self.height * 0.15
+
+        # Define spacing between buttons and between rows
+        spacing = self.width * 0.02  # Space between buttons
+        vertical_spacing = self.height* 0.02  # Space between rows
+        
+        # Calculate total width of two buttons including spacing
+        total_buttons_width = (button_width * 2) + spacing
+        
+        # Determine the starting x coordinate for the first button to center the group horizontally
+        start_x = (self.width - total_buttons_width) / 2
+
+        # Determine the starting y coordinate for the first row to place the group near the bottom
+        start_y = self.height - (button_height * 2) - vertical_spacing - (self.height * 0.05)  # 5% from the bottom
+        
+        # Create and position each button, with two buttons per row
+        self.buttons = []
+        for i in range(4):
+            # Calculate x position for the current button
+            row = i // 2  # Determine row index (0 or 1)
+            col = i % 2  # Determine column index (0 or 1)
+            button_x = start_x + col * (button_width + spacing)
+            button_y = start_y + row * (button_height + vertical_spacing)
+            
+            # Instantiate the button and add it to the list
+            button = GameScreenButtons(button_x, button_y, button_width, button_height,self.question.choices[i], lambda: self.choiceMade(self.question.choices[i]), self.WHITE, self.BLACK)
+            self.buttons.append(button)
+
 
         self.saveGameButton = GameScreenButtons(self.width/5*4, self.height/15*1, 150, 40, "Save Game", lambda: self.saveGame(), self.WHITE, self.BLACK)
         self.optionsButton = GameScreenButtons(self.width/5*4, self.height/15*2, 150, 40, "Options", lambda: self.openOptions(), self.WHITE, self.BLACK)
@@ -143,8 +167,9 @@ class GameScreen(ScreenBase):
 
         #display current question prompt
         # make it a text rect
-        self.draw_text(self.question.prompt, self.promptFont, (255,0,0), self.screen, self.width/6, self.screen.get_height()/12*3)
-
+        self.text1 = self.promptFont.render(self.question.prompt, True, self.BLACK)
+        self.textRect1 = self.text1.get_rect(center = (self.width/2, self.height/12*3))
+        self.screen.blit(self.text1, self.textRect1)
 
         for button in self.buttons:
             button.draw(self.screen)
@@ -154,30 +179,42 @@ class GameScreen(ScreenBase):
         self.toMainButton.draw(self.screen)
 
         #display current level
-        self.draw_text(f'Level: {str(self.level)}', self.levelFont, (255,0,0), self.screen, self.width/2 - 20, self.screen.get_height()/2 - 240)
+        # self.draw_text(f'Level: {str(self.level)}', self.levelFont, (255,0,0), self.screen, self.width/2, self.height/20)
+         # make it a text rect
+        self.level_text = self.levelFont.render(f'Level: {str(self.level)}', True, (255,0,0))
+        self.level_textRect = self.level_text.get_rect(center = (self.width//2, self.height/12))
+        self.screen.blit(self.level_text, self.level_textRect)
         
         #display boss hp
-        self.draw_text(f'Boss HP: {str(self.boss.bossHp)}', self.hpFont, (255,0,0), self.screen, self.width/2 - 195, self.screen.get_height()/2 + 20)
+        # self.draw_text(f'Boss HP: {str(self.boss.bossHp)}', self.hpFont, (255,0,0), self.screen, self.width/5*2, self.height/20*5)
+         # make it a text rect
+        self.boss_text = self.hpFont.render(f'Boss HP: {str(self.boss.bossHp)}', True, (255,0,0))
+        self.boss_textRect = self.boss_text.get_rect(center = (self.width/15*5, self.height/20*12))
+        self.screen.blit(self.boss_text, self.boss_textRect)
 
         #display player hp
-        self.draw_text(f'Player HP: {str(self.player.playerHP)}', self.hpFont, (255,0,0), self.screen, self.screen.get_width()/2 + 50, self.screen.get_height()/2 + 20)
+        # self.draw_text(f'Player HP: {str(self.player.playerHP)}', self.hpFont, (255,0,0), self.screen, self.width/5*4, self.height/20*5)
+         # make it a text rect
+        self.player_text = self.hpFont.render(f'Player HP: {str(self.player.playerHP)}', True, (255,0,0))
+        self.player_textRect = self.player_text.get_rect(center = (self.width/15*10, self.height/20*12))
+        self.screen.blit(self.player_text, self.player_textRect)
 
         #display images based on boss and player hp
         if (self.boss.bossHp <= 100 and self.boss.bossHp > 80):
-            self.screen.blit(self.boss1_imageResized, (self.width/2, self.height/2 - 100))
+            self.screen.blit(self.boss1_imageResized, (self.width/15*5, self.height/20*8))
         elif (self.boss.bossHp <= 80 and self.boss.bossHp > 50):
-            self.screen.blit(self.boss2_imageResized, (self.width/2 - 160, self.height/2 - 100))
+            self.screen.blit(self.boss2_imageResized, (self.width/15*5, self.height/20*8))
         elif (self.boss.bossHp <= 50 and self.boss.bossHp > 0):
-            self.screen.blit(self.boss3_imageResized, (self.width/2 - 160, self.height/2 - 100))
+            self.screen.blit(self.boss3_imageResized, (self.width/15*5, self.height/20*8))
 
         if (self.player.playerHP <= 100 and self.player.playerHP > 80):
-            self.screen.blit(self.player1_imageResized, (self.width/2 + 80, self.height/2 - 100))
+            self.screen.blit(self.player1_imageResized, (self.width/15*9.5, self.height/20*8))
         elif (self.player.playerHP <= 80 and self.player.playerHP > 50):
-            self.screen.blit(self.player2_imageResized, (self.width/2 + 80, self.height/2 - 100))
+            self.screen.blit(self.player2_imageResized, (self.width/15*9.5, self.height/20*8))
         elif (self.player.playerHP <= 50 and self.player.playerHP > 0):
-            self.screen.blit(self.player3_imageResized, (self.width/2 + 80,self.height/2 - 100))
+            self.screen.blit(self.player3_imageResized, (self.width/15*9.5,self.height/20*8))
         elif (self.player.playerHP == 0):
-            self.screen.blit(self.playerLose_imageResized, (self.width/2 + 80, self.height/2 - 100))
+            self.screen.blit(self.playerLose_imageResized, (self.width/15*9.5, self.height/20*8))
         
     #overridden from parent class
     def handle_events(self):

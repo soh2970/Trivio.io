@@ -16,48 +16,41 @@ pygame.init()
 
 class LoginScreen(ScreenBase):
     """
-    Facilitates user authentication in a Pygame application, providing an interface for both logging in to an existing account
-    and creating a new account. This screen is the entry point for users to access personalized game experiences, including loading
-    saved games or accessing user-specific content.
-
-    Inherits from ScreenBase to utilize core screen management and rendering capabilities, integrating seamlessly with the application's
-    overall design and navigation structure.
+    A screen for user login in a Pygame application, providing fields for username and password input,
+    as well as buttons for submitting the login request or creating a new account.
 
     Attributes:
-        user_text (str): Stores the current input in the username field.
-        pass_text (str): Stores the current input in the password field.
-        usernameInput (bool): Flag indicating whether the username input field is active.
-        passwordInput (bool): Flag indicating whether the password input field is active.
-        transitionToDebuggerPassword (bool): Triggers the transition to the debugger password screen.
-        transitionToInstructorPassword (bool): Triggers the transition to the instructor password screen.
-        type (str): Identifies the screen within the application, aiding in screen management.
-        input_box (pygame.Rect): Graphical representation of the username input field.
-        pass_input_box (pygame.Rect): Graphical representation of the password input field.
-        input_box_color, pass_input_box_color (pygame.Color): Colors of the input fields.
-        text_color (tuple): Color of the text in the input fields.
-        loginButton (GameScreenButtons): Button for initiating the login process.
-        createAccountButton (GameScreenButtons): Button for initiating account creation.
-        isValidUser (bool): Indicates the success of the login process.
-        Player (Player): Represents the player instance upon successful login.
-        userFoundError (bool): Indicates an attempt to create an account with a username that already exists.
+        user_text (str): Text input by the user for the username.
+        pass_text (str): Text input by the user for the password.
+        usernameInput (bool): Indicates if the username input box is active.
+        passwordInput (bool): Indicates if the password input box is active.
+        transitionToDebuggerPassword (bool): Flag to transition to the debugger password screen.
+        transitionToInstructorPassword (bool): Flag to transition to the instructor password screen.
+        type (str): Identifier for the screen type, set to 'loginScreen'.
+        input_box (pygame.Rect): Rectangle for the username input box.
+        pass_input_box (pygame.Rect): Rectangle for the password input box.
+        input_box_color (pygame.Color): Color of the input boxes.
+        text_color (tuple): Color of the input text.
+        loginButton (GameScreenButtons): Button for logging in.
+        createAccountButton (GameScreenButtons): Button for creating a new account.
+        isValidUser (bool): Indicates whether the user is validated.
+        Player (Player or None): The player instance created upon successful login.
 
     Methods:
         handleLogIn(self):
-            Validates the user's credentials against stored data, initiating session continuation for valid users.
+            Handles the login logic, validating the user credentials.
 
         handleCreateAccount(self):
-            Attempts to create a new user account with the provided credentials, handling conflicts with existing data.
+            Handles the creation of a new user account.
 
         draw(self):
-            Constructs and displays the login interface, including input fields for username and password, and buttons for submitting or creating an account.
+            Renders the login screen, including input fields and buttons.
 
         handle_events(self):
-            Manages user interaction with the login screen, including text input and button selection.
+            Handles events such as text input, button clicks, and transitions.
 
         run(self):
-            Executes the main event loop for the LoginScreen, continuously rendering updates and responding to user inputs, facilitating the authentication process.
-
-    The LoginScreen class is a critical component of the application's user experience, enabling secure access to personalized game features and progress tracking.
+            Contains the main loop for the LoginScreen, handling events and rendering updates.
     """
     def __init__(self, current_width, current_height):
         super().__init__(current_width, current_height)
@@ -73,20 +66,20 @@ class LoginScreen(ScreenBase):
 
         # username input box setup
         self.input_box_color = pygame.Color('dodgerblue2')
-        self.input_box = pygame.Rect(self.screen.get_width()/2 - 110, self.screen.get_height()/2 - 15, 200, 40)  # Position and size of the input box
+        self.input_box = pygame.Rect(self.screen.get_width()/211*78, self.screen.get_height()/120*57, 200, 40)  # Position and size of the input box
         self.text_color = self.BLACK
         self.font = self.SMALLER_FONT
         self.active = False  # Indicates if the input box is active
 
         # password input box setup
         self.pass_input_box_color = pygame.Color('dodgerblue2')
-        self.pass_input_box = pygame.Rect(self.screen.get_width()/2 - 110, self.screen.get_height()/2 + 30, 200, 40)  # Position and size of the input box
+        self.pass_input_box = pygame.Rect(self.screen.get_width()/211*78, self.screen.get_height()/20*11, 200, 40)  # Position and size of the input box
         self.pass_text_color = self.BLACK
         self.font = self.SMALLER_FONT
         self.pass_active = False  # Indicates if the input box is active
 
-        self.loginButton = GameScreenButtons(self.screen.get_width()/2 - 150, self.screen.get_height()/2 + 100, 100, 30, "Log In", lambda: self.handleLogIn(), self.WHITE, self.BLACK)
-        self.createAccountButton = GameScreenButtons(self.screen.get_width()/2 - 10, self.screen.get_height()/2 + 100, 200, 30, "Create Account", lambda: self.handleCreateAccount(), self.WHITE, self.BLACK)
+        self.loginButton = GameScreenButtons(self.screen.get_width()/211*68, self.screen.get_height()/3*2, 100, 30, "Log In", lambda: self.handleLogIn(), self.WHITE, self.BLACK)
+        self.createAccountButton = GameScreenButtons(self.screen.get_width()/211*103, self.screen.get_height()/3*2, 200, 30, "Create Account", lambda: self.handleCreateAccount(), self.WHITE, self.BLACK)
         self.isValidUser = False
         self.Player = None
 
@@ -130,20 +123,20 @@ class LoginScreen(ScreenBase):
         instruct_mode = self.MODE_FONT.render('Instructor mode' , True , self.BLACK) 
 
         #button
-        pygame.draw.rect(self.screen,self.GREY,[self.width/2-405,self.height/2-293,30,30]) 
-        pygame.draw.rect(self.screen, self.GREY, [self.width/2-350, self.height/2-290, 90, 20])
+        pygame.draw.rect(self.screen,self.GREY,[self.width/844*17,self.height/600*7,30,30]) 
+        pygame.draw.rect(self.screen, self.GREY, [self.width/211*18, self.height/60, 90, 20])
 
-        pygame.draw.rect(self.screen,self.GREY,[self.width/2-350,self.height/2-265,90,20]) 
+        pygame.draw.rect(self.screen,self.GREY,[self.width/844*72,self.height/600*35,90,20]) 
 
 
         # superimposing the text onto our button 
-        self.screen.blit(login, (self.width/2-200,self.height/2-200))
-        self.screen.blit(started, (self.width/2-50,self.height/2-150))
-        self.screen.blit(esc , (self.width/2-400,self.height/2-300)) 
-        self.screen.blit(username, (self.width/2 - 250, self.height/2 - 10))
-        self.screen.blit(password, (self.width/2 - 250, self.height/2 + 40))
-        self.screen.blit(debug_mode, (self.width/2-349, self.height/2-285))
-        self.screen.blit(instruct_mode, (self.width/2-348, self.height/2-260))
+        self.screen.blit(login, (self.width/844*222,self.height/6))
+        self.screen.blit(started, (self.width/844*372,self.height/60*15))
+        self.screen.blit(esc , (self.width/422*11,0)) 
+        self.screen.blit(username, (self.width/844*172, self.height/60*29))
+        self.screen.blit(password, (self.width/844*172, self.height/60*34))
+        self.screen.blit(debug_mode, (self.width/844*73, self.height/40))
+        self.screen.blit(instruct_mode, (self.width/844*74, self.height/15))
 
         
        
@@ -191,25 +184,25 @@ class LoginScreen(ScreenBase):
                 super().resize_screen(event)
 
                 #resizes buttons based on window size
-                self.input_box = pygame.Rect(self.screen.get_width()/2 - 110, self.screen.get_height()/2 - 15, 200, 40)
-                self.pass_input_box = pygame.Rect(self.screen.get_width()/2 - 110, self.screen.get_height()/2 + 30, 200, 40)
-                self.loginButton.rect = pygame.Rect(self.screen.get_width()/2 - 150, self.screen.get_height()/2 + 100, 100, 30)
-                self.createAccountButton.rect = pygame.Rect(self.screen.get_width()/2 - 10, self.screen.get_height()/2 + 100, 200, 30)
+                self.input_box = pygame.Rect(self.width/844*312, self.height/600*285, 200, 40)
+                self.pass_input_box = pygame.Rect(self.width/844*312, self.height/20*11, 200, 40)
+                self.loginButton.rect = pygame.Rect(self.width/844*272, self.height/3*2, 100, 30)
+                self.createAccountButton.rect = pygame.Rect(self.width/211*103, self.height/3*2, 200, 30)
             
             #checks if a mouse is clicked 
             if event.type == pygame.MOUSEBUTTONDOWN:
                 # Transition to DebuggerPasswordScreen
-                if self.width/2-350 <= mouse[0] <= self.width/2-250 and self.height/2-290 <= mouse[1] <= self.height/2-276:
+                if self.width/211*18 <= mouse[0] <= self.width/211*18+100 and self.height/60 <= mouse[1] <= self.height/60+14:
                     print("debugger clicked")
                     self.transitionToDebuggerPassword = True
 
                 # Transition to InstructorPasswordScreen
-                if self.width/2-350 <= mouse[0] <= self.width/2-250 and self.height/2-275 <= mouse[1] <= self.height/2-255:
+                if self.width/211*18 <= mouse[0] <= self.width/211*18+100 and self.height/24 <= mouse[1] <= self.height/24+20:
                     print("instructor clicked")
                     self.transitionToInstructorPassword = True
 
                 #if the mouse is clicked on the x button the game is terminated 
-                if self.width/2-405 <= mouse[0] <= self.width/2-385 and self.height/2-293 <= mouse[1] <= self.height/2-263: 
+                if self.width/844*17 <= mouse[0] <= self.width/844*17+20 and self.height/600*7 <= mouse[1] <= self.height/600*7+30: 
                     pygame.quit()
 
 
