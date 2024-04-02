@@ -109,5 +109,24 @@
         "password": "",
         "currentSavedGame": {},
         "highscore": 0
+    },
+    "sophiay": {
+        "password": "123",
+        "currentSavedGame": {
+            "timeStamp": "2024-04-01 23:42:38",
+            "levelAchieved": "2",
+            "subject": "social_sciences",
+            "score": 48,
+            "playerHP": "92",
+            "bossHP": "52",
+            "questions_correct": 5,
+            "questions_incorrect": 1
+        },
+        "highscore": 0
+    },
+    "nateyu": {
+        "password": "123",
+        "currentSavedGame": {},
+        "highscore": 0
     }
 }

@@ -167,7 +167,6 @@ class GameScreen(ScreenBase):
                 self.BLACK
             )
             self.buttons.append(button)
-            self.buttons.append(button)
 
 
         self.saveGameButton = GameScreenButtons(self.width/5*4, self.height/15*1, 150, 40, "Save Game", lambda: self.saveGame(), self.WHITE, self.BLACK)
