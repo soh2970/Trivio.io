@@ -1,17 +1,5 @@
 # Trivio Game
 
-Your README file should include the following:
-
-A short description of your software and what it does.
-A list of the required libraries and third party tools required to run or build your software (include version numbers).
-A detailed step by step guide for building your software (compiling it from source code). This should include details on how to obtain and install any third party libraries.
-A detailed step by step guide on how to run your already built (compiled) software.
-A user guide, that explains how to use your software.
-If your software uses accounts, a password, or pin you must include any account username/password, pin, etc. required to use your software.
-You must also include details on how to access your teacher mode and steps to build/install it if it is a separate program.
-Anything else that would be helpful for the TA marking your project to know.
-This README file should be in the root directory of your repository and in your submitted zip archive.
-
 ## About our software
 Trivio is a educational trivia game designed for school aged children ages 10-14. It includes 3 different subject categories - Math, Social Science, and Science, and the game contains 3 levels - easy (level 1), medium (level 2), and hard(level 3). The game tests student's level of knowledge in a fun and interactive way, where they compete to beat the 'boss' by answering questions correctly. 
 
