@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Python: module DebuggerMode</title>
+</head><body>
+
+<table class="heading">
+<tr class="heading-text decor">
+<td class="title">&nbsp;<br><strong class="title">DebuggerMode</strong></td>
+<td class="extra"><a href=".">index</a><br><a href="file:c%3A%5Cusers%5Ckimgu%5C2212%5Crepositories2212%5Cpersonalrepo2212%5Csrc%5Cdebuggermode.py">c:\users\kimgu\2212\repositories2212\personalrepo2212\src\debuggermode.py</a></td></tr></table>
+    <p></p>
+<p>
+<table class="section">
+<tr class="decor pkg-content-decor heading-text">
+<td class="section-title" colspan=3>&nbsp;<br><strong class="bigsection">Modules</strong></td></tr>
+    
+<tr><td class="decor pkg-content-decor"><span class="code">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></td><td>&nbsp;</td>
+<td class="singlecolumn"><table><tr><td class="multicolumn"><a href="json.html">json</a><br>
+</td><td class="multicolumn"><a href="os.html">os</a><br>
+</td><td class="multicolumn"><a href="pydoc.html">pydoc</a><br>
+</td><td class="multicolumn"></td></tr></table></td></tr></table><p>
+<table class="section">
+<tr class="decor index-decor heading-text">
+<td class="section-title" colspan=3>&nbsp;<br><strong class="bigsection">Classes</strong></td></tr>
+    
+<tr><td class="decor index-decor"><span class="code">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></td><td>&nbsp;</td>
+<td class="singlecolumn"><dl>
+<dt class="heading-text"><a href="builtins.html#object">builtins.object</a>
+</dt><dd>
+<dl>
+<dt class="heading-text"><a href="DebuggerMode.html#Debugger">Debugger</a>
+</dt></dl>
+</dd>
+</dl>
+ <p>
+<table class="section">
+<tr class="decor title-decor heading-text">
+<td class="section-title" colspan=3>&nbsp;<br><a name="Debugger">class <strong>Debugger</strong></a>(<a href="builtins.html#object">builtins.object</a>)</td></tr>
+    
+<tr><td class="decor title-decor" rowspan=2><span class="code">&nbsp;&nbsp;&nbsp;</span></td>
+<td class="decor title-decor" colspan=2><span class="code">Provides&nbsp;functionalities&nbsp;for&nbsp;debugging&nbsp;and&nbsp;testing&nbsp;questions&nbsp;from&nbsp;the&nbsp;game's&nbsp;question&nbsp;bank.<br>
+Allows&nbsp;selection&nbsp;of&nbsp;a&nbsp;specific&nbsp;question&nbsp;based&nbsp;on&nbsp;category,&nbsp;level,&nbsp;and&nbsp;question&nbsp;number&nbsp;to&nbsp;test&nbsp;or&nbsp;debug.<br>
+&nbsp;<br>
+Attributes:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;password&nbsp;(int):&nbsp;A&nbsp;hardcoded&nbsp;password&nbsp;to&nbsp;access&nbsp;debugging&nbsp;functionalities.<br>
+&nbsp;<br>
+Methods:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="#Debugger-__init__">__init__</a>(self):&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Initializes&nbsp;the&nbsp;<a href="#Debugger">Debugger</a>&nbsp;<a href="builtins.html#object">object</a>.<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="#Debugger-selectQuestion">selectQuestion</a>(self,&nbsp;category,&nbsp;level,&nbsp;questionNum):<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Selects&nbsp;and&nbsp;returns&nbsp;a&nbsp;Question&nbsp;<a href="builtins.html#object">object</a>&nbsp;based&nbsp;on&nbsp;the&nbsp;specified&nbsp;category,&nbsp;level,&nbsp;and&nbsp;question&nbsp;number.&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;It&nbsp;reads&nbsp;from&nbsp;a&nbsp;JSON&nbsp;file&nbsp;containing&nbsp;the&nbsp;question&nbsp;bank,&nbsp;constructs&nbsp;a&nbsp;Question&nbsp;<a href="builtins.html#object">object</a>&nbsp;with&nbsp;the&nbsp;retrieved&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;data,&nbsp;and&nbsp;returns&nbsp;it.<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Parameters:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;category&nbsp;(str):&nbsp;The&nbsp;category&nbsp;of&nbsp;the&nbsp;question&nbsp;(e.g.,&nbsp;'math',&nbsp;'social_sciences',&nbsp;'science').<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;level&nbsp;(int):&nbsp;The&nbsp;difficulty&nbsp;level&nbsp;of&nbsp;the&nbsp;question&nbsp;(1&nbsp;to&nbsp;3).<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;questionNum&nbsp;(int):&nbsp;The&nbsp;index&nbsp;of&nbsp;the&nbsp;question&nbsp;in&nbsp;the&nbsp;question&nbsp;bank&nbsp;for&nbsp;the&nbsp;specified&nbsp;category&nbsp;and&nbsp;level.<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Returns:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Question:&nbsp;An&nbsp;instance&nbsp;of&nbsp;the&nbsp;Question&nbsp;class&nbsp;populated&nbsp;with&nbsp;the&nbsp;data&nbsp;of&nbsp;the&nbsp;selected&nbsp;question.<br>&nbsp;</span></td></tr>
+<tr><td>&nbsp;</td>
+<td class="singlecolumn">Methods defined here:<br>
+<dl><dt><a name="Debugger-__init__"><strong>__init__</strong></a>(self)</dt><dd><span class="code">Initialize&nbsp;self.&nbsp;&nbsp;See&nbsp;help(type(self))&nbsp;for&nbsp;accurate&nbsp;signature.</span></dd></dl>
+
+<dl><dt><a name="Debugger-selectQuestion"><strong>selectQuestion</strong></a>(self, category, level, questionNum)</dt></dl>
+
+<hr>
+Data descriptors defined here:<br>
+<dl><dt><strong>__dict__</strong></dt>
+<dd><span class="code">dictionary&nbsp;for&nbsp;instance&nbsp;variables</span></dd>
+</dl>
+<dl><dt><strong>__weakref__</strong></dt>
+<dd><span class="code">list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object</span></dd>
+</dl>
+<hr>
+Data and other attributes defined here:<br>
+<dl><dt><strong>password</strong> = 2468</dl>
+
+</td></tr></table></td></tr></table>
+</body></html>

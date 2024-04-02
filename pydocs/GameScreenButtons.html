@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Python: module GameScreenButtons</title>
+</head><body>
+
+<table class="heading">
+<tr class="heading-text decor">
+<td class="title">&nbsp;<br><strong class="title">GameScreenButtons</strong></td>
+<td class="extra"><a href=".">index</a><br><a href="file:c%3A%5Cusers%5Ckimgu%5C2212%5Crepositories2212%5Cpersonalrepo2212%5Csrc%5Cuis%5Cgamescreenbuttons.py">c:\users\kimgu\2212\repositories2212\personalrepo2212\src\uis\gamescreenbuttons.py</a></td></tr></table>
+    <p></p>
+<p>
+<table class="section">
+<tr class="decor pkg-content-decor heading-text">
+<td class="section-title" colspan=3>&nbsp;<br><strong class="bigsection">Modules</strong></td></tr>
+    
+<tr><td class="decor pkg-content-decor"><span class="code">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></td><td>&nbsp;</td>
+<td class="singlecolumn"><table><tr><td class="multicolumn"><a href="pydoc.html">pydoc</a><br>
+</td><td class="multicolumn"><a href="pygame.html">pygame</a><br>
+</td><td class="multicolumn"></td><td class="multicolumn"></td></tr></table></td></tr></table><p>
+<table class="section">
+<tr class="decor index-decor heading-text">
+<td class="section-title" colspan=3>&nbsp;<br><strong class="bigsection">Classes</strong></td></tr>
+    
+<tr><td class="decor index-decor"><span class="code">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></td><td>&nbsp;</td>
+<td class="singlecolumn"><dl>
+<dt class="heading-text"><a href="builtins.html#object">builtins.object</a>
+</dt><dd>
+<dl>
+<dt class="heading-text"><a href="GameScreenButtons.html#GameScreenButtons">GameScreenButtons</a>
+</dt></dl>
+</dd>
+</dl>
+ <p>
+<table class="section">
+<tr class="decor title-decor heading-text">
+<td class="section-title" colspan=3>&nbsp;<br><a name="GameScreenButtons">class <strong>GameScreenButtons</strong></a>(<a href="builtins.html#object">builtins.object</a>)</td></tr>
+    
+<tr><td class="decor title-decor" rowspan=2><span class="code">&nbsp;&nbsp;&nbsp;</span></td>
+<td class="decor title-decor" colspan=2><span class="code"><a href="#GameScreenButtons">GameScreenButtons</a>(x,&nbsp;y,&nbsp;width,&nbsp;height,&nbsp;text,&nbsp;callback,&nbsp;colour,&nbsp;text_color)<br>
+&nbsp;<br>
+Provides&nbsp;an&nbsp;interactive&nbsp;button&nbsp;component&nbsp;for&nbsp;Pygame&nbsp;applications,&nbsp;designed&nbsp;to&nbsp;execute&nbsp;specific&nbsp;actions&nbsp;upon&nbsp;being&nbsp;clicked.<br>
+This&nbsp;class&nbsp;enables&nbsp;the&nbsp;creation&nbsp;of&nbsp;visually&nbsp;customizable&nbsp;buttons&nbsp;that&nbsp;can&nbsp;display&nbsp;text&nbsp;and&nbsp;respond&nbsp;to&nbsp;user&nbsp;input,&nbsp;facilitating<br>
+user&nbsp;interaction&nbsp;within&nbsp;the&nbsp;game.&nbsp;Each&nbsp;button&nbsp;can&nbsp;be&nbsp;individually&nbsp;configured&nbsp;to&nbsp;perform&nbsp;a&nbsp;distinct&nbsp;callback&nbsp;function,&nbsp;allowing<br>
+for&nbsp;a&nbsp;wide&nbsp;range&nbsp;of&nbsp;interactive&nbsp;capabilities&nbsp;across&nbsp;various&nbsp;game&nbsp;screens.<br>
+&nbsp;<br>
+Attributes:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;x&nbsp;(int):&nbsp;The&nbsp;x-coordinate&nbsp;of&nbsp;the&nbsp;button's&nbsp;top-left&nbsp;corner.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;y&nbsp;(int):&nbsp;The&nbsp;y-coordinate&nbsp;of&nbsp;the&nbsp;button's&nbsp;top-left&nbsp;corner.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;width&nbsp;(int):&nbsp;The&nbsp;width&nbsp;of&nbsp;the&nbsp;button.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;height&nbsp;(int):&nbsp;The&nbsp;height&nbsp;of&nbsp;the&nbsp;button.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;text_color&nbsp;(tuple):&nbsp;The&nbsp;RGB&nbsp;color&nbsp;value&nbsp;for&nbsp;the&nbsp;text&nbsp;displayed&nbsp;on&nbsp;the&nbsp;button.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;colour&nbsp;(tuple):&nbsp;The&nbsp;RGB&nbsp;color&nbsp;value&nbsp;for&nbsp;the&nbsp;button's&nbsp;background.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;text&nbsp;(str):&nbsp;The&nbsp;label&nbsp;text&nbsp;displayed&nbsp;on&nbsp;the&nbsp;button.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;callback&nbsp;(function):&nbsp;A&nbsp;callback&nbsp;function&nbsp;that&nbsp;is&nbsp;executed&nbsp;when&nbsp;the&nbsp;button&nbsp;is&nbsp;clicked.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;font&nbsp;(pygame.font.Font):&nbsp;The&nbsp;font&nbsp;used&nbsp;for&nbsp;rendering&nbsp;the&nbsp;button's&nbsp;text.&nbsp;The&nbsp;font&nbsp;size&nbsp;adjusts&nbsp;based&nbsp;on&nbsp;the&nbsp;length&nbsp;of&nbsp;the&nbsp;text.<br>
+&nbsp;<br>
+Methods:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="#GameScreenButtons-draw">draw</a>(self,&nbsp;screen):<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Renders&nbsp;the&nbsp;button&nbsp;onto&nbsp;the&nbsp;specified&nbsp;Pygame&nbsp;screen&nbsp;<a href="builtins.html#object">object</a>.&nbsp;This&nbsp;includes&nbsp;drawing&nbsp;the&nbsp;button's&nbsp;background,&nbsp;border,&nbsp;and&nbsp;text&nbsp;label.<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="#GameScreenButtons-handle_event">handle_event</a>(self,&nbsp;event):<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Responds&nbsp;to&nbsp;Pygame&nbsp;events,&nbsp;specifically&nbsp;checking&nbsp;for&nbsp;mouse&nbsp;clicks&nbsp;within&nbsp;the&nbsp;button's&nbsp;boundaries.&nbsp;If&nbsp;a&nbsp;click&nbsp;is&nbsp;detected,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;the&nbsp;button's&nbsp;associated&nbsp;callback&nbsp;function&nbsp;is&nbsp;executed.<br>
+&nbsp;<br>
+The&nbsp;<a href="#GameScreenButtons">GameScreenButtons</a>&nbsp;class&nbsp;streamlines&nbsp;the&nbsp;process&nbsp;of&nbsp;adding&nbsp;interactive&nbsp;elements&nbsp;to&nbsp;a&nbsp;game's&nbsp;UI,&nbsp;supporting&nbsp;enhanced&nbsp;player&nbsp;engagement<br>
+through&nbsp;clear&nbsp;visual&nbsp;cues&nbsp;and&nbsp;responsive&nbsp;actions.<br>&nbsp;</span></td></tr>
+<tr><td>&nbsp;</td>
+<td class="singlecolumn">Methods defined here:<br>
+<dl><dt><a name="GameScreenButtons-__init__"><strong>__init__</strong></a>(self, x, y, width, height, text, callback, colour, text_color)</dt><dd><span class="code">self.<strong>rect1</strong>&nbsp;=&nbsp;pygame.Rect(x,&nbsp;y,&nbsp;width,&nbsp;height)&nbsp;#&nbsp;text<br>
+self.<strong>rect2</strong>&nbsp;=&nbsp;pygame.Rect(x,&nbsp;y,&nbsp;width,&nbsp;height)&nbsp;#&nbsp;border</span></dd></dl>
+
+<dl><dt><a name="GameScreenButtons-draw"><strong>draw</strong></a>(self, screen)</dt></dl>
+
+<dl><dt><a name="GameScreenButtons-handle_event"><strong>handle_event</strong></a>(self, event)</dt></dl>
+
+<hr>
+Data descriptors defined here:<br>
+<dl><dt><strong>__dict__</strong></dt>
+<dd><span class="code">dictionary&nbsp;for&nbsp;instance&nbsp;variables</span></dd>
+</dl>
+<dl><dt><strong>__weakref__</strong></dt>
+<dd><span class="code">list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object</span></dd>
+</dl>
+</td></tr></table></td></tr></table>
+</body></html>

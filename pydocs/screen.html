@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Python: module screen</title>
+</head><body>
+
+<table class="heading">
+<tr class="heading-text decor">
+<td class="title">&nbsp;<br><strong class="title">screen</strong></td>
+<td class="extra"><a href=".">index</a><br><a href="file:c%3A%5Cusers%5Ckimgu%5C2212%5Crepositories2212%5Cpersonalrepo2212%5Csrc%5Cuis%5Cscreen.py">c:\users\kimgu\2212\repositories2212\personalrepo2212\src\uis\screen.py</a></td></tr></table>
+    <p><span class="code">Base&nbsp;Screen&nbsp;Class<br>
+&nbsp;<br>
+defines&nbsp;all&nbsp;the&nbsp;functions&nbsp;and&nbsp;constants&nbsp;that&nbsp;each&nbsp;UI&nbsp;class&nbsp;will&nbsp;need&nbsp;to&nbsp;implement</span></p>
+<p>
+<table class="section">
+<tr class="decor pkg-content-decor heading-text">
+<td class="section-title" colspan=3>&nbsp;<br><strong class="bigsection">Modules</strong></td></tr>
+    
+<tr><td class="decor pkg-content-decor"><span class="code">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></td><td>&nbsp;</td>
+<td class="singlecolumn"><table><tr><td class="multicolumn"><a href="pydoc.html">pydoc</a><br>
+</td><td class="multicolumn"><a href="pygame.html">pygame</a><br>
+</td><td class="multicolumn"><a href="sys.html">sys</a><br>
+</td><td class="multicolumn"></td></tr></table></td></tr></table><p>
+<table class="section">
+<tr class="decor index-decor heading-text">
+<td class="section-title" colspan=3>&nbsp;<br><strong class="bigsection">Classes</strong></td></tr>
+    
+<tr><td class="decor index-decor"><span class="code">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></td><td>&nbsp;</td>
+<td class="singlecolumn"><dl>
+<dt class="heading-text"><a href="builtins.html#object">builtins.object</a>
+</dt><dd>
+<dl>
+<dt class="heading-text"><a href="screen.html#ScreenBase">ScreenBase</a>
+</dt></dl>
+</dd>
+</dl>
+ <p>
+<table class="section">
+<tr class="decor title-decor heading-text">
+<td class="section-title" colspan=3>&nbsp;<br><a name="ScreenBase">class <strong>ScreenBase</strong></a>(<a href="builtins.html#object">builtins.object</a>)</td></tr>
+    
+<tr><td class="decor title-decor" rowspan=2><span class="code">&nbsp;&nbsp;&nbsp;</span></td>
+<td class="decor title-decor" colspan=2><span class="code"><a href="#ScreenBase">ScreenBase</a>(width,&nbsp;height)<br>
+&nbsp;<br>
+Serves&nbsp;as&nbsp;the&nbsp;foundational&nbsp;class&nbsp;for&nbsp;creating&nbsp;and&nbsp;managing&nbsp;UI&nbsp;screens&nbsp;in&nbsp;a&nbsp;Pygame&nbsp;application.&nbsp;It&nbsp;establishes&nbsp;a&nbsp;common&nbsp;framework<br>
+and&nbsp;set&nbsp;of&nbsp;functionalities&nbsp;that&nbsp;are&nbsp;essential&nbsp;for&nbsp;the&nbsp;creation,&nbsp;display,&nbsp;and&nbsp;interaction&nbsp;of&nbsp;various&nbsp;UI&nbsp;components&nbsp;across&nbsp;different&nbsp;screens.&nbsp;<br>
+This&nbsp;includes&nbsp;handling&nbsp;common&nbsp;events&nbsp;such&nbsp;as&nbsp;screen&nbsp;resizing&nbsp;and&nbsp;quitting,&nbsp;as&nbsp;well&nbsp;as&nbsp;establishing&nbsp;a&nbsp;uniform&nbsp;appearance&nbsp;through&nbsp;predefined<br>
+color&nbsp;and&nbsp;font&nbsp;attributes.<br>
+&nbsp;<br>
+Attributes:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;MIN_WIDTH&nbsp;(int):&nbsp;The&nbsp;minimum&nbsp;width&nbsp;allowed&nbsp;for&nbsp;the&nbsp;game&nbsp;window.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;MIN_HEIGHT&nbsp;(int):&nbsp;The&nbsp;minimum&nbsp;height&nbsp;allowed&nbsp;for&nbsp;the&nbsp;game&nbsp;window.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;SCREEN_SIZE&nbsp;(tuple):&nbsp;The&nbsp;default&nbsp;size&nbsp;of&nbsp;the&nbsp;game&nbsp;window,&nbsp;defined&nbsp;by&nbsp;MIN_WIDTH&nbsp;and&nbsp;MIN_HEIGHT.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;WHITE,&nbsp;BLACK,&nbsp;BLUE,&nbsp;GREY,&nbsp;DARKGREY,&nbsp;GREEN,&nbsp;RED&nbsp;(tuple):&nbsp;Color&nbsp;constants&nbsp;used&nbsp;throughout&nbsp;the&nbsp;UI&nbsp;for&nbsp;consistency.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;MODE_FONT,&nbsp;BUTTON_FONT,&nbsp;SMALLER_FONT,&nbsp;MID_FONT,&nbsp;MODE_SELECT_FONT,&nbsp;PARAGRAPH_FONT,&nbsp;MEDIUM_FONT,&nbsp;HEADING_FONT,&nbsp;BASE_FONT,&nbsp;SELECT_FONT&nbsp;(pygame.font.Font):&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Font&nbsp;attributes&nbsp;for&nbsp;different&nbsp;textual&nbsp;elements&nbsp;within&nbsp;the&nbsp;UI,&nbsp;providing&nbsp;a&nbsp;consistent&nbsp;look&nbsp;and&nbsp;feel.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;screen&nbsp;(pygame.Surface):&nbsp;The&nbsp;main&nbsp;surface&nbsp;for&nbsp;drawing&nbsp;UI&nbsp;elements,&nbsp;acting&nbsp;as&nbsp;the&nbsp;primary&nbsp;display&nbsp;area&nbsp;for&nbsp;the&nbsp;application.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;running&nbsp;(bool):&nbsp;A&nbsp;flag&nbsp;to&nbsp;control&nbsp;the&nbsp;main&nbsp;event&nbsp;loop&nbsp;of&nbsp;the&nbsp;screen,&nbsp;indicating&nbsp;whether&nbsp;the&nbsp;application&nbsp;is&nbsp;actively&nbsp;running.<br>
+&nbsp;<br>
+Methods:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="#ScreenBase-__init__">__init__</a>(self,&nbsp;width,&nbsp;height):<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Initializes&nbsp;a&nbsp;new&nbsp;screen&nbsp;with&nbsp;the&nbsp;specified&nbsp;dimensions,&nbsp;setting&nbsp;up&nbsp;the&nbsp;main&nbsp;display&nbsp;window&nbsp;and&nbsp;application&nbsp;caption.<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="#ScreenBase-resize_screen">resize_screen</a>(self,&nbsp;event):<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Adjusts&nbsp;the&nbsp;screen's&nbsp;dimensions&nbsp;based&nbsp;on&nbsp;user&nbsp;input&nbsp;while&nbsp;enforcing&nbsp;minimum&nbsp;size&nbsp;constraints,&nbsp;ensuring&nbsp;the&nbsp;UI&nbsp;remains&nbsp;usable.<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="#ScreenBase-handle_events">handle_events</a>(self):<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Processes&nbsp;basic&nbsp;Pygame&nbsp;events,&nbsp;including&nbsp;quitting&nbsp;the&nbsp;game&nbsp;and&nbsp;resizing&nbsp;the&nbsp;window,&nbsp;maintaining&nbsp;core&nbsp;application&nbsp;functionality.<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="#ScreenBase-draw">draw</a>(self):<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Fills&nbsp;the&nbsp;screen&nbsp;with&nbsp;a&nbsp;solid&nbsp;background&nbsp;color.&nbsp;Meant&nbsp;to&nbsp;be&nbsp;overridden&nbsp;in&nbsp;subclasses&nbsp;to&nbsp;include&nbsp;screen-specific&nbsp;drawing&nbsp;logic.<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="#ScreenBase-update">update</a>(self):<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;A&nbsp;placeholder&nbsp;for&nbsp;updating&nbsp;the&nbsp;game&nbsp;state.&nbsp;Subclasses&nbsp;should&nbsp;override&nbsp;this&nbsp;method&nbsp;to&nbsp;implement&nbsp;specific&nbsp;game&nbsp;logic.<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="#ScreenBase-run">run</a>(self):<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Contains&nbsp;the&nbsp;main&nbsp;loop&nbsp;for&nbsp;the&nbsp;screen,&nbsp;responsible&nbsp;for&nbsp;drawing&nbsp;the&nbsp;screen,&nbsp;updating&nbsp;game&nbsp;state,&nbsp;and&nbsp;processing&nbsp;events.<br>
+&nbsp;<br>
+<a href="#ScreenBase">ScreenBase</a>&nbsp;abstracts&nbsp;common&nbsp;functionalities&nbsp;needed&nbsp;by&nbsp;various&nbsp;screens&nbsp;within&nbsp;the&nbsp;application,&nbsp;promoting&nbsp;code&nbsp;reuse&nbsp;and&nbsp;reducing&nbsp;redundancy.<br>
+Subclasses&nbsp;should&nbsp;extend&nbsp;<a href="#ScreenBase">ScreenBase</a>&nbsp;to&nbsp;inherit&nbsp;these&nbsp;base&nbsp;functionalities&nbsp;while&nbsp;implementing&nbsp;additional&nbsp;features&nbsp;specific&nbsp;to&nbsp;the&nbsp;screen's&nbsp;purpose.<br>&nbsp;</span></td></tr>
+<tr><td>&nbsp;</td>
+<td class="singlecolumn">Methods defined here:<br>
+<dl><dt><a name="ScreenBase-__init__"><strong>__init__</strong></a>(self, width, height)</dt><dd><span class="code">Initialize&nbsp;self.&nbsp;&nbsp;See&nbsp;help(type(self))&nbsp;for&nbsp;accurate&nbsp;signature.</span></dd></dl>
+
+<dl><dt><a name="ScreenBase-draw"><strong>draw</strong></a>(self)</dt><dd><span class="code">#add&nbsp;any&nbsp;specific&nbsp;screen&nbsp;elements&nbsp;here</span></dd></dl>
+
+<dl><dt><a name="ScreenBase-handle_events"><strong>handle_events</strong></a>(self)</dt><dd><span class="code">#&nbsp;handle&nbsp;base&nbsp;events&nbsp;like&nbsp;quitting&nbsp;or&nbsp;resizing&nbsp;screen</span></dd></dl>
+
+<dl><dt><a name="ScreenBase-resize_screen"><strong>resize_screen</strong></a>(self, event)</dt><dd><span class="code">#&nbsp;function&nbsp;to&nbsp;resize&nbsp;the&nbsp;screen</span></dd></dl>
+
+<dl><dt><a name="ScreenBase-run"><strong>run</strong></a>(self)</dt><dd><span class="code">#we&nbsp;need&nbsp;this</span></dd></dl>
+
+<dl><dt><a name="ScreenBase-update"><strong>update</strong></a>(self)</dt><dd><span class="code">#updating&nbsp;game&nbsp;state</span></dd></dl>
+
+<hr>
+Data descriptors defined here:<br>
+<dl><dt><strong>__dict__</strong></dt>
+<dd><span class="code">dictionary&nbsp;for&nbsp;instance&nbsp;variables</span></dd>
+</dl>
+<dl><dt><strong>__weakref__</strong></dt>
+<dd><span class="code">list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object</span></dd>
+</dl>
+<hr>
+Data and other attributes defined here:<br>
+<dl><dt><strong>BASE_FONT</strong> = &lt;pygame.font.Font object&gt;</dl>
+
+<dl><dt><strong>BLACK</strong> = (0, 0, 0)</dl>
+
+<dl><dt><strong>BLUE</strong> = (159, 197, 248)</dl>
+
+<dl><dt><strong>BUTTON_FONT</strong> = &lt;pygame.font.Font object&gt;</dl>
+
+<dl><dt><strong>DARKGREY</strong> = (45, 45, 45)</dl>
+
+<dl><dt><strong>GREEN</strong> = (204, 245, 205)</dl>
+
+<dl><dt><strong>GREY</strong> = (220, 220, 220)</dl>
+
+<dl><dt><strong>HEADING_FONT</strong> = &lt;pygame.font.Font object&gt;</dl>
+
+<dl><dt><strong>HP_FONT</strong> = &lt;pygame.font.Font object&gt;</dl>
+
+<dl><dt><strong>LEVEL_FONT</strong> = &lt;pygame.font.Font object&gt;</dl>
+
+<dl><dt><strong>MEDIUM_FONT</strong> = &lt;pygame.font.Font object&gt;</dl>
+
+<dl><dt><strong>MID_FONT</strong> = &lt;pygame.font.Font object&gt;</dl>
+
+<dl><dt><strong>MIN_HEIGHT</strong> = 600</dl>
+
+<dl><dt><strong>MIN_WIDTH</strong> = 844</dl>
+
+<dl><dt><strong>MODE_FONT</strong> = &lt;pygame.font.Font object&gt;</dl>
+
+<dl><dt><strong>MODE_SELECT_FONT</strong> = &lt;pygame.font.Font object&gt;</dl>
+
+<dl><dt><strong>PARAGRAPH_FONT</strong> = &lt;pygame.font.Font object&gt;</dl>
+
+<dl><dt><strong>RED</strong> = (255, 0, 0)</dl>
+
+<dl><dt><strong>SCREEN_SIZE</strong> = (844, 600)</dl>
+
+<dl><dt><strong>SELECT_FONT</strong> = &lt;pygame.font.Font object&gt;</dl>
+
+<dl><dt><strong>SMALLER_FONT</strong> = &lt;pygame.font.Font object&gt;</dl>
+
+<dl><dt><strong>WHITE</strong> = (255, 255, 255)</dl>
+
+</td></tr></table></td></tr></table>
+</body></html>

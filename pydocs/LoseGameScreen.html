@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Python: module LoseGameScreen</title>
+</head><body>
+
+<table class="heading">
+<tr class="heading-text decor">
+<td class="title">&nbsp;<br><strong class="title">LoseGameScreen</strong></td>
+<td class="extra"><a href=".">index</a><br><a href="file:c%3A%5Cusers%5Ckimgu%5C2212%5Crepositories2212%5Cpersonalrepo2212%5Csrc%5Cuis%5Closegamescreen.py">c:\users\kimgu\2212\repositories2212\personalrepo2212\src\uis\losegamescreen.py</a></td></tr></table>
+    <p></p>
+<p>
+<table class="section">
+<tr class="decor pkg-content-decor heading-text">
+<td class="section-title" colspan=3>&nbsp;<br><strong class="bigsection">Modules</strong></td></tr>
+    
+<tr><td class="decor pkg-content-decor"><span class="code">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></td><td>&nbsp;</td>
+<td class="singlecolumn"><table><tr><td class="multicolumn"><a href="os.html">os</a><br>
+</td><td class="multicolumn"><a href="pydoc.html">pydoc</a><br>
+</td><td class="multicolumn"><a href="pygame.html">pygame</a><br>
+</td><td class="multicolumn"><a href="sys.html">sys</a><br>
+</td></tr></table></td></tr></table><p>
+<table class="section">
+<tr class="decor index-decor heading-text">
+<td class="section-title" colspan=3>&nbsp;<br><strong class="bigsection">Classes</strong></td></tr>
+    
+<tr><td class="decor index-decor"><span class="code">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></td><td>&nbsp;</td>
+<td class="singlecolumn"><dl>
+<dt class="heading-text"><a href="screen.html#ScreenBase">screen.ScreenBase</a>(<a href="builtins.html#object">builtins.object</a>)
+</dt><dd>
+<dl>
+<dt class="heading-text"><a href="LoseGameScreen.html#LoseGameScreen">LoseGameScreen</a>
+</dt></dl>
+</dd>
+</dl>
+ <p>
+<table class="section">
+<tr class="decor title-decor heading-text">
+<td class="section-title" colspan=3>&nbsp;<br><a name="LoseGameScreen">class <strong>LoseGameScreen</strong></a>(<a href="screen.html#ScreenBase">screen.ScreenBase</a>)</td></tr>
+    
+<tr><td class="decor title-decor" rowspan=2><span class="code">&nbsp;&nbsp;&nbsp;</span></td>
+<td class="decor title-decor" colspan=2><span class="code"><a href="#LoseGameScreen">LoseGameScreen</a>(category,&nbsp;level,&nbsp;hp,&nbsp;questions_right,&nbsp;questions_wrong,&nbsp;score)<br>
+&nbsp;<br>
+Displays&nbsp;a&nbsp;screen&nbsp;to&nbsp;the&nbsp;player&nbsp;upon&nbsp;losing&nbsp;a&nbsp;game&nbsp;in&nbsp;a&nbsp;Pygame&nbsp;application,&nbsp;showcasing&nbsp;defeat&nbsp;with<br>
+an&nbsp;accompanying&nbsp;image&nbsp;and&nbsp;detailed&nbsp;game&nbsp;statistics.&nbsp;This&nbsp;screen&nbsp;serves&nbsp;as&nbsp;a&nbsp;feedback&nbsp;mechanism&nbsp;for&nbsp;the&nbsp;player,<br>
+summarizing&nbsp;their&nbsp;performance&nbsp;in&nbsp;the&nbsp;game,&nbsp;including&nbsp;the&nbsp;level&nbsp;reached,&nbsp;category&nbsp;played,&nbsp;score&nbsp;achieved,&nbsp;and<br>
+questions&nbsp;answered&nbsp;correctly&nbsp;or&nbsp;incorrectly.<br>
+&nbsp;<br>
+Inherits&nbsp;from&nbsp;<a href="screen.html#ScreenBase">ScreenBase</a>&nbsp;to&nbsp;leverage&nbsp;foundational&nbsp;screen&nbsp;management&nbsp;and&nbsp;rendering&nbsp;functionalities.<br>
+&nbsp;<br>
+Attributes:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;type&nbsp;(str):&nbsp;Identifies&nbsp;the&nbsp;screen's&nbsp;role&nbsp;within&nbsp;the&nbsp;application,&nbsp;set&nbsp;to&nbsp;'loseGameScreen'.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;category&nbsp;(str):&nbsp;The&nbsp;game&nbsp;category&nbsp;the&nbsp;player&nbsp;was&nbsp;engaging&nbsp;in.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;level&nbsp;(int):&nbsp;The&nbsp;final&nbsp;level&nbsp;the&nbsp;player&nbsp;reached&nbsp;before&nbsp;losing.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;hp&nbsp;(int):&nbsp;Remaining&nbsp;health&nbsp;points&nbsp;of&nbsp;the&nbsp;boss,&nbsp;indicating&nbsp;how&nbsp;close&nbsp;the&nbsp;player&nbsp;was&nbsp;to&nbsp;winning.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;questions_right&nbsp;(int):&nbsp;The&nbsp;number&nbsp;of&nbsp;questions&nbsp;the&nbsp;player&nbsp;answered&nbsp;correctly.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;questions_wrong&nbsp;(int):&nbsp;The&nbsp;number&nbsp;of&nbsp;questions&nbsp;the&nbsp;player&nbsp;answered&nbsp;incorrectly.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;score&nbsp;(int):&nbsp;The&nbsp;final&nbsp;score&nbsp;the&nbsp;player&nbsp;achieved.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;transitionToLeaderboard&nbsp;(bool):&nbsp;Flag&nbsp;to&nbsp;transition&nbsp;to&nbsp;the&nbsp;leaderboard&nbsp;screen,&nbsp;triggered&nbsp;by&nbsp;player&nbsp;interaction.<br>
+&nbsp;<br>
+Methods:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="#LoseGameScreen-draw">draw</a>(self):<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Constructs&nbsp;and&nbsp;renders&nbsp;the&nbsp;defeat&nbsp;screen,&nbsp;including&nbsp;visual&nbsp;and&nbsp;textual&nbsp;elements&nbsp;that&nbsp;convey&nbsp;the&nbsp;player's&nbsp;game&nbsp;outcome.<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="#LoseGameScreen-handle_events">handle_events</a>(self):<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Manages&nbsp;user&nbsp;input,&nbsp;specifically&nbsp;looking&nbsp;for&nbsp;interactions&nbsp;that&nbsp;trigger&nbsp;a&nbsp;transition&nbsp;to&nbsp;the&nbsp;leaderboard&nbsp;or&nbsp;other&nbsp;screens.<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="#LoseGameScreen-run">run</a>(self):<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Encapsulates&nbsp;the&nbsp;main&nbsp;event&nbsp;loop&nbsp;for&nbsp;the&nbsp;<a href="#LoseGameScreen">LoseGameScreen</a>,&nbsp;ensuring&nbsp;continuous&nbsp;update&nbsp;and&nbsp;response&nbsp;to&nbsp;user&nbsp;actions.<br>
+&nbsp;<br>
+The&nbsp;<a href="#LoseGameScreen">LoseGameScreen</a>&nbsp;class&nbsp;provides&nbsp;critical&nbsp;closure&nbsp;to&nbsp;the&nbsp;gameplay&nbsp;experience,&nbsp;offering&nbsp;players&nbsp;insight&nbsp;into&nbsp;their&nbsp;performance<br>
+and&nbsp;encouraging&nbsp;reflection&nbsp;and&nbsp;future&nbsp;improvement.<br>&nbsp;</span></td></tr>
+<tr><td>&nbsp;</td>
+<td class="singlecolumn"><dl><dt>Method resolution order:</dt>
+<dd><a href="LoseGameScreen.html#LoseGameScreen">LoseGameScreen</a></dd>
+<dd><a href="screen.html#ScreenBase">screen.ScreenBase</a></dd>
+<dd><a href="builtins.html#object">builtins.object</a></dd>
+</dl>
+<hr>
+Methods defined here:<br>
+<dl><dt><a name="LoseGameScreen-__init__"><strong>__init__</strong></a>(self, category, level, hp, questions_right, questions_wrong, score)</dt><dd><span class="code">Initialize&nbsp;self.&nbsp;&nbsp;See&nbsp;help(type(self))&nbsp;for&nbsp;accurate&nbsp;signature.</span></dd></dl>
+
+<dl><dt><a name="LoseGameScreen-draw"><strong>draw</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="LoseGameScreen-handle_events"><strong>handle_events</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="LoseGameScreen-run"><strong>run</strong></a>(self)</dt></dl>
+
+<hr>
+Methods inherited from <a href="screen.html#ScreenBase">screen.ScreenBase</a>:<br>
+<dl><dt><a name="LoseGameScreen-resize_screen"><strong>resize_screen</strong></a>(self, event)</dt><dd><span class="code">#&nbsp;function&nbsp;to&nbsp;resize&nbsp;the&nbsp;screen</span></dd></dl>
+
+<dl><dt><a name="LoseGameScreen-update"><strong>update</strong></a>(self)</dt><dd><span class="code">#updating&nbsp;game&nbsp;state</span></dd></dl>
+
+<hr>
+Data descriptors inherited from <a href="screen.html#ScreenBase">screen.ScreenBase</a>:<br>
+<dl><dt><strong>__dict__</strong></dt>
+<dd><span class="code">dictionary&nbsp;for&nbsp;instance&nbsp;variables</span></dd>
+</dl>
+<dl><dt><strong>__weakref__</strong></dt>
+<dd><span class="code">list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object</span></dd>
+</dl>
+<hr>
+Data and other attributes inherited from <a href="screen.html#ScreenBase">screen.ScreenBase</a>:<br>
+<dl><dt><strong>BASE_FONT</strong> = &lt;pygame.font.Font object&gt;</dl>
+
+<dl><dt><strong>BLACK</strong> = (0, 0, 0)</dl>
+
+<dl><dt><strong>BLUE</strong> = (159, 197, 248)</dl>
+
+<dl><dt><strong>BUTTON_FONT</strong> = &lt;pygame.font.Font object&gt;</dl>
+
+<dl><dt><strong>DARKGREY</strong> = (45, 45, 45)</dl>
+
+<dl><dt><strong>GREEN</strong> = (204, 245, 205)</dl>
+
+<dl><dt><strong>GREY</strong> = (220, 220, 220)</dl>
+
+<dl><dt><strong>HEADING_FONT</strong> = &lt;pygame.font.Font object&gt;</dl>
+
+<dl><dt><strong>HP_FONT</strong> = &lt;pygame.font.Font object&gt;</dl>
+
+<dl><dt><strong>LEVEL_FONT</strong> = &lt;pygame.font.Font object&gt;</dl>
+
+<dl><dt><strong>MEDIUM_FONT</strong> = &lt;pygame.font.Font object&gt;</dl>
+
+<dl><dt><strong>MID_FONT</strong> = &lt;pygame.font.Font object&gt;</dl>
+
+<dl><dt><strong>MIN_HEIGHT</strong> = 600</dl>
+
+<dl><dt><strong>MIN_WIDTH</strong> = 844</dl>
+
+<dl><dt><strong>MODE_FONT</strong> = &lt;pygame.font.Font object&gt;</dl>
+
+<dl><dt><strong>MODE_SELECT_FONT</strong> = &lt;pygame.font.Font object&gt;</dl>
+
+<dl><dt><strong>PARAGRAPH_FONT</strong> = &lt;pygame.font.Font object&gt;</dl>
+
+<dl><dt><strong>RED</strong> = (255, 0, 0)</dl>
+
+<dl><dt><strong>SCREEN_SIZE</strong> = (844, 600)</dl>
+
+<dl><dt><strong>SELECT_FONT</strong> = &lt;pygame.font.Font object&gt;</dl>
+
+<dl><dt><strong>SMALLER_FONT</strong> = &lt;pygame.font.Font object&gt;</dl>
+
+<dl><dt><strong>WHITE</strong> = (255, 255, 255)</dl>
+
+</td></tr></table></td></tr></table><p>
+<table class="section">
+<tr class="decor data-decor heading-text">
+<td class="section-title" colspan=3>&nbsp;<br><strong class="bigsection">Data</strong></td></tr>
+    
+<tr><td class="decor data-decor"><span class="code">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></td><td>&nbsp;</td>
+<td class="singlecolumn"><strong>src_dir</strong> = r'C:\Users\kimgu\2212\repositories2212\personalRepo2212\src'</td></tr></table>
+</body></html>

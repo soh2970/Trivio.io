@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Python: module WelcomeScreen</title>
+</head><body>
+
+<table class="heading">
+<tr class="heading-text decor">
+<td class="title">&nbsp;<br><strong class="title">WelcomeScreen</strong></td>
+<td class="extra"><a href=".">index</a><br><a href="file:c%3A%5Cusers%5Ckimgu%5C2212%5Crepositories2212%5Cpersonalrepo2212%5Csrc%5Cuis%5Cwelcomescreen.py">c:\users\kimgu\2212\repositories2212\personalrepo2212\src\uis\welcomescreen.py</a></td></tr></table>
+    <p><span class="code">#saver</span></p>
+<p>
+<table class="section">
+<tr class="decor pkg-content-decor heading-text">
+<td class="section-title" colspan=3>&nbsp;<br><strong class="bigsection">Modules</strong></td></tr>
+    
+<tr><td class="decor pkg-content-decor"><span class="code">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></td><td>&nbsp;</td>
+<td class="singlecolumn"><table><tr><td class="multicolumn"><a href="os.html">os</a><br>
+</td><td class="multicolumn"><a href="pydoc.html">pydoc</a><br>
+</td><td class="multicolumn"><a href="pygame.html">pygame</a><br>
+</td><td class="multicolumn"><a href="sys.html">sys</a><br>
+</td></tr></table></td></tr></table><p>
+<table class="section">
+<tr class="decor index-decor heading-text">
+<td class="section-title" colspan=3>&nbsp;<br><strong class="bigsection">Classes</strong></td></tr>
+    
+<tr><td class="decor index-decor"><span class="code">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></td><td>&nbsp;</td>
+<td class="singlecolumn"><dl>
+<dt class="heading-text"><a href="screen.html#ScreenBase">screen.ScreenBase</a>(<a href="builtins.html#object">builtins.object</a>)
+</dt><dd>
+<dl>
+<dt class="heading-text"><a href="WelcomeScreen.html#WelcomeScreen">WelcomeScreen</a>
+</dt></dl>
+</dd>
+</dl>
+ <p>
+<table class="section">
+<tr class="decor title-decor heading-text">
+<td class="section-title" colspan=3>&nbsp;<br><a name="WelcomeScreen">class <strong>WelcomeScreen</strong></a>(<a href="screen.html#ScreenBase">screen.ScreenBase</a>)</td></tr>
+    
+<tr><td class="decor title-decor" rowspan=2><span class="code">&nbsp;&nbsp;&nbsp;</span></td>
+<td class="decor title-decor" colspan=2><span class="code"><a href="#WelcomeScreen">WelcomeScreen</a>(audio_manager)<br>
+&nbsp;<br>
+A&nbsp;welcoming&nbsp;interface&nbsp;for&nbsp;the&nbsp;game,&nbsp;presenting&nbsp;users&nbsp;with&nbsp;the&nbsp;initial&nbsp;screen&nbsp;upon&nbsp;launching&nbsp;the&nbsp;game.<br>
+This&nbsp;screen&nbsp;displays&nbsp;a&nbsp;welcome&nbsp;message&nbsp;and&nbsp;provides&nbsp;a&nbsp;start&nbsp;button&nbsp;to&nbsp;transition&nbsp;the&nbsp;user&nbsp;to&nbsp;the&nbsp;main<br>
+game&nbsp;interface&nbsp;or&nbsp;login&nbsp;screen,&nbsp;and&nbsp;an&nbsp;options&nbsp;button&nbsp;to&nbsp;customize&nbsp;game&nbsp;settings.<br>
+&nbsp;<br>
+Inherits&nbsp;from&nbsp;<a href="screen.html#ScreenBase">ScreenBase</a>,&nbsp;leveraging&nbsp;its&nbsp;foundational&nbsp;setup&nbsp;for&nbsp;a&nbsp;consistent&nbsp;Pygame&nbsp;window/screen&nbsp;configuration.<br>
+&nbsp;<br>
+Attributes:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;type&nbsp;(str):&nbsp;Identifier&nbsp;for&nbsp;the&nbsp;screen&nbsp;type,&nbsp;set&nbsp;to&nbsp;'welcomeScreen'.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;buttons&nbsp;(list):&nbsp;A&nbsp;list&nbsp;containing&nbsp;the&nbsp;start&nbsp;button,&nbsp;implemented&nbsp;as&nbsp;a&nbsp;GameScreenButtons&nbsp;object.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;transitionToNextScreen&nbsp;(bool):&nbsp;Flag&nbsp;indicating&nbsp;whether&nbsp;the&nbsp;start&nbsp;button&nbsp;has&nbsp;been&nbsp;clicked,&nbsp;signaling&nbsp;the&nbsp;user's&nbsp;intention&nbsp;to&nbsp;transition&nbsp;to&nbsp;the&nbsp;next&nbsp;screen.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;options&nbsp;(bool):&nbsp;Flag&nbsp;indicating&nbsp;whether&nbsp;the&nbsp;options&nbsp;button&nbsp;has&nbsp;been&nbsp;clicked,&nbsp;signaling&nbsp;the&nbsp;user's&nbsp;desire&nbsp;to&nbsp;view&nbsp;the&nbsp;options&nbsp;screen.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;audio_manager:&nbsp;Manages&nbsp;audio&nbsp;playback&nbsp;for&nbsp;the&nbsp;screen.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;optionsButton&nbsp;(GameScreenButtons):&nbsp;Button&nbsp;to&nbsp;open&nbsp;the&nbsp;options&nbsp;screen&nbsp;for&nbsp;adjusting&nbsp;settings&nbsp;such&nbsp;as&nbsp;volume.<br>
+&nbsp;<br>
+Methods:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="#WelcomeScreen-optionsChoice">optionsChoice</a>(self):<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Invokes&nbsp;the&nbsp;display&nbsp;of&nbsp;the&nbsp;options&nbsp;screen,&nbsp;allowing&nbsp;users&nbsp;to&nbsp;adjust&nbsp;game&nbsp;settings.<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="#WelcomeScreen-choiceMade">choiceMade</a>(self):<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Sets&nbsp;the&nbsp;transitionToNextScreen&nbsp;flag&nbsp;to&nbsp;True,&nbsp;indicating&nbsp;the&nbsp;user's&nbsp;decision&nbsp;to&nbsp;proceed&nbsp;from&nbsp;the&nbsp;welcome&nbsp;screen&nbsp;to&nbsp;the&nbsp;next&nbsp;phase&nbsp;of&nbsp;the&nbsp;game&nbsp;interface.<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="#WelcomeScreen-draw">draw</a>(self):<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Renders&nbsp;the&nbsp;welcome&nbsp;screen,&nbsp;including&nbsp;welcoming&nbsp;messages,&nbsp;and&nbsp;the&nbsp;start&nbsp;and&nbsp;options&nbsp;buttons.<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="#WelcomeScreen-handle_events">handle_events</a>(self):<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Processes&nbsp;input&nbsp;events,&nbsp;notably&nbsp;handling&nbsp;clicks&nbsp;on&nbsp;the&nbsp;start&nbsp;and&nbsp;options&nbsp;buttons&nbsp;and&nbsp;managing&nbsp;window&nbsp;resizing.<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="#WelcomeScreen-run">run</a>(self):<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Contains&nbsp;the&nbsp;main&nbsp;loop&nbsp;for&nbsp;the&nbsp;<a href="#WelcomeScreen">WelcomeScreen</a>,&nbsp;facilitating&nbsp;event&nbsp;handling&nbsp;and&nbsp;screen&nbsp;updates&nbsp;to&nbsp;reflect&nbsp;user&nbsp;interactions.<br>
+&nbsp;<br>
+The&nbsp;<a href="#WelcomeScreen">WelcomeScreen</a>&nbsp;class&nbsp;serves&nbsp;as&nbsp;the&nbsp;entry&nbsp;point&nbsp;to&nbsp;the&nbsp;game,&nbsp;setting&nbsp;the&nbsp;tone&nbsp;with&nbsp;a&nbsp;welcoming&nbsp;atmosphere&nbsp;and&nbsp;providing&nbsp;straightforward&nbsp;navigation&nbsp;to&nbsp;the&nbsp;game's&nbsp;core&nbsp;functionalities&nbsp;or&nbsp;customization&nbsp;settings.<br>&nbsp;</span></td></tr>
+<tr><td>&nbsp;</td>
+<td class="singlecolumn"><dl><dt>Method resolution order:</dt>
+<dd><a href="WelcomeScreen.html#WelcomeScreen">WelcomeScreen</a></dd>
+<dd><a href="screen.html#ScreenBase">screen.ScreenBase</a></dd>
+<dd><a href="builtins.html#object">builtins.object</a></dd>
+</dl>
+<hr>
+Methods defined here:<br>
+<dl><dt><a name="WelcomeScreen-__init__"><strong>__init__</strong></a>(self, audio_manager)</dt><dd><span class="code">Initialize&nbsp;self.&nbsp;&nbsp;See&nbsp;help(type(self))&nbsp;for&nbsp;accurate&nbsp;signature.</span></dd></dl>
+
+<dl><dt><a name="WelcomeScreen-choiceMade"><strong>choiceMade</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="WelcomeScreen-draw"><strong>draw</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="WelcomeScreen-handle_events"><strong>handle_events</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="WelcomeScreen-optionsChoice"><strong>optionsChoice</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="WelcomeScreen-run"><strong>run</strong></a>(self)</dt></dl>
+
+<hr>
+Methods inherited from <a href="screen.html#ScreenBase">screen.ScreenBase</a>:<br>
+<dl><dt><a name="WelcomeScreen-resize_screen"><strong>resize_screen</strong></a>(self, event)</dt><dd><span class="code">#&nbsp;function&nbsp;to&nbsp;resize&nbsp;the&nbsp;screen</span></dd></dl>
+
+<dl><dt><a name="WelcomeScreen-update"><strong>update</strong></a>(self)</dt><dd><span class="code">#updating&nbsp;game&nbsp;state</span></dd></dl>
+
+<hr>
+Data descriptors inherited from <a href="screen.html#ScreenBase">screen.ScreenBase</a>:<br>
+<dl><dt><strong>__dict__</strong></dt>
+<dd><span class="code">dictionary&nbsp;for&nbsp;instance&nbsp;variables</span></dd>
+</dl>
+<dl><dt><strong>__weakref__</strong></dt>
+<dd><span class="code">list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object</span></dd>
+</dl>
+<hr>
+Data and other attributes inherited from <a href="screen.html#ScreenBase">screen.ScreenBase</a>:<br>
+<dl><dt><strong>BASE_FONT</strong> = &lt;pygame.font.Font object&gt;</dl>
+
+<dl><dt><strong>BLACK</strong> = (0, 0, 0)</dl>
+
+<dl><dt><strong>BLUE</strong> = (159, 197, 248)</dl>
+
+<dl><dt><strong>BUTTON_FONT</strong> = &lt;pygame.font.Font object&gt;</dl>
+
+<dl><dt><strong>DARKGREY</strong> = (45, 45, 45)</dl>
+
+<dl><dt><strong>GREEN</strong> = (204, 245, 205)</dl>
+
+<dl><dt><strong>GREY</strong> = (220, 220, 220)</dl>
+
+<dl><dt><strong>HEADING_FONT</strong> = &lt;pygame.font.Font object&gt;</dl>
+
+<dl><dt><strong>HP_FONT</strong> = &lt;pygame.font.Font object&gt;</dl>
+
+<dl><dt><strong>LEVEL_FONT</strong> = &lt;pygame.font.Font object&gt;</dl>
+
+<dl><dt><strong>MEDIUM_FONT</strong> = &lt;pygame.font.Font object&gt;</dl>
+
+<dl><dt><strong>MID_FONT</strong> = &lt;pygame.font.Font object&gt;</dl>
+
+<dl><dt><strong>MIN_HEIGHT</strong> = 600</dl>
+
+<dl><dt><strong>MIN_WIDTH</strong> = 844</dl>
+
+<dl><dt><strong>MODE_FONT</strong> = &lt;pygame.font.Font object&gt;</dl>
+
+<dl><dt><strong>MODE_SELECT_FONT</strong> = &lt;pygame.font.Font object&gt;</dl>
+
+<dl><dt><strong>PARAGRAPH_FONT</strong> = &lt;pygame.font.Font object&gt;</dl>
+
+<dl><dt><strong>RED</strong> = (255, 0, 0)</dl>
+
+<dl><dt><strong>SCREEN_SIZE</strong> = (844, 600)</dl>
+
+<dl><dt><strong>SELECT_FONT</strong> = &lt;pygame.font.Font object&gt;</dl>
+
+<dl><dt><strong>SMALLER_FONT</strong> = &lt;pygame.font.Font object&gt;</dl>
+
+<dl><dt><strong>WHITE</strong> = (255, 255, 255)</dl>
+
+</td></tr></table></td></tr></table><p>
+<table class="section">
+<tr class="decor data-decor heading-text">
+<td class="section-title" colspan=3>&nbsp;<br><strong class="bigsection">Data</strong></td></tr>
+    
+<tr><td class="decor data-decor"><span class="code">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></td><td>&nbsp;</td>
+<td class="singlecolumn"><strong>src_dir</strong> = r'C:\Users\kimgu\2212\repositories2212\personalRepo2212\src'</td></tr></table>
+</body></html>

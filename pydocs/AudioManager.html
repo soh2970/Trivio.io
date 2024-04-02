@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Python: module AudioManager</title>
+</head><body>
+
+<table class="heading">
+<tr class="heading-text decor">
+<td class="title">&nbsp;<br><strong class="title">AudioManager</strong></td>
+<td class="extra"><a href=".">index</a><br><a href="file:c%3A%5Cusers%5Ckimgu%5C2212%5Crepositories2212%5Cpersonalrepo2212%5Csrc%5Cuis%5Caudiomanager.py">c:\users\kimgu\2212\repositories2212\personalrepo2212\src\uis\audiomanager.py</a></td></tr></table>
+    <p><span class="code">will&nbsp;be&nbsp;used&nbsp;to&nbsp;manage&nbsp;the&nbsp;music&nbsp;in&nbsp;the&nbsp;background&nbsp;of&nbsp;the&nbsp;gameplay</span></p>
+<p>
+<table class="section">
+<tr class="decor pkg-content-decor heading-text">
+<td class="section-title" colspan=3>&nbsp;<br><strong class="bigsection">Modules</strong></td></tr>
+    
+<tr><td class="decor pkg-content-decor"><span class="code">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></td><td>&nbsp;</td>
+<td class="singlecolumn"><table><tr><td class="multicolumn"><a href="pydoc.html">pydoc</a><br>
+</td><td class="multicolumn"><a href="pygame.html">pygame</a><br>
+</td><td class="multicolumn"></td><td class="multicolumn"></td></tr></table></td></tr></table><p>
+<table class="section">
+<tr class="decor index-decor heading-text">
+<td class="section-title" colspan=3>&nbsp;<br><strong class="bigsection">Classes</strong></td></tr>
+    
+<tr><td class="decor index-decor"><span class="code">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></td><td>&nbsp;</td>
+<td class="singlecolumn"><dl>
+<dt class="heading-text"><a href="builtins.html#object">builtins.object</a>
+</dt><dd>
+<dl>
+<dt class="heading-text"><a href="AudioManager.html#AudioManager">AudioManager</a>
+</dt></dl>
+</dd>
+</dl>
+ <p>
+<table class="section">
+<tr class="decor title-decor heading-text">
+<td class="section-title" colspan=3>&nbsp;<br><a name="AudioManager">class <strong>AudioManager</strong></a>(<a href="builtins.html#object">builtins.object</a>)</td></tr>
+    
+<tr><td class="decor title-decor" rowspan=2><span class="code">&nbsp;&nbsp;&nbsp;</span></td>
+<td class="decor title-decor" colspan=2><span class="code">Manages&nbsp;background&nbsp;music&nbsp;playback&nbsp;for&nbsp;a&nbsp;game,&nbsp;utilizing&nbsp;pygame&nbsp;for&nbsp;music&nbsp;control.<br>
+Allows&nbsp;for&nbsp;loading&nbsp;songs,&nbsp;playing&nbsp;them&nbsp;on&nbsp;a&nbsp;loop,&nbsp;stopping&nbsp;playback,&nbsp;navigating&nbsp;between<br>
+tracks,&nbsp;and&nbsp;adjusting&nbsp;volume.<br>
+&nbsp;<br>
+Attributes:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;songs&nbsp;(list&nbsp;of&nbsp;dict):&nbsp;A&nbsp;list&nbsp;of&nbsp;dictionaries&nbsp;where&nbsp;each&nbsp;dictionary&nbsp;contains&nbsp;'name'<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;and&nbsp;'path'&nbsp;keys&nbsp;for&nbsp;song&nbsp;names&nbsp;and&nbsp;their&nbsp;respective&nbsp;file&nbsp;paths.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;current_song_index&nbsp;(int):&nbsp;The&nbsp;index&nbsp;of&nbsp;the&nbsp;currently&nbsp;loaded&nbsp;song&nbsp;in&nbsp;the&nbsp;songs&nbsp;list,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;used&nbsp;to&nbsp;keep&nbsp;track&nbsp;of&nbsp;which&nbsp;song&nbsp;is&nbsp;playing.<br>
+&nbsp;<br>
+Methods:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="#AudioManager-__init__">__init__</a>(self):<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Initializes&nbsp;the&nbsp;<a href="#AudioManager">AudioManager</a>&nbsp;instance,&nbsp;sets&nbsp;up&nbsp;the&nbsp;pygame&nbsp;mixer,&nbsp;sets&nbsp;the&nbsp;initial<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;volume&nbsp;to&nbsp;50%,&nbsp;and&nbsp;loads&nbsp;the&nbsp;default&nbsp;song.<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="#AudioManager-load_song">load_song</a>(self,&nbsp;index):<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Loads&nbsp;a&nbsp;song&nbsp;based&nbsp;on&nbsp;the&nbsp;provided&nbsp;index&nbsp;from&nbsp;the&nbsp;songs&nbsp;list&nbsp;into&nbsp;the&nbsp;pygame&nbsp;mixer.<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="#AudioManager-play_song">play_song</a>(self):<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Plays&nbsp;the&nbsp;currently&nbsp;loaded&nbsp;song&nbsp;on&nbsp;a&nbsp;loop&nbsp;indefinitely&nbsp;until&nbsp;stopped&nbsp;or&nbsp;changed.<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="#AudioManager-stop_song">stop_song</a>(self):<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Stops&nbsp;the&nbsp;music&nbsp;playback&nbsp;immediately.<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="#AudioManager-next_song">next_song</a>(self):<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Advances&nbsp;to&nbsp;the&nbsp;next&nbsp;song&nbsp;in&nbsp;the&nbsp;list,&nbsp;automatically&nbsp;wraps&nbsp;to&nbsp;the&nbsp;first&nbsp;song&nbsp;if<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;currently&nbsp;at&nbsp;the&nbsp;last&nbsp;song,&nbsp;and&nbsp;plays&nbsp;the&nbsp;selected&nbsp;song.<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="#AudioManager-prev_song">prev_song</a>(self):<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Moves&nbsp;to&nbsp;the&nbsp;previous&nbsp;song&nbsp;in&nbsp;the&nbsp;list,&nbsp;automatically&nbsp;wraps&nbsp;to&nbsp;the&nbsp;last&nbsp;song&nbsp;if<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;currently&nbsp;at&nbsp;the&nbsp;first&nbsp;song,&nbsp;and&nbsp;plays&nbsp;the&nbsp;selected&nbsp;song.<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="#AudioManager-set_volume">set_volume</a>(self,&nbsp;volume):<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Sets&nbsp;the&nbsp;volume&nbsp;for&nbsp;music&nbsp;playback.&nbsp;The&nbsp;volume&nbsp;should&nbsp;be&nbsp;a&nbsp;float&nbsp;between&nbsp;0.0&nbsp;and&nbsp;1.0,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;where&nbsp;0.0&nbsp;is&nbsp;silent&nbsp;and&nbsp;1.0&nbsp;is&nbsp;the&nbsp;maximum&nbsp;volume.<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="#AudioManager-get_current_song_name">get_current_song_name</a>(self):<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Returns&nbsp;the&nbsp;name&nbsp;of&nbsp;the&nbsp;currently&nbsp;playing&nbsp;song.<br>&nbsp;</span></td></tr>
+<tr><td>&nbsp;</td>
+<td class="singlecolumn">Methods defined here:<br>
+<dl><dt><a name="AudioManager-__init__"><strong>__init__</strong></a>(self)</dt><dd><span class="code">Initialize&nbsp;self.&nbsp;&nbsp;See&nbsp;help(type(self))&nbsp;for&nbsp;accurate&nbsp;signature.</span></dd></dl>
+
+<dl><dt><a name="AudioManager-get_current_song_name"><strong>get_current_song_name</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="AudioManager-load_song"><strong>load_song</strong></a>(self, index)</dt></dl>
+
+<dl><dt><a name="AudioManager-next_song"><strong>next_song</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="AudioManager-play_song"><strong>play_song</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="AudioManager-prev_song"><strong>prev_song</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="AudioManager-set_volume"><strong>set_volume</strong></a>(self, volume)</dt></dl>
+
+<dl><dt><a name="AudioManager-stop_song"><strong>stop_song</strong></a>(self)</dt></dl>
+
+<hr>
+Data descriptors defined here:<br>
+<dl><dt><strong>__dict__</strong></dt>
+<dd><span class="code">dictionary&nbsp;for&nbsp;instance&nbsp;variables</span></dd>
+</dl>
+<dl><dt><strong>__weakref__</strong></dt>
+<dd><span class="code">list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object</span></dd>
+</dl>
+</td></tr></table></td></tr></table>
+</body></html>

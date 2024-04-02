@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Python: module TutorialScreen1</title>
+</head><body>
+
+<table class="heading">
+<tr class="heading-text decor">
+<td class="title">&nbsp;<br><strong class="title">TutorialScreen1</strong></td>
+<td class="extra"><a href=".">index</a><br><a href="file:c%3A%5Cusers%5Ckimgu%5C2212%5Crepositories2212%5Cpersonalrepo2212%5Csrc%5Cuis%5Ctutorialscreen1.py">c:\users\kimgu\2212\repositories2212\personalrepo2212\src\uis\tutorialscreen1.py</a></td></tr></table>
+    <p><span class="code">Tutorial&nbsp;Screen&nbsp;1</span></p>
+<p>
+<table class="section">
+<tr class="decor pkg-content-decor heading-text">
+<td class="section-title" colspan=3>&nbsp;<br><strong class="bigsection">Modules</strong></td></tr>
+    
+<tr><td class="decor pkg-content-decor"><span class="code">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></td><td>&nbsp;</td>
+<td class="singlecolumn"><table><tr><td class="multicolumn"><a href="os.html">os</a><br>
+</td><td class="multicolumn"><a href="pydoc.html">pydoc</a><br>
+</td><td class="multicolumn"><a href="pygame.html">pygame</a><br>
+</td><td class="multicolumn"><a href="sys.html">sys</a><br>
+</td></tr></table></td></tr></table><p>
+<table class="section">
+<tr class="decor index-decor heading-text">
+<td class="section-title" colspan=3>&nbsp;<br><strong class="bigsection">Classes</strong></td></tr>
+    
+<tr><td class="decor index-decor"><span class="code">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></td><td>&nbsp;</td>
+<td class="singlecolumn"><dl>
+<dt class="heading-text"><a href="screen.html#ScreenBase">screen.ScreenBase</a>(<a href="builtins.html#object">builtins.object</a>)
+</dt><dd>
+<dl>
+<dt class="heading-text"><a href="TutorialScreen1.html#GameTutorialScreenOne">GameTutorialScreenOne</a>
+</dt></dl>
+</dd>
+</dl>
+ <p>
+<table class="section">
+<tr class="decor title-decor heading-text">
+<td class="section-title" colspan=3>&nbsp;<br><a name="GameTutorialScreenOne">class <strong>GameTutorialScreenOne</strong></a>(<a href="screen.html#ScreenBase">screen.ScreenBase</a>)</td></tr>
+    
+<tr><td class="decor title-decor" rowspan=2><span class="code">&nbsp;&nbsp;&nbsp;</span></td>
+<td class="decor title-decor" colspan=2><span class="code">The&nbsp;first&nbsp;tutorial&nbsp;screen&nbsp;in&nbsp;a&nbsp;series&nbsp;within&nbsp;a&nbsp;Pygame&nbsp;application,&nbsp;designed&nbsp;to&nbsp;introduce&nbsp;the&nbsp;player&nbsp;to&nbsp;the&nbsp;game's<br>
+basic&nbsp;mechanics&nbsp;and&nbsp;interface.&nbsp;This&nbsp;screen&nbsp;displays&nbsp;images&nbsp;and&nbsp;texts&nbsp;that&nbsp;guide&nbsp;the&nbsp;player&nbsp;through&nbsp;the&nbsp;initial&nbsp;steps<br>
+of&nbsp;gameplay,&nbsp;including&nbsp;an&nbsp;overview&nbsp;of&nbsp;the&nbsp;game&nbsp;screen&nbsp;layout&nbsp;and&nbsp;basic&nbsp;game&nbsp;interactions.<br>
+&nbsp;<br>
+Inherits&nbsp;from&nbsp;<a href="screen.html#ScreenBase">ScreenBase</a>,&nbsp;leveraging&nbsp;the&nbsp;base&nbsp;class's&nbsp;functionality&nbsp;for&nbsp;screen&nbsp;rendering&nbsp;and&nbsp;event&nbsp;handling&nbsp;while<br>
+providing&nbsp;tutorial-specific&nbsp;content&nbsp;and&nbsp;navigation&nbsp;options.<br>
+&nbsp;<br>
+Attributes:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;type&nbsp;(str):&nbsp;Screen&nbsp;identifier,&nbsp;indicating&nbsp;this&nbsp;is&nbsp;the&nbsp;first&nbsp;tutorial&nbsp;screen.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;toNextPage&nbsp;(bool):&nbsp;Flag&nbsp;to&nbsp;transition&nbsp;to&nbsp;the&nbsp;next&nbsp;tutorial&nbsp;screen.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;toGameMode&nbsp;(bool):&nbsp;Flag&nbsp;to&nbsp;indicate&nbsp;completion&nbsp;of&nbsp;the&nbsp;tutorial&nbsp;and&nbsp;transition&nbsp;to&nbsp;the&nbsp;game&nbsp;mode&nbsp;selection&nbsp;screen.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;gamescreen_imageResized&nbsp;(pygame.Surface):&nbsp;Resized&nbsp;image&nbsp;depicting&nbsp;the&nbsp;game&nbsp;screen&nbsp;layout.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;gametext_imageResized&nbsp;(pygame.Surface):&nbsp;Resized&nbsp;image&nbsp;containing&nbsp;introductory&nbsp;text&nbsp;for&nbsp;the&nbsp;tutorial.<br>
+&nbsp;<br>
+Methods:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="#GameTutorialScreenOne-__init__">__init__</a>(self):<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Initializes&nbsp;the&nbsp;tutorial&nbsp;screen&nbsp;with&nbsp;default&nbsp;settings&nbsp;and&nbsp;tutorial-specific&nbsp;content.<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="#GameTutorialScreenOne-draw">draw</a>(self):<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Renders&nbsp;tutorial&nbsp;content,&nbsp;including&nbsp;instructional&nbsp;images&nbsp;and&nbsp;text,&nbsp;as&nbsp;well&nbsp;as&nbsp;navigation&nbsp;buttons&nbsp;for&nbsp;progressing<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;through&nbsp;or&nbsp;exiting&nbsp;the&nbsp;tutorial.<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="#GameTutorialScreenOne-toNextTutorial">toNextTutorial</a>(self):<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Sets&nbsp;the&nbsp;`toNextPage`&nbsp;flag,&nbsp;indicating&nbsp;the&nbsp;user's&nbsp;request&nbsp;to&nbsp;proceed&nbsp;to&nbsp;the&nbsp;next&nbsp;tutorial&nbsp;screen.<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="#GameTutorialScreenOne-toGameModeSelect">toGameModeSelect</a>(self):<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Sets&nbsp;the&nbsp;`toGameMode`&nbsp;flag,&nbsp;indicating&nbsp;the&nbsp;user's&nbsp;decision&nbsp;to&nbsp;exit&nbsp;the&nbsp;tutorial&nbsp;and&nbsp;proceed&nbsp;to&nbsp;the&nbsp;game&nbsp;mode<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;selection&nbsp;screen.<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="#GameTutorialScreenOne-handle_events">handle_events</a>(self):<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Processes&nbsp;input&nbsp;events,&nbsp;including&nbsp;button&nbsp;clicks&nbsp;for&nbsp;navigation&nbsp;within&nbsp;the&nbsp;tutorial&nbsp;series.<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="#GameTutorialScreenOne-run">run</a>(self):<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Contains&nbsp;the&nbsp;main&nbsp;loop&nbsp;for&nbsp;the&nbsp;tutorial&nbsp;screen,&nbsp;handling&nbsp;events&nbsp;and&nbsp;updating&nbsp;the&nbsp;display.<br>
+&nbsp;<br>
+<a href="#GameTutorialScreenOne">GameTutorialScreenOne</a>&nbsp;provides&nbsp;a&nbsp;structured&nbsp;and&nbsp;informative&nbsp;introduction&nbsp;to&nbsp;the&nbsp;game,&nbsp;ensuring&nbsp;players&nbsp;understand&nbsp;the<br>
+basics&nbsp;before&nbsp;proceeding&nbsp;to&nbsp;gameplay.&nbsp;It's&nbsp;part&nbsp;of&nbsp;a&nbsp;series,&nbsp;with&nbsp;subsequent&nbsp;screens&nbsp;offering&nbsp;more&nbsp;detailed&nbsp;guidance<br>
+on&nbsp;playing&nbsp;the&nbsp;game.<br>&nbsp;</span></td></tr>
+<tr><td>&nbsp;</td>
+<td class="singlecolumn"><dl><dt>Method resolution order:</dt>
+<dd><a href="TutorialScreen1.html#GameTutorialScreenOne">GameTutorialScreenOne</a></dd>
+<dd><a href="screen.html#ScreenBase">screen.ScreenBase</a></dd>
+<dd><a href="builtins.html#object">builtins.object</a></dd>
+</dl>
+<hr>
+Methods defined here:<br>
+<dl><dt><a name="GameTutorialScreenOne-__init__"><strong>__init__</strong></a>(self)</dt><dd><span class="code">Initialize&nbsp;self.&nbsp;&nbsp;See&nbsp;help(type(self))&nbsp;for&nbsp;accurate&nbsp;signature.</span></dd></dl>
+
+<dl><dt><a name="GameTutorialScreenOne-draw"><strong>draw</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="GameTutorialScreenOne-handle_events"><strong>handle_events</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="GameTutorialScreenOne-run"><strong>run</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="GameTutorialScreenOne-toGameModeSelect"><strong>toGameModeSelect</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="GameTutorialScreenOne-toNextTutorial"><strong>toNextTutorial</strong></a>(self)</dt></dl>
+
+<hr>
+Data and other attributes defined here:<br>
+<dl><dt><strong>gamescreen_image</strong> = &lt;Surface(1686x1200x32 SW)&gt;</dl>
+
+<dl><dt><strong>gamescreen_imageResized</strong> = &lt;Surface(563x400x32 SW)&gt;</dl>
+
+<dl><dt><strong>gamescreen_image_path</strong> = r'C:\Users\kimgu\2212\repositories2212\personalRepo2212\src\UIs\..\..\images\Tutorial_Screen.png'</dl>
+
+<dl><dt><strong>gametext_image</strong> = &lt;Surface(353x266x32 SW)&gt;</dl>
+
+<dl><dt><strong>gametext_imageResized</strong> = &lt;Surface(318x239x32 SW)&gt;</dl>
+
+<dl><dt><strong>gametext_image_path</strong> = r'C:\Users\kimgu\2212\repositories2212\personalRepo2212\src\UIs\..\..\images\tutorial_text_1.png'</dl>
+
+<hr>
+Methods inherited from <a href="screen.html#ScreenBase">screen.ScreenBase</a>:<br>
+<dl><dt><a name="GameTutorialScreenOne-resize_screen"><strong>resize_screen</strong></a>(self, event)</dt><dd><span class="code">#&nbsp;function&nbsp;to&nbsp;resize&nbsp;the&nbsp;screen</span></dd></dl>
+
+<dl><dt><a name="GameTutorialScreenOne-update"><strong>update</strong></a>(self)</dt><dd><span class="code">#updating&nbsp;game&nbsp;state</span></dd></dl>
+
+<hr>
+Data descriptors inherited from <a href="screen.html#ScreenBase">screen.ScreenBase</a>:<br>
+<dl><dt><strong>__dict__</strong></dt>
+<dd><span class="code">dictionary&nbsp;for&nbsp;instance&nbsp;variables</span></dd>
+</dl>
+<dl><dt><strong>__weakref__</strong></dt>
+<dd><span class="code">list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object</span></dd>
+</dl>
+<hr>
+Data and other attributes inherited from <a href="screen.html#ScreenBase">screen.ScreenBase</a>:<br>
+<dl><dt><strong>BASE_FONT</strong> = &lt;pygame.font.Font object&gt;</dl>
+
+<dl><dt><strong>BLACK</strong> = (0, 0, 0)</dl>
+
+<dl><dt><strong>BLUE</strong> = (159, 197, 248)</dl>
+
+<dl><dt><strong>BUTTON_FONT</strong> = &lt;pygame.font.Font object&gt;</dl>
+
+<dl><dt><strong>DARKGREY</strong> = (45, 45, 45)</dl>
+
+<dl><dt><strong>GREEN</strong> = (204, 245, 205)</dl>
+
+<dl><dt><strong>GREY</strong> = (220, 220, 220)</dl>
+
+<dl><dt><strong>HEADING_FONT</strong> = &lt;pygame.font.Font object&gt;</dl>
+
+<dl><dt><strong>HP_FONT</strong> = &lt;pygame.font.Font object&gt;</dl>
+
+<dl><dt><strong>LEVEL_FONT</strong> = &lt;pygame.font.Font object&gt;</dl>
+
+<dl><dt><strong>MEDIUM_FONT</strong> = &lt;pygame.font.Font object&gt;</dl>
+
+<dl><dt><strong>MID_FONT</strong> = &lt;pygame.font.Font object&gt;</dl>
+
+<dl><dt><strong>MIN_HEIGHT</strong> = 600</dl>
+
+<dl><dt><strong>MIN_WIDTH</strong> = 844</dl>
+
+<dl><dt><strong>MODE_FONT</strong> = &lt;pygame.font.Font object&gt;</dl>
+
+<dl><dt><strong>MODE_SELECT_FONT</strong> = &lt;pygame.font.Font object&gt;</dl>
+
+<dl><dt><strong>PARAGRAPH_FONT</strong> = &lt;pygame.font.Font object&gt;</dl>
+
+<dl><dt><strong>RED</strong> = (255, 0, 0)</dl>
+
+<dl><dt><strong>SCREEN_SIZE</strong> = (844, 600)</dl>
+
+<dl><dt><strong>SELECT_FONT</strong> = &lt;pygame.font.Font object&gt;</dl>
+
+<dl><dt><strong>SMALLER_FONT</strong> = &lt;pygame.font.Font object&gt;</dl>
+
+<dl><dt><strong>WHITE</strong> = (255, 255, 255)</dl>
+
+</td></tr></table></td></tr></table><p>
+<table class="section">
+<tr class="decor data-decor heading-text">
+<td class="section-title" colspan=3>&nbsp;<br><strong class="bigsection">Data</strong></td></tr>
+    
+<tr><td class="decor data-decor"><span class="code">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></td><td>&nbsp;</td>
+<td class="singlecolumn"><strong>images_dir</strong> = r'C:\Users\kimgu\2212\repositories2212\personalRepo2212\src\UIs\..\..\images'</td></tr></table>
+</body></html>

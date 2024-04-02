@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Python: module Player</title>
+</head><body>
+
+<table class="heading">
+<tr class="heading-text decor">
+<td class="title">&nbsp;<br><strong class="title">Player</strong></td>
+<td class="extra"><a href=".">index</a><br><a href="file:c%3A%5Cusers%5Ckimgu%5C2212%5Crepositories2212%5Cpersonalrepo2212%5Csrc%5Cplayer.py">c:\users\kimgu\2212\repositories2212\personalrepo2212\src\player.py</a></td></tr></table>
+    <p></p>
+<p>
+<table class="section">
+<tr class="decor pkg-content-decor heading-text">
+<td class="section-title" colspan=3>&nbsp;<br><strong class="bigsection">Modules</strong></td></tr>
+    
+<tr><td class="decor pkg-content-decor"><span class="code">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></td><td>&nbsp;</td>
+<td class="singlecolumn"><table><tr><td class="multicolumn"><a href="pydoc.html">pydoc</a><br>
+</td><td class="multicolumn"></td><td class="multicolumn"></td><td class="multicolumn"></td></tr></table></td></tr></table><p>
+<table class="section">
+<tr class="decor index-decor heading-text">
+<td class="section-title" colspan=3>&nbsp;<br><strong class="bigsection">Classes</strong></td></tr>
+    
+<tr><td class="decor index-decor"><span class="code">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></td><td>&nbsp;</td>
+<td class="singlecolumn"><dl>
+<dt class="heading-text"><a href="builtins.html#object">builtins.object</a>
+</dt><dd>
+<dl>
+<dt class="heading-text"><a href="Player.html#Player">Player</a>
+</dt></dl>
+</dd>
+</dl>
+ <p>
+<table class="section">
+<tr class="decor title-decor heading-text">
+<td class="section-title" colspan=3>&nbsp;<br><a name="Player">class <strong>Player</strong></a>(<a href="builtins.html#object">builtins.object</a>)</td></tr>
+    
+<tr><td class="decor title-decor" rowspan=2><span class="code">&nbsp;&nbsp;&nbsp;</span></td>
+<td class="decor title-decor" colspan=2><span class="code"><a href="#Player">Player</a>(playerId,&nbsp;playerHP,&nbsp;playerScore,&nbsp;currentLevel)<br>
+&nbsp;<br>
+Represents&nbsp;a&nbsp;player&nbsp;in&nbsp;the&nbsp;game,&nbsp;holding&nbsp;player-specific&nbsp;data&nbsp;such&nbsp;as&nbsp;ID,&nbsp;health&nbsp;points&nbsp;(HP),<br>
+score,&nbsp;and&nbsp;the&nbsp;current&nbsp;level&nbsp;the&nbsp;player&nbsp;is&nbsp;on.&nbsp;Provides&nbsp;methods&nbsp;to&nbsp;manage&nbsp;the&nbsp;player's&nbsp;state<br>
+and&nbsp;actions&nbsp;within&nbsp;the&nbsp;game.<br>
+&nbsp;<br>
+Attributes:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;playerId&nbsp;(str):&nbsp;A&nbsp;unique&nbsp;identifier&nbsp;for&nbsp;the&nbsp;player.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;playerHP&nbsp;(int):&nbsp;The&nbsp;player's&nbsp;current&nbsp;health&nbsp;points.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;playerScore&nbsp;(int):&nbsp;The&nbsp;player's&nbsp;current&nbsp;score.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;currentLevel&nbsp;(int):&nbsp;The&nbsp;current&nbsp;level&nbsp;the&nbsp;player&nbsp;is&nbsp;on.<br>
+&nbsp;<br>
+Methods:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="#Player-answerQuestion">answerQuestion</a>(self,&nbsp;question,&nbsp;answer):<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Determines&nbsp;if&nbsp;the&nbsp;provided&nbsp;answer&nbsp;to&nbsp;a&nbsp;question&nbsp;is&nbsp;correct,&nbsp;affecting&nbsp;the&nbsp;game&nbsp;state.<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="#Player-losePlayerHP">losePlayerHP</a>(self,&nbsp;level):<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Deducts&nbsp;health&nbsp;points&nbsp;from&nbsp;the&nbsp;player&nbsp;based&nbsp;on&nbsp;the&nbsp;difficulty&nbsp;level&nbsp;of&nbsp;a&nbsp;question.<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="#Player-isPlayerDefeated">isPlayerDefeated</a>(self):<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Checks&nbsp;if&nbsp;the&nbsp;player's&nbsp;health&nbsp;points&nbsp;have&nbsp;dropped&nbsp;to&nbsp;zero&nbsp;or&nbsp;below.<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="#Player-incrementScore">incrementScore</a>(self):<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Increases&nbsp;the&nbsp;player's&nbsp;score&nbsp;based&nbsp;on&nbsp;the&nbsp;difficulty&nbsp;level&nbsp;of&nbsp;a&nbsp;correctly&nbsp;answered&nbsp;question.<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="#Player-moveToNextLevel">moveToNextLevel</a>(self,&nbsp;level):<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Advances&nbsp;the&nbsp;player&nbsp;to&nbsp;the&nbsp;specified&nbsp;level,&nbsp;with&nbsp;validation&nbsp;to&nbsp;ensure&nbsp;it's&nbsp;within&nbsp;an&nbsp;acceptable&nbsp;range.<br>&nbsp;</span></td></tr>
+<tr><td>&nbsp;</td>
+<td class="singlecolumn">Methods defined here:<br>
+<dl><dt><a name="Player-__init__"><strong>__init__</strong></a>(self, playerId, playerHP, playerScore, currentLevel)</dt><dd><span class="code">Initialize&nbsp;self.&nbsp;&nbsp;See&nbsp;help(type(self))&nbsp;for&nbsp;accurate&nbsp;signature.</span></dd></dl>
+
+<dl><dt><a name="Player-answerQuestion"><strong>answerQuestion</strong></a>(self, question, answer)</dt></dl>
+
+<dl><dt><a name="Player-incrementScore"><strong>incrementScore</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="Player-isPlayerDefeated"><strong>isPlayerDefeated</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="Player-losePlayerHP"><strong>losePlayerHP</strong></a>(self, level)</dt></dl>
+
+<dl><dt><a name="Player-moveToNextLevel"><strong>moveToNextLevel</strong></a>(self, level)</dt></dl>
+
+<hr>
+Data descriptors defined here:<br>
+<dl><dt><strong>__dict__</strong></dt>
+<dd><span class="code">dictionary&nbsp;for&nbsp;instance&nbsp;variables</span></dd>
+</dl>
+<dl><dt><strong>__weakref__</strong></dt>
+<dd><span class="code">list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object</span></dd>
+</dl>
+</td></tr></table></td></tr></table>
+</body></html>

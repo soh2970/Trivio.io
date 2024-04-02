@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Python: module IncorrectAnswerScreen</title>
+</head><body>
+
+<table class="heading">
+<tr class="heading-text decor">
+<td class="title">&nbsp;<br><strong class="title">IncorrectAnswerScreen</strong></td>
+<td class="extra"><a href=".">index</a><br><a href="file:c%3A%5Cusers%5Ckimgu%5C2212%5Crepositories2212%5Cpersonalrepo2212%5Csrc%5Cuis%5Cincorrectanswerscreen.py">c:\users\kimgu\2212\repositories2212\personalrepo2212\src\uis\incorrectanswerscreen.py</a></td></tr></table>
+    <p></p>
+<p>
+<table class="section">
+<tr class="decor pkg-content-decor heading-text">
+<td class="section-title" colspan=3>&nbsp;<br><strong class="bigsection">Modules</strong></td></tr>
+    
+<tr><td class="decor pkg-content-decor"><span class="code">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></td><td>&nbsp;</td>
+<td class="singlecolumn"><table><tr><td class="multicolumn"><a href="os.html">os</a><br>
+</td><td class="multicolumn"><a href="pydoc.html">pydoc</a><br>
+</td><td class="multicolumn"><a href="pygame.html">pygame</a><br>
+</td><td class="multicolumn"><a href="sys.html">sys</a><br>
+</td></tr></table></td></tr></table><p>
+<table class="section">
+<tr class="decor index-decor heading-text">
+<td class="section-title" colspan=3>&nbsp;<br><strong class="bigsection">Classes</strong></td></tr>
+    
+<tr><td class="decor index-decor"><span class="code">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></td><td>&nbsp;</td>
+<td class="singlecolumn"><dl>
+<dt class="heading-text"><a href="screen.html#ScreenBase">screen.ScreenBase</a>(<a href="builtins.html#object">builtins.object</a>)
+</dt><dd>
+<dl>
+<dt class="heading-text"><a href="IncorrectAnswerScreen.html#IncorrectAnswerScreen">IncorrectAnswerScreen</a>
+</dt></dl>
+</dd>
+</dl>
+ <p>
+<table class="section">
+<tr class="decor title-decor heading-text">
+<td class="section-title" colspan=3>&nbsp;<br><a name="IncorrectAnswerScreen">class <strong>IncorrectAnswerScreen</strong></a>(<a href="screen.html#ScreenBase">screen.ScreenBase</a>)</td></tr>
+    
+<tr><td class="decor title-decor" rowspan=2><span class="code">&nbsp;&nbsp;&nbsp;</span></td>
+<td class="decor title-decor" colspan=2><span class="code"><a href="#IncorrectAnswerScreen">IncorrectAnswerScreen</a>(level)<br>
+&nbsp;<br>
+Displays&nbsp;a&nbsp;notification&nbsp;screen&nbsp;within&nbsp;a&nbsp;Pygame&nbsp;application&nbsp;to&nbsp;inform&nbsp;the&nbsp;player&nbsp;of&nbsp;an&nbsp;incorrect&nbsp;answer&nbsp;attempt.<br>
+This&nbsp;screen&nbsp;serves&nbsp;as&nbsp;feedback&nbsp;for&nbsp;the&nbsp;player,&nbsp;detailing&nbsp;the&nbsp;consequences&nbsp;of&nbsp;the&nbsp;incorrect&nbsp;answer,&nbsp;such&nbsp;as&nbsp;the<br>
+reduction&nbsp;in&nbsp;the&nbsp;player's&nbsp;health&nbsp;points.&nbsp;It&nbsp;aims&nbsp;to&nbsp;enhance&nbsp;the&nbsp;learning&nbsp;experience&nbsp;by&nbsp;encouraging&nbsp;players&nbsp;to<br>
+understand&nbsp;their&nbsp;mistakes&nbsp;and&nbsp;strive&nbsp;for&nbsp;improvement.<br>
+&nbsp;<br>
+Inherits&nbsp;from&nbsp;<a href="screen.html#ScreenBase">ScreenBase</a>,&nbsp;leveraging&nbsp;shared&nbsp;functionalities&nbsp;for&nbsp;consistent&nbsp;screen&nbsp;management&nbsp;across&nbsp;the&nbsp;application.<br>
+&nbsp;<br>
+Attributes:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;level&nbsp;(int):&nbsp;Reflects&nbsp;the&nbsp;current&nbsp;difficulty&nbsp;level&nbsp;of&nbsp;the&nbsp;game,&nbsp;influencing&nbsp;the&nbsp;penalty&nbsp;for&nbsp;incorrect&nbsp;answers.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;image&nbsp;(pygame.Surface):&nbsp;Visual&nbsp;feedback&nbsp;indicating&nbsp;the&nbsp;incorrect&nbsp;answer,&nbsp;designed&nbsp;to&nbsp;engage&nbsp;the&nbsp;player's&nbsp;attention.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;header&nbsp;(str):&nbsp;Primary&nbsp;message&nbsp;to&nbsp;the&nbsp;player,&nbsp;acknowledging&nbsp;the&nbsp;incorrect&nbsp;selection.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;footer&nbsp;(str):&nbsp;Further&nbsp;details&nbsp;on&nbsp;the&nbsp;repercussions&nbsp;of&nbsp;the&nbsp;mistake,&nbsp;specifically&nbsp;the&nbsp;impact&nbsp;on&nbsp;the&nbsp;player's&nbsp;HP.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;continueButton&nbsp;(GameScreenButtons):&nbsp;Interactable&nbsp;element&nbsp;allowing&nbsp;the&nbsp;player&nbsp;to&nbsp;advance&nbsp;beyond&nbsp;the&nbsp;feedback&nbsp;screen.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;nextQuestion&nbsp;(bool):&nbsp;State&nbsp;indicator&nbsp;that&nbsp;transitions&nbsp;the&nbsp;game&nbsp;forward&nbsp;upon&nbsp;player&nbsp;interaction&nbsp;with&nbsp;the&nbsp;continue&nbsp;button.<br>
+&nbsp;<br>
+Methods:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="#IncorrectAnswerScreen-choiceMade">choiceMade</a>(self):<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Captures&nbsp;the&nbsp;player's&nbsp;action&nbsp;to&nbsp;move&nbsp;forward,&nbsp;updating&nbsp;the&nbsp;`nextQuestion`&nbsp;flag&nbsp;to&nbsp;true.<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="#IncorrectAnswerScreen-draw">draw</a>(self):<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Compiles&nbsp;and&nbsp;renders&nbsp;the&nbsp;screen&nbsp;elements,&nbsp;including&nbsp;the&nbsp;feedback&nbsp;image,&nbsp;textual&nbsp;information,&nbsp;and&nbsp;the&nbsp;continue&nbsp;button.<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="#IncorrectAnswerScreen-handle_events">handle_events</a>(self):<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Manages&nbsp;input&nbsp;events,&nbsp;particularly&nbsp;focusing&nbsp;on&nbsp;interactions&nbsp;with&nbsp;the&nbsp;continue&nbsp;button&nbsp;and&nbsp;screen&nbsp;resizing&nbsp;requests.<br>
+&nbsp;<br>
+The&nbsp;<a href="#IncorrectAnswerScreen">IncorrectAnswerScreen</a>&nbsp;class&nbsp;encapsulates&nbsp;the&nbsp;functionality&nbsp;required&nbsp;to&nbsp;provide&nbsp;immediate,&nbsp;informative&nbsp;feedback<br>
+on&nbsp;player&nbsp;performance,&nbsp;contributing&nbsp;to&nbsp;an&nbsp;engaging&nbsp;and&nbsp;educational&nbsp;gameplay&nbsp;experience.<br>&nbsp;</span></td></tr>
+<tr><td>&nbsp;</td>
+<td class="singlecolumn"><dl><dt>Method resolution order:</dt>
+<dd><a href="IncorrectAnswerScreen.html#IncorrectAnswerScreen">IncorrectAnswerScreen</a></dd>
+<dd><a href="screen.html#ScreenBase">screen.ScreenBase</a></dd>
+<dd><a href="builtins.html#object">builtins.object</a></dd>
+</dl>
+<hr>
+Methods defined here:<br>
+<dl><dt><a name="IncorrectAnswerScreen-__init__"><strong>__init__</strong></a>(self, level)</dt><dd><span class="code">Initialize&nbsp;self.&nbsp;&nbsp;See&nbsp;help(type(self))&nbsp;for&nbsp;accurate&nbsp;signature.</span></dd></dl>
+
+<dl><dt><a name="IncorrectAnswerScreen-choiceMade"><strong>choiceMade</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="IncorrectAnswerScreen-draw"><strong>draw</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="IncorrectAnswerScreen-handle_events"><strong>handle_events</strong></a>(self)</dt></dl>
+
+<hr>
+Methods inherited from <a href="screen.html#ScreenBase">screen.ScreenBase</a>:<br>
+<dl><dt><a name="IncorrectAnswerScreen-resize_screen"><strong>resize_screen</strong></a>(self, event)</dt><dd><span class="code">#&nbsp;function&nbsp;to&nbsp;resize&nbsp;the&nbsp;screen</span></dd></dl>
+
+<dl><dt><a name="IncorrectAnswerScreen-run"><strong>run</strong></a>(self)</dt><dd><span class="code">#we&nbsp;need&nbsp;this</span></dd></dl>
+
+<dl><dt><a name="IncorrectAnswerScreen-update"><strong>update</strong></a>(self)</dt><dd><span class="code">#updating&nbsp;game&nbsp;state</span></dd></dl>
+
+<hr>
+Data descriptors inherited from <a href="screen.html#ScreenBase">screen.ScreenBase</a>:<br>
+<dl><dt><strong>__dict__</strong></dt>
+<dd><span class="code">dictionary&nbsp;for&nbsp;instance&nbsp;variables</span></dd>
+</dl>
+<dl><dt><strong>__weakref__</strong></dt>
+<dd><span class="code">list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object</span></dd>
+</dl>
+<hr>
+Data and other attributes inherited from <a href="screen.html#ScreenBase">screen.ScreenBase</a>:<br>
+<dl><dt><strong>BASE_FONT</strong> = &lt;pygame.font.Font object&gt;</dl>
+
+<dl><dt><strong>BLACK</strong> = (0, 0, 0)</dl>
+
+<dl><dt><strong>BLUE</strong> = (159, 197, 248)</dl>
+
+<dl><dt><strong>BUTTON_FONT</strong> = &lt;pygame.font.Font object&gt;</dl>
+
+<dl><dt><strong>DARKGREY</strong> = (45, 45, 45)</dl>
+
+<dl><dt><strong>GREEN</strong> = (204, 245, 205)</dl>
+
+<dl><dt><strong>GREY</strong> = (220, 220, 220)</dl>
+
+<dl><dt><strong>HEADING_FONT</strong> = &lt;pygame.font.Font object&gt;</dl>
+
+<dl><dt><strong>HP_FONT</strong> = &lt;pygame.font.Font object&gt;</dl>
+
+<dl><dt><strong>LEVEL_FONT</strong> = &lt;pygame.font.Font object&gt;</dl>
+
+<dl><dt><strong>MEDIUM_FONT</strong> = &lt;pygame.font.Font object&gt;</dl>
+
+<dl><dt><strong>MID_FONT</strong> = &lt;pygame.font.Font object&gt;</dl>
+
+<dl><dt><strong>MIN_HEIGHT</strong> = 600</dl>
+
+<dl><dt><strong>MIN_WIDTH</strong> = 844</dl>
+
+<dl><dt><strong>MODE_FONT</strong> = &lt;pygame.font.Font object&gt;</dl>
+
+<dl><dt><strong>MODE_SELECT_FONT</strong> = &lt;pygame.font.Font object&gt;</dl>
+
+<dl><dt><strong>PARAGRAPH_FONT</strong> = &lt;pygame.font.Font object&gt;</dl>
+
+<dl><dt><strong>RED</strong> = (255, 0, 0)</dl>
+
+<dl><dt><strong>SCREEN_SIZE</strong> = (844, 600)</dl>
+
+<dl><dt><strong>SELECT_FONT</strong> = &lt;pygame.font.Font object&gt;</dl>
+
+<dl><dt><strong>SMALLER_FONT</strong> = &lt;pygame.font.Font object&gt;</dl>
+
+<dl><dt><strong>WHITE</strong> = (255, 255, 255)</dl>
+
+</td></tr></table></td></tr></table>
+</body></html>
