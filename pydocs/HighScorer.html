@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Python: module HighScorer</title>
+</head><body>
+
+<table class="heading">
+<tr class="heading-text decor">
+<td class="title">&nbsp;<br><strong class="title">HighScorer</strong></td>
+<td class="extra"><a href=".">index</a><br><a href="file:/Users/nathanyu/repos/group46/src/HighScorer.py">/Users/nathanyu/repos/group46/src/HighScorer.py</a></td></tr></table>
+    <p><span class="code">#&nbsp;@author&nbsp;Harjap</span></p>
+<p>
+<table class="section">
+<tr class="decor pkg-content-decor heading-text">
+<td class="section-title" colspan=3>&nbsp;<br><strong class="bigsection">Modules</strong></td></tr>
+    
+<tr><td class="decor pkg-content-decor"><span class="code">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></td><td>&nbsp;</td>
+<td class="singlecolumn"><table><tr><td class="multicolumn"><a href="json.html">json</a><br>
+</td><td class="multicolumn"><a href="os.html">os</a><br>
+</td><td class="multicolumn"></td><td class="multicolumn"></td></tr></table></td></tr></table><p>
+<table class="section">
+<tr class="decor index-decor heading-text">
+<td class="section-title" colspan=3>&nbsp;<br><strong class="bigsection">Classes</strong></td></tr>
+    
+<tr><td class="decor index-decor"><span class="code">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></td><td>&nbsp;</td>
+<td class="singlecolumn"><dl>
+<dt class="heading-text"><a href="builtins.html#object">builtins.object</a>
+</dt><dd>
+<dl>
+<dt class="heading-text"><a href="HighScorer.html#HighScore">HighScore</a>
+</dt></dl>
+</dd>
+</dl>
+ <p>
+<table class="section">
+<tr class="decor title-decor heading-text">
+<td class="section-title" colspan=3>&nbsp;<br><a name="HighScore">class <strong>HighScore</strong></a>(<a href="builtins.html#object">builtins.object</a>)</td></tr>
+    
+<tr><td class="decor title-decor" rowspan=2><span class="code">&nbsp;&nbsp;&nbsp;</span></td>
+<td class="decor title-decor" colspan=2><span class="code">Manages&nbsp;high&nbsp;scores&nbsp;for&nbsp;a&nbsp;game,&nbsp;loading&nbsp;player&nbsp;scores&nbsp;from&nbsp;a&nbsp;JSON&nbsp;file&nbsp;and&nbsp;providing&nbsp;functionality<br>
+to&nbsp;retrieve&nbsp;and&nbsp;sort&nbsp;these&nbsp;scores.<br>
+&nbsp;<br>
+Attributes:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;json_data&nbsp;(dict):&nbsp;The&nbsp;loaded&nbsp;JSON&nbsp;data&nbsp;containing&nbsp;player&nbsp;scores&nbsp;and&nbsp;information.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;rankList&nbsp;(list):&nbsp;A&nbsp;sorted&nbsp;list&nbsp;of&nbsp;players&nbsp;and&nbsp;their&nbsp;scores,&nbsp;from&nbsp;highest&nbsp;to&nbsp;lowest.<br>
+&nbsp;<br>
+Methods:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="#HighScore-__init__">__init__</a>(self):<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Initializes&nbsp;the&nbsp;<a href="#HighScore">HighScore</a>&nbsp;<a href="builtins.html#object">object</a>&nbsp;by&nbsp;loading&nbsp;player&nbsp;scores&nbsp;from&nbsp;'playerBank.json'&nbsp;and<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;sorting&nbsp;them&nbsp;into&nbsp;rankList&nbsp;based&nbsp;on&nbsp;high&nbsp;scores&nbsp;in&nbsp;descending&nbsp;order.<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="#HighScore-getScoresDict">getScoresDict</a>(self):<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Returns&nbsp;the&nbsp;complete&nbsp;dictionary&nbsp;of&nbsp;player&nbsp;scores&nbsp;and&nbsp;information&nbsp;as&nbsp;loaded&nbsp;from&nbsp;JSON.<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="#HighScore-getPlayerGameInfo">getPlayerGameInfo</a>(self,&nbsp;playerName):<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Retrieves&nbsp;the&nbsp;saved&nbsp;game&nbsp;information&nbsp;for&nbsp;a&nbsp;specified&nbsp;player.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Parameters:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;playerName&nbsp;(str):&nbsp;The&nbsp;name&nbsp;of&nbsp;the&nbsp;player&nbsp;whose&nbsp;game&nbsp;information&nbsp;is&nbsp;to&nbsp;be&nbsp;retrieved.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Returns:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;dict:&nbsp;The&nbsp;game&nbsp;information&nbsp;for&nbsp;the&nbsp;specified&nbsp;player.<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="#HighScore-checkForScore">checkForScore</a>(self,&nbsp;playerName):<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Checks&nbsp;if&nbsp;a&nbsp;specified&nbsp;player&nbsp;has&nbsp;a&nbsp;saved&nbsp;score.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Parameters:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;playerName&nbsp;(str):&nbsp;The&nbsp;name&nbsp;of&nbsp;the&nbsp;player&nbsp;to&nbsp;check&nbsp;for&nbsp;a&nbsp;saved&nbsp;score.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Returns:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;bool:&nbsp;True&nbsp;if&nbsp;the&nbsp;player&nbsp;has&nbsp;a&nbsp;saved&nbsp;score,&nbsp;False&nbsp;otherwise.<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="#HighScore-scoreRankings">scoreRankings</a>(self):<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Returns&nbsp;a&nbsp;sorted&nbsp;list&nbsp;of&nbsp;players&nbsp;and&nbsp;their&nbsp;high&nbsp;scores,&nbsp;from&nbsp;highest&nbsp;to&nbsp;lowest.<br>&nbsp;</span></td></tr>
+<tr><td>&nbsp;</td>
+<td class="singlecolumn">Methods defined here:<br>
+<dl><dt><a name="HighScore-__init__"><strong>__init__</strong></a>(self)</dt><dd><span class="code">Initialize&nbsp;self.&nbsp;&nbsp;See&nbsp;help(type(self))&nbsp;for&nbsp;accurate&nbsp;signature.</span></dd></dl>
+
+<dl><dt><a name="HighScore-checkForScore"><strong>checkForScore</strong></a>(self, playerName)</dt><dd><span class="code">#&nbsp;check&nbsp;if&nbsp;the&nbsp;given&nbsp;player&nbsp;has&nbsp;a&nbsp;score.<br>
+#&nbsp;@param&nbsp;playerName,&nbsp;name&nbsp;of&nbsp;the&nbsp;player&nbsp;who&nbsp;we&nbsp;want&nbsp;to&nbsp;check.<br>
+#&nbsp;@return&nbsp;True&nbsp;if&nbsp;player&nbsp;has&nbsp;a&nbsp;score&nbsp;and&nbsp;false&nbsp;if&nbsp;not.</span></dd></dl>
+
+<dl><dt><a name="HighScore-getPlayerGameInfo"><strong>getPlayerGameInfo</strong></a>(self, playerName)</dt><dd><span class="code">#&nbsp;get&nbsp;a&nbsp;player's&nbsp;game&nbsp;info<br>
+#&nbsp;@param&nbsp;playerName,&nbsp;name&nbsp;of&nbsp;player<br>
+#&nbsp;return&nbsp;the&nbsp;player's&nbsp;game&nbsp;info</span></dd></dl>
+
+<dl><dt><a name="HighScore-getScoresDict"><strong>getScoresDict</strong></a>(self)</dt><dd><span class="code">#&nbsp;getter&nbsp;for&nbsp;highScores<br>
+#&nbsp;@return&nbsp;highScores</span></dd></dl>
+
+<dl><dt><a name="HighScore-scoreRankings"><strong>scoreRankings</strong></a>(self)</dt></dl>
+
+<hr>
+Data descriptors defined here:<br>
+<dl><dt><strong>__dict__</strong></dt>
+<dd><span class="code">dictionary&nbsp;for&nbsp;instance&nbsp;variables&nbsp;(if&nbsp;defined)</span></dd>
+</dl>
+<dl><dt><strong>__weakref__</strong></dt>
+<dd><span class="code">list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object&nbsp;(if&nbsp;defined)</span></dd>
+</dl>
+</td></tr></table></td></tr></table>
+</body></html>

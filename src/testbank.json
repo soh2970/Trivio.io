@@ -301,6 +301,16 @@
                         "189"
                     ],
                     "correctAnswer": "191"
+                },
+                {
+                    "question": "What is 10 + 10?",
+                    "options": [
+                        "12",
+                        "13",
+                        "11",
+                        "20"
+                    ],
+                    "correctAnswer": "20"
                 }
             ],
             "level2": [
@@ -1555,7 +1565,7 @@
                     "correctAnswer": "Victoria Falls"
                 },
                 {
-                    "question": "What country has the abbreviation “CH”?",
+                    "question": "What country has the abbreviation \u201cCH\u201d?",
                     "options": [
                         "Switzerland",
                         "China",
@@ -1615,7 +1625,7 @@
                     "correctAnswer": "Britain and France"
                 },
                 {
-                    "question": "What is the world’s oldest recorded civilization?",
+                    "question": "What is the world\u2019s oldest recorded civilization?",
                     "options": [
                         "Ancient Egyptians",
                         "Mesopotamians",
@@ -1665,7 +1675,7 @@
                     "correctAnswer": "5"
                 },
                 {
-                    "question": "What country is known as the ‘Land of a Thousand Lakes’?",
+                    "question": "What country is known as the \u2018Land of a Thousand Lakes\u2019?",
                     "options": [
                         "Canada",
                         "Brazil",
@@ -2141,12 +2151,12 @@
                     "correctAnswer": "Mercury"
                 },
                 {
-                    "question": "What element does ‘CU’ represent?",
+                    "question": "What element does \u2018CU\u2019 represent?",
                     "options": [
                         "Carbon",
                         "Chlorine",
                         "Copper",
-                        "Doesn’t represent an element"
+                        "Doesn\u2019t represent an element"
                     ],
                     "correctAnswer": "Copper"
                 },
@@ -2250,7 +2260,6 @@
                     ],
                     "correctAnswer": "Hydrogen"
                 },
-
                 {
                     "question": "What is the main structural molecule in hair and nails?",
                     "options": [
@@ -2464,7 +2473,7 @@
                     "correctAnswer": "AB-"
                 },
                 {
-                    "question": "What disease stems from the medieval word that means ‘bad air’?",
+                    "question": "What disease stems from the medieval word that means \u2018bad air\u2019?",
                     "options": [
                         "The Flu",
                         "Tuberculosis",
@@ -2483,7 +2492,6 @@
                     ],
                     "correctAnswer": "Temporal Lobe"
                 },
-
                 {
                     "question": "What element is liquid at room temperature?",
                     "options": [
@@ -2585,7 +2593,7 @@
                     "correctAnswer": "-40"
                 },
                 {
-                    "question": "How many bones are in a Giraffe’s neck?",
+                    "question": "How many bones are in a Giraffe\u2019s neck?",
                     "options": [
                         "0",
                         "4",

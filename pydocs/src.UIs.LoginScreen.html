@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Python: module src.UIs.LoginScreen</title>
+</head><body>
+
+<table class="heading">
+<tr class="heading-text decor">
+<td class="title">&nbsp;<br><strong class="title"><a href="src.html" class="white">src</a>.<a href="src.UIs.html" class="white">UIs</a>.LoginScreen</strong></td>
+<td class="extra"><a href=".">index</a><br><a href="file:/Users/nathanyu/repos/group46/src/UIs/LoginScreen.py">/Users/nathanyu/repos/group46/src/UIs/LoginScreen.py</a></td></tr></table>
+    <p></p>
+<p>
+<table class="section">
+<tr class="decor pkg-content-decor heading-text">
+<td class="section-title" colspan=3>&nbsp;<br><strong class="bigsection">Modules</strong></td></tr>
+    
+<tr><td class="decor pkg-content-decor"><span class="code">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></td><td>&nbsp;</td>
+<td class="singlecolumn"><table><tr><td class="multicolumn"><a href="os.html">os</a><br>
+</td><td class="multicolumn"><a href="pygame.html">pygame</a><br>
+</td><td class="multicolumn"><a href="sys.html">sys</a><br>
+</td><td class="multicolumn"></td></tr></table></td></tr></table><p>
+<table class="section">
+<tr class="decor index-decor heading-text">
+<td class="section-title" colspan=3>&nbsp;<br><strong class="bigsection">Classes</strong></td></tr>
+    
+<tr><td class="decor index-decor"><span class="code">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></td><td>&nbsp;</td>
+<td class="singlecolumn"><dl>
+<dt class="heading-text"><a href="src.UIs.screen.html#ScreenBase">src.UIs.screen.ScreenBase</a>(<a href="builtins.html#object">builtins.object</a>)
+</dt><dd>
+<dl>
+<dt class="heading-text"><a href="src.UIs.LoginScreen.html#LoginScreen">LoginScreen</a>
+</dt></dl>
+</dd>
+</dl>
+ <p>
+<table class="section">
+<tr class="decor title-decor heading-text">
+<td class="section-title" colspan=3>&nbsp;<br><a name="LoginScreen">class <strong>LoginScreen</strong></a>(<a href="src.UIs.screen.html#ScreenBase">src.UIs.screen.ScreenBase</a>)</td></tr>
+    
+<tr><td class="decor title-decor" rowspan=2><span class="code">&nbsp;&nbsp;&nbsp;</span></td>
+<td class="decor title-decor" colspan=2><span class="code"><a href="#LoginScreen">LoginScreen</a>(current_width,&nbsp;current_height)<br>
+&nbsp;<br>
+A&nbsp;screen&nbsp;for&nbsp;user&nbsp;login&nbsp;in&nbsp;a&nbsp;Pygame&nbsp;application,&nbsp;providing&nbsp;fields&nbsp;for&nbsp;username&nbsp;and&nbsp;password&nbsp;input,<br>
+as&nbsp;well&nbsp;as&nbsp;buttons&nbsp;for&nbsp;submitting&nbsp;the&nbsp;login&nbsp;request&nbsp;or&nbsp;creating&nbsp;a&nbsp;new&nbsp;account.<br>
+&nbsp;<br>
+Attributes:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;user_text&nbsp;(str):&nbsp;Text&nbsp;input&nbsp;by&nbsp;the&nbsp;user&nbsp;for&nbsp;the&nbsp;username.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;pass_text&nbsp;(str):&nbsp;Text&nbsp;input&nbsp;by&nbsp;the&nbsp;user&nbsp;for&nbsp;the&nbsp;password.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;usernameInput&nbsp;(bool):&nbsp;Indicates&nbsp;if&nbsp;the&nbsp;username&nbsp;input&nbsp;box&nbsp;is&nbsp;active.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;passwordInput&nbsp;(bool):&nbsp;Indicates&nbsp;if&nbsp;the&nbsp;password&nbsp;input&nbsp;box&nbsp;is&nbsp;active.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;transitionToDebuggerPassword&nbsp;(bool):&nbsp;Flag&nbsp;to&nbsp;transition&nbsp;to&nbsp;the&nbsp;debugger&nbsp;password&nbsp;screen.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;transitionToInstructorPassword&nbsp;(bool):&nbsp;Flag&nbsp;to&nbsp;transition&nbsp;to&nbsp;the&nbsp;instructor&nbsp;password&nbsp;screen.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;type&nbsp;(str):&nbsp;Identifier&nbsp;for&nbsp;the&nbsp;screen&nbsp;type,&nbsp;set&nbsp;to&nbsp;'loginScreen'.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;input_box&nbsp;(pygame.Rect):&nbsp;Rectangle&nbsp;for&nbsp;the&nbsp;username&nbsp;input&nbsp;box.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;pass_input_box&nbsp;(pygame.Rect):&nbsp;Rectangle&nbsp;for&nbsp;the&nbsp;password&nbsp;input&nbsp;box.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;input_box_color&nbsp;(pygame.Color):&nbsp;Color&nbsp;of&nbsp;the&nbsp;input&nbsp;boxes.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;text_color&nbsp;(tuple):&nbsp;Color&nbsp;of&nbsp;the&nbsp;input&nbsp;text.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;loginButton&nbsp;(GameScreenButtons):&nbsp;Button&nbsp;for&nbsp;logging&nbsp;in.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;createAccountButton&nbsp;(GameScreenButtons):&nbsp;Button&nbsp;for&nbsp;creating&nbsp;a&nbsp;new&nbsp;account.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;isValidUser&nbsp;(bool):&nbsp;Indicates&nbsp;whether&nbsp;the&nbsp;user&nbsp;is&nbsp;validated.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Player&nbsp;(Player&nbsp;or&nbsp;None):&nbsp;The&nbsp;player&nbsp;instance&nbsp;created&nbsp;upon&nbsp;successful&nbsp;login.<br>
+&nbsp;<br>
+Methods:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="#LoginScreen-handleLogIn">handleLogIn</a>(self):<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Handles&nbsp;the&nbsp;login&nbsp;logic,&nbsp;validating&nbsp;the&nbsp;user&nbsp;credentials.<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="#LoginScreen-handleCreateAccount">handleCreateAccount</a>(self):<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Handles&nbsp;the&nbsp;creation&nbsp;of&nbsp;a&nbsp;new&nbsp;user&nbsp;account.<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="#LoginScreen-draw">draw</a>(self):<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Renders&nbsp;the&nbsp;login&nbsp;screen,&nbsp;including&nbsp;input&nbsp;fields&nbsp;and&nbsp;buttons.<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="#LoginScreen-handle_events">handle_events</a>(self):<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Handles&nbsp;events&nbsp;such&nbsp;as&nbsp;text&nbsp;input,&nbsp;button&nbsp;clicks,&nbsp;and&nbsp;transitions.<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="#LoginScreen-run">run</a>(self):<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Contains&nbsp;the&nbsp;main&nbsp;loop&nbsp;for&nbsp;the&nbsp;<a href="#LoginScreen">LoginScreen</a>,&nbsp;handling&nbsp;events&nbsp;and&nbsp;rendering&nbsp;updates.<br>&nbsp;</span></td></tr>
+<tr><td>&nbsp;</td>
+<td class="singlecolumn"><dl><dt>Method resolution order:</dt>
+<dd><a href="src.UIs.LoginScreen.html#LoginScreen">LoginScreen</a></dd>
+<dd><a href="src.UIs.screen.html#ScreenBase">src.UIs.screen.ScreenBase</a></dd>
+<dd><a href="builtins.html#object">builtins.object</a></dd>
+</dl>
+<hr>
+Methods defined here:<br>
+<dl><dt><a name="LoginScreen-__init__"><strong>__init__</strong></a>(self, current_width, current_height)</dt><dd><span class="code">Initialize&nbsp;self.&nbsp;&nbsp;See&nbsp;help(type(self))&nbsp;for&nbsp;accurate&nbsp;signature.</span></dd></dl>
+
+<dl><dt><a name="LoginScreen-draw"><strong>draw</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="LoginScreen-handleCreateAccount"><strong>handleCreateAccount</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="LoginScreen-handleLogIn"><strong>handleLogIn</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="LoginScreen-handle_events"><strong>handle_events</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="LoginScreen-run"><strong>run</strong></a>(self)</dt></dl>
+
+<hr>
+Methods inherited from <a href="src.UIs.screen.html#ScreenBase">src.UIs.screen.ScreenBase</a>:<br>
+<dl><dt><a name="LoginScreen-resize_screen"><strong>resize_screen</strong></a>(self, event)</dt><dd><span class="code">#&nbsp;function&nbsp;to&nbsp;resize&nbsp;the&nbsp;screen</span></dd></dl>
+
+<dl><dt><a name="LoginScreen-update"><strong>update</strong></a>(self)</dt><dd><span class="code">#updating&nbsp;game&nbsp;state</span></dd></dl>
+
+<hr>
+Data descriptors inherited from <a href="src.UIs.screen.html#ScreenBase">src.UIs.screen.ScreenBase</a>:<br>
+<dl><dt><strong>__dict__</strong></dt>
+<dd><span class="code">dictionary&nbsp;for&nbsp;instance&nbsp;variables&nbsp;(if&nbsp;defined)</span></dd>
+</dl>
+<dl><dt><strong>__weakref__</strong></dt>
+<dd><span class="code">list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object&nbsp;(if&nbsp;defined)</span></dd>
+</dl>
+<hr>
+Data and other attributes inherited from <a href="src.UIs.screen.html#ScreenBase">src.UIs.screen.ScreenBase</a>:<br>
+<dl><dt><strong>BASE_FONT</strong> = &lt;pygame.font.Font object&gt;</dl>
+
+<dl><dt><strong>BLACK</strong> = (0, 0, 0)</dl>
+
+<dl><dt><strong>BLUE</strong> = (159, 197, 248)</dl>
+
+<dl><dt><strong>BUTTON_FONT</strong> = &lt;pygame.font.Font object&gt;</dl>
+
+<dl><dt><strong>DARKGREY</strong> = (45, 45, 45)</dl>
+
+<dl><dt><strong>GREEN</strong> = (204, 245, 205)</dl>
+
+<dl><dt><strong>GREY</strong> = (220, 220, 220)</dl>
+
+<dl><dt><strong>HEADING_FONT</strong> = &lt;pygame.font.Font object&gt;</dl>
+
+<dl><dt><strong>HP_FONT</strong> = &lt;pygame.font.Font object&gt;</dl>
+
+<dl><dt><strong>LEVEL_FONT</strong> = &lt;pygame.font.Font object&gt;</dl>
+
+<dl><dt><strong>MEDIUM_FONT</strong> = &lt;pygame.font.Font object&gt;</dl>
+
+<dl><dt><strong>MID_FONT</strong> = &lt;pygame.font.Font object&gt;</dl>
+
+<dl><dt><strong>MIN_HEIGHT</strong> = 600</dl>
+
+<dl><dt><strong>MIN_WIDTH</strong> = 844</dl>
+
+<dl><dt><strong>MODE_FONT</strong> = &lt;pygame.font.Font object&gt;</dl>
+
+<dl><dt><strong>MODE_SELECT_FONT</strong> = &lt;pygame.font.Font object&gt;</dl>
+
+<dl><dt><strong>PARAGRAPH_FONT</strong> = &lt;pygame.font.Font object&gt;</dl>
+
+<dl><dt><strong>RED</strong> = (255, 0, 0)</dl>
+
+<dl><dt><strong>SCREEN_SIZE</strong> = (844, 600)</dl>
+
+<dl><dt><strong>SELECT_FONT</strong> = &lt;pygame.font.Font object&gt;</dl>
+
+<dl><dt><strong>SMALLER_FONT</strong> = &lt;pygame.font.Font object&gt;</dl>
+
+<dl><dt><strong>WHITE</strong> = (255, 255, 255)</dl>
+
+</td></tr></table></td></tr></table><p>
+<table class="section">
+<tr class="decor data-decor heading-text">
+<td class="section-title" colspan=3>&nbsp;<br><strong class="bigsection">Data</strong></td></tr>
+    
+<tr><td class="decor data-decor"><span class="code">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></td><td>&nbsp;</td>
+<td class="singlecolumn"><strong>src_dir</strong> = '/Users/nathanyu/repos/group46/src'</td></tr></table>
+</body></html>

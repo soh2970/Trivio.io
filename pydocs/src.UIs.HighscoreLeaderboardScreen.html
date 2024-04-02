@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Python: module src.UIs.HighscoreLeaderboardScreen</title>
+</head><body>
+
+<table class="heading">
+<tr class="heading-text decor">
+<td class="title">&nbsp;<br><strong class="title"><a href="src.html" class="white">src</a>.<a href="src.UIs.html" class="white">UIs</a>.HighscoreLeaderboardScreen</strong></td>
+<td class="extra"><a href=".">index</a><br><a href="file:/Users/nathanyu/repos/group46/src/UIs/HighscoreLeaderboardScreen.py">/Users/nathanyu/repos/group46/src/UIs/HighscoreLeaderboardScreen.py</a></td></tr></table>
+    <p></p>
+<p>
+<table class="section">
+<tr class="decor pkg-content-decor heading-text">
+<td class="section-title" colspan=3>&nbsp;<br><strong class="bigsection">Modules</strong></td></tr>
+    
+<tr><td class="decor pkg-content-decor"><span class="code">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></td><td>&nbsp;</td>
+<td class="singlecolumn"><table><tr><td class="multicolumn"><a href="os.html">os</a><br>
+</td><td class="multicolumn"><a href="pygame.html">pygame</a><br>
+</td><td class="multicolumn"><a href="sys.html">sys</a><br>
+</td><td class="multicolumn"></td></tr></table></td></tr></table><p>
+<table class="section">
+<tr class="decor index-decor heading-text">
+<td class="section-title" colspan=3>&nbsp;<br><strong class="bigsection">Classes</strong></td></tr>
+    
+<tr><td class="decor index-decor"><span class="code">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></td><td>&nbsp;</td>
+<td class="singlecolumn"><dl>
+<dt class="heading-text"><a href="src.UIs.screen.html#ScreenBase">src.UIs.screen.ScreenBase</a>(<a href="builtins.html#object">builtins.object</a>)
+</dt><dd>
+<dl>
+<dt class="heading-text"><a href="src.UIs.HighscoreLeaderboardScreen.html#LeaderboardScreen">LeaderboardScreen</a>
+</dt></dl>
+</dd>
+</dl>
+ <p>
+<table class="section">
+<tr class="decor title-decor heading-text">
+<td class="section-title" colspan=3>&nbsp;<br><a name="LeaderboardScreen">class <strong>LeaderboardScreen</strong></a>(<a href="src.UIs.screen.html#ScreenBase">src.UIs.screen.ScreenBase</a>)</td></tr>
+    
+<tr><td class="decor title-decor" rowspan=2><span class="code">&nbsp;&nbsp;&nbsp;</span></td>
+<td class="decor title-decor" colspan=2><span class="code"><a href="#LeaderboardScreen">LeaderboardScreen</a>(width,&nbsp;height)<br>
+&nbsp;<br>
+Displays&nbsp;a&nbsp;leaderboard&nbsp;screen&nbsp;in&nbsp;a&nbsp;Pygame&nbsp;application,&nbsp;listing&nbsp;the&nbsp;top&nbsp;scores&nbsp;achieved&nbsp;by&nbsp;players.<br>
+This&nbsp;screen&nbsp;is&nbsp;responsible&nbsp;for&nbsp;fetching&nbsp;and&nbsp;displaying&nbsp;a&nbsp;ranked&nbsp;list&nbsp;of&nbsp;high&nbsp;scores&nbsp;from&nbsp;the&nbsp;game's<br>
+database,&nbsp;allowing&nbsp;users&nbsp;to&nbsp;see&nbsp;where&nbsp;they&nbsp;stand&nbsp;among&nbsp;other&nbsp;players&nbsp;in&nbsp;terms&nbsp;of&nbsp;game&nbsp;performance.<br>
+&nbsp;<br>
+Inherits&nbsp;from&nbsp;<a href="src.UIs.screen.html#ScreenBase">ScreenBase</a>&nbsp;to&nbsp;utilize&nbsp;core&nbsp;screen&nbsp;functionalities&nbsp;such&nbsp;as&nbsp;rendering&nbsp;and&nbsp;event&nbsp;handling,<br>
+while&nbsp;incorporating&nbsp;specific&nbsp;features&nbsp;for&nbsp;displaying&nbsp;high&nbsp;score&nbsp;data.<br>
+&nbsp;<br>
+Attributes:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;scores&nbsp;(HighScore):&nbsp;An&nbsp;instance&nbsp;of&nbsp;the&nbsp;HighScore&nbsp;class,&nbsp;used&nbsp;to&nbsp;access&nbsp;and&nbsp;sort&nbsp;player&nbsp;high&nbsp;scores.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;active&nbsp;(bool):&nbsp;Indicates&nbsp;whether&nbsp;the&nbsp;leaderboard&nbsp;screen&nbsp;is&nbsp;currently&nbsp;active&nbsp;and&nbsp;responding&nbsp;to&nbsp;user&nbsp;input.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;type&nbsp;(str):&nbsp;Screen&nbsp;identifier,&nbsp;used&nbsp;within&nbsp;the&nbsp;application&nbsp;to&nbsp;manage&nbsp;different&nbsp;screens,&nbsp;set&nbsp;to&nbsp;'highscoreLeaderboard'.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;goToMain&nbsp;(bool):&nbsp;Flag&nbsp;indicating&nbsp;whether&nbsp;there&nbsp;is&nbsp;a&nbsp;request&nbsp;to&nbsp;return&nbsp;to&nbsp;the&nbsp;main&nbsp;menu&nbsp;screen.<br>
+&nbsp;<br>
+Methods:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="#LeaderboardScreen-draw">draw</a>(self):<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Renders&nbsp;the&nbsp;leaderboard,&nbsp;including&nbsp;the&nbsp;title,&nbsp;high&nbsp;score&nbsp;rankings,&nbsp;and&nbsp;a&nbsp;button&nbsp;to&nbsp;return&nbsp;to&nbsp;the&nbsp;main&nbsp;menu.<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="#LeaderboardScreen-toMain">toMain</a>(self):<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Signals&nbsp;that&nbsp;the&nbsp;user&nbsp;has&nbsp;requested&nbsp;to&nbsp;return&nbsp;to&nbsp;the&nbsp;main&nbsp;menu&nbsp;screen.<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="#LeaderboardScreen-handle_events">handle_events</a>(self):<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Handles&nbsp;user&nbsp;inputs,&nbsp;specifically&nbsp;looking&nbsp;for&nbsp;interactions&nbsp;that&nbsp;indicate&nbsp;a&nbsp;desire&nbsp;to&nbsp;return&nbsp;to&nbsp;the&nbsp;main&nbsp;menu&nbsp;or&nbsp;close&nbsp;the&nbsp;application.<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="#LeaderboardScreen-run">run</a>(self):<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Manages&nbsp;the&nbsp;main&nbsp;event&nbsp;loop&nbsp;for&nbsp;the&nbsp;leaderboard&nbsp;screen,&nbsp;continuously&nbsp;updating&nbsp;the&nbsp;display&nbsp;and&nbsp;responding&nbsp;to&nbsp;user&nbsp;actions.<br>
+&nbsp;<br>
+The&nbsp;<a href="#LeaderboardScreen">LeaderboardScreen</a>&nbsp;class&nbsp;enhances&nbsp;the&nbsp;game's&nbsp;competitiveness&nbsp;by&nbsp;providing&nbsp;a&nbsp;visible&nbsp;metric&nbsp;of&nbsp;success&nbsp;through&nbsp;high&nbsp;scores,&nbsp;encouraging&nbsp;players&nbsp;to&nbsp;improve&nbsp;their&nbsp;gameplay&nbsp;to&nbsp;climb&nbsp;the&nbsp;rankings.<br>&nbsp;</span></td></tr>
+<tr><td>&nbsp;</td>
+<td class="singlecolumn"><dl><dt>Method resolution order:</dt>
+<dd><a href="src.UIs.HighscoreLeaderboardScreen.html#LeaderboardScreen">LeaderboardScreen</a></dd>
+<dd><a href="src.UIs.screen.html#ScreenBase">src.UIs.screen.ScreenBase</a></dd>
+<dd><a href="builtins.html#object">builtins.object</a></dd>
+</dl>
+<hr>
+Methods defined here:<br>
+<dl><dt><a name="LeaderboardScreen-__init__"><strong>__init__</strong></a>(self, width, height)</dt><dd><span class="code">Initialize&nbsp;self.&nbsp;&nbsp;See&nbsp;help(type(self))&nbsp;for&nbsp;accurate&nbsp;signature.</span></dd></dl>
+
+<dl><dt><a name="LeaderboardScreen-draw"><strong>draw</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="LeaderboardScreen-handle_events"><strong>handle_events</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="LeaderboardScreen-run"><strong>run</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="LeaderboardScreen-toMain"><strong>toMain</strong></a>(self)</dt></dl>
+
+<hr>
+Methods inherited from <a href="src.UIs.screen.html#ScreenBase">src.UIs.screen.ScreenBase</a>:<br>
+<dl><dt><a name="LeaderboardScreen-resize_screen"><strong>resize_screen</strong></a>(self, event)</dt><dd><span class="code">#&nbsp;function&nbsp;to&nbsp;resize&nbsp;the&nbsp;screen</span></dd></dl>
+
+<dl><dt><a name="LeaderboardScreen-update"><strong>update</strong></a>(self)</dt><dd><span class="code">#updating&nbsp;game&nbsp;state</span></dd></dl>
+
+<hr>
+Data descriptors inherited from <a href="src.UIs.screen.html#ScreenBase">src.UIs.screen.ScreenBase</a>:<br>
+<dl><dt><strong>__dict__</strong></dt>
+<dd><span class="code">dictionary&nbsp;for&nbsp;instance&nbsp;variables&nbsp;(if&nbsp;defined)</span></dd>
+</dl>
+<dl><dt><strong>__weakref__</strong></dt>
+<dd><span class="code">list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object&nbsp;(if&nbsp;defined)</span></dd>
+</dl>
+<hr>
+Data and other attributes inherited from <a href="src.UIs.screen.html#ScreenBase">src.UIs.screen.ScreenBase</a>:<br>
+<dl><dt><strong>BASE_FONT</strong> = &lt;pygame.font.Font object&gt;</dl>
+
+<dl><dt><strong>BLACK</strong> = (0, 0, 0)</dl>
+
+<dl><dt><strong>BLUE</strong> = (159, 197, 248)</dl>
+
+<dl><dt><strong>BUTTON_FONT</strong> = &lt;pygame.font.Font object&gt;</dl>
+
+<dl><dt><strong>DARKGREY</strong> = (45, 45, 45)</dl>
+
+<dl><dt><strong>GREEN</strong> = (204, 245, 205)</dl>
+
+<dl><dt><strong>GREY</strong> = (220, 220, 220)</dl>
+
+<dl><dt><strong>HEADING_FONT</strong> = &lt;pygame.font.Font object&gt;</dl>
+
+<dl><dt><strong>HP_FONT</strong> = &lt;pygame.font.Font object&gt;</dl>
+
+<dl><dt><strong>LEVEL_FONT</strong> = &lt;pygame.font.Font object&gt;</dl>
+
+<dl><dt><strong>MEDIUM_FONT</strong> = &lt;pygame.font.Font object&gt;</dl>
+
+<dl><dt><strong>MID_FONT</strong> = &lt;pygame.font.Font object&gt;</dl>
+
+<dl><dt><strong>MIN_HEIGHT</strong> = 600</dl>
+
+<dl><dt><strong>MIN_WIDTH</strong> = 844</dl>
+
+<dl><dt><strong>MODE_FONT</strong> = &lt;pygame.font.Font object&gt;</dl>
+
+<dl><dt><strong>MODE_SELECT_FONT</strong> = &lt;pygame.font.Font object&gt;</dl>
+
+<dl><dt><strong>PARAGRAPH_FONT</strong> = &lt;pygame.font.Font object&gt;</dl>
+
+<dl><dt><strong>RED</strong> = (255, 0, 0)</dl>
+
+<dl><dt><strong>SCREEN_SIZE</strong> = (844, 600)</dl>
+
+<dl><dt><strong>SELECT_FONT</strong> = &lt;pygame.font.Font object&gt;</dl>
+
+<dl><dt><strong>SMALLER_FONT</strong> = &lt;pygame.font.Font object&gt;</dl>
+
+<dl><dt><strong>WHITE</strong> = (255, 255, 255)</dl>
+
+</td></tr></table></td></tr></table><p>
+<table class="section">
+<tr class="decor data-decor heading-text">
+<td class="section-title" colspan=3>&nbsp;<br><strong class="bigsection">Data</strong></td></tr>
+    
+<tr><td class="decor data-decor"><span class="code">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></td><td>&nbsp;</td>
+<td class="singlecolumn"><strong>src_dir</strong> = '/Users/nathanyu/repos/group46/src'</td></tr></table>
+</body></html>
