@@ -66,20 +66,20 @@ class LoginScreen(ScreenBase):
 
         # username input box setup
         self.input_box_color = pygame.Color('dodgerblue2')
-        self.input_box = pygame.Rect(self.screen.get_width()/211*78, self.screen.get_height()/120*57, 200, 40)  # Position and size of the input box
+        self.input_box = pygame.Rect(self.width/211*78, self.height/120*57, 200, 40)  # Position and size of the input box
         self.text_color = self.BLACK
         self.font = self.SMALLER_FONT
         self.active = False  # Indicates if the input box is active
 
         # password input box setup
         self.pass_input_box_color = pygame.Color('dodgerblue2')
-        self.pass_input_box = pygame.Rect(self.screen.get_width()/211*78, self.screen.get_height()/20*11, 200, 40)  # Position and size of the input box
+        self.pass_input_box = pygame.Rect(self.width/211*78, self.height/20*11, 200, 40)  # Position and size of the input box
         self.pass_text_color = self.BLACK
         self.font = self.SMALLER_FONT
         self.pass_active = False  # Indicates if the input box is active
 
-        self.loginButton = GameScreenButtons(self.screen.get_width()/211*68, self.screen.get_height()/3*2, 100, 30, "Log In", lambda: self.handleLogIn(), self.WHITE, self.BLACK)
-        self.createAccountButton = GameScreenButtons(self.screen.get_width()/211*103, self.screen.get_height()/3*2, 200, 30, "Create Account", lambda: self.handleCreateAccount(), self.WHITE, self.BLACK)
+        self.loginButton = GameScreenButtons(self.width/211*68, self.height/3*2, 100, 30, "Log In", lambda: self.handleLogIn(), self.WHITE, self.BLACK)
+        self.createAccountButton = GameScreenButtons(self.width/211*103, self.height/3*2, 200, 30, "Create Account", lambda: self.handleCreateAccount(), self.WHITE, self.BLACK)
         self.isValidUser = False
         self.Player = None
 
