@@ -13,31 +13,46 @@ pygame v(2.5.2)<br>
 Main Development Environment - Visual Studio Code v(1.83.2)<br>
 Pycharm v(2023.3)
 
-## Step by Step guide to compiling from source code (Mac OS)
-1. Download and install all required libraries - python3, pygame, cx_Freeze, and the main development environment Visual Studio Code<br>
+## Code Set Up and Running
+Download and install all required libraries - python3, pygame, and the main development environment Visual Studio Code<br>
 
-<a href="https://code.visualstudio.com/download">Link to download Visual studio Code</a>. To set up visual studio code to check the code, install Python and open the file directory with the code. From there, the code files can be viewed. Runninng from visual studio code will be through the main.py file in the root folder.
+<a href="https://code.visualstudio.com/download">Link to download Visual studio Code</a>. To set up visual studio code, install Python in the Extensions and open the file directory with the code. From there, the code files can be viewed. 
 
-To download python3, head to the <a href="https://www.python.org/downloads/">python website</a> and download the 3.9.13 version. Once downloaded, open terminal and type ```python3 --version``` to check if the correct version was installed. 
+To download python3, head to the <a href="https://www.python.org/downloads/">python website</a> and download the 3.11.3 version. Once downloaded, open terminal and type ```python3 --version``` or ```python --version``` to check if the correct version was installed. 
 
-To download pygame, in terminal type ```python3 -m pip install pygame```. If this doesn't work for you, go into the terminal and cd into the root of the project folder. Then type ```pip3 install pygame```.
+To download pygame, in terminal type ```python3 -m pip install pygame```, or ```python -m pip install pygame```. If this doesn't work for you, go into the terminal and cd into the root of the project folder. Then type ```pip3 install pygame```.
 
-To download cx_Freeze, in terminal type ```pip install cx_Freeze```, and to check that the correct version is downloaded, in terminal type ```cxfreeze --v```
+Additionally, download the Trivio Zip file. It should automatically unzip once downloaded, however if not, right click and unzip to access the folder. 
 
-2. Open terminal and ```cd``` to the project directory name
+Here are 2 methods to running the code:
+
+### Step by Step compilation from development environment
+Ensure that Visual Studio Code is set up with Python and includes Pygame. Otherwise, Visual Studio Code should automatically prompt for download of any missing libraries/extensions upon running.
+
+1. In Visual Studio Code, select File -> Open Folder
+2. Open the Trivio game main folder
+3. In the Root folder, without opening any other folders, click the file <b>main.py</b>
+4. Run the main.py file to start the game
+
+
+### Step by Step executuable compilation from source code 
+1. Download and install cx_Freeze<br>
+
+To download cx_Freeze, cd into the root of the Trivio folder. In terminal type ```pip install cx-Freeze```, or       ```pip3 install cx-Freeze``` and to check that the correct version is downloaded, in terminal type ```cxfreeze --version```
+
+2. Open terminal and ```cd``` to the Trivio game root folder if not already there
 3. Type the command ```python setup.py build``` to compile into the "main" file
-
-
-## Step by Step guide to running compiled software
-1. After the build is completed, change directories from current to build, to exe.SOME_TEXT
+4. After the build is completed, change directories from current to build, to exe.SOME_TEXT
 For example, 
-```cd build``` to get the exe file name 
-```cd exe.SOME_TEXT``` to go into the executable file
+```cd build``` to get the exe file name. You may need to ```ls``` to get the exact name
+```cd exe.SOME_TEXT``` to go into the executable folder
 Then you need to move the images folder into the lib folder, for example: 
-```mv images lib```
-Then run main:
-```./main```
-2. Trivio will now run
+```mv images lib``` - MacOS and Linux
+```move images lib``` - Windows
+
+Then, you can run the executable main in terminal:
+```./main``` - MacOS and Linux
+```main``` - Windows
 
 
 ## User Guide

@@ -15,7 +15,7 @@ audios_path = os.path.join(os.path.dirname(__file__), 'audio')
 setup(
     name=app_name,
     version=version,
-    description="Your Application Description",
+    description="Trivio Trivia game for school-aged children",
     options={
         'build_exe': {
             'include_files': [
