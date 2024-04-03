@@ -6,7 +6,7 @@ Trivio is a educational trivia game designed for school aged children ages 10-14
 Trivio was designed with python, using the pygame libarary. File formats handling data storage used the JSON format. It was developed using Visual Studio Code and Pycharm as development environments. 
 
 ## Required Libraries and Tools
-Python v(3.9.13)<br>
+Python v(3.11.3)<br>
 pygame v(2.5.2)<br>
 <br>
 
@@ -20,7 +20,7 @@ Pycharm v(2023.3)
 
 To download python3, head to the <a href="https://www.python.org/downloads/">python website</a> and download the 3.9.13 version. Once downloaded, open terminal and type ```python3 --version``` to check if the correct version was installed. 
 
-To download pygame, in terminal type ```python3 -m pip install pygame```. To verify the installation, type ```pygam```
+To download pygame, in terminal type ```python3 -m pip install pygame```. If this doesn't work for you, go into the terminal and cd into the root of the project folder. Then type ```pip3 install pygame```.
 
 To download cx_Freeze, in terminal type ```pip install cx_Freeze```, and to check that the correct version is downloaded, in terminal type ```cxfreeze --v```
 
