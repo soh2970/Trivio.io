@@ -24,7 +24,7 @@ To download pygame, in terminal type ```python3 -m pip install pygame```, or ```
 
 Additionally, download the Trivio Zip file. It should automatically unzip once downloaded, however if not, right click and unzip to access the folder. 
 
-Here are 2 methods to running the code:
+Here are 2 different methods to running the code, in case of zip file issues:
 
 ### Step by Step compilation from development environment
 Ensure that Visual Studio Code is set up with Python and includes Pygame. Otherwise, Visual Studio Code should automatically prompt for download of any missing libraries/extensions upon running.
