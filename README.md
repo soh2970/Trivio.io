@@ -8,6 +8,7 @@ Trivio was designed with python, using the pygame libarary. File formats handlin
 ## Required Libraries and Tools
 Python v(3.11.3)<br>
 pygame v(2.5.2)<br>
+cx-Freeze v(6.15)<br>
 <br>
 
 Main Development Environment - Visual Studio Code v(1.83.2)<br>
@@ -16,11 +17,11 @@ Pycharm v(2023.3)
 ## Code Set Up and Running
 Download and install all required libraries - python3, pygame, and the main development environment Visual Studio Code<br>
 
-<a href="https://code.visualstudio.com/download">Link to download Visual studio Code</a>. To set up visual studio code, install Python in the Extensions and open the file directory with the code. From there, the code files can be viewed. 
+<a href="https://code.visualstudio.com/download">Link to download Visual studio Code</a>. To set up visual studio code, install Python in Extensions and open the file directory with the code. From there, the code files can be viewed. 
 
 To download python3, head to the <a href="https://www.python.org/downloads/">python website</a> and download the 3.11.3 version. Once downloaded, open terminal and type ```python3 --version``` or ```python --version``` to check if the correct version was installed. 
 
-To download pygame, in terminal type ```python3 -m pip install pygame```, or ```python -m pip install pygame```. If this doesn't work for you, go into the terminal and cd into the root of the project folder. Then type ```pip3 install pygame```.
+To download pygame, in terminal type ```python3 -m pip install pygame```, or ```python -m pip install pygame```. If this doesn't work for you, go into the terminal and cd into the root of the project folder. Then type ```pip installl pygame```, or ```pip3 install pygame```.
 
 Additionally, download the Trivio Zip file. It should automatically unzip once downloaded, however if not, right click and unzip to access the folder. 
 
@@ -31,7 +32,7 @@ Ensure that Visual Studio Code is set up with Python and includes Pygame. Otherw
 
 1. In Visual Studio Code, select File -> Open Folder
 2. Open the Trivio game main folder
-3. In the Root folder, without opening any other folders, click the file <b>main.py</b>
+3. In the Root folder, without opening any other folders, click the file <b>main.py</b>, which is the main game script
 4. Run the main.py file to start the game
 
 
@@ -41,17 +42,17 @@ Ensure that Visual Studio Code is set up with Python and includes Pygame. Otherw
 To download cx_Freeze, cd into the root of the Trivio folder. In terminal type ```pip install cx-Freeze```, or       ```pip3 install cx-Freeze``` and to check that the correct version is downloaded, in terminal type ```cxfreeze --version```
 
 2. Open terminal and ```cd``` to the Trivio game root folder if not already there
-3. Type the command ```python setup.py build``` to compile into the "main" file
+3. Ensure that the <b>setup.py</b> file is in the root folder. Type the command ```python setup.py build``` to compile into the "main" file
 4. After the build is completed, change directories from current to build, to exe.SOME_TEXT
 For example, 
 ```cd build``` to get the exe file name. You may need to ```ls``` to get the exact name
 ```cd exe.SOME_TEXT``` to go into the executable folder
-Then you need to move the images folder into the lib folder, for example: 
-```mv images lib``` - MacOS and Linux
-```move images lib``` - Windows
+Then you need to move the images folder into the lib folder, for example:<br>
+```mv images lib``` - MacOS and Linux<br>
+```move images lib``` - Windows<br>
 
-Then, you can run the executable main in terminal:
-```./main``` - MacOS and Linux
+Then, you can run the executable main in terminal:<br>
+```./main``` - MacOS and Linux<br>
 ```main``` - Windows
 
 
@@ -100,6 +101,6 @@ Username - <i>harjapgrewal</i>
 Password - <b>harjapgrewal</b>
 
 ## Additional Notes
-
+The zip file executable ./main is not correctly running on one of our group members MacOS laptops. May need to use the development environment method to run the main.py class.
 
 
